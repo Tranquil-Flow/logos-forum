@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-02T21:30:00Z",
+  "recorded_by": "LP-0026 author (digests recomputed from local artifacts after review finding)",
+  "prize": {
+    "repo": "logos-co/lambda-prize",
+    "master_sha": "7a52d8f011c28858bdedc6eaa9be0250cdcfc033",
+    "lp0026_status": "OPEN",
+    "amount_usd": 5500,
+    "live_recheck": "2026-10-01 — master SHA unchanged vs intake pin; PR #173 merged at that SHA; PR #168 open head 6c0e9eccb1fec37033bc68ed65772b1db8b76629, unmerged, not awarded; evaluator jzaki 2026-10-01T15:08Z reiterates meaningful/impactful ecosystem use (no outside-user quota)."
+  },
+  "build_tuple": {
+    "status": "qualified locally; see docs/MATRIX.md receipts",
+    "logos_module_builder": {
+      "tag": "0.3.2",
+      "rev": "4b7998272c5ec014bcac4bf1c7dbe7602c63a3c1"
+    },
+    "logos_basecamp": {
+      "tag": "0.3.1",
+      "rev": "aeb819216c1a54563d758e82fb2264359987dd2c",
+      "dmg_aarch64_sha256": "115102ed5bd17faa62d0a7f21faa73cd510c7610a9d344b2f81e1090f686c565",
+      "dmg_aarch64_bytes": 115645459
+    },
+    "logosctl": {
+      "tag": "0.3.1",
+      "tarball_aarch64_macos_sha256": "abc070ec5fbfbccdbb33e2c53c8d229ed0359d8bc3eb565d72d0b1500909bd88",
+      "tarball_aarch64_macos_bytes": 144365316,
+      "note": "binary-reported commit 4d47b0ee (kept distinct from tag target); storage legs run on qualified 0.3.0 (commit d9eb3ba)"
+    },
+    "delivery_module": {
+      "tag": "v0.3.0",
+      "rev": "bec859430d963d5c0775af85456eff80d9d1c456",
+      "lgx_bytes": 96294941,
+      "lgx_sha256": "f744f0f9ef84438b6da3985561cb8d2eedf36c9340d29d839353cf8d728aa088"
+    },
+    "storage_module": {
+      "tag": "v3.0.0",
+      "lgx_bytes": 49736503,
+      "lgx_sha256": "2af8cad7c5f39658a1e571d1e307baf7cc4cd9a76f5da535c73685c7675424b0",
+      "note": "matches the predecessor retention-finding digest"
+    }
+  },
+  "competitor_informational": {
+    "pr168_head": "6c0e9eccb1fec37033bc68ed65772b1db8b76629",
+    "source": "edenbd1/lp-0026-forum@aa7a16024322cba405bc80336e5c32e6a5ed30d4",
+    "catalog": "v0.3.2",
+    "policy": "informational only — no fork, no code reuse, no instruction execution"
+  },
+  "host": {
+    "os": "macOS 26.5.1 arm64",
+    "nix": "Determinate Nix 3.19.0 (nix 2.34.6)",
+    "ram_bytes": 51539607552,
+    "free_disk_note": "57 GiB at session start; re-measure before large closures"
+  }
+}
