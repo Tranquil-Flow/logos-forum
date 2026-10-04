@@ -1,0 +1,28 @@
+# Build outputs
+result
+result-*
+build/
+*.o
+*.so
+*.dylib
+generated_code/
+
+# Dev-launcher runtime artifacts (never source)
+store.sqlite3
+store.sqlite3-shm
+store.sqlite3-wal
+
+# Nix
+.direnv/
+
+# Private runtime state must never enter this repo
+*.key
+*.pem
+secrets/
+*.token
+
+# macOS
+.DS_Store
+
+# Private working notes stay on the author's disk.
+docs/internal/

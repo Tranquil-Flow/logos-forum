@@ -1,0 +1,28 @@
+{
+  "name": "forum_module",
+  "display_name": "Forum",
+  "version": "0.1.0",
+  "type": "ui_qml",
+  "interface": "universal",
+  "category": "communication",
+  "description": "LP-0026: a text-first forum with privacy-required posting and verifiable non-author archives",
+  "main": "forum_module_plugin",
+  "icon": "src/icons/icon.png",
+  "view": "qml/Main.qml",
+  "dependencies": ["delivery_module", "storage_module"],
+  "codegen": { "rep": "src/forum_module.rep" },
+
+  "nix": {
+    "packages": {
+      "build": ["sqlite", "libsodium"],
+      "runtime": ["sqlite", "libsodium"]
+    },
+    "external_libraries": [],
+    "cmake": {
+      "find_packages": [],
+      "extra_sources": [],
+      "extra_include_dirs": [],
+      "extra_link_libraries": ["sqlite3", "sodium"]
+    }
+  }
+}
