@@ -1,0 +1,124 @@
+# LP-0026 Forum — CI
+#
+# The same targets ./tools/verify.sh runs locally, on Linux and macOS: domain
+# core, the hermetic Qt UI suite and the portable .lgx. tools/linux_build.sh
+# runs the Linux legs in a nixos/nix container.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          # The flake's nixConfig cache is ignored for non-trusted users; set it
+          # system-wide so the pinned Logos closures substitute, not compile.
+          extra-conf: |
+            extra-substituters = https://cache.nix.logos.co/public
+            extra-trusted-public-keys = public:l4HrXgL4nw246+LBh2SOJyhz64BoGegOYLheT/iIAPU=
+      - name: Domain + archive core tests
+        run: nix build path:.#core-tests -L --max-jobs 2 --cores 4 --accept-flake-config
+      - name: Show receipts
+        run: cat result/test-output.txt
+      - name: Hermetic UI integration suite (Linux)
+        run: nix build path:.#integration-test -L --max-jobs 2 --cores 4 --accept-flake-config -o result-ui
+      - name: Portable .lgx (Linux variant)
+        run: |
+          nix build path:.#lgx-portable -L --max-jobs 2 --cores 4 --accept-flake-config -o result-lgx
+          tar -xzOf result-lgx/logos-forum_module-module.lgx manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forum-lgx-linux
+          path: result-lgx/logos-forum_module-module.lgx
+      - name: Harness syntax
+        run: |
+          for f in tools/*.sh; do bash -n "$f"; done
+          python3 -c "import ast,glob; [ast.parse(open(f).read(), f) for f in glob.glob('tools/*.py')]"
+          for f in tests/*.mjs tools/*.mjs; do node --check "$f"; done
+
+  macos:
+    # UI suite and both .lgx variants in one job (macOS runners are scarce).
+    runs-on: macos-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          # The flake's nixConfig cache is ignored for non-trusted users; set it
+          # system-wide so the pinned Logos closures substitute, not compile.
+          extra-conf: |
+            extra-substituters = https://cache.nix.logos.co/public
+            extra-trusted-public-keys = public:l4HrXgL4nw246+LBh2SOJyhz64BoGegOYLheT/iIAPU=
+      - name: Hermetic UI integration suite
+        run: nix build path:.#integration-test -L --max-jobs 2 --cores 4 --accept-flake-config -o result-ui
+      - name: Build both .lgx variants
+        run: |
+          nix build path:.#lgx -L --max-jobs 2 --cores 4 --accept-flake-config -o result-dev
+          nix build path:.#lgx-portable -L --max-jobs 2 --cores 4 --accept-flake-config -o result-rel
+          tar -xzOf result-dev/logos-forum_module-module.lgx manifest.json
+          tar -xzOf result-rel/logos-forum_module-module.lgx manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forum-lgx-macos
+          path: |
+            result-dev/logos-forum_module-module.lgx
+            result-rel/logos-forum_module-module.lgx
+
+  windows:
+    # A mingw cross build: the module builder produces the Windows package
+    # from x86_64 Linux (tools/linux_build.sh does the same locally).
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          extra-conf: |
+            extra-substituters = https://cache.nix.logos.co/public
+            extra-trusted-public-keys = public:l4HrXgL4nw246+LBh2SOJyhz64BoGegOYLheT/iIAPU=
+      - name: Portable .lgx (windows-x86_64)
+        run: |
+          nix build 'path:.#packages.x86_64-windows.lgx-portable' -L --max-jobs 2 --cores 4 --accept-flake-config -o result-win
+          tar -xzOf result-win/logos-forum_module-module.lgx manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forum-lgx-windows
+          path: result-win/logos-forum_module-module.lgx
+
+  all-platforms:
+    # One .lgx carrying every variant, the form a catalog serves.
+    needs: [linux, macos, windows]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@v16
+      - uses: actions/download-artifact@v4
+        with:
+          path: parts
+      - name: Merge macOS, Linux and Windows into one .lgx
+        run: |
+          nix build github:logos-co/logos-package -o lgxtool
+          ./lgxtool/bin/lgx merge \
+            parts/forum-lgx-linux/logos-forum_module-module.lgx \
+            parts/forum-lgx-macos/result-rel/logos-forum_module-module.lgx \
+            parts/forum-lgx-windows/logos-forum_module-module.lgx \
+            -o logos-forum_module-module.lgx -y
+          ./lgxtool/bin/lgx verify logos-forum_module-module.lgx
+          ./lgxtool/bin/lgx manifest logos-forum_module-module.lgx
+          mkdir m && tar -xzf logos-forum_module-module.lgx -C m && ls m/variants
+          for v in linux-amd64 darwin-arm64 windows-x86_64; do test -d "m/variants/$v"; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forum-lgx-all-platforms
+          path: logos-forum_module-module.lgx
