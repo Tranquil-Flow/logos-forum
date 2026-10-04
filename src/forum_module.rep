@@ -1,0 +1,87 @@
+// LP-0026 Forum — QtRO view contract (M2-GUI slice).
+//
+// Contract policy (docs/CONTRACT.md): the QML view never touches transport.
+// Every post/topic: canonicalise → sign → DURABLY enqueue (privacy=required)
+// BEFORE any send; states come only from real module events; failure keeps
+// the text and the stored row. Plain-text rendering only.
+class Forum
+{
+    PROP(QString status="Starting" READONLY)
+
+    // Identity
+    PROP(QStringList accounts READONLY)      // alias list from the local store
+    PROP(QString selectedAlias="" READONLY)  // "" = anonymous (fresh key/post)
+    PROP(QString selectedUid="" READONLY)    // short public-key id of the selected account
+    PROP(bool aliasHidden=false READONLY)    // account posts carry the key id, no alias
+    // Selected alias's key rotation: "" when anonymous, else e.g.
+    // "2 post(s) on this key · rotated 1 time(s) · new key every 10 post(s)".
+    PROP(QString rotationInfo="" READONLY)
+    PROP(int rotateEvery=0 READONLY)         // posts per key; 0 = off
+    PROP(int rotateDays=0 READONLY)          // days per key; 0 = off
+
+    // Forum structure
+    PROP(QStringList topics READONLY)        // "<id>|title (N)|<unread>", newest activity first
+    PROP(QString searchText="" READONLY)     // active filter ("" = none)
+    PROP(QString currentTopicId="" READONLY)
+    PROP(QString currentTopicTitle="" READONLY)
+    PROP(QStringList threadPosts READONLY)   // "<author> [state]: body" lines;
+                                             // author = "alias · id X" or "id X"
+    PROP(QStringList threadTimes READONLY)   // signed post time per row (local, display)
+
+    // Transport honesty
+    PROP(QString transportState="no transport" READONLY)
+    // offline (no network chosen) | connecting | connected
+    PROP(QString connection="offline" READONLY)
+    // What the network delivered: posts recovered from the network's store
+    // after being away (Delivery backfill) vs. received live.
+    PROP(QString historyState="" READONLY)
+    // Logos Storage snapshots: what the last save/restore did (honest text).
+    PROP(QString archiveState="" READONLY)
+
+    // Kept for tests / diagnostics.
+    SLOT(QString echo(QString text))
+    SLOT(QString transportStatus())
+    SLOT(QString recheckTransport())
+    // Explicit, user-initiated join of the public logos.dev network with
+    // anonymityLevel Required (Mix). Never automatic; never a plain fallback.
+    SLOT(QString connectNetwork())
+
+    // Identity management
+    SLOT(QString createAccount(QString alias))     // ok | error:<reason>
+    SLOT(QString selectIdentity(QString alias))    // ok | error:<reason>
+    // Post with the selected account's key but WITHOUT its alias (unique id
+    // only). Posts stay linkable to each other via the key id.
+    SLOT(QString hideAlias(bool hide))             // ok
+    // Move the selected alias to a fresh key now (earlier posts stay
+    // verifiable; later ones no longer share their key id).
+    SLOT(QString rotateKey())                      // ok | error:<reason>
+    // Rotate automatically every N posts (0 = manual only; max 1000).
+    SLOT(QString setAutoRotate(int everyPosts))    // ok | error:<reason>
+    // ...and/or once the key is N days old (0 = off; max 365). Checked
+    // before each post, so an old key never signs another one.
+    SLOT(QString setAutoRotateDays(int days))      // ok | error:<reason>
+
+    // Forum actions
+    SLOT(QString createTopic(QString title))       // topic id | error:<reason>
+    SLOT(QString openTopic(QString topicId))       // ok | error:<reason>
+    // Filter topics and the open thread by title / text / author (local).
+    SLOT(QString setSearch(QString text))          // ok
+    SLOT(QString postMessage(QString text))        // event id | queued | unavailable | failed
+
+    // Retry every failed/stored post by RESENDING THE ORIGINAL SIGNED BYTES
+    // (same event IDs — receivers dedup, so retry never duplicates).
+    SLOT(int retryPending())
+
+    // Ask a logos.dev store node for this forum's posts from the last 7 days
+    // (paged, bounded) — for history older than Delivery's automatic
+    // catch-up window. Results arrive asynchronously in historyState/thread.
+    SLOT(QString loadHistory())
+
+    // Save the open topic's published posts as a snapshot on Logos Storage
+    // and announce its CID in the topic (signed with a one-time key, sent
+    // through Mix). The snapshot holds the same signed events as the wire.
+    SLOT(QString archiveTopic())                   // saving | error:<reason>
+    // Fetch a snapshot (an announcement post's text, or a bare CID) and
+    // merge every event that verifies. Progress/result in archiveState.
+    SLOT(QString restoreSnapshot(QString announcement))  // restoring | error:<reason>
+}
