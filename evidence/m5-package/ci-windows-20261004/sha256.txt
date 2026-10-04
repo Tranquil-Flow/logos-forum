@@ -1,0 +1,2 @@
+889736488b51a4fee8036226b155ed657d9a60b9e31bce0bca57e1114cac9efc  windows/logos-forum_module-module.lgx
+01d373ab7aae35bc0c223058fd1fb628f6a6e1a6e8fd70c91f9dd81e7335339e  all-platforms/logos-forum_module-module.lgx

@@ -2,4 +2,4 @@ warning: ignoring untrusted flake configuration setting 'extra-substituters'.
 Pass '--accept-flake-config' to trust it
 warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
 Pass '--accept-flake-config' to trust it
-/nix/store/6wghibgkllrhdcynlphqx6l67d8iv25y-forum-core-tests.drv
+/nix/store/lrvv3p12rn516i3cy8pmf8jpl6v255hh-logos-forum_module-module-lgx-0.1.0.drv

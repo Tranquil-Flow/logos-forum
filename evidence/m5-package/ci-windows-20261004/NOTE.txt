@@ -1,0 +1,9 @@
+Packages from the private CI run 37229652457 (head fd8b57d, all jobs green):
+`forum-lgx-windows` (windows-x86_64, mingw cross build on ubuntu-latest) and
+`forum-lgx-all-platforms` (darwin-arm64 + linux-amd64 + windows-x86_64,
+merged with the official lgx tool; verifies). sha256 in sha256.txt.
+
+dll-imports.txt: the plugin bundles libsodium and sqlite; it imports Qt6,
+libstdc++-6, libgcc_s_seh-1, libmcfgthread-2 and OpenSSL 3 from the host —
+the same runtime set the official delivery_module 0.3.0 Windows plugin
+imports (last line), which Basecamp loads. Not yet run on Windows.

@@ -1,0 +1,17 @@
+Name:           forum_module
+Display name:   Forum
+Version:        0.1.0
+Manifest ver.:  0.6.0
+Type:           ui_qml
+Category:       communication
+Author:         Tranquil-Flow
+Description:    A text-first forum: posts sent only through Mix, history after being offline, topic snapshots on Logos Storage
+Icon:           assets/icon.png
+View:           qml/Main.qml
+Root hash:      4511b6956ed10b425300330f66a44b8ca2643d588948884a5126e3d7f172b483
+Variants:       windows-x86_64
+                windows-x86_64 -> forum_module_plugin.dll
+Dependencies:
+  - delivery_module
+  - storage_module
+Signed:         no

@@ -1,0 +1,8 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+evaluation warning: `mesa.drivers` is deprecated, use `mesa` instead
+unpacking 'github:oxalica/rust-overlay/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99?narHash=sha256-3xBsGnGDLOFtnPZ1D3j2LU19wpAlYefRKTlkv648rU0%3D' into the Git cache...
+unpacking 'github:oxalica/rust-overlay/755d3669699a7c62aef35af187d75dc2728cfd85?narHash=sha256-wieWskQxZLPlNXX06JEB0bMoS/ZYQ89xBzF0RL9lyLs%3D' into the Git cache...
+/nix/store/bsqdy0w0lpa690r37glcr406wyx7jh90-forum_module-integration-test.drv

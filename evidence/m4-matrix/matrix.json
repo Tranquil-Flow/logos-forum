@@ -86,8 +86,8 @@
           "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
         },
         {
-          "artifact": "m5-package/linkfix/../polish-20261004/integration-storeopen-7.log (13/13, store-backed)",
-          "sha256": "6284631c8c8c2ebed20f1b534534d10edb1e570e791ba04781881d76f401dc36"
+          "artifact": "m5-package/linkfix/../polish-20261004/integration-win32fix-9.log (13/13, store-backed)",
+          "sha256": "6bfe7b7138bc644169ce83894178c407c69bc11efd16c273e0cc6a057315dd53"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
@@ -115,8 +115,8 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m5-package/linkfix/../polish-20261004/integration-storeopen-7.log (13/13, store-backed)",
-          "sha256": "6284631c8c8c2ebed20f1b534534d10edb1e570e791ba04781881d76f401dc36"
+          "artifact": "m5-package/linkfix/../polish-20261004/integration-win32fix-9.log (13/13, store-backed)",
+          "sha256": "6bfe7b7138bc644169ce83894178c407c69bc11efd16c273e0cc6a057315dd53"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
@@ -471,8 +471,8 @@
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
-          "artifact": "m5-package/linkfix/../polish-20261004/integration-storeopen-7.log (13/13, store-backed)",
-          "sha256": "6284631c8c8c2ebed20f1b534534d10edb1e570e791ba04781881d76f401dc36"
+          "artifact": "m5-package/linkfix/../polish-20261004/integration-win32fix-9.log (13/13, store-backed)",
+          "sha256": "6bfe7b7138bc644169ce83894178c407c69bc11efd16c273e0cc6a057315dd53"
         },
         {
           "artifact": "m2-core/integration-9.log",
@@ -487,8 +487,8 @@
           "sha256": "45de3dd9705d45f0b415a9c1e1f64e3df5952935bd1310d6708f3814cf4e8c73"
         },
         {
-          "artifact": "m5-package/linux-20261004-211318/build-integration-test.log (aarch64-linux: core + UI suite + portable .lgx)",
-          "sha256": "aa8e727a0cf98cb8486dd0efff7c1644238b0ba69b21d9b127e8ffd03e0edd2d"
+          "artifact": "m5-package/linux-20261004-214743/build-integration-test.log (aarch64-linux: core + UI suite + portable .lgx)",
+          "sha256": "00d823358328f1dc666859267ac5664963cb39dc0545384cc4586737816d24da"
         },
         {
           "artifact": "docs/CONTRACT.md",
@@ -504,18 +504,18 @@
         },
         {
           "artifact": "docs/FURPS.md",
-          "sha256": "6dd8dd1eb9ae4dbff503d73930c39a457e5d34c62c9cc0fa2da9657c93f714de"
+          "sha256": "9ec6f2e947b5b959da0cc6769334ed3bb93f65c95ef9a58eebd041eae37a3cfc"
         },
         {
           "artifact": ".github/workflows/ci.yml (prepared, activates on push)",
-          "sha256": "aa76dec8e95f81123bd585d415e1cc7bc6905fdf30dcff593d027c8e8f46daaf"
+          "sha256": "99c9ce7e0765cc9fd28655ae1760780f350936f8eb1d1f1f2d4e70fdb57e6f0f"
         },
         {
           "artifact": "flake.nix",
           "sha256": "d6aef4978aef1266907c9f0e2c056534e982a0111343126ed8c85bac6e282d3f"
         }
       ],
-      "notes": "local CI green (hermetic integration 13/13 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; REMOTE default-branch CI: workflow prepared; green run not yet receipted",
+      "notes": "local CI green (hermetic integration 13/13 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (macos, linux, windows, all-platforms; run 37229652457) in the still-private repo \u2014 public run pending",
       "layer": "app+core"
     },
     {

@@ -1,0 +1,3 @@
+core-tests rc=0
+integration-test rc=0
+lgx-portable rc=0

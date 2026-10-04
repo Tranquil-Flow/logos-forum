@@ -1,0 +1,1 @@
+PASS on the final tree (after the Windows module-path fix): core 177/0 (core-tests-output.txt), UI suite 13/13, lgx-portable (linux-arm64).

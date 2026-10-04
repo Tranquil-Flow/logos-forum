@@ -1,0 +1,21 @@
+Package structure is valid: all-platforms/logos-forum_module-module.lgx
+Package is unsigned
+Name:           forum_module
+Display name:   Forum
+Version:        0.1.0
+Manifest ver.:  0.6.0
+Type:           ui_qml
+Category:       communication
+Author:         Tranquil-Flow
+Description:    A text-first forum: posts sent only through Mix, history after being offline, topic snapshots on Logos Storage
+Icon:           assets/icon.png
+View:           qml/Main.qml
+Root hash:      2e70c751d1a2f4dabdb0e96fd5cb318a934bafbd0519e2dee3dd77b3e19e075b
+Variants:       darwin-arm64, linux-amd64, windows-x86_64
+                darwin-arm64 -> forum_module_plugin.dylib
+                linux-amd64 -> forum_module_plugin.so
+                windows-x86_64 -> forum_module_plugin.dll
+Dependencies:
+  - delivery_module
+  - storage_module
+Signed:         no

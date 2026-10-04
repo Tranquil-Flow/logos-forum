@@ -146,7 +146,7 @@ def main():
     # Newest store-backed suite receipt (identity-modes suite first, then the
     # first post-fix suite); "N passed, 0 failed" is parsed, never assumed.
     integ_final, integ_n = None, 0
-    for name in ("../polish-20261004/integration-storeopen-7.log", "integration-final-tree-2.log", "integration-final-tree.log", "integration-age-1.log", "integration-features-3.log", "integration-tsfix.log", "integration-redesign.log", "integration-history.log", "integration-connect-2.log",
+    for name in ("../polish-20261004/integration-win32fix-9.log", "../polish-20261004/integration-storeopen-7.log", "integration-final-tree-2.log", "integration-final-tree.log", "integration-age-1.log", "integration-features-3.log", "integration-tsfix.log", "integration-redesign.log", "integration-history.log", "integration-connect-2.log",
                  "integration-uid.log", "integration-final.log"):
         cand = lf / name
         m = re.search(r"(\d+) passed, 0 failed", cand.read_text(errors="replace")) if cand.exists() else None
@@ -341,6 +341,10 @@ def main():
                         "sha256": sha256(linux_ok / "build-integration-test.log")}]
                       if linux_ok else [])
 
+    ci_file = EVID / "m5-package" / "ci-windows-20261004" / "ci-run.json"
+    ci_run = json.loads(ci_file.read_text()) if ci_file.exists() else None
+    if ci_run and ci_run.get("conclusion") != "success":
+        ci_run = None
     row("R14", "PARTIAL",
         "Reusable design, documented build/usage, green CI",
         integ_hashes + linux_receipts + [
@@ -356,7 +360,9 @@ def main():
          ("the same suite, core tests and the portable .lgx also pass on aarch64-linux; "
           if linux_ok else "") if integ_final_ok else
          "local CI green; ") +
-        "REMOTE default-branch CI: workflow prepared; green run not yet receipted")
+        (("remote default-branch CI green (" + ", ".join(j["name"] for j in ci_run["jobs"]) +
+          f"; run {ci_run['databaseId']}) in the still-private repo — public run pending")
+         if ci_run else "REMOTE default-branch CI: workflow prepared; green run not yet receipted"))
 
     demo = REPO / "tools" / "demo_walkthrough.sh"
     readme = REPO / "README.md"

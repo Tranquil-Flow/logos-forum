@@ -813,3 +813,19 @@ rendered at the receiver, re-check confirmed own node). Local merge of the
 macOS + Linux packages: `merge-20261004` (verifies, both variants).
 
 **Gate:** LOCAL_CANDIDATE_VERIFIED (unchanged; nothing public).
+
+**Windows fix (found by CI).** The first private CI run (Linux and macOS
+green) failed the Windows cross build: the per-profile store lookup used
+POSIX `dladdr` (`<dlfcn.h>`). It now uses `GetModuleHandleExW` +
+`GetModuleFileNameW` on Windows; the next CI run builds windows-x86_64.
+Re-verified after the fix: macOS UI 13/13 (`integration-win32fix-9`),
+release app (`release-app-20261004/after-R5-win32fix`), Linux
+`linux-20261004-214743` (core 177/0, UI 13/13, lgx). Package metadata now
+names the author and has a plain description. `linux-20261004-214036` was
+stopped by the operator (started before the fix; kept).
+
+**CI (private repo):** run 37229652457 on `fd8b57d` — linux, macos, windows
+and all-platforms all green. The Windows package and the merged package
+(darwin-arm64 + linux-amd64 + windows-x86_64) verify with the lgx tool;
+the Windows plugin imports the same host runtime DLLs as the official
+delivery_module (`m5-package/ci-windows-20261004`). Not yet run on Windows.
