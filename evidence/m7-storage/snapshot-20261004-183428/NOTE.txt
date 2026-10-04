@@ -1,0 +1,8 @@
+Save phase PASSED. Restore FAILED: the reader's Storage node reported "Failed to fetch
+manifest ... after 10 attempts: Key doesn't exist" (b-storage.log) - it never obtained the
+manifest from the author's node. Cause: Storage connect() only starts a dial (completion is
+signalled by the storageConnect event) and the app started the download after a fixed 2 s,
+so the download could run before the dial completed (the earlier PASS won that race).
+Fix: the app now waits for the storageConnect outcome before downloading, re-dials up to
+3 times on a failed dial or a manifest miss, and reports the module's message otherwise.
+Raw files unchanged.

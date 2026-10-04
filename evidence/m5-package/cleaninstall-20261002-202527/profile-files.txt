@@ -1,0 +1,9 @@
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/assets/icon.png
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/forum_module_plugin.dylib
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/forum_module_replica_factory.dylib
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/manifest.json
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/metadata.json
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/qml/Main.qml
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/qml/qmldir
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/src/icons/icon.png
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/plugins/forum_module/variant

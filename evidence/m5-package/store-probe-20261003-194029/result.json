@@ -1,0 +1,34 @@
+{
+  "status": "FAIL",
+  "layer": "store-open-wedge-probe",
+  "bisect": "open",
+  "stage_rc": {
+    "s1": 1,
+    "s2": 99,
+    "s3": 99
+  },
+  "stage1": {
+    "_err": "missing"
+  },
+  "stage2": {
+    "_skip": true
+  },
+  "stage3": {
+    "_skip": true
+  },
+  "host_smoking_gun": {
+    "eventResponse_warnings": 2,
+    "getAvailableConfigs_calls": 1,
+    "interpretation": "eventResponse warning fires every time a slot is invoked; the slot runs (getAvailableConfigs called) but its return value never reaches the replica"
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261003-194029",
+  "diagnosis": "QtRO back-channel wedge: capability_module cannot connect to eventResponse signal \u2014 slot return is computed but never delivered to the replica. Not a store issue (slot runs, getAvailableConfigs fires; SQLite open / WAL / migration hypotheses all ruled out by the precreated and nowal bisect rungs both passing-through with the same wedge).",
+  "gate_label": "M2-GUI BLOCKED-with-receipts (QtRO back-channel wedge in dev launcher; store is healthy; CI integration-25 4/4 holds)",
+  "next_steps": [
+    "QML refactor: change `transportStatus()` from SLOT (whose return is wedged) to a PROP that the source sets \u2014 QtRO PROP-sync uses a different channel than the slot-return channel",
+    "or: invoke slots from a worker thread and push results back into PROPs (the prompt's 'reentry' hypothesis) \u2014 needs a code change, not a probe toggle",
+    "bisect next: try reentry hypothesis (worker-thread slot dispatch with marshalled PROP updates) \u2014 but that requires a code change and rebuild, ~5+ min"
+  ]
+}

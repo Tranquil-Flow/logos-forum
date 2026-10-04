@@ -1,0 +1,42 @@
+=== core-tests 2026-10-01T20:31:22Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: updating lock file "<repo>/flake.lock":
+• Added input 'nixpkgs':
+    follows 'logos-module-builder/nixpkgs'
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/wcrwcki7ypldvvhc8skcs2qmxnwsbchs-forum-core-tests.drv
+this path will be fetched (15.0 KiB download, 177.7 KiB unpacked):
+  /nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev
+copying path '/nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev' from 'https://cache.nixos.org'...
+building '/nix/store/wcrwcki7ypldvvhc8skcs2qmxnwsbchs-forum-core-tests.drv'...
+forum-core-tests> /nix/store/mjav1rv9h2a2dc61lrkj50y1gn4ijk34-test_main.cpp:40:15: error: use of undeclared identifier 'mkdtemp'
+forum-core-tests>    40 |     char* d = mkdtemp(tmpl);
+forum-core-tests>       |               ^
+forum-core-tests> /nix/store/mjav1rv9h2a2dc61lrkj50y1gn4ijk34-test_main.cpp:232:9: error: use of undeclared identifier 'sodium_init'
+forum-core-tests>   232 |     if (sodium_init() < 0) {
+forum-core-tests>       |         ^
+forum-core-tests> 2 errors generated.
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/wcrwcki7ypldvvhc8skcs2qmxnwsbchs-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/xc6q7w0qsr42znlrm0zka294iq484idd-forum-core-tests
+       Last 7 log lines:
+       > /nix/store/mjav1rv9h2a2dc61lrkj50y1gn4ijk34-test_main.cpp:40:15: error: use of undeclared identifier 'mkdtemp'
+       >    40 |     char* d = mkdtemp(tmpl);
+       >       |               ^
+       > /nix/store/mjav1rv9h2a2dc61lrkj50y1gn4ijk34-test_main.cpp:232:9: error: use of undeclared identifier 'sodium_init'
+       >   232 |     if (sodium_init() < 0) {
+       >       |         ^
+       > 2 errors generated.
+       For full logs, run:
+         nix log /nix/store/wcrwcki7ypldvvhc8skcs2qmxnwsbchs-forum-core-tests.drv
+=== exit=1 2026-10-01T20:32:12Z

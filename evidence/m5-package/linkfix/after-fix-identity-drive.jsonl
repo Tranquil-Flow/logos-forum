@@ -1,0 +1,6 @@
+{"k":"after-add","v":"Alias created | sel=alice | box=alice"}
+{"k":"post1","v":"Not sent (unavailable) — your text is kept here."}
+{"k":"thread1","v":"[\"alice [failed]: hello from alice\"]"}
+{"k":"after-anon","v":"Identity: anonymous | sel= | box=(anonymous)"}
+{"k":"thread2","v":"[\"alice [failed]: hello from alice\",\"anonymous [failed]: anon post\"]"}
+{"k":"after-reselect","v":"Identity: alice | sel=alice | box=alice"}

@@ -1,0 +1,21 @@
+{
+  "status": "FAIL",
+  "layer": "m3b-fresh-reader-discovery",
+  "evidence": "<repo>/evidence/m3-archive/discovery-20261002-173903",
+  "claims": [],
+  "archive": {
+    "cid": "zDvZRwzm4DakCwAHFsVQSBrCp6fi3gPHrH1mVEYEEiw3kaBJHAHx",
+    "inv_id": "ff240efb536ea609de12ad70c5f27996da7124cde2ea5f26ae75ae83d9306d15",
+    "corpus_sha": "aa7b9cccf58293e33ce54cc2aec5e5b7bdfdf47ef69635138f3fd57c5cda4e0e",
+    "posts": 3
+  },
+  "live_announce_seen": false,
+  "discovery_path": "store-query",
+  "discovered": {
+    "cid": "zDvZRwzm1rV6MrWPXfQv7gTWwjx1RfDHQHnNUdPq5TxE5SMjmopF",
+    "inv_id": "6937237d3d1c3f034da8d42eaf2a62de1e9e4b674ecc8d723b4b3e6e2cf7a455",
+    "archive": "a63f37b27460b3240b9915a9badaef973d0bf848570fd1d2b76a95d786a6440b",
+    "epoch": 1
+  },
+  "error": "RuntimeError: discovered CID/inv_id mismatch with archive record"
+}

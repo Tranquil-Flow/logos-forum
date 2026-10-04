@@ -1,0 +1,472 @@
+=== native Basecamp launch #2 (reseeded) 2026-10-01T19:17:15Z
+LogosBasecamp version 0.3.1 (portable build)
+Build commits:
+  - logos-basecamp aeb819216c1a54563d758e82fb2264359987dd2c
+  - logos-nix 7c1eb8bc390546f32aaf134866a1c7db8e9311cc
+  - logos-cpp-sdk c24c4ab9ab35c34959238eb7968c0b4f87fae1a4
+  - logos-module f71d16ddc5779b50b188b3a3928a37c9ce90b2a1
+  - logos-liblogos db45024f5c45ce5fc00ab76a6921985839ad7355
+  - logos-package-manager 3133786ea86821e251fccc82a2eefbfc4db7605e
+  - logos-package-manager-module 41df424fe04155c243db090659cef619e070a60b
+  - logos-package-downloader-module d40d4ab906e4e093c43c69c374ca1b6ec9e85ab8
+  - logos-storage-module a9c14b8c977da51310361b03fe4d9efd763ae926
+  - logos-capability-module 1a1b8b5a1167931afbf41ebaafbe76034e6357a0
+  - logos-modules-state-module ed0f4ba534520542764775efc1d0ef705a02e616
+  - logos-package d759f34b095db14945ab0a38f6e1e924eafc3758
+  - logos-package-manager-ui 3174edd016f8464c6bbdb667db54d0f7b117a62c
+  - logos-design-system 88330d04968954be956311b0be429048a41da2ea
+  - logos-view-module-runtime 91dc59b32d4be9230bd8473719a26661867c682e
+  - logos-qt-mcp 1fea509485a48ab185fafae8dc21bdbcc808a07e
+  - nix-bundle-logos-module-install 19b27700762d37fd4011d7183efdd232f71646f8
+  - nix-bundle-dir ffc410b7f2bab32b1c2ceb347c56902e7321049c
+  - nix-bundle-appimage 04a3cf89f8ba3dc20f08a8e2b6c337a672bceda7
+  - nix-bundle-macos-app 140f4ec32ebfb9790c1e5b1f6e46dff3d2b20cfd
+Base data directory: ~/.local/share/lp0026-forum-dev/basecamp-profiles/m0-forum
+[2026-10-01 21:17:15.896] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[2026-10-01 21:17:15.919] [out] [capability_module] [2026-10-01 21:17:15.919] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:15.920"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:4fe503ec…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:17:15.920"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130827232
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-01 21:17:15.947] [info] [logos] Module loaded: capability_module
+LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:e70dca21…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:17:15.969"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130935296
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-01 21:17:15.971] [info] [logos] Module loaded: modules_state
+RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_c59646d8382b" at "21:17:15.971"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:15.971"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started successfully!
+LogosAPIConsumer: Informing module token for module: "package_manager" with token: "redacted:aac4eebd…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:17:15.993"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130459552
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "package_manager"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-01 21:17:15.996] [info] [logos] Module loaded: package_manager
+RemoteTransportConnection: Connecting to registry: "local:logos_package_manager_c59646d8382b" at "21:17:15.996"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_manager_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:15.996"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIConsumer: '"package_manager"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+RemoteTransportConnection: Requesting object: "modules_state" at "21:17:15.997"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130890688
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+package_manager module loaded by default.
+[2026-10-01 21:17:16.019] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:97c93271…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:17:16.020"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130937088
+LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130890464
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[2026-10-01 21:17:16.021] [info] [logos] Pushed module snapshot to modules_state
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130891488
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-01 21:17:16.021] [info] [logos] Module loaded: storage_module
+RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_c59646d8382b" at "21:17:16.021"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:16.022"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: Informing module token for module: "package_downloader" with token: "redacted:d45f5169…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:17:16.049"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130479424
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "package_downloader"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-01 21:17:16.048] [info] [logos] Module loaded: package_downloader
+RemoteTransportConnection: Connecting to registry: "local:logos_package_downloader_c59646d8382b" at "21:17:16.049"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_downloader_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:16.049"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIConsumer: '"package_downloader"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+package_downloader module loaded by default.
+Currently loaded modules:
+  - "package_manager"
+  - "package_downloader"
+  - "modules_state"
+  - "storage_module"
+  - "capability_module"
+Total modules: 5
+[2026-10-01 21:17:16.049] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+RemoteTransportConnection: Connecting to registry: "local:logos_package_manager_c59646d8382b" at "21:17:16.124"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_manager_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:16.124"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIClient: invoking remote method "package_manager" "setEmbeddedModulesDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setEmbeddedModulesDirectory" args_count: 1 timeout: 20000
+RemoteTransportConnection: Requesting object: "package_manager" at "21:17:16.124"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130893568
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "package_manager"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130451744
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setEmbeddedModulesDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setEmbeddedModulesDirectory" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130894464
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: invoking remote method "package_manager" "setUserModulesDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setUserModulesDirectory" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setUserModulesDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setUserModulesDirectory" args: 1
+LogosAPIClient: invoking remote method "package_manager" "setEmbeddedUiPluginsDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setEmbeddedUiPluginsDirectory" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setEmbeddedUiPluginsDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setEmbeddedUiPluginsDirectory" args: 1
+[2026-10-01 21:17:16.125] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+LogosAPIClient: invoking remote method "package_manager" "setUserUiPluginsDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setUserUiPluginsDirectory" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setUserUiPluginsDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setUserUiPluginsDirectory" args: 1
+[2026-10-01 21:17:16.126] [info] [logos] [storage_module] StorageModuleImpl::init called
+[2026-10-01 21:17:16.128] [out] [storage_module] INF 2026-10-01 21:17:16.128+02:00 Found a network private key                tid=40711045
+[2026-10-01 21:17:16.128] [out] [storage_module] INF 2026-10-01 21:17:16.128+02:00 Bootstrapping node using a predefined network topics="libstorage libstoragelifecycle" tid=40711045 network="[logos.test]: Logos testnet"
+[2026-10-01 21:17:16.128] [out] [storage_module] INF 2026-10-01 21:17:16.128+02:00 AutoNAT client enabled                     topics="libstorage libstoragelifecycle" tid=40711045 scheduleInterval=1m numPeersToAsk=3 maxQueueSize=3 minConfidence=0.6
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130450720
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "corePluginFileInstalled"
+LogosAPIConsumer: '"package_manager"::"corePluginFileInstalled"' subscription armed after 0 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "uiPluginFileInstalled"
+LogosAPIConsumer: '"package_manager"::"uiPluginFileInstalled"' subscription armed after 0 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "corePluginUninstalled"
+LogosAPIConsumer: '"package_manager"::"corePluginUninstalled"' subscription armed after 0 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "uiPluginUninstalled"
+LogosAPIConsumer: '"package_manager"::"uiPluginUninstalled"' subscription armed after 0 ms
+RemoteTransportConnection: Connecting to registry: "local:logos_package_downloader_c59646d8382b" at "21:17:16.129"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_downloader_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:16.129"
+[2026-10-01 21:17:16.129] [out] [storage_module] INF 2026-10-01 21:17:16.129+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=40711045 numThreads=12
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIConsumer: '"package_downloader"::"catalogChanged"' deferred pending the module becoming reachable
+LogosAPIConsumer: '"package_downloader"::"downloadProgress"' deferred pending the module becoming reachable
+LogosAPIConsumer: '"package_downloader"::"downloadDone"' deferred pending the module becoming reachable
+MainUIBackend created
+[2026-10-01 21:17:16.131] [info] [logos] [storage_module] StorageModuleImpl::start called
+[2026-10-01 21:17:16.131] [out] [storage_module] WRN 2026-10-01 21:17:16.131+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+qrc:/qt/qml/Basecamp/AppManager/Basecamp/AppManager/AppManagerPanelHeader.qml:47:13: QML LogosTabBar: Binding loop detected for property "implicitWidth":
+qrc:/qt-project.org/imports/QtQuick/Controls/Basic/TabBar.qml:10:5
+qt.qpa.fonts: Populating font family aliases took 53 ms. Replace uses of missing font family "Monospace" with one that exists to avoid this cost. 
+MainContainer created
+SchemeRegistrar: LOGOS_NO_SCHEME_REGISTER= 1 — skipping registration; basecamp links will not open this build. Unset it, or set it to 0, to register normally.
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getInstalledUiPlugins"
+[LogosObject] RemoteLogosObject::callMethodAsync "getInstalledUiPlugins" args: 0
+RemoteTransportConnection: Connecting to registry: "local:logos_package_downloader_c59646d8382b" at "21:17:16.546"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_downloader_c59646d8382b"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_c59646d8382b" at "21:17:16.546"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_c59646d8382b"
+LogosAPIClient: getToken for module: "package_downloader"
+LogosAPIClient: Found token for module: "package_downloader"
+RemoteTransportConnection: Requesting object: "package_downloader" at "21:17:16.546"
+ShortcutBridge: bound 1 QML shortcut(s) on pane QQuickWidget
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "package_downloader"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553129508352
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "listRepositories"
+[LogosObject] RemoteLogosObject::callMethodAsync "listRepositories" args: 0
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getInstalledPackages"
+[LogosObject] RemoteLogosObject::callMethodAsync "getInstalledPackages" args: 0
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getValidVariants"
+[LogosObject] RemoteLogosObject::callMethodAsync "getValidVariants" args: 0
+LogosAPIClient: getToken for module: "package_downloader"
+LogosAPIClient: Found token for module: "package_downloader"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getCatalog"
+[LogosObject] RemoteLogosObject::callMethodAsync "getCatalog" args: 0
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553130453888
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "catalogChanged"
+LogosAPIConsumer: '"package_downloader"::"catalogChanged"' subscription armed after 666 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "downloadProgress"
+LogosAPIConsumer: '"package_downloader"::"downloadProgress"' subscription armed after 666 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "downloadDone"
+LogosAPIConsumer: '"package_downloader"::"downloadDone"' subscription armed after 666 ms
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+[2026-10-01 21:18:17.314] [out] [storage_module] INF 2026-10-01 21:18:17.314+02:00 Starting node with Mix relay pool          topics="storage node" tid=40711045 count=6
+[2026-10-01 21:18:17.314] [out] [storage_module] WRN 2026-10-01 21:18:17.314+02:00 No Mix-compatible address among announced addrs topics="storage discovery" tid=40711045 addrs=[]
+[2026-10-01 21:18:17.314] [out] [storage_module] INF 2026-10-01 21:18:17.314+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/0.0.0.0/tcp/0
+[2026-10-01 21:18:17.314] [out] [storage_module] NTC 2026-10-01 21:18:17.314+02:00 Started Storage node                       topics="storage node" tid=40711045 id=16U*egQQBT addrs=[]
+[2026-10-01 21:18:49.067] [out] [storage_module] WRN 2026-10-01 21:18:49.067+02:00 TCP port mapping failed                    topics="nat" tid=40711045 msg="plum: mapping 0 failed"
+[2026-10-01 21:18:49.931] [out] [storage_module] INF 2026-10-01 21:18:49.931+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-01 21:18:49.931] [out] [storage_module] INF 2026-10-01 21:18:49.931+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARrlAQonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEJnk-tUGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIqRzBFAiEAzredqMgeS8ftJzb--rHPDYYzSSHaesFswupf-5vPmhACIDKJjvLBTpxT_BUewDpYRKxUJKSl5tiIPL56dJ54CDDD
+[2026-10-01 21:18:51.337] [out] [storage_module] INF 2026-10-01 21:18:51.337+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-01 21:18:51.338] [out] [storage_module] INF 2026-10-01 21:18:51.337+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEJvk-tUGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIaNgo0BC9MsqQGH4alAycAJQgCEiEDJ4-Ubwv9boukweT7TExjS2QwRZI1PkyF7jimk-Rob0SiAhp8CnoEL0yypAYfhoGAwAFBAyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGilAycAJQgCEiEDJ4-Ubwv9boukweT7TExjS2QwRZI1PkyF7jimk-Rob0SiAhp8CnoEInu2_gYfhqUDJwAlCAISIQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxaqICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipGMEQCIDFl1zpOE76vywGyWKO3SmU2M_jyF-BuVCGzaCrR8n4WAiBHtEPvSNYMEvOYAhEd7OWZzMKsIXj77LMzf5Ir0O4FNw
+[2026-10-01 21:19:07.374] [out] [storage_module] WRN 2026-10-01 21:19:07.374+02:00 TCP port mapping failed                    topics="nat" tid=40711045 msg="plum: mapping 0 failed"
+[2026-10-01 21:27:16.142] [out] [storage_module] WRN 2026-10-01 21:27:16.142+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 21:37:16.318] [out] [storage_module] WRN 2026-10-01 21:37:16.166+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 21:47:16.220] [out] [storage_module] WRN 2026-10-01 21:47:16.150+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 21:57:16.158] [out] [storage_module] WRN 2026-10-01 21:57:16.158+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 22:07:16.159] [out] [storage_module] WRN 2026-10-01 22:07:16.159+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 22:17:16.168] [out] [storage_module] WRN 2026-10-01 22:17:16.168+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 22:27:16.166] [out] [storage_module] WRN 2026-10-01 22:27:16.166+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 22:37:16.118] [out] [storage_module] WRN 2026-10-01 22:37:16.118+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 22:47:16.119] [out] [storage_module] WRN 2026-10-01 22:47:16.119+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 22:57:16.066] [out] [storage_module] WRN 2026-10-01 22:57:16.066+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 23:07:16.123] [out] [storage_module] WRN 2026-10-01 23:07:16.123+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 23:11:15.631] [out] [storage_module] INF 2026-10-01 23:11:15.631+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-01 23:11:15.631] [out] [storage_module] INF 2026-10-01 23:11:15.631+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.70.60.201/tcp/8070/p2p/16Uiu2HAm5gxGojS6RFjK9jUm6QiKb1Vjnx81iQkfhSTXTzXWmJd4/p2p-circuit, /ip4/34.70.60.201/tcp/8070/mix-transport/Aph_ARtkKQwuVAqmTaccbMpF5q2Ub3rOI8AO8jNJPqU_iCJShu0awGv6pVemEA0WydIx1Dhc7GOXi9r88D1QPi8=/p2p/16Uiu2HAm5gxGojS6RFjK9jUm6QiKb1Vjnx81iQkfhSTXTzXWmJd4/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEPOY-9UGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIaNgo0BCJGPMkGH4alAycAJQgCEiECmH8BG2QpDC5UCqZNpxxsykXmrZRves4jwA7yM0k-pT-iAhp8CnoEIkY8yQYfhoGAwAFBAph_ARtkKQwuVAqmTaccbMpF5q2Ub3rOI8AO8jNJPqU_iCJShu0awGv6pVemEA0WydIx1Dhc7GOXi9r88D1QPi-lAycAJQgCEiECmH8BG2QpDC5UCqZNpxxsykXmrZRves4jwA7yM0k-pT-iAhp8CnoEInu2_gYfhqUDJwAlCAISIQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxaqICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipGMEQCIFfU7Tjhiw33hrhRpfpy2qJ9cGjeTu4pIN9sG6D7RauSAiB0K0md81Tz0NX6SG7uV3RbjTGjIBUTxRiZOqk_uhELjA
+[2026-10-01 23:16:17.701] [out] [storage_module] INF 2026-10-01 23:16:17.701+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-01 23:16:17.701] [out] [storage_module] INF 2026-10-01 23:16:17.701+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARrjAgonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEKGb-9UGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4alAycAJQgCEiECVJuZKhlPeSck6qCzliPSxEx2qwoVd9DMJOh4LL6UMWqiAoGAwAFBAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4qRjBEAiASle5k_Ej52cre6kHzgUhiQ7cxSFBggShoZqbv80SHywIgH2ApEub57nJ37bBZN0GRsfJLTnfxuRjADe2nZ3S-MEE
+[2026-10-01 23:17:16.125] [out] [storage_module] WRN 2026-10-01 23:17:16.125+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 23:18:17.504] [out] [storage_module] ERR 2026-10-01 23:18:17.504+02:00 Failed to update Mix local address         topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4= err="invalid local multiaddress: Unsupported protocol"
+[2026-10-01 23:18:17.505] [out] [storage_module] INF 2026-10-01 23:18:17.504+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqtAQonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEJmc-9UGGnwKegQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogKBgMABQQMkMixOgmfBJSFPJlt-DBima78rgWgzWH-Dy_u6Qe5iwpjH-wvW68uMaxS6eV-GWmk7IX6m9BVzrB9Wc4q5Wl5OKkcwRQIhANPkqa_Q7PBy7Ut54D5rdAmqtub51bQXepzi7l0Xok-QAiBKK86f7PJZabCTfaO4_9IMYPBmkGlo7zBXr4BBDVmpgw
+[2026-10-01 23:18:18.036] [out] [storage_module] INF 2026-10-01 23:18:18.036+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/129.212.221.44/tcp/8070/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit
+[2026-10-01 23:18:18.036] [out] [storage_module] INF 2026-10-01 23:18:18.036+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/129.212.221.44/tcp/8070/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit, /ip4/129.212.221.44/tcp/8070/mix-transport/A_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKouXQ3WVLH-5B4g_222ZrPRKBRi-10dcrPmrbrQPMHQI=/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARrjAgonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEJqc-9UGGjYKNASB1N0sBh-GpQMnACUIAhIhA_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKogIafAp6BIHU3SwGH4aBgMABQQP2k8dMObE04zNRhIGGA3dXG86cxkGfHoqi--858QLpyqLl0N1lSx_uQeIP9ttmaz0SgUYvtdHXKz5q260DzB0CpQMnACUIAhIhA_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKogIafAp6BCJ7tv4GH4alAycAJQgCEiECVJuZKhlPeSck6qCzliPSxEx2qwoVd9DMJOh4LL6UMWqiAoGAwAFBAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4qRjBEAiBTGgBGPUAMJhShyeXo3fd8XauPcfFNBudNfjx_MfK9WgIgM_W618dBXnATYH_2mkn8wRhK-9eWm_GkX-oBprLIvdA
+[2026-10-01 23:18:18.037] [out] [storage_module] INF 2026-10-01 23:18:18.037+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit
+[2026-10-01 23:18:18.037] [out] [storage_module] INF 2026-10-01 23:18:18.037+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/129.212.221.44/tcp/8070/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit, /ip4/129.212.221.44/tcp/8070/mix-transport/A_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKouXQ3WVLH-5B4g_222ZrPRKBRi-10dcrPmrbrQPMHQI=/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit, /ip4/129.212.221.44/tcp/8070/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEJqc-9UGGjYKNASygIzOBh-GpQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIafAp6BLKAjM4GH4aBgMABQQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa32nR4CZh44W4a5k2NkvOsWgM9MJICZy84xLI1gAKck1pQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIaNgo0BIHU3SwGH4alAycAJQgCEiED9pPHTDmxNOMzUYSBhgN3VxvOnMZBnx6KovvvOfEC6cqiAhp8CnoEgdTdLAYfhoGAwAFBA_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKouXQ3WVLH-5B4g_222ZrPRKBRi-10dcrPmrbrQPMHQKlAycAJQgCEiED9pPHTDmxNOMzUYSBhgN3VxvOnMZBnx6KovvvOfEC6cqiAhp8CnoEgdTdLAYfhqUDJwAlCAISIQP2k8dMObE04zNRhIGGA3dXG86cxkGfHoqi--858QLpyqICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQCF_1mE0GimqCzEKuJNOACAiEbTBASn6PVSl7DnsCZUIgIgD8f2ck4Rkpr47SE-4Lrd6uHQfe0TUHvT5VwnJrl6DYE
+[2026-10-01 23:19:17.466] [out] [storage_module] INF 2026-10-01 23:19:17.466+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit
+[2026-10-01 23:19:17.466] [out] [storage_module] INF 2026-10-01 23:19:17.466+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/129.212.221.44/tcp/8070/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit, /ip4/129.212.221.44/tcp/8070/mix-transport/A_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKouXQ3WVLH-5B4g_222ZrPRKBRi-10dcrPmrbrQPMHQI=/p2p/16Uiu2HAmVFXLh9fs5mExDDwzsah2rWdiHR2Fy3cPmF5xPx29vrbB/p2p-circuit, /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCENWc-9UGGjYKNASygIzOBh-GpQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIafAp6BLKAjM4GH4aBgMABQQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa32nR4CZh44W4a5k2NkvOsWgM9MJICZy84xLI1gAKck1pQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIaNgo0BIHU3SwGH4alAycAJQgCEiED9pPHTDmxNOMzUYSBhgN3VxvOnMZBnx6KovvvOfEC6cqiAhp8CnoEgdTdLAYfhoGAwAFBA_aTx0w5sTTjM1GEgYYDd1cbzpzGQZ8eiqL77znxAunKouXQ3WVLH-5B4g_222ZrPRKBRi-10dcrPmrbrQPMHQKlAycAJQgCEiED9pPHTDmxNOMzUYSBhgN3VxvOnMZBnx6KovvvOfEC6cqiAhp8CnoEsoCMzgYfhqUDJwAlCAISIQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa6ICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQDc9MMRMV5PlI7OAISVeoO9UI3YmwM8DJm43bhp5eq27gIgZAVG7tnMYN1hnlnO2WnwwNpQNBJdtXDJAWVpQukTkac
+[2026-10-01 23:27:16.083] [out] [storage_module] WRN 2026-10-01 23:27:16.083+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 23:37:16.081] [out] [storage_module] WRN 2026-10-01 23:37:16.080+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 23:43:18.361] [out] [storage_module] INF 2026-10-01 23:43:18.361+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit
+[2026-10-01 23:43:18.361] [out] [storage_module] INF 2026-10-01 23:43:18.361+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARrjAgonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEPan-9UGGjYKNAQvTLKkBh-GpQMnACUIAhIhAyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EogIafAp6BC9MsqQGH4aBgMABQQMnj5RvC_1ui6TB5PtMTGNLZDBFkjU-TIXuOKaT5GhvRH3HH7nJp4IL8wqZSci0qopr_HIk2Ehk9Zs09cwwyZBopQMnACUIAhIhAyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EogIafAp6BLKAjM4GH4alAycAJQgCEiECfrv5w8WQOmrJ5MSMM9uG03w1TG31L6eIFzlBEvJzbGuiAoGAwAFBAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4qRzBFAiEA4uBUDr71wPw-JSGF4umNtutiBwb-Gez97EDjwwVx2eACICDYLZBnUmBTgzyMrTdDTkM3Eck8_QMcHQfPczGlPD6W
+[2026-10-01 23:43:18.363] [out] [storage_module] INF 2026-10-01 23:43:18.363+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit
+[2026-10-01 23:43:18.363] [out] [storage_module] INF 2026-10-01 23:43:18.363+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEPan-9UGGjYKNAQvTKi6Bh-GpQMnACUIAhIhAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQogIafAp6BC9MqLoGH4aBgMABQQK9F7omEnrueA_cq15MwIXTjHwfBwe8ptJM6xsS-_vH0HUuX615W4eV1dsUQhSKZP4hx_-1QBfuNlauQrTxAvIXpQMnACUIAhIhAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQogIaNgo0BC9MsqQGH4alAycAJQgCEiEDJ4-Ubwv9boukweT7TExjS2QwRZI1PkyF7jimk-Rob0SiAhp8CnoEL0yypAYfhoGAwAFBAyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGilAycAJQgCEiEDJ4-Ubwv9boukweT7TExjS2QwRZI1PkyF7jimk-Rob0SiAhp8CnoEL0yypAYfhqUDJwAlCAISIQMnj5RvC_1ui6TB5PtMTGNLZDBFkjU-TIXuOKaT5GhvRKICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipGMEQCIF2Msv50QGiY0-5g4HmL3R2b2D6aBOqhbYgekZJEPIqhAiBagi-9uu1bUu83hyOUjjHIghl7wnTRsS0EYAlkkmvIvg
+[2026-10-01 23:44:11.243] [out] [storage_module] INF 2026-10-01 23:44:11.243+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit
+[2026-10-01 23:44:11.243] [out] [storage_module] INF 2026-10-01 23:44:11.243+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEKuo-9UGGjYKNAQvTKi6Bh-GpQMnACUIAhIhAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQogIafAp6BC9MqLoGH4aBgMABQQK9F7omEnrueA_cq15MwIXTjHwfBwe8ptJM6xsS-_vH0HUuX615W4eV1dsUQhSKZP4hx_-1QBfuNlauQrTxAvIXpQMnACUIAhIhAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQogIaNgo0BC9MsqQGH4alAycAJQgCEiEDJ4-Ubwv9boukweT7TExjS2QwRZI1PkyF7jimk-Rob0SiAhp8CnoEL0yypAYfhoGAwAFBAyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGilAycAJQgCEiEDJ4-Ubwv9boukweT7TExjS2QwRZI1PkyF7jimk-Rob0SiAhp8CnoEL0yougYfhqUDJwAlCAISIQK9F7omEnrueA_cq15MwIXTjHwfBwe8ptJM6xsS-_vH0KICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQCGJmux_KDstPQsgvT1oNbzAlIKsGtls9iTn31_ovE7HAIgEYnGl3q1V3zqOtb9kDWqNOEehxrxglxxmticWboALFw
+[2026-10-01 23:44:58.117] [out] [storage_module] INF 2026-10-01 23:44:58.117+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=4m40s843ms565us41ns hinterval=1m
+[2026-10-01 23:47:16.125] [out] [storage_module] WRN 2026-10-01 23:47:16.125+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-01 23:57:16.163] [out] [storage_module] WRN 2026-10-01 23:57:16.163+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 00:07:16.169] [out] [storage_module] WRN 2026-10-02 00:07:16.169+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 00:17:16.160] [out] [storage_module] WRN 2026-10-02 00:17:16.160+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 00:27:16.193] [out] [storage_module] WRN 2026-10-02 00:27:16.193+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 00:37:16.202] [out] [storage_module] WRN 2026-10-02 00:37:16.202+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 00:47:16.204] [out] [storage_module] WRN 2026-10-02 00:47:16.204+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 00:57:16.210] [out] [storage_module] WRN 2026-10-02 00:57:16.210+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 01:07:16.240] [out] [storage_module] WRN 2026-10-02 01:07:16.240+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 01:17:16.271] [out] [storage_module] WRN 2026-10-02 01:17:16.271+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 01:27:16.283] [out] [storage_module] WRN 2026-10-02 01:27:16.283+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 01:37:16.268] [out] [storage_module] WRN 2026-10-02 01:37:16.267+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 01:47:16.271] [out] [storage_module] WRN 2026-10-02 01:47:16.271+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 01:53:18.684] [out] [storage_module] INF 2026-10-02 01:53:18.684+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit
+[2026-10-02 01:53:18.684] [out] [storage_module] INF 2026-10-02 01:53:18.684+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEO7k-9UGGjYKNASygIzOBh-GpQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIafAp6BLKAjM4GH4aBgMABQQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa32nR4CZh44W4a5k2NkvOsWgM9MJICZy84xLI1gAKck1pQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIaNgo0BC9MqLoGH4alAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEL0yougYfhoGAwAFBAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8helAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEL0yougYfhqUDJwAlCAISIQK9F7omEnrueA_cq15MwIXTjHwfBwe8ptJM6xsS-_vH0KICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQCzd5wqKIWgvRDzXfk9qFlHCic54lqishyj7w1mXqWTiQIgUlww4ysBFxefIncNPmTTPXbnKkUo9ZbZIWq4FNCJspw
+[2026-10-02 01:53:24.572] [out] [storage_module] INF 2026-10-02 01:53:24.572+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit
+[2026-10-02 01:53:24.572] [out] [storage_module] INF 2026-10-02 01:53:24.572+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEPTk-9UGGjYKNASygIzOBh-GpQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIafAp6BLKAjM4GH4aBgMABQQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa32nR4CZh44W4a5k2NkvOsWgM9MJICZy84xLI1gAKck1pQMnACUIAhIhAn67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrogIaNgo0BC9MqLoGH4alAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEL0yougYfhoGAwAFBAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8helAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEsoCMzgYfhqUDJwAlCAISIQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa6ICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQDjeE4lKc7WuQmGd40S6Dq0RaoTpfnXZvGGH8nEm00zDQIgBy-n7Z_2bfW6DNwTNxktmJonZXQi-52ZS7HQlQKmL3Q
+[2026-10-02 01:57:16.279] [out] [storage_module] WRN 2026-10-02 01:57:16.279+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 02:07:16.341] [out] [storage_module] WRN 2026-10-02 02:07:16.341+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 02:17:16.354] [out] [storage_module] WRN 2026-10-02 02:17:16.354+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 02:27:16.366] [out] [storage_module] WRN 2026-10-02 02:27:16.366+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 02:37:16.376] [out] [storage_module] WRN 2026-10-02 02:37:16.376+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 02:47:16.389] [out] [storage_module] WRN 2026-10-02 02:47:16.389+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 02:57:16.325] [out] [storage_module] WRN 2026-10-02 02:57:16.325+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 03:07:16.320] [out] [storage_module] WRN 2026-10-02 03:07:16.319+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 03:17:16.324] [out] [storage_module] WRN 2026-10-02 03:17:16.323+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 03:27:16.267] [out] [storage_module] WRN 2026-10-02 03:27:16.267+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 03:37:16.265] [out] [storage_module] WRN 2026-10-02 03:37:16.265+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 03:47:16.344] [out] [storage_module] WRN 2026-10-02 03:47:16.344+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 03:57:16.404] [out] [storage_module] WRN 2026-10-02 03:57:16.404+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 04:07:16.416] [out] [storage_module] WRN 2026-10-02 04:07:16.415+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 04:17:16.396] [out] [storage_module] WRN 2026-10-02 04:17:16.396+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 04:21:26.156] [out] [storage_module] INF 2026-10-02 04:21:26.156+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=19m47s482ms718us417ns hinterval=1m
+[2026-10-02 04:27:16.371] [out] [storage_module] WRN 2026-10-02 04:27:16.371+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 04:33:13.182] [out] [storage_module] INF 2026-10-02 04:33:13.182+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=9m47s55ms466us417ns hinterval=1m
+[2026-10-02 04:37:16.375] [out] [storage_module] WRN 2026-10-02 04:37:16.375+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 04:47:16.437] [out] [storage_module] WRN 2026-10-02 04:47:16.437+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 04:51:55.343] [out] [storage_module] INF 2026-10-02 04:51:55.343+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-02 04:51:55.343] [out] [storage_module] INF 2026-10-02 04:51:55.343+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEMu4_NUGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIaNgo0BC9MqLoGH4alAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEL0yougYfhoGAwAFBAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8helAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEsoCMzgYfhqUDJwAlCAISIQJ-u_nDxZA6asnkxIwz24bTfDVMbfUvp4gXOUES8nNsa6ICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQD4rcXDD6b58IkpkK_NC5uPM0FPf1_rDePIfVhq8rp69wIgOAGewR-a2bT-VrAxBqcCS9RK4LKlL8QOIe5IN-rImBA
+[2026-10-02 04:54:29.548] [out] [storage_module] INF 2026-10-02 04:54:29.548+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-02 04:54:29.549] [out] [storage_module] INF 2026-10-02 04:54:29.549+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEOW5_NUGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIaNgo0BC9MqLoGH4alAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEL0yougYfhoGAwAFBAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8helAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEInu2_gYfhqUDJwAlCAISIQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxaqICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipHMEUCIQDUbFDubLM26RbHo8aFY9wY4dyYWVbTKvki8irIG5Q-BwIgJqgTk2tKtpTfUDNPTCpVJO2iob7bOLOb8fpoRnzrSxE
+[2026-10-02 04:57:16.447] [out] [storage_module] WRN 2026-10-02 04:57:16.447+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:05:00.929] [out] [storage_module] INF 2026-10-02 05:05:00.929+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=29m47s659ms674us583ns hinterval=1m
+[2026-10-02 05:07:16.470] [out] [storage_module] WRN 2026-10-02 05:07:16.469+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:17:16.421] [out] [storage_module] WRN 2026-10-02 05:17:16.421+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:26:32.359] [out] [storage_module] INF 2026-10-02 05:26:32.359+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-02 05:26:32.359] [out] [storage_module] INF 2026-10-02 05:26:32.359+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARrjAgonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEOjI_NUGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4alAycAJQgCEiECVJuZKhlPeSck6qCzliPSxEx2qwoVd9DMJOh4LL6UMWqiAoGAwAFBAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4qRzBFAiEAnd06pwfYvq36qYdk8l2dJyHhRktijVJVveZlNoe_M6ECICcBqp0n6tTA4YNW0_RdYYERzRbDStId6xdz0NA88r6r
+[2026-10-02 05:27:16.426] [out] [storage_module] WRN 2026-10-02 05:27:16.426+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:28:19.795] [out] [storage_module] INF 2026-10-02 05:28:19.794+02:00 Mix local address updated                  topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit
+[2026-10-02 05:28:19.795] [out] [storage_module] INF 2026-10-02 05:28:19.795+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit, /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit, /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqZBAonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCENPJ_NUGGjYKNAQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIafAp6BCJ7tv4GH4aBgMABQQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxamxfjCrlf7fQ8RRQiTjM_46ZuSuho4TTWEB25Sp7zlUEpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogIaNgo0BC9MqLoGH4alAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEL0yougYfhoGAwAFBAr0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8helAycAJQgCEiECvRe6JhJ67ngP3KteTMCF04x8HwcHvKbSTOsbEvv7x9CiAhp8CnoEInu2_gYfhqUDJwAlCAISIQJUm5kqGU95JyTqoLOWI9LETHarChV30Mwk6HgsvpQxaqICgYDAAUEDJDIsToJnwSUhTyZbfgwYpmu_K4FoM1h_g8v7ukHuYsKYx_sL1uvLjGsUunlfhlppOyF-pvQVc6wfVnOKuVpeTipGMEQCICNr4fBltppqVRXoEMUrhs4WNJmpUDdYiuCC5KyUdk6UAiByYXk4BqsSDd4-XMxLhkyoGe7c_9sG-a5ul-SigOm3fg
+[2026-10-02 05:36:49.649] [out] [storage_module] INF 2026-10-02 05:36:49.649+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=29m48s836ms203us375ns hinterval=1m
+[2026-10-02 05:37:16.359] [out] [storage_module] WRN 2026-10-02 05:37:16.359+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:47:16.359] [out] [storage_module] WRN 2026-10-02 05:47:16.359+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:57:16.358] [out] [storage_module] WRN 2026-10-02 05:57:16.357+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 05:58:36.935] [out] [storage_module] INF 2026-10-02 05:58:36.935+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=19m47s293ms995us875ns hinterval=1m
+[2026-10-02 06:07:16.369] [out] [storage_module] WRN 2026-10-02 06:07:16.369+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 06:17:16.369] [out] [storage_module] WRN 2026-10-02 06:17:16.369+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 06:27:16.317] [out] [storage_module] WRN 2026-10-02 06:27:16.317+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 06:29:46.991] [out] [storage_module] ERR 2026-10-02 06:29:46.991+02:00 Failed to update Mix local address         topics="storage discovery" tid=40711045 address=/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4= err="invalid local multiaddress: Unsupported protocol"
+[2026-10-02 06:29:46.991] [out] [storage_module] INF 2026-10-02 06:29:46.991+02:00 Signed peer record updated                 topics="storage node" tid=40711045 addrs="[/ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit/mix-transport/AyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCmMf7C9bry4xrFLp5X4ZaaTshfqb0FXOsH1ZzirlaXk4=]" spr=spr:CiUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCEgIDARqtAQonACUIAhIhAyQyLE6CZ8ElIU8mW34MGKZrvyuBaDNYf4PL-7pB7mLCELrm_NUGGnwKegQie7b-Bh-GpQMnACUIAhIhAlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqogKBgMABQQMkMixOgmfBJSFPJlt-DBima78rgWgzWH-Dy_u6Qe5iwpjH-wvW68uMaxS6eV-GWmk7IX6m9BVzrB9Wc4q5Wl5OKkYwRAIgWER1O6s5BeihTnpYvV2bJ_dsgnNywyTX_eIhyCvyeK0CIFZ_ebpM63Q599RAPah37n8IOhwPZuXB1JifmLSRMk3K
+[2026-10-02 06:29:46.993] [out] [storage_module] INF 2026-10-02 06:29:46.993+02:00 Missed multiple heartbeats                 topics="libp2p autonatv2 service" tid=40711045 heartbeat="Scheduling AutonatV2Service run" delay=29m10s107ms11us667ns hinterval=1m
+[2026-10-02 06:37:16.312] [out] [storage_module] WRN 2026-10-02 06:37:16.312+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 06:47:16.308] [out] [storage_module] WRN 2026-10-02 06:47:16.308+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 06:57:16.302] [out] [storage_module] WRN 2026-10-02 06:57:16.302+02:00 No key for a QueryResponse                 topics="storage repostore" tid=40711045
+[2026-10-02 11:21:07.686] [critical] [logos] Module process crashed: package_downloader
+[2026-10-02 11:21:07.686] [critical] [logos] Module process crashed: package_manager
+[2026-10-02 11:21:07.686] [critical] [logos] Module process crashed: modules_state
+[2026-10-02 11:21:07.686] [critical] [logos] Module process crashed: capability_module
+[2026-10-02 11:21:07.687] [critical] [logos] Module process crashed: storage_module
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: cached handle for "modules_state" went stale; re-acquiring
+[LogosObject] Destroying RemoteLogosObject 0
+RemoteTransportConnection: no listener at "local:logos_modules_state_c59646d8382b" -- request for "modules_state" will block up to 20000 ms and then fail. Is the module loaded?
+RemoteTransportConnection: Requesting object: "modules_state" at "11:21:07.687"
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+RemoteTransportConnection: no listener at "local:logos_modules_state_c59646d8382b" -- request for "modules_state" will block up to 20000 ms and then fail. Is the module loaded?
+RemoteTransportConnection: Requesting object: "modules_state" at "11:21:07.687"

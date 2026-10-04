@@ -1,0 +1,24 @@
+{
+  "status": "FAIL",
+  "layer": "m3b-fresh-reader-discovery",
+  "evidence": "<repo>/evidence/m3-archive/discovery-20261002-171721",
+  "claims": [
+    "fresh-reader-discovered-cid-from-signed-announce",
+    "runner-injected-no-cid-to-reader"
+  ],
+  "archive": {
+    "cid": "zDvZRwzm1rV6MrWPXfQv7gTWwjx1RfDHQHnNUdPq5TxE5SMjmopF",
+    "inv_id": "6937237d3d1c3f034da8d42eaf2a62de1e9e4b674ecc8d723b4b3e6e2cf7a455",
+    "corpus_sha": "87b04a6ea6f59f4f5203eb973d986dfecb86846656566d2fa96403a105b09e4f",
+    "posts": 3
+  },
+  "live_announce_seen": false,
+  "discovery_path": "store-query",
+  "discovered": {
+    "cid": "zDvZRwzm1rV6MrWPXfQv7gTWwjx1RfDHQHnNUdPq5TxE5SMjmopF",
+    "inv_id": "6937237d3d1c3f034da8d42eaf2a62de1e9e4b674ecc8d723b4b3e6e2cf7a455",
+    "archive": "a63f37b27460b3240b9915a9badaef973d0bf848570fd1d2b76a95d786a6440b",
+    "epoch": 1
+  },
+  "error": "RuntimeError: reader storage init failed: False"
+}

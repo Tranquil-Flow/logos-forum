@@ -1,0 +1,8 @@
+Save phase PASSED live (two posts sent through Mix on logos.dev, snapshot uploaded
+to Logos Storage, CID announced through Mix). Restore phase FAILED: the reader's
+restoreSnapshot() returned "error: no snapshot CID found" without touching Storage.
+Cause: the forum core stored fields parsed from the signed canonical string without
+unescaping them, so the announcement's newlines were stored as the two characters
+"\n" and the "cid:" line could not be found. Fixed in src/core/forum_core.cpp
+(strict canonical parser that unescapes; regression test
+test_fields_unescaped_and_canonical_strict). Raw files in this directory are unchanged.

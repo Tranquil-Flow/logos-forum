@@ -1,0 +1,63 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/yppmn93hjrzaidmhw1drikch5gn1zs4y-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/dpv20qvvb49zx9bfdrr6jny8qma8hrbn-logos-forum_module-module.drv
+  /nix/store/rn2nb5pnygzs7jwk3iih9jdkjsszgrda-logos-forum_module-plugin-dir.drv
+  /nix/store/4lcm33njpixpg9kg7a1i17xkkwf5p910-run-logos-standalone-ui.drv
+building '/nix/store/yppmn93hjrzaidmhw1drikch5gn1zs4y-logos-forum_module-module-lib-0.1.0.drv'...
+error: Cannot build '/nix/store/yppmn93hjrzaidmhw1drikch5gn1zs4y-logos-forum_module-module-lib-0.1.0.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/q31dhnq9b5l9y80db0jyrx0ldmm526lq-logos-forum_module-module-lib-0.1.0
+       Last 25 log lines:
+       >   598 | inline QDebug operator<<(QDebug debug, const QTaggedPointer<T, Tag> &ptr)
+       >       |               ^
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qdebug.h:633:15: note: candidate template ignored: requirement 'QtPrivate::IsQFlags<bool>::value' was not satisfied [with Flags = bool]
+       >   633 | inline QDebug operator<<(QDebug debug, Flags flags)
+       >       |               ^
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:741:22: note: candidate function not viable: no known conversion from 'bool' to 'const QString' for 1st argument
+       >   741 |     inline QList<T> &operator<< (parameter_type t)
+       >       |                      ^           ~~~~~~~~~~~~~~~~
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:743:22: note: candidate function not viable: no known conversion from 'bool' to 'const QList<QString>' for 1st argument
+       >   743 |     inline QList<T> &operator<<(const QList<T> &l)
+       >       |                      ^          ~~~~~~~~~~~~~~~~~
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:745:22: note: candidate function not viable: no known conversion from 'bool' to 'QList<QString>' for 1st argument
+       >   745 |     inline QList<T> &operator<<(QList<T> &&l)
+       >       |                      ^          ~~~~~~~~~~~~
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:749:22: note: candidate function not viable: no known conversion from 'bool' to 'QString' for 1st argument
+       >   749 |     inline QList<T> &operator<<(rvalue_ref t)
+       >       |                      ^          ~~~~~~~~~~~~
+       > /nix/var/nix/builds/nix-40617-681650007/abhcy09msa1drw6nsi5d71nfnqshj2jx-source/src/forum_module_backend.cpp:403:23: error: cannot initialize a variable of type 'forum::Store *' with an rvalue of type 'bool'
+       >   403 |     if (forum::Store *st = store() && !m_currentTopicId.isEmpty()) {
+       >       |                       ^    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       > 3 errors generated.
+       > [14/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+       > [15/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+       > [16/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+       > ninja: build stopped: subcommand failed.
+       For full logs, run:
+         nix log /nix/store/yppmn93hjrzaidmhw1drikch5gn1zs4y-logos-forum_module-module-lib-0.1.0.drv
+error: Cannot build '/nix/store/dpv20qvvb49zx9bfdrr6jny8qma8hrbn-logos-forum_module-module.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/vvv1vwdz5zj7mwj2472470q5yffigv54-logos-forum_module-module
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/rn2nb5pnygzs7jwk3iih9jdkjsszgrda-logos-forum_module-plugin-dir.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/fcpxhd1kvsq0z32dpg858x7jxg6sgz4j-logos-forum_module-plugin-dir
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/4lcm33njpixpg9kg7a1i17xkkwf5p910-run-logos-standalone-ui.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/sr3vrz6390nv9fyvl6gb3ck6ka286q00-run-logos-standalone-ui
+❌ path:<repo>#ui-dev
+error: Build failed due to failed dependency

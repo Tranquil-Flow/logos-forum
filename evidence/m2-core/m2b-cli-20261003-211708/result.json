@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "layer": "m2b-cli-protocol",
+  "evidence": "<repo>/evidence/m2-core/m2b-cli-20261003-211708",
+  "claims": [
+    "p1-wire-verified-independently",
+    "p2-required-failed-honestly-relays-down",
+    "p2-signed-wire-durably-retained",
+    "p2-exactly-once-distinct-event-id",
+    "p2-original-signed-bytes-resent"
+  ],
+  "p1": {
+    "verified": true,
+    "event_ids": [
+      "f0140496acadbbb7d43c71c749c99a3ae500c662455b84c8bbbddf4169128319"
+    ],
+    "deliveries_seen": 1,
+    "author": "ccdeb2c42284954b99a71427de7b8444440d70bbd075b3707008a8dadbfd8d38"
+  },
+  "p2_send_refused": true,
+  "p2_expected_event_id": "a4bb6a92389aeaa05a0547c2d0924382d65dd7b2c09b248cb0b0e0a5f15fd4c3",
+  "p2": {
+    "verified": true,
+    "event_ids": [
+      "a4bb6a92389aeaa05a0547c2d0924382d65dd7b2c09b248cb0b0e0a5f15fd4c3"
+    ],
+    "deliveries_seen": 1,
+    "author": "ccdeb2c42284954b99a71427de7b8444440d70bbd075b3707008a8dadbfd8d38"
+  },
+  "wire_format": "canonical-bytes ++ \\n ++ sig-hex; Ed25519 RFC 8032 (libsodium in product, python-cryptography in harness \u2014 same standard)",
+  "canonical_sample_sha256": "f0140496acadbbb7d43c71c749c99a3ae500c662455b84c8bbbddf4169128319"
+}

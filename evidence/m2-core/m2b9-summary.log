@@ -1,0 +1,11 @@
+=== m2b run 9 2026-10-01T22:40:21Z
+=== m2b exit=1 2026-10-01T22:42:58Z
+=== 1/6 relays up (fresh identities)
+=== 2/6 boot instances
+=== waiting for BOTH instances' transport readiness (node boot ~1min)
+READY
+READY
+=== 3/6 P1 online post
+P1_NOT_RECEIVED
+FAIL: P1 not received
+=== cleanup 2026-10-01T22:42:52Z

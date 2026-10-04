@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:09:49Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    },
+    {
+      "t_s": 26,
+      "what": "restored",
+      "state": "restored from Logos Storage (zDvZRwzm4ZZck6wR…): 5 new post(s), 1 already here, 0 rejected by verification"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "archive_state": "restored from Logos Storage (zDvZRwzm4ZZck6wR…): 5 new post(s), 1 already here, 0 rejected by verification",
+  "connection_after": "offline",
+  "thread": [
+    "id 88c6da704c4d4750 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:04:25Z (1/2)",
+    "id 670a808e8d4d90b8 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:04:25Z (2/2)",
+    "id 02d50da805a314e7 [received]: Snapshot of this topic on Logos Storage: 4 post(s).\ncid: zDvZRwzm29ygMDvtKkdZfN5Rj3DhHYmJSp9C3oD3nVyEocCTZrMQ\npeer: 16Uiu2HAkz57TB8z7tcjJo75upJnUcSZPuVWd388StxJRgv3HhHsB\naddrs: /ip4/127.0.0.1/tcp/8571",
+    "id 3f33d7befbee7830 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:09:49Z (1/2)",
+    "id e16bf644c95859fc [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:09:49Z (2/2)"
+  ]
+}

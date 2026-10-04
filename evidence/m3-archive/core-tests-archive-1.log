@@ -1,0 +1,38 @@
+=== core-tests (archive) 2026-10-02T12:15:22Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+copying path '/nix/store/jc3mfa7ybzh32bkvdj5xiib1vkx8jy6x-source' from 'https://cache.nixos.org'...
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/vn7m95azw71a2s4qc86rl9a9mw2ic6pc-forum-core-tests.drv
+these 2 paths will be fetched (31.3 KiB download, 237.0 KiB unpacked):
+  /nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev
+  /nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin
+copying path '/nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin' from 'https://cache.nixos.org'...
+building '/nix/store/vn7m95azw71a2s4qc86rl9a9mw2ic6pc-forum-core-tests.drv'...
+forum-core-tests> In file included from /nix/store/kgv92ln41vldjpv14byc6hdi52g6q5bs-archive_core.cpp:1:
+forum-core-tests> /nix/store/gd83rlnrq6cq8r4a6ifqhwim2m8cm5m9-archive/archive_core.h:56:72: error: unknown type name 'KeyPair'
+forum-core-tests>    56 | std::optional<Inventory> sign_inventory(const InventoryDraft& d, const KeyPair& archive_key);
+forum-core-tests>       |                                                                        ^
+forum-core-tests> 1 error generated.
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/vn7m95azw71a2s4qc86rl9a9mw2ic6pc-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/jg1kgjvkibxa2wqci0d7h36mbqspc5nh-forum-core-tests
+       Last 5 log lines:
+       > In file included from /nix/store/kgv92ln41vldjpv14byc6hdi52g6q5bs-archive_core.cpp:1:
+       > /nix/store/gd83rlnrq6cq8r4a6ifqhwim2m8cm5m9-archive/archive_core.h:56:72: error: unknown type name 'KeyPair'
+       >    56 | std::optional<Inventory> sign_inventory(const InventoryDraft& d, const KeyPair& archive_key);
+       >       |                                                                        ^
+       > 1 error generated.
+       For full logs, run:
+         nix log /nix/store/vn7m95azw71a2s4qc86rl9a9mw2ic6pc-forum-core-tests.drv
+=== exit=1 2026-10-02T12:16:26Z

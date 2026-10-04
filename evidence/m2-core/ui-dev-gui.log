@@ -1,0 +1,63 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/2x6pwlzsqr2r04nl1cyq4f042mjwzb26-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/k297j3ggqx8mz26ifh3kblrys17qm78z-logos-forum_module-module.drv
+  /nix/store/s187m1s5y6dd50ryalz5ip5mm0j7diqi-logos-forum_module-plugin-dir.drv
+  /nix/store/6l6svgchh1nzvj8y5knzz3bl5b4qr79p-run-logos-standalone-ui.drv
+building '/nix/store/2x6pwlzsqr2r04nl1cyq4f042mjwzb26-logos-forum_module-module-lib-0.1.0.drv'...
+error: Cannot build '/nix/store/2x6pwlzsqr2r04nl1cyq4f042mjwzb26-logos-forum_module-module-lib-0.1.0.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/mldg6l4gycnvk5cmr8r3lv1k9ji4899c-logos-forum_module-module-lib-0.1.0
+       Last 25 log lines:
+       >   430 |         setTransportStateFromEvent(
+       >       |         ^
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:436:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       >   436 |         setTransportStateFromEvent(
+       >       |         ^
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:447:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       >   447 |         setTransportStateFromEvent(
+       >       |         ^
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:456:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       >   456 |         setTransportStateFromEvent(
+       >       |         ^
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:463:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       >   463 |         setTransportStateFromEvent(
+       >       |         ^
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:474:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       >   474 |         setTransportStateFromEvent(
+       >       |         ^
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:480:5: error: use of undeclared identifier 'setTransportStateFromEvent'
+       >   480 |     setTransportStateFromEvent(
+       >       |     ^
+       > 18 errors generated.
+       > [15/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+       > [16/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+       > [17/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+       > ninja: build stopped: subcommand failed.
+       For full logs, run:
+         nix log /nix/store/2x6pwlzsqr2r04nl1cyq4f042mjwzb26-logos-forum_module-module-lib-0.1.0.drv
+error: Cannot build '/nix/store/k297j3ggqx8mz26ifh3kblrys17qm78z-logos-forum_module-module.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/481zxzzxy6g3k8d1z99pvcjyba86pqrw-logos-forum_module-module
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/s187m1s5y6dd50ryalz5ip5mm0j7diqi-logos-forum_module-plugin-dir.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/lj2xgkyv7pif1y7sf1yw0c6x7hc5vx79-logos-forum_module-plugin-dir
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/6l6svgchh1nzvj8y5knzz3bl5b4qr79p-run-logos-standalone-ui.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/gzkxpiywzazibligw3k4ywkl8gbpsrgb-run-logos-standalone-ui
+❌ path:<repo>#ui-dev
+error: Build failed due to failed dependency

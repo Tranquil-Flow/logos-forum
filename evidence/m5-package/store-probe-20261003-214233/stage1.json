@@ -1,0 +1,21 @@
+{
+  "stage1": "PASS",
+  "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+  "direct_has_outbox": false,
+  "outcome": "delivery: present (loaded; node not created yet); storage: present (v3.0.0); outbox: 4 post(s) waiting to send; privacy: unverified until a Required send completes",
+  "outcome_has_outbox": true,
+  "transportState_before": "no transport configured — posting unavailable (Required policy)",
+  "transportState_after": "no transport configured — posting unavailable (Required policy)",
+  "transportState_changed": false,
+  "accounts": [
+    "demo"
+  ],
+  "topics": [
+    "c09f15320af5b70cb05faa91bd3022d1599ccfbe8f8769f5853ef7c9cbce5874|General (0)",
+    "6b635c337b987a6c9383dee6bad13e9a30f0e9045a9a5acc075c8f0cab4603f1|Probe Topic (0)",
+    "0659db102e33bc8b71edcdbcbf946f124ee6248a203e491973e88fb718c08e5e|Probe Topic (1)",
+    "6dd197737fd8823d246042887f3199242e632bb00c0ffefb3e5699520d052344|General (0)"
+  ],
+  "threadPosts_count": 0,
+  "diagnosis": "outbox observed via QML watch only; direct read did not expose slot result"
+}

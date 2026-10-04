@@ -1,0 +1,18 @@
+Name:           forum_module
+Display name:   Forum
+Version:        0.1.0
+Manifest ver.:  0.6.0
+Type:           ui_qml
+Category:       communication
+Author:         (unset)
+Description:    LP-0026: a text-first forum with privacy-required posting and verifiable non-author archives
+Icon:           assets/icon.png
+View:           qml/Main.qml
+Root hash:      107cb30091af4cf097662373bcdce931608928d925474aec1a56a29e53628de0
+Variants:       darwin-arm64, linux-arm64
+                darwin-arm64 -> forum_module_plugin.dylib
+                linux-arm64 -> forum_module_plugin.so
+Dependencies:
+  - delivery_module
+  - storage_module
+Signed:         no

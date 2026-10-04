@@ -1,0 +1,6 @@
+ls: ~/.local/share/lp0026-forum-dev/m7-storage/b-forum-snapshots: No such file or directory
+~/.local/share/lp0026-forum-dev/m7-storage/a-forum-snapshots:
+total 8
+drwxr-xr-x   3 evinova-self  staff    96  4 Oct 17:46 .
+drwxr-xr-x  11 evinova-self  staff   352  4 Oct 17:46 ..
+-rw-r--r--   1 evinova-self  staff  1746  4 Oct 17:46 topic-6dd197737fd8-1791128776324.txt

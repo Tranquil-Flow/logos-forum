@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "layer": "m2b-cli-protocol",
+  "evidence": "<repo>/evidence/m2-core/m2b-cli-20261003-105639",
+  "claims": [],
+  "error": "RuntimeError: sender mesh never formed (no pubsub peers within 150s) \u2014 refusing to send into a dead mesh"
+}

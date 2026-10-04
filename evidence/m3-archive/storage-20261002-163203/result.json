@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "layer": "m3-storage-lifecycle",
+  "evidence": "<repo>/evidence/m3-archive/storage-20261002-163203",
+  "claims": [
+    "two-archives-hold-verifiable-bytes",
+    "byte-exact-readback-both-archives",
+    "non-author-inventories-signed-and-verified",
+    "archive-keys-distinct-from-author-key",
+    "private-upload-not-advertised-local-read-ok",
+    "finite-ttl-expiry-positive-control",
+    "finite-ttl-refresh-restores-bytes",
+    "second-archive-verifies-after-one-loss"
+  ],
+  "corpus": {
+    "posts": 5,
+    "bytes": 1629,
+    "sha256": "c21b1117d2fe5ef81b65c6f1a0c97922d4d2f5613f3bc3339fce7c229925ef8f",
+    "author_is_archive": false
+  },
+  "archives": {
+    "a": "/ip4/127.0.0.1/tcp/64678/p2p/16Uiu2HAmBmR8TskAim9rUHG4KDcDwbxm1pcFwdmX8R8tEy4vfm3H",
+    "b": "/ip4/127.0.0.1/tcp/64679/p2p/16Uiu2HAmM3iTBJE4ntg3bXhwtLkJzLzqDXTEceAmeVpB4iC2bBrf",
+    "public_bootstrap": false
+  },
+  "cids": {
+    "a": "zDvZRwzkxu9YWWZCH5wbnPehwWPML8SDWpWXCiArKNg1BbeBK36W",
+    "b": "zDvZRwzkxu9YWWZCH5wbnPehwWPML8SDWpWXCiArKNg1BbeBK36W"
+  }
+}

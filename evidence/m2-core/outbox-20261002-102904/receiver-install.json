@@ -1,0 +1,1 @@
+{"affected_loaded":[],"changes":[{"action":"install","file":"~/.local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx","fromVersion":"","name":"delivery_module","signature":"unsigned","toVersion":"0.3.0"}],"installed":["delivery_module"],"op":"install","reloaded":[],"status":"ok"}

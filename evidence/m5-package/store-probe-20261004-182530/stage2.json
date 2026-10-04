@@ -1,0 +1,32 @@
+{
+  "stage2": "PASS",
+  "backend_alive_after_stage1": true,
+  "textfield_found": true,
+  "textfield_text_before_set": "",
+  "textfield_text_after_set": "demo",
+  "button_enabled_before_click": true,
+  "click_result": {
+    "clicked": true,
+    "id": 2009,
+    "matchedId": "5",
+    "matchedText": "Add alias",
+    "matchedType": "Button_QMLTYPE_5",
+    "ok": true,
+    "widget": "QQuickWidget",
+    "x": 522.75,
+    "y": 103
+  },
+  "direct_slot_return": "{\"id\":2010,\"ok\":true,\"result\":null,\"undefined\":true}",
+  "echo_slot_return": "{\"id\":2011,\"ok\":true,\"result\":null,\"undefined\":true}",
+  "accounts_before": [
+    "demo"
+  ],
+  "accounts_after": [
+    "demo"
+  ],
+  "accounts_prop_has_demo": true,
+  "prop_sync_works": true,
+  "outcome": "error: alias already exists",
+  "channel": "PROP-sync",
+  "interpretation_hint": "PROP-sync works → just need to refactor slot-return buttons to read PROPs only"
+}

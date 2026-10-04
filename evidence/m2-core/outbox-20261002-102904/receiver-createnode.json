@@ -1,0 +1,3 @@
+{"method":"createNode","module":"delivery_module","result":{"error":null,"success":true,"value":null},"status":"ok"}
+{"method":"start","module":"delivery_module","result":{"error":null,"success":true,"value":null},"status":"ok"}
+{"method":"subscribe","module":"delivery_module","result":{"error":null,"success":true,"value":null},"status":"ok"}

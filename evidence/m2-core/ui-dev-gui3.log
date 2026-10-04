@@ -1,0 +1,63 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/0dg0nxcw1zb4qbzds2jaczd3biqw943y-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/156i5zzrp3hd1nbd17ggjjidl3gvfcrl-logos-forum_module-module.drv
+  /nix/store/8zm0vkzc9ysmpshx2knhsqn2w8gqh40x-logos-forum_module-plugin-dir.drv
+  /nix/store/hk53zm94p7wyl7ybb2ll1xks2kj504hm-run-logos-standalone-ui.drv
+building '/nix/store/0dg0nxcw1zb4qbzds2jaczd3biqw943y-logos-forum_module-module-lib-0.1.0.drv'...
+error: Cannot build '/nix/store/0dg0nxcw1zb4qbzds2jaczd3biqw943y-logos-forum_module-module-lib-0.1.0.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/k89mb1cwv8wpn6w1wichlbf0jv3qlj12-logos-forum_module-module-lib-0.1.0
+       Last 25 log lines:
+       >   588 | inline QDebug operator<<(QDebug debug, const QSharedPointer<T> &ptr)
+       >       |               ^
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qdebug.h:598:15: note: candidate template ignored: could not match 'QTaggedPointer<T, Tag>' against 'bool'
+       >   598 | inline QDebug operator<<(QDebug debug, const QTaggedPointer<T, Tag> &ptr)
+       >       |               ^
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qdebug.h:633:15: note: candidate template ignored: requirement 'QtPrivate::IsQFlags<bool>::value' was not satisfied [with Flags = bool]
+       >   633 | inline QDebug operator<<(QDebug debug, Flags flags)
+       >       |               ^
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:741:22: note: candidate function not viable: no known conversion from 'bool' to 'const QString' for 1st argument
+       >   741 |     inline QList<T> &operator<< (parameter_type t)
+       >       |                      ^           ~~~~~~~~~~~~~~~~
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:743:22: note: candidate function not viable: no known conversion from 'bool' to 'const QList<QString>' for 1st argument
+       >   743 |     inline QList<T> &operator<<(const QList<T> &l)
+       >       |                      ^          ~~~~~~~~~~~~~~~~~
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:745:22: note: candidate function not viable: no known conversion from 'bool' to 'QList<QString>' for 1st argument
+       >   745 |     inline QList<T> &operator<<(QList<T> &&l)
+       >       |                      ^          ~~~~~~~~~~~~
+       > /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qlist.h:749:22: note: candidate function not viable: no known conversion from 'bool' to 'QString' for 1st argument
+       >   749 |     inline QList<T> &operator<<(rvalue_ref t)
+       >       |                      ^          ~~~~~~~~~~~~
+       > 2 errors generated.
+       > [14/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+       > [15/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+       > [16/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+       > ninja: build stopped: subcommand failed.
+       For full logs, run:
+         nix log /nix/store/0dg0nxcw1zb4qbzds2jaczd3biqw943y-logos-forum_module-module-lib-0.1.0.drv
+error: Cannot build '/nix/store/156i5zzrp3hd1nbd17ggjjidl3gvfcrl-logos-forum_module-module.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/6xq2hjpj0fcqd0i5hbfpasjva1jnkh60-logos-forum_module-module
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/8zm0vkzc9ysmpshx2knhsqn2w8gqh40x-logos-forum_module-plugin-dir.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/ayf20yn5bfx5yb0xgn09s2a92gkzcvzz-logos-forum_module-plugin-dir
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/hk53zm94p7wyl7ybb2ll1xks2kj504hm-run-logos-standalone-ui.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/z337whs18jh5svlrv0cx2a8y76d3b8id-run-logos-standalone-ui
+❌ path:<repo>#ui-dev
+error: Build failed due to failed dependency

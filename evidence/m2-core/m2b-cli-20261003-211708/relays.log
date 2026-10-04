@@ -1,0 +1,15 @@
+relay core1 up pid=92304 port=54967
+relay core2 up pid=93062 port=54968
+relay core3 up pid=93417 port=54969
+relay core4 up pid=93533 port=54970
+relay listeners accepting on all ports
+topology up; relays stop when this process exits
+PID 92291
+reusing identities from ~/.local/share/lp0026-forum-dev/m2b-cli/relays/identities-full.json
+relay core1 up pid=95630 port=54967
+relay core2 up pid=95691 port=54968
+relay core3 up pid=95762 port=54969
+relay core4 up pid=95921 port=54970
+relay listeners accepting on all ports
+topology up; relays stop when this process exits
+PID 95628

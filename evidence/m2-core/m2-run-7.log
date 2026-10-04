@@ -1,0 +1,17 @@
+=== 1/6 relays up (fresh identities)
+wrote ~/.local/share/lp0026-forum-dev/m2-run/sender.json for role sender (mode 0600)
+wrote ~/.local/share/lp0026-forum-dev/m2-run/receiver.json for role receiver (mode 0600)
+=== 2/6 boot instances
+=== waiting for BOTH instances' transport readiness (node boot ~1min)
+READY
+READY
+=== 3/6 P1 online post
+{"transport":"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events","outcome":""}
+P1_NOT_RECEIVED
+FAIL: P1 not received
+=== cleanup 2026-10-01T22:09:40Z
+tools/m2_run.sh: line 29: 46611 Terminated: 15          QT_QPA_PLATFORM=offscreen LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/sender.db" FORUM_TRANSPORT_CONFIG="$STATE/sender.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/sender-app-1.log" 2>&1
+tools/m2_run.sh: line 29: 46612 Terminated: 15          QT_QPA_PLATFORM=offscreen LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/receiver.db" FORUM_TRANSPORT_CONFIG="$STATE/receiver.json" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/receiver-app-1.log" 2>&1
+stop issued for: core1, core2, core3, core4
+46246 python3 <repo>/tools/m1_topology.py --state ~/.local/share/lp0026-forum-dev/m2-run/relays --evidence <repo>/evidence/m2-core/outbox-20261002-000732 --runtime ~/.local/share/lp0026-forum-dev/runtime/logosctl-aarch64-macos start
+WARNING: leftover smoke-owned processes

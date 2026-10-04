@@ -1,0 +1,38 @@
+=== m2b-cli run 2 2026-10-02T09:54:20Z
+=== 1/6 relays up
+=== 2/6 CLI sessions up
+=== 3/7 P1 signed wire → Required send → independent verify
+P1 send request: 0c0dcf49f6b9412f5d8a
+P1 verify: {'verified': True, 'event_ids': ['f9264388d107c84b2d11b141e9e3726dbe822ad3b9c2fb71e43ad3dcc7e8f58a'], 'deliveries_seen': 1, 'author': 'b796df3a4df6913ac9d90cb4d64cfca9aa43bcfd74e5c7cbceb7783ef6d20527'}
+=== 4/7 relays stop → P2 Required send must fail honestly
+P2 send dispatched (awaiting Required refusal event)
+=== 5/7 relays back (same identities) + fresh sessions + resend ORIGINAL bytes
+restarting CLI sessions against the live relays
+P2 resend request: 0a7ff4699f7bf10f2b52
+=== 6/7 P2 independent verify + exactly-once distinct IDs
+P2 verify: {'verified': True, 'event_ids': ['7019d41932ab7e95eaaf7708ebc15ea8b51555c6c1e439ce01078e0b0f81f5e0'], 'deliveries_seen': 1, 'author': 'b796df3a4df6913ac9d90cb4d64cfca9aa43bcfd74e5c7cbceb7783ef6d20527'}
+=== 7/7 cross-implementation note + summary
+RESULT {"status": "PASS", "layer": "m2b-cli-protocol", "evidence": "<repo>/evidence/m2-core/m2b-cli-20261002-115420", "claims": ["p1-wire-verified-independently", "p2-required-failed-honestly-relays-down", "p2-signed-wire-durably-retained", "p2-exactly-once-distinct-event-id", "p2-original-signed-bytes-resent"], "p1": {"verified": true, "event_ids": ["f9264388d107c84b2d11b141e9e3726dbe822ad3b9c2fb71e43ad3dcc7e8f58a"], "deliveries_seen": 1, "author": "b796df3a4df6913ac9d90cb4d64cfca9aa43bcfd74e5c7cbceb7783ef6d20527"}, "p2_send_refused": true, "p2_expected_event_id": "7019d41932ab7e95eaaf7708ebc15ea8b51555c6c1e439ce01078e0b0f81f5e0", "p2": {"verified": true, "event_ids": ["7019d41932ab7e95eaaf7708ebc15ea8b51555c6c1e439ce01078e0b0f81f5e0"], "deliveries_seen": 1, "author": "b796df3a4df6913ac9d90cb4d64cfca9aa43bcfd74e5c7cbceb7783ef6d20527"}, "wire_format": "canonical-bytes ++ \\n ++ sig-hex; Ed25519 RFC 8032 (libsodium in product, python-cryptography in harness \u2014 same standard)", "canonical_sample_sha256": "f9264388d107c84b2d11b141e9e3726dbe822ad3b9c2fb71e43ad3dcc7e8f58a"}
+cleanup leftover: 29117
+30625
+30626
+30627
+30628
+30629
+30630
+30690
+30721
+30722
+30723
+30724
+30725
+30726
+30783
+30818
+30824
+30825
+30826
+30828
+30829
+30887
+=== exit=0 2026-10-02T09:57:39Z

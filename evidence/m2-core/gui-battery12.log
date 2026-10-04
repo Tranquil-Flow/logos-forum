@@ -1,0 +1,14 @@
+=== ui-dev (lazy store restore) 2026-10-03T10:41:42Z
+ui-dev exit=0
+=== integration (lazy store restore) 2026-10-03T10:43:14Z
+integ exit=1
+forum_module-integration-test>   ✗ forum_module: transport status honest
+forum_module-integration-test> 2 passed, 4 failed
+       Reason: builder failed with exit code 1.
+       >   ✓ forum_module: UI loads
+       >   ✓ forum_module: backend connects
+       >   ✗ forum_module: create topic through the UI
+       >   ✗ forum_module: post path refuses honestly without transport
+       >   ✗ forum_module: refused post shows failed state in thread
+       >   ✗ forum_module: transport status honest
+       > 2 passed, 4 failed

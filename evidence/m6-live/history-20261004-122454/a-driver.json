@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "phase": "post",
+  "text": "TECHNICAL TEST DATA: offline-reader history check 2026-10-04T10:24:54Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 1,
+      "what": "transport ready",
+      "state": "transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events"
+    },
+    {
+      "t_s": 26,
+      "what": "post clicked"
+    },
+    {
+      "t_s": 29,
+      "what": "propagated"
+    }
+  ],
+  "initial_thread": "[]",
+  "thread": "[\"id feb30ef1ef521725 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:22:29Z\",\"id b19d0a652696286b [sent]: TECHNICAL TEST DATA: offline-reader history check 2026-10-04T10:24:54Z\"]"
+}

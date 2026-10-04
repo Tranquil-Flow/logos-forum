@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:22:29Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 1,
+      "what": "A transport ready"
+    },
+    {
+      "t_s": 1,
+      "what": "B transport ready"
+    },
+    {
+      "t_s": 1,
+      "what": "A post clicked"
+    },
+    {
+      "t_s": 1,
+      "what": "A state",
+      "state": "transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events"
+    },
+    {
+      "t_s": 1,
+      "what": "A state",
+      "state": "Required send FAILED: Send failed: MessagingClient.send: Failed to create delivery task: Failed create DeliveryTask: RequestBroker(RequestRelayShard): no provider registered for broker context 00010002 — text retained; post stored for retry"
+    },
+    {
+      "t_s": 11,
+      "what": "A retry",
+      "n": 1
+    },
+    {
+      "t_s": 12,
+      "what": "A state",
+      "state": "retrying 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 20,
+      "what": "A state",
+      "state": "Required send propagated (request e11b53434f3aa15c8996)"
+    },
+    {
+      "t_s": 20,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_ready_state": "transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events",
+  "b_ready_state": "transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events",
+  "a_states": [
+    "transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events",
+    "Required send FAILED: Send failed: MessagingClient.send: Failed to create delivery task: Failed create DeliveryTask: RequestBroker(RequestRelayShard): no provider registered for broker context 00010002 — text retained; post stored for retry",
+    "retrying 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)",
+    "Required send propagated (request e11b53434f3aa15c8996)"
+  ],
+  "a_retries": 1,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id feb30ef1ef521725 [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:22:29Z\"]",
+  "b_thread": "[\"id feb30ef1ef521725 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:22:29Z\"]"
+}

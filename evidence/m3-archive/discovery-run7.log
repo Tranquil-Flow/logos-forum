@@ -1,0 +1,14 @@
+=== m3b discovery run 7 2026-10-02T17:32:42Z
+=== 1/6 relays (ordinary bootstrap)
+=== 2/6 archive: storage corpus + signed inventory
+corpus CID (harness-side record only): zDvZRwzkzGanTTKzcTpKtT3BDWN792W7k7QgFBw3gfbrQf8rEDEq
+=== 3/6 archive delivery node (store:true); reader boots FIRST
+=== 3b/6 archive sends the signed announce
+announce send: efe7da23309b6dcb9dfe
+=== 4/6 reader watch: live propagation window
+live announce in reader watch: False
+discovered announce candidates (newest first): [(1, '4783c7c0d42d')]
+=== 5/6 reader verifies the newest SELF-CONSISTENT chain
+RESULT {"status": "PASS", "layer": "m3b-fresh-reader-discovery", "evidence": "<repo>/evidence/m3-archive/discovery-20261002-193242", "claims": ["fresh-reader-discovered-cid-from-signed-announce", "runner-injected-no-cid-to-reader", "reader-paged-retained-announces", "self-consistent-chain-announce-cid-bytes-posts"], "archive": {"cid": "zDvZRwzkzGanTTKzcTpKtT3BDWN792W7k7QgFBw3gfbrQf8rEDEq", "inv_id": "4783c7c0d42d350476875fd574f6ddef2c010de030ee9775727e338bdd3eb4d5", "corpus_sha": "4e0b49a1174b0bad95acb054bb168fe5c2a46e627bcf28facfe57871806d8b0a", "posts": 3}, "live_announce_seen": false, "candidates": [{"inv_id": "4783c7c0d42d350476875fd574f6ddef2c010de030ee9775727e338bdd3eb4d5", "cid": "zDvZRwzkzGanTTKzcTpKtT3BDWN792W7k7QgFBw3gfbrQf8rEDEq", "epoch": 1, "ts": 1790962453427}], "verified_posts": 3, "accepted_chain": {"inv_id": "4783c7c0d42d350476875fd574f6ddef2c010de030ee9775727e338bdd3eb4d5", "cid": "zDvZRwzkzGanTTKzcTpKtT3BDWN792W7k7QgFBw3gfbrQf8rEDEq", "epoch": 1, "verified_posts": 3}, "discovery_path": "live-propagation", "discovered": {"cid": "zDvZRwzkzGanTTKzcTpKtT3BDWN792W7k7QgFBw3gfbrQf8rEDEq", "inv_id": "4783c7c0d42d350476875fd574f6ddef2c010de030ee9775727e338bdd3eb4d5", "archive": "0194a338bba6f3b74258b4c9602d5417cb85d9b9b68364df1908e6621b86c7d8", "epoch": 1}, "oracle_match_current_run": true}
+cleanup leftover: none
+=== exit=0 2026-10-02T17:35:05Z

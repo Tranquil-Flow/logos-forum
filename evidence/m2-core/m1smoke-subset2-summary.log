@@ -1,0 +1,5 @@
+=== m1 smoke (M1-era subs, clean build) 2026-10-02T09:06:12Z
+=== exit=1 2026-10-02T09:09:12Z
+  "status": "FAIL",
+  "error": "timeout waiting for sender propagation state: sender transport state: {\"id\":182,\"ok\":true,\"result\":\"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events\",\"undefined\":false}"
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261002-110612"}

@@ -1,0 +1,587 @@
+{
+  "generated_by": "tools/m4_matrix.py",
+  "summary": {
+    "PASS": 14,
+    "PARTIAL": 2,
+    "BLOCKED": 0,
+    "NOT RUN": 1
+  },
+  "gui_regression": {
+    "status": "RESOLVED 2026-10-03 \u2014 root cause: plugin linked with the builder's `-undefined dynamic_lookup` and without libsodium/sqlite; the first store-touching slot called a null sodium_init and SIGSEGV'd the ui-host (the earlier '3-layer QtRO wedge' was the dead backend). Fixed by LINK_LIBRARIES sqlite3 sodium in CMakeLists.txt.",
+    "receipts": [
+      {
+        "artifact": "m5-package/linkfix/lldb-uihost-root-cause.txt",
+        "sha256": "255fb8d5f577638d681fb8d6fd53545750d699fbcc669d406767366826cb7d22"
+      },
+      {
+        "artifact": "m5-package/linkfix/integration-negative-control-no-link.log",
+        "sha256": "6dc259489784f8221520c2c84b51f0edb6de1a9ff20af05cb37386076efb9d24"
+      },
+      {
+        "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
+        "sha256": "21e865b2a961bb7082b6fd6785cffa86a5e89b1dd3a48fb427c7985c67237063"
+      },
+      {
+        "artifact": "cleaninstall (real Basecamp: alias + refused post [failed] + text kept)",
+        "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+      }
+    ],
+    "store_probe_receipts": 21
+  },
+  "rows": [
+    {
+      "id": "R01",
+      "status": "PASS",
+      "requirement": "Current Basecamp installs/loads module cleanly",
+      "receipts": [
+        {
+          "artifact": "native-forum-view.png",
+          "sha256": "3758c85486e733282f1245ab86191b80da6e28a9bcd83287caebc96699066512",
+          "what": "vision-verified native Basecamp view"
+        },
+        {
+          "artifact": "nixhost-stdout-2.log",
+          "sha256": "8201a6bf6a54d7d3a4517cb9c2975f6c731f35ea7d80ac02bf964e95449db363",
+          "what": "module loaded + delivery dep autoload"
+        },
+        {
+          "artifact": "logosctl install of .lgx (status ok)",
+          "ref": "m1-transport-era install receipt in STATUS.md"
+        }
+      ],
+      "notes": "both flavors: release dmg isolated profile + nix inspector host",
+      "layer": "app+core"
+    },
+    {
+      "id": "R02",
+      "status": "PASS",
+      "requirement": "Persistent accounts/aliases; no stable identity in anonymous posts",
+      "receipts": [
+        {
+          "artifact": "m5-package/polish-20261004/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-age-1.log",
+          "sha256": "999fb1e773a9df515bd28de6fae6dfe5ae09e9b17ca9584f8e905b78f4addd2f"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-parse-1.log",
+          "sha256": "5c6f6403abfcf09aa7b04b5067a1dae0d2276fbfa5e7ab2baec8357a1df8393c"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-tsfix.txt",
+          "sha256": "999d10ffc3757f5e8a56b909363407367468d218177008a63c41e8c55ff6c049"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-final.txt",
+          "sha256": "e2c9e249a9cc17fb15c88b4a2905505fc497aeb7ea0e2ee73d139aea19719bdc"
+        },
+        {
+          "artifact": "m2-core/core-tests-5.log",
+          "sha256": "abffd8596857ade540bb00d72503c77b06aba045097419500b7d97c5d399cba3"
+        },
+        {
+          "artifact": "m3-archive/core-tests-archive-3.log",
+          "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
+        },
+        {
+          "artifact": "m5-package/linkfix/../polish-20261004/integration-storeopen-7.log (13/13, store-backed)",
+          "sha256": "6284631c8c8c2ebed20f1b534534d10edb1e570e791ba04781881d76f401dc36"
+        },
+        {
+          "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
+          "sha256": "21e865b2a961bb7082b6fd6785cffa86a5e89b1dd3a48fb427c7985c67237063"
+        },
+        {
+          "artifact": "cleaninstall (real Basecamp: alias + refused post [failed] + text kept)",
+          "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+        }
+      ],
+      "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (13/13); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
+      "layer": "app+core"
+    },
+    {
+      "id": "R03",
+      "status": "PASS",
+      "requirement": "Create/browse topics and replies",
+      "receipts": [
+        {
+          "artifact": "m1-transport/smoke-20261004-212552/driver-result.json",
+          "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
+        },
+        {
+          "artifact": "m1-transport/smoke-20261004-190445/driver-result.json",
+          "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
+        },
+        {
+          "artifact": "m5-package/linkfix/../polish-20261004/integration-storeopen-7.log (13/13, store-backed)",
+          "sha256": "6284631c8c8c2ebed20f1b534534d10edb1e570e791ba04781881d76f401dc36"
+        },
+        {
+          "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
+          "sha256": "21e865b2a961bb7082b6fd6785cffa86a5e89b1dd3a48fb427c7985c67237063"
+        },
+        {
+          "artifact": "cleaninstall (real Basecamp: alias + refused post [failed] + text kept)",
+          "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+        }
+      ],
+      "notes": "topic create + list + switch (browse) in CI; posts are replies in a topic's thread (flat, no nested reply-to-reply UI); the shared deterministic General topic carries posts across instances \u2014 two-instance smoke shows the sender's post as [received] in the receiver's thread",
+      "layer": "app+core"
+    },
+    {
+      "id": "R04",
+      "status": "PASS",
+      "requirement": "Required Mix succeeds; unavailable/shared node never silently downgrades",
+      "receipts": [
+        {
+          "artifact": "m1-transport/smoke-20261004-212552/driver-result.json",
+          "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
+        },
+        {
+          "artifact": "m1-transport/smoke-20261004-190445/driver-result.json",
+          "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
+        },
+        {
+          "artifact": "m1-transport/smoke-20261001-221949/driver-result.json",
+          "sha256": "f908d59d0df43bfbd27768888ff99989ccb49a6c627fc4970027cdf07fc3d28e"
+        },
+        {
+          "artifact": "m1-transport/smoke-20261001-222502/driver-result.json",
+          "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
+        },
+        {
+          "artifact": "m6-live/live-20261004-182756/driver-result.json (public logos.dev)",
+          "sha256": "91ad7aea91d327947b37142c3235cf8bb4760ecb7f180a4844e451cfa94f5d6a"
+        },
+        {
+          "artifact": "m6-live/live-20261004-181711/driver-result.json (public logos.dev)",
+          "sha256": "653c6aaf61130a2fcf04877b014a8662a2e94ed288f665e1f5a2baa8c0f5be47"
+        },
+        {
+          "artifact": "m2b-cli Required receipts",
+          "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        },
+        {
+          "claims": [
+            "p1-wire-verified-independently",
+            "p2-required-failed-honestly-relays-down",
+            "p2-signed-wire-durably-retained",
+            "p2-exactly-once-distinct-event-id",
+            "p2-original-signed-bytes-resent",
+            "status=PASS"
+          ]
+        }
+      ],
+      "notes": "LIVE on the public logos.dev network: two instances join only via the in-app Connect action, the sender's post is sent through Mix (`Message propagated via Mix` via public nodes) and renders [received] at the other instance; a post written before the connection is ready is queued and sent automatically. in-app Required round trip on the CURRENT tree (`Message propagated via Mix` in the sender's own log; re-check confirms the app-owned node) + messageError refusal receipts; coexistence guard trigger verified at protocol layer (m4 N2)",
+      "layer": "app+core"
+    },
+    {
+      "id": "R05",
+      "status": "PASS",
+      "requirement": "Unsent text durable; retry doesn't create duplicates",
+      "receipts": [
+        {
+          "claims": [
+            "p1-wire-verified-independently",
+            "p2-required-failed-honestly-relays-down",
+            "p2-signed-wire-durably-retained",
+            "p2-exactly-once-distinct-event-id",
+            "p2-original-signed-bytes-resent",
+            "status=PASS"
+          ],
+          "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        },
+        {
+          "artifact": "m5-package/polish-20261004/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-age-1.log",
+          "sha256": "999fb1e773a9df515bd28de6fae6dfe5ae09e9b17ca9584f8e905b78f4addd2f"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-parse-1.log",
+          "sha256": "5c6f6403abfcf09aa7b04b5067a1dae0d2276fbfa5e7ab2baec8357a1df8393c"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-tsfix.txt",
+          "sha256": "999d10ffc3757f5e8a56b909363407367468d218177008a63c41e8c55ff6c049"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-final.txt",
+          "sha256": "e2c9e249a9cc17fb15c88b4a2905505fc497aeb7ea0e2ee73d139aea19719bdc"
+        },
+        {
+          "artifact": "m2-core/core-tests-5.log",
+          "sha256": "abffd8596857ade540bb00d72503c77b06aba045097419500b7d97c5d399cba3"
+        },
+        {
+          "artifact": "m3-archive/core-tests-archive-3.log",
+          "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
+        }
+      ],
+      "notes": "store-before-send reopen proof + stored_event retry identity + protocol exactly-once (original bytes resent, ID equality asserted); TWO consecutive m2b-cli PASSes on the current harness (m2b-cli-20261003-212136, m2b-cli-20261003-211708). Earlier 2026-10-03 FAILs traced to harness defects (stale relays.pids; doubled module arg in the readiness gate) \u2014 REVIEW-RERUNS.md",
+      "layer": "app+core"
+    },
+    {
+      "id": "R06",
+      "status": "PASS",
+      "requirement": "No mandatory central server/index/founder signer",
+      "receipts": [
+        {
+          "claims": [
+            "two-archives-hold-verifiable-bytes",
+            "byte-exact-readback-both-archives",
+            "non-author-inventories-signed-and-verified",
+            "archive-keys-distinct-from-author-key",
+            "private-upload-not-advertised-local-read-ok",
+            "finite-ttl-expiry-positive-control",
+            "finite-ttl-refresh-restores-bytes",
+            "second-archive-verifies-after-one-loss",
+            "status=PASS"
+          ],
+          "sha256": "cd695071d3b3cbe204ac3a8c7126e413ba46221553ce1d8fe49e1c8abd2ae7f4"
+        },
+        {
+          "claims": [
+            "fresh-reader-discovered-cid-from-signed-announce",
+            "runner-injected-no-cid-to-reader",
+            "reader-paged-retained-announces",
+            "self-consistent-chain-announce-cid-bytes-posts",
+            "status=PASS"
+          ],
+          "sha256": "7c5810010f7b5761aa95ee4c2b5fa63ffc69a8b0b97ed7716fa8f3b8d29cd7c5"
+        }
+      ],
+      "notes": "[harness layer, not in-app] non-author inventories + fresh-reader discovery with nothing injected",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R07",
+      "status": "PASS",
+      "requirement": "Two explicit archives hold verifiable manifest and data bytes",
+      "receipts": [
+        {
+          "claims": [
+            "two-archives-hold-verifiable-bytes",
+            "byte-exact-readback-both-archives",
+            "non-author-inventories-signed-and-verified",
+            "archive-keys-distinct-from-author-key",
+            "private-upload-not-advertised-local-read-ok",
+            "finite-ttl-expiry-positive-control",
+            "finite-ttl-refresh-restores-bytes",
+            "second-archive-verifies-after-one-loss",
+            "status=PASS"
+          ],
+          "sha256": "cd695071d3b3cbe204ac3a8c7126e413ba46221553ce1d8fe49e1c8abd2ae7f4"
+        }
+      ],
+      "notes": "[harness layer, not in-app] two roles, byte-exact readback, loss/repair claim included",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R08",
+      "status": "PASS",
+      "requirement": "Fresh reader discovers history with authors and Store absent",
+      "receipts": [
+        {
+          "claims": [
+            "fresh-reader-discovered-cid-from-signed-announce",
+            "runner-injected-no-cid-to-reader",
+            "reader-paged-retained-announces",
+            "self-consistent-chain-announce-cid-bytes-posts",
+            "status=PASS"
+          ],
+          "sha256": "7c5810010f7b5761aa95ee4c2b5fa63ffc69a8b0b97ed7716fa8f3b8d29cd7c5"
+        },
+        {
+          "claims": [
+            "fresh-reader-discovered-cid-from-signed-announce",
+            "runner-injected-no-cid-to-reader"
+          ],
+          "sha256": "c4375aed3d7bfcf2cfb313f52c463d33c7c9ae92bcb9a5aade0f3c173e05c0aa"
+        }
+      ],
+      "notes": "[harness layer, not in-app] LIVE propagation path (2026-10-02 run 7 \u2014 primary) + RETAINED store-query path (2026-10-02 run 2 + 2026-10-03 quiet-host rerun, discovery_path=store-query, oracle_match_current_run=true)",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R09",
+      "status": "PASS",
+      "requirement": "Loss/all-unavailable/repair/restart/churn are truthful",
+      "receipts": [
+        {
+          "claims": [
+            "two-archives-hold-verifiable-bytes",
+            "byte-exact-readback-both-archives",
+            "non-author-inventories-signed-and-verified",
+            "archive-keys-distinct-from-author-key",
+            "private-upload-not-advertised-local-read-ok",
+            "finite-ttl-expiry-positive-control",
+            "finite-ttl-refresh-restores-bytes",
+            "second-archive-verifies-after-one-loss",
+            "status=PASS"
+          ],
+          "sha256": "cd695071d3b3cbe204ac3a8c7126e413ba46221553ce1d8fe49e1c8abd2ae7f4"
+        },
+        {
+          "claims": [
+            "p1-wire-verified-independently",
+            "p2-required-failed-honestly-relays-down",
+            "p2-signed-wire-durably-retained",
+            "p2-exactly-once-distinct-event-id",
+            "p2-original-signed-bytes-resent",
+            "status=PASS"
+          ],
+          "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        },
+        {
+          "claims": [
+            "status=PASS"
+          ],
+          "sha256": "da502b49f37aef25b2260ffb8cec6dac5827c11196ab732fec6e88392bf287c7"
+        }
+      ],
+      "notes": "[harness layer, not in-app] one-archive loss + restart survival + honest failure receipts",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R10",
+      "status": "PASS",
+      "requirement": "Reader privacy/provider consent separate",
+      "receipts": [
+        {
+          "claims": [
+            "two-archives-hold-verifiable-bytes",
+            "byte-exact-readback-both-archives",
+            "non-author-inventories-signed-and-verified",
+            "archive-keys-distinct-from-author-key",
+            "private-upload-not-advertised-local-read-ok",
+            "finite-ttl-expiry-positive-control",
+            "finite-ttl-refresh-restores-bytes",
+            "second-archive-verifies-after-one-loss",
+            "status=PASS"
+          ],
+          "sha256": "cd695071d3b3cbe204ac3a8c7126e413ba46221553ce1d8fe49e1c8abd2ae7f4"
+        }
+      ],
+      "notes": "[harness layer, not in-app] advertise=false negative + typed isPrivate/advertise surface verified at contract level (M1 gate)",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R11",
+      "status": "PASS",
+      "requirement": "Retention works under declared finite policy",
+      "receipts": [
+        {
+          "claims": [
+            "two-archives-hold-verifiable-bytes",
+            "byte-exact-readback-both-archives",
+            "non-author-inventories-signed-and-verified",
+            "archive-keys-distinct-from-author-key",
+            "private-upload-not-advertised-local-read-ok",
+            "finite-ttl-expiry-positive-control",
+            "finite-ttl-refresh-restores-bytes",
+            "second-archive-verifies-after-one-loss",
+            "status=PASS"
+          ],
+          "sha256": "cd695071d3b3cbe204ac3a8c7126e413ba46221553ce1d8fe49e1c8abd2ae7f4"
+        }
+      ],
+      "notes": "[harness layer, not in-app] expiry positive control + refresh restoration; zero-TTL-not-permanent",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R12",
+      "status": "PASS",
+      "requirement": "Hostile/replayed inputs rejected; freshness/coverage honest",
+      "receipts": [
+        {
+          "artifact": "m5-package/polish-20261004/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-age-1.log",
+          "sha256": "999fb1e773a9df515bd28de6fae6dfe5ae09e9b17ca9584f8e905b78f4addd2f"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-parse-1.log",
+          "sha256": "5c6f6403abfcf09aa7b04b5067a1dae0d2276fbfa5e7ab2baec8357a1df8393c"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-tsfix.txt",
+          "sha256": "999d10ffc3757f5e8a56b909363407367468d218177008a63c41e8c55ff6c049"
+        },
+        {
+          "artifact": "m5-package/linkfix/core-tests-final.txt",
+          "sha256": "e2c9e249a9cc17fb15c88b4a2905505fc497aeb7ea0e2ee73d139aea19719bdc"
+        },
+        {
+          "artifact": "m2-core/core-tests-5.log",
+          "sha256": "abffd8596857ade540bb00d72503c77b06aba045097419500b7d97c5d399cba3"
+        },
+        {
+          "artifact": "m3-archive/core-tests-archive-3.log",
+          "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
+        },
+        {
+          "claims": [
+            "status=PASS"
+          ],
+          "sha256": "da502b49f37aef25b2260ffb8cec6dac5827c11196ab732fec6e88392bf287c7"
+        },
+        {
+          "claims": [
+            "p1-wire-verified-independently",
+            "p2-required-failed-honestly-relays-down",
+            "p2-signed-wire-durably-retained",
+            "p2-exactly-once-distinct-event-id",
+            "p2-original-signed-bytes-resent",
+            "status=PASS"
+          ],
+          "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        }
+      ],
+      "notes": "bounds/tamper/forgery unit matrix + replay collapse + oversize app bound + fail-closed stale-announce refusal (discovery runs 3-4)",
+      "layer": "app+core"
+    },
+    {
+      "id": "R13",
+      "status": "PASS",
+      "requirement": "No network flooding",
+      "receipts": [
+        {
+          "claims": [
+            "status=PASS"
+          ],
+          "sha256": "da502b49f37aef25b2260ffb8cec6dac5827c11196ab732fec6e88392bf287c7"
+        },
+        {
+          "what": "bounded harness budgets (50 posts/5 MiB cap, 4 relays, paged store queries with page cap)"
+        }
+      ],
+      "notes": "[receipts: harness layer; app limits by construction] bounded discovery/repair traffic enforced in harness code; in the app every send is paced (burst 5, then one per 2 s), retries capped at 3 per post, history paged (\u226410 \u00d7 50) and snapshots bounded (\u22641000 events, 4 MiB)",
+      "layer": "protocol-harness"
+    },
+    {
+      "id": "R14",
+      "status": "PARTIAL",
+      "requirement": "Reusable design, documented build/usage, green CI",
+      "receipts": [
+        {
+          "artifact": "m5-package/linkfix/../polish-20261004/integration-storeopen-7.log (13/13, store-backed)",
+          "sha256": "6284631c8c8c2ebed20f1b534534d10edb1e570e791ba04781881d76f401dc36"
+        },
+        {
+          "artifact": "m2-core/integration-9.log",
+          "sha256": "a904f99913af74c2344d0f90c3e2987dfcb9c94a71d8ef2080008dae7e57db82"
+        },
+        {
+          "artifact": "m2-core/integration-10.log",
+          "sha256": "9511b8826ed21bb5cfcf374547a46a0fdca16effb32a5e2a87a7f751d13892a7"
+        },
+        {
+          "artifact": "m2-core/integration-11.log",
+          "sha256": "45de3dd9705d45f0b415a9c1e1f64e3df5952935bd1310d6708f3814cf4e8c73"
+        },
+        {
+          "artifact": "m5-package/linux-20261004-211318/build-integration-test.log (aarch64-linux: core + UI suite + portable .lgx)",
+          "sha256": "aa8e727a0cf98cb8486dd0efff7c1644238b0ba69b21d9b127e8ffd03e0edd2d"
+        },
+        {
+          "artifact": "docs/CONTRACT.md",
+          "sha256": "bfe3e485890cc7d3c7485fab647e2d1b0d7bdd4c9b2ceeeb4445e32e8863be4d"
+        },
+        {
+          "artifact": "docs/LICENSES.md",
+          "sha256": "eba3b3a6d55f32439c74b439a1df835341244e8cfbee478accf9359e53b8d86d"
+        },
+        {
+          "artifact": "README.md",
+          "sha256": "7bae21349919c1a30db09040b42282f07727c49a84a668eb78b869e60d7b7821"
+        },
+        {
+          "artifact": "docs/FURPS.md",
+          "sha256": "6dd8dd1eb9ae4dbff503d73930c39a457e5d34c62c9cc0fa2da9657c93f714de"
+        },
+        {
+          "artifact": ".github/workflows/ci.yml (prepared, activates on push)",
+          "sha256": "aa76dec8e95f81123bd585d415e1cc7bc6905fdf30dcff593d027c8e8f46daaf"
+        },
+        {
+          "artifact": "flake.nix",
+          "sha256": "d6aef4978aef1266907c9f0e2c056534e982a0111343126ed8c85bac6e282d3f"
+        }
+      ],
+      "notes": "local CI green (hermetic integration 13/13 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; REMOTE default-branch CI: workflow prepared; green run not yet receipted",
+      "layer": "app+core"
+    },
+    {
+      "id": "R15",
+      "status": "PARTIAL",
+      "requirement": "Prebuilt catalog, narrated end-to-end demo",
+      "receipts": [
+        {
+          "claims": {
+            "status": "PASS",
+            "lgx_sha256": "e2b09afba835a3398dce69eef7107c4c5b493cf628c2a8df2e7c69f042946421",
+            "store_flow_in_real_host": true
+          },
+          "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+        },
+        {
+          "artifact": "tools/demo_walkthrough.sh",
+          "sha256": "8a63bda050024bb22f105ccc4b8d2e48c84132c04a9d6643b73c9fab67463ddb",
+          "what": "recording-ready walkthrough"
+        },
+        {
+          "artifact": "tools/m5_cleaninstall.sh",
+          "sha256": "a5a4b8910311d7f93c84003a9c9d71447a76a561220bc0faa2fa1fab153586f0"
+        },
+        {
+          "artifact": "m5-package/release-app-20261004/NOTE.txt",
+          "sha256": "f078264bbf2e020d962e83e503d32e8a08e98fec76342936f339d9be14b45aa3",
+          "what": "release Basecamp 0.3.1 app, fresh profile: module loads, store opens on its own"
+        },
+        {
+          "artifact": "m5-package/merge-20261004/merge.log",
+          "sha256": "28f1082a855c82a196dfd6def2f62b485801ccebb093e7961a66d3c1b8d00a59",
+          "what": "darwin-arm64 + linux-arm64 packages merged and verified with the lgx tool"
+        }
+      ],
+      "notes": "local clean-install PASS on fresh profile; catalog listing + video recording and public catalog URL not yet receipted",
+      "layer": "app+core"
+    },
+    {
+      "id": "R16",
+      "status": "NOT RUN",
+      "requirement": "Authentic organic meaningful use",
+      "receipts": [],
+      "notes": "external/human gate \u2014 never invented; genuine internal use only with consent and honest labelling",
+      "layer": "app+core"
+    },
+    {
+      "id": "R17",
+      "status": "PASS",
+      "requirement": "In-app: a reader who was offline obtains past posts",
+      "receipts": [
+        {
+          "artifact": "m6-live/history-20261004-185910/b-driver.json (public logos.dev, author offline)",
+          "sha256": "1c0c7dbef77f804ca4c76f776a66ab9393ce46db737adff3e63ae6fb477cf71d"
+        },
+        {
+          "artifact": "m6-live/history-20261004-181754/b-driver.json (public logos.dev, author offline)",
+          "sha256": "f95a75cb92336d9d0b9f54418dc2857c68c1038beaf2174c15991c2407dc2cc5"
+        },
+        {
+          "artifact": "m7-storage/snapshot-20261004-185554/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "17aa0c303c63e8df1202f590a17a4686fab099c6b8c0028792ea5215b2aef575"
+        }
+      ],
+      "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",
+      "layer": "app+core"
+    }
+  ]
+}

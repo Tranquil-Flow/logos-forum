@@ -1,0 +1,11 @@
+this derivation will be built:
+  /nix/store/hllbk61bifwc5dk4llwrsr7wkikz517r-logos-forum_module-module-generated-0.1.0.drv
+building '/nix/store/hllbk61bifwc5dk4llwrsr7wkikz517r-logos-forum_module-module-generated-0.1.0.drv'...
+generate exit=0
+delivery_module_api.cpp
+forum_module_ui_glue.cpp
+forum_module_ui_glue.h
+forum_module_ui_interface.h
+include
+logos_sdk.cpp
+storage_module_api.cpp

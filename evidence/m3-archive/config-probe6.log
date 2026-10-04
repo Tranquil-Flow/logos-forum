@@ -1,0 +1,7 @@
+P6-A: A daemon+install only
+P6-B: B daemon+install (cross-session step)
+P6-C: A init (same config family as probe5-A)
+A init after B install -> False
+P6-D: stop B, retry A init
+A init after B stopped -> False
+PROBE6_DONE

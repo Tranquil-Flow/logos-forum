@@ -1,0 +1,26 @@
+=== core-tests (topics fix) 2026-10-03T07:25:29Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/h2dp2ic1piambz0ca20f9ls3gv8xk3zw-forum-core-tests.drv
+building '/nix/store/h2dp2ic1piambz0ca20f9ls3gv8xk3zw-forum-core-tests.drv'...
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:372: s.merge_verified(*e1) == MergeResult::Accepted
+forum-core-tests> core tests: 100 checks, 1 failures
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/h2dp2ic1piambz0ca20f9ls3gv8xk3zw-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/22gm19nh9i1qv485726g2dbcpdgg06ph-forum-core-tests
+       Last 2 log lines:
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:372: s.merge_verified(*e1) == MergeResult::Accepted
+       > core tests: 100 checks, 1 failures
+       For full logs, run:
+         nix log /nix/store/h2dp2ic1piambz0ca20f9ls3gv8xk3zw-forum-core-tests.drv
+=== exit=1 2026-10-03T07:26:20Z

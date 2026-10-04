@@ -1,0 +1,30 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+error:
+       … while calling the 'derivationStrict' builtin
+         at «nix-internal»/derivation-internal.nix:38:12:
+           37|
+           38|   strict = drvFunc drvAttrs;
+             |            ^
+           39|
+
+       … while evaluating derivation 'run-logos-standalone-ui'
+         whose name attribute is located at «github:NixOS/nixpkgs/e9f00bd»/pkgs/stdenv/generic/make-derivation.nix:539:13
+
+       … while evaluating attribute 'text' of derivation 'run-logos-standalone-ui'
+         at «github:NixOS/nixpkgs/e9f00bd»/pkgs/build-support/trivial-builders/default.nix:129:13:
+          128|           inherit
+          129|             text
+             |             ^
+          130|             executable
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: cannot read directory "/nix/store/jc3mfa7ybzh32bkvdj5xiib1vkx8jy6x-source/pkgs/os-specific/darwin/apple-source-releases": No such file or directory

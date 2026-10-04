@@ -1,0 +1,275 @@
+run-logos-standalone-ui: hot-reloading QML from <repo>/src/qml
+  (export DEV_QML_PATH to override, or LOGOS_QML_HOT_RELOAD=0 to disable)
+Session directory: "~/Library/Application Support/Logos/LogosStandalone"
+[2026-10-02 10:07:39.675] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[2026-10-02 10:07:39.702] [out] [capability_module] [2026-10-02 10:07:39.702] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_8a9d202b6bb6" at "10:07:39.703"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_8a9d202b6bb6"
+LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:bffb55f5…"
+RemoteTransportConnection: Requesting object: "capability_module" at "10:07:39.703"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162226752
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-02 10:07:39.703] [info] [logos] Module loaded: capability_module
+LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:d3a81b4e…"
+RemoteTransportConnection: Requesting object: "capability_module" at "10:07:39.731"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162208768
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-02 10:07:39.731] [info] [logos] Module loaded: modules_state
+RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_8a9d202b6bb6" at "10:07:39.731"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_8a9d202b6bb6"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_8a9d202b6bb6" at "10:07:39.731"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_8a9d202b6bb6"
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/bsan64ld93pjyzdxsj3my1ia2jhfghl0-logos-forum_module-plugin-dir/src/icons/icon.png"
+[2026-10-02 10:07:39.760] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:f08570a7…"
+RemoteTransportConnection: Requesting object: "capability_module" at "10:07:39.761"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162194624
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-02 10:07:39.761] [info] [logos] Module loaded: delivery_module
+RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_8a9d202b6bb6" at "10:07:39.761"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_8a9d202b6bb6"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_8a9d202b6bb6" at "10:07:39.761"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_8a9d202b6bb6"
+LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+RemoteTransportConnection: Requesting object: "modules_state" at "10:07:39.761"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162244992
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "delivery_module"
+[2026-10-02 10:07:39.789] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:c556d8a2…"
+RemoteTransportConnection: Requesting object: "capability_module" at "10:07:39.790"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162209984
+LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162176160
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[2026-10-02 10:07:39.790] [info] [logos] Pushed module snapshot to modules_state
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162158080
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-02 10:07:39.790] [info] [logos] Module loaded: storage_module
+RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_8a9d202b6bb6" at "10:07:39.791"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_8a9d202b6bb6"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_8a9d202b6bb6" at "10:07:39.791"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_8a9d202b6bb6"
+LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "storage_module"
+DEV_QML_PATH override active: <repo>/src/qml/Main.qml
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_8a9d202b6bb6" at "10:07:39.791"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_8a9d202b6bb6"
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:8757150e…"
+RemoteTransportConnection: Requesting object: "capability_module" at "10:07:39.791"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162372384
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553162371296
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-02 10:07:39.822] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[2026-10-02 10:07:39.822] [info] [logos] [delivery_module] DeliveryModuleImpl::getNodeInfo called with nodeInfoId: MyPeerId
+[2026-10-02 10:07:39.822] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get node info - context not initialized. Call createNode first.
+[2026-10-02 10:07:39.823] [info] [logos] [delivery_module] DeliveryModuleImpl::createNode called
+[2026-10-02 10:07:39.828] [info] [logos] [delivery_module] DeliveryModuleImpl: Waiting for createNode callback...
+[2026-10-02 10:07:39.829] [out] [delivery_module] DBG 2026-10-02 10:07:39.828+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=42735718
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Sharding configuration:                    topics="waku conf builder" tid=42735718 shardingConf="(kind: AutoSharding, numShardsInCluster: 1)" subscribeShards=@[0]
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Configuration: Enabled protocols           topics="waku conf" tid=42735718 relay=true rlnRelay=false store=false filter=false lightPush=false peerExchange=false rendezvous=false
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Configuration. Network                     topics="waku conf" tid=42735718 cluster=42
+[2026-10-02 10:07:39.829] [out] [delivery_module] DBG 2026-10-02 10:07:39.829+02:00 Configuration. Active Relay Shards         topics="waku conf" tid=42735718 shard=0
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Setting up storage                         tid=42735718
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Initializing node                          tid=42735718
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Initializing networking                    tid=42735718 addrs=@[/ip4/127.0.0.1/tcp/64359]
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Mounting protocols                         tid=42735718
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Created WakuMetadata protocol              topics="waku node" tid=42735718 clusterId=42 shards="[0]"
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 Mounting mix protocol                      topics="waku node" tid=42735718INF 2026-10-02 10:07:39.829+02:00 node info                                  topics="waku node" tid=42735718 wakuInfo="(listenAddresses: [/ip4/127.0.0.1/tcp/64359/p2p/16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2], enrUri: enr:-JS4QBL-Rw6p8AGK5NfPWMyJ4MAIOWzfG0B4MearngXow7FUWDlsjRMbN8gTem9UwCAWKuX1al0ETY28Te1yYdgeBhIBgmlkgnY0gmlwhH8AAAGCcnOFACoBAACJc2VjcDI1NmsxoQK56R4JfeYFCLqjNzDFJeeVmSRO5XzVnftHTsFoviqfs4N0Y3CC-2eFd2FrdTIh, mixPubKey: none())"
+[2026-10-02 10:07:39.829] [out] [delivery_module]  nodeId="(listenAddresses: [/ip4/127.0.0.1/tcp/64359/p2p/16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2], enrUri: enr:-JS4QBL-Rw6p8AGK5NfPWMyJ4MAIOWzfG0B4MearngXow7FUWDlsjRMbN8gTem9UwCAWKuX1al0ETY28Te1yYdgeBhIBgmlkgnY0gmlwhH8AAAGCcnOFACoBAACJc2VjcDI1NmsxoQK56R4JfeYFCLqjNzDFJeeVmSRO5XzVnftHTsFoviqfs4N0Y3CC-2eFd2FrdTIh, mixPubKey: none())"
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 local addr                                 topics="waku node" tid=42735718 localaddr=/ip4/127.0.0.1/tcp/64359
+[2026-10-02 10:07:39.829] [out] [delivery_module] INF 2026-10-02 10:07:39.829+02:00 mixPubKey                                  topics="waku node" tid=42735718 mixPubKey="[42, 42, 155, 120, 181, 211, 32, 44, 85, 47, 249, 51, 122, 55, 36, 212, 171, 200, 103, 76, 253, 19, 19, 247, 255, 239, 192, 195, 156, 106, 95, 111]"
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 Using mix bootstrap nodes                  topics="waku mix" tid=42735718 entries=4 poolSize=4
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting store client                      topics="waku node store api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 Mounting auto sharding                     topics="waku node" tid=42735718 clusterId=42 shardCount=1
+[2026-10-02 10:07:39.830] [out] [delivery_module] DBG 2026-10-02 10:07:39.830+02:00 Shards created from content topics         tid=42735718 contentTopics=[] shards=[]
+[2026-10-02 10:07:39.830] [out] [delivery_module] DBG 2026-10-02 10:07:39.830+02:00 Setting max message size                   tid=42735718 num_bytes=153600
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting relay protocol                    topics="waku node relay api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] DBG 2026-10-02 10:07:39.830+02:00 relay mounted successfully                 topics="waku node relay api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] DBG 2026-10-02 10:07:39.830+02:00 Adding validator to signed shards          tid=42735718 protectedShards=[] clusterId=42
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting libp2p ping protocol              topics="waku node ping api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting light push client                 topics="waku node lightpush api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting legacy light push client          topics="waku node lightpush api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] DBG 2026-10-02 10:07:39.830+02:00 Adding peer to service slots               topics="waku node peer_manager" tid=42735718 peerId=16U*Y9HYmY addr=/ip4/127.0.0.1/tcp/64355 service=/vac/waku/lightpush/3.0.0
+[2026-10-02 10:07:39.830] [out] [delivery_module] DBG 2026-10-02 10:07:39.830+02:00 Adding peer to service slots               topics="waku node peer_manager" tid=42735718 peerId=16U*Y9HYmY addr=/ip4/127.0.0.1/tcp/64355 service=/vac/waku/lightpush/2.0.0-beta1
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting filter client                     topics="waku node filter api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 mounting waku peer exchange client         topics="waku node peerexchange api" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 No external callbacks to be set            topics="wakunode waku" tid=42735718
+[2026-10-02 10:07:39.830] [out] [delivery_module] INF 2026-10-02 10:07:39.830+02:00 Setting up AutonatService                  topics="libp2p autonatservice" tid=42735718
+[2026-10-02 10:07:39.830] [info] [logos] [delivery_module] DeliveryModuleImpl::createNode callback called with ret: 0
+[2026-10-02 10:07:39.831] [info] [logos] [delivery_module] DeliveryModuleImpl: Delivery context created successfully
+[2026-10-02 10:07:39.831] [info] [logos] [delivery_module] DeliveryModuleImpl::start called
+[2026-10-02 10:07:39.832] [out] [delivery_module] INF 2026-10-02 10:07:39.831+02:00 Retrieve dynamic bootstrap nodes           topics="wakunode waku" tid=42735718
+[2026-10-02 10:07:39.832] [info] [logos] [delivery_module] DeliveryModuleImpl::getNodeInfo called with nodeInfoId: MyPeerId
+[2026-10-02 10:07:39.832] [out] [delivery_module] INF 2026-10-02 10:07:39.832+02:00 Running nwaku node                         tid=42735718 version=v0.39.0-gca2814
+[2026-10-02 10:07:39.832] [out] [delivery_module] INF 2026-10-02 10:07:39.832+02:00 Starting Waku node                         topics="waku node" tid=42735718 version=v0.39.0-gca2814
+[2026-10-02 10:07:39.832] [out] [delivery_module] DBG 2026-10-02 10:07:39.832+02:00 starting switch for peer                   topics="libp2p switch" tid=42735718 peerInfo="(peerId: 16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2, listenAddrs: [/ip4/127.0.0.1/tcp/64359], addrs: [], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-02 10:07:39.832] [out] [delivery_module] DBG 2026-10-02 10:07:39.832+02:00 About to accept incoming connection        topics="libp2p switch" tid=42735718
+[2026-10-02 10:07:39.832] [out] [delivery_module] INF 2026-10-02 10:07:39.832+02:00 start                                      topics="waku relay" tid=42735718
+[2026-10-02 10:07:39.832] [out] [delivery_module] DBG 2026-10-02 10:07:39.832+02:00 Started libp2p node                        topics="libp2p switch" tid=42735718 peer="(peerId: 16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2, listenAddrs: [/ip4/127.0.0.1/tcp/64359], addrs: [/ip4/127.0.0.1/tcp/64359], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-02 10:07:39.833] [out] [delivery_module] INF 2026-10-02 10:07:39.833+02:00 Announced base resolved                    topics="waku node" tid=42735718 addrs=@[/ip4/127.0.0.1/tcp/64359] explicit=@[/ip4/127.0.0.1/tcp/64359]
+[2026-10-02 10:07:39.833] [out] [delivery_module] DBG 2026-10-02 10:07:39.833+02:00 ENR addresses updated                      topics="waku enr" tid=42735718 retained=1 total=1
+[2026-10-02 10:07:39.833] [out] [delivery_module] INF 2026-10-02 10:07:39.833+02:00 Node started successfully                  topics="waku node" tid=42735718
+[2026-10-02 10:07:39.833] [out] [delivery_module] DBG 2026-10-02 10:07:39.833+02:00 Dialing multiple peers                     tid=42735718 numOfPeers=4 nodes="@[\"/ip4/127.0.0.1/tcp/64355/p2p/16Uiu2HAmDSxtt7hwooRgDeiA6P11A4in4eAz5PsBDiMnBfY9HYmY\", \"/ip4/127.0.0.1/tcp/64356/p2p/16Uiu2HAmG5rWJw11eyijpaZhmMojf8gdehZWDrjiWiuuV7YE5QBd\", \"/ip4/127.0.0.1/tcp/64357/p2p/16Uiu2HAkudzkcbzpRLFKUuumW8Y3RQWGFirTvFyWxD5Tjd4WTCZa\", \"/ip4/127.0.0.1/tcp/64358/p2p/16Uiu2HAkvHYAY1CB9HgneMAWauz4gY9ztaaMxVeYTsxgDR6bo61Y\"]"
+[2026-10-02 10:07:39.833] [out] [delivery_module] DBG 2026-10-02 10:07:39.833+02:00 Dialing peer                               topics="libp2p dialer" tid=42735718 peerId=16U*Y9HYmY addrs="[/ip4/127.0.0.1/tcp/64355]"
+[2026-10-02 10:07:39.833] [out] [delivery_module] DBG 2026-10-02 10:07:39.833+02:00 Expanded address and hostname              topics="libp2p dialer" tid=42735718 expandedAddress=/ip4/127.0.0.1/tcp/64355 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/64355]"
+[2026-10-02 10:07:39.834] [out] [delivery_module] DBG 2026-10-02 10:07:39.834+02:00 Dialing peer                               topics="libp2p dialer" tid=42735718 peerId=16U*YE5QBd addrs="[/ip4/127.0.0.1/tcp/64356]"
+[2026-10-02 10:07:39.834] [out] [delivery_module] DBG 2026-10-02 10:07:39.834+02:00 Expanded address and hostname              topics="libp2p dialer" tid=42735718 expandedAddress=/ip4/127.0.0.1/tcp/64356 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/64356]"
+[2026-10-02 10:07:39.834] [out] [delivery_module] DBG 2026-10-02 10:07:39.834+02:00 Dialing peer                               topics="libp2p dialer" tid=42735718 peerId=16U*4WTCZa addrs="[/ip4/127.0.0.1/tcp/64357]"
+[2026-10-02 10:07:39.834] [out] [delivery_module] DBG 2026-10-02 10:07:39.834+02:00 Expanded address and hostname              topics="libp2p dialer" tid=42735718 expandedAddress=/ip4/127.0.0.1/tcp/64357 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/64357]"
+[2026-10-02 10:07:39.834] [out] [delivery_module] DBG 2026-10-02 10:07:39.834+02:00 Dialing peer                               topics="libp2p dialer" tid=42735718 peerId=16U*6bo61Y addrs="[/ip4/127.0.0.1/tcp/64358]"
+[2026-10-02 10:07:39.834] [out] [delivery_module] DBG 2026-10-02 10:07:39.834+02:00 Expanded address and hostname              topics="libp2p dialer" tid=42735718 expandedAddress=/ip4/127.0.0.1/tcp/64358 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/64358]"
+[2026-10-02 10:07:39.835] [info] [logos] [delivery_module] DeliveryModuleImpl::subscribe called with contentTopic: /lp0026forum/1/general/text
+[2026-10-02 10:07:39.835] [out] [delivery_module] DBG 2026-10-02 10:07:39.835+02:00 Subscribing to pubsub topic                topics="waku relay" tid=42735718 pubsubTopic=/waku/2/rs/42/0
+[2026-10-02 10:07:39.835] [info] [logos] [delivery_module] DeliveryModuleImpl: Subscribe completed for topic: /lp0026forum/1/general/text with success
+[2026-10-02 10:07:39.836] [out] [delivery_module] DBG 2026-10-02 10:07:39.836+02:00 No mesh peer for the given pubsub topic    topics="waku relay" tid=42735718 pubsubTopic=/waku/2/rs/42/0
+[2026-10-02 10:07:39.836] [out] [delivery_module] DBG 2026-10-02 10:07:39.836+02:00 Dial successful                            topics="libp2p dialer" tid=42735718 peerId=16U*Y9HYmY
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 starting sendNonHighPriorityTask           topics="libp2p pubsubpeer" tid=42735718 p=16U*Y9HYmY
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 created new pubsub peer                    topics="libp2p pubsub" tid=42735718 peerId=16U*Y9HYmY
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 Incoming WakuRelay connection              topics="waku relay" tid=42735718 connection=16U*Y9HYmY:6abf664bab80cb8f064dbbe8 protocol=/vac/waku/relay/2.0.0
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*Y9HYmY:6abf664bab80cb8f064dbbe8 peer=16U*Y9HYmY closed=false
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 identify: info sent                        topics="libp2p identify" tid=42735718 stream=16U*Y9HYmY:6abf664bab80cb8f064dbbe9 info="(peerId: 16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2, listenAddrs: [/ip4/127.0.0.1/tcp/64359], addrs: [/ip4/127.0.0.1/tcp/64359], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 Dial successful                            topics="libp2p dialer" tid=42735718 peerId=16U*YE5QBd
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 Dial successful                            topics="libp2p dialer" tid=42735718 peerId=16U*4WTCZa
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 Dial successful                            topics="libp2p dialer" tid=42735718 peerId=16U*6bo61Y
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 starting sendNonHighPriorityTask           topics="libp2p pubsubpeer" tid=42735718 p=16U*YE5QBd
+[2026-10-02 10:07:39.837] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 created new pubsub peer                    topics="libp2p pubsub" tid=42735718 peerId=16U*YE5QBd
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.837+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 starting sendNonHighPriorityTask           topics="libp2p pubsubpeer" tid=42735718 p=16U*4WTCZa
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 created new pubsub peer                    topics="libp2p pubsub" tid=42735718 peerId=16U*4WTCZa
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 starting sendNonHighPriorityTask           topics="libp2p pubsubpeer" tid=42735718 p=16U*6bo61Y
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 created new pubsub peer                    topics="libp2p pubsub" tid=42735718 peerId=16U*6bo61Y
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 Incoming WakuRelay connection              topics="waku relay" tid=42735718 connection=16U*YE5QBd:6abf664bab80cb8f064dbbec protocol=/vac/waku/relay/2.0.0
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*YE5QBd:6abf664bab80cb8f064dbbec peer=16U*YE5QBd closed=false
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 identify: info sent                        topics="libp2p identify" tid=42735718 stream=16U*YE5QBd:6abf664bab80cb8f064dbbed info="(peerId: 16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2, listenAddrs: [/ip4/127.0.0.1/tcp/64359], addrs: [/ip4/127.0.0.1/tcp/64359], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 Incoming WakuRelay connection              topics="waku relay" tid=42735718 connection=16U*4WTCZa:6abf664bab80cb8f064dbbee protocol=/vac/waku/relay/2.0.0
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*4WTCZa:6abf664bab80cb8f064dbbee peer=16U*4WTCZa closed=false
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 identify: info sent                        topics="libp2p identify" tid=42735718 stream=16U*4WTCZa:6abf664bab80cb8f064dbbef info="(peerId: 16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2, listenAddrs: [/ip4/127.0.0.1/tcp/64359], addrs: [/ip4/127.0.0.1/tcp/64359], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 Incoming WakuRelay connection              topics="waku relay" tid=42735718 connection=16U*6bo61Y:6abf664bab80cb8f064dbbf0 protocol=/vac/waku/relay/2.0.0
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*6bo61Y:6abf664bab80cb8f064dbbf0 peer=16U*6bo61Y closed=false
+[2026-10-02 10:07:39.838] [out] [delivery_module] DBG 2026-10-02 10:07:39.838+02:00 identify: info sent                        topics="libp2p identify" tid=42735718 stream=16U*6bo61Y:6abf664bab80cb8f064dbbf1 info="(peerId: 16Uiu2HAm7wPaFzHCDCVUWc8EKz6rteEJwBnBsCSMXM5JPq4cbBz2, listenAddrs: [/ip4/127.0.0.1/tcp/64359], addrs: [/ip4/127.0.0.1/tcp/64359], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-02 10:07:39.839] [out] [delivery_module] DBG 2026-10-02 10:07:39.839+02:00 identify: info received                    topics="libp2p identify" tid=42735718 stream=16U*Y9HYmY:6abf664bab80cb8f064dbbeb pubkey=ok(sec...214b)) addresses=/ip4/127.0.0.1/tcp/64355 protocols=/ipfs/id/1.0.0,/libp2p/autonat/1.0.0,/libp2p/circuit/relay/0.2.0/hop,/vac/waku/metadata/1.0.0,/mix/1.0.0,/vac/waku/relay/2.0.0,/ipfs/ping/1.0.0,/vac/waku/lightpush/3.0.0,/vac/waku/lightpush/2.0.0-beta1,/vac/waku/filter-push/2.0.0-beta1 observable_address=ok(/ip4/127.0.0.1/tcp/64615) proto_version=ipfs/0.1.0 agent_version=logos-delivery-v0.39.0-gca2814 signedPeerRecord=None
+[2026-10-02 10:07:39.839] [out] [delivery_module] DBG 2026-10-02 10:07:39.839+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*Y9HYmY:6abf664bab80cb8f064dbbea peer=16U*Y9HYmY closed=false
+[2026-10-02 10:07:39.839] [out] [delivery_module] DBG 2026-10-02 10:07:39.839+02:00 Event identified                           topics="waku node peer_manager" tid=42735718 peerId=16U*Y9HYmY
+[2026-10-02 10:07:39.839] [out] [delivery_module] DBG 2026-10-02 10:07:39.839+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.839+02:00 identify: info received                    topics="libp2p identify" tid=42735718 stream=16U*YE5QBd:6abf664bab80cb8f064dbbf3 pubkey=ok(sec...42bd)) addresses=/ip4/127.0.0.1/tcp/64356 protocols=/ipfs/id/1.0.0,/libp2p/autonat/1.0.0,/libp2p/circuit/relay/0.2.0/hop,/vac/waku/metadata/1.0.0,/mix/1.0.0,/vac/waku/relay/2.0.0,/ipfs/ping/1.0.0,/vac/waku/lightpush/3.0.0,/vac/waku/lightpush/2.0.0-beta1,/vac/waku/filter-push/2.0.0-beta1 observable_address=ok(/ip4/127.0.0.1/tcp/64616) proto_version=ipfs/0.1.0 agent_version=logos-delivery-v0.39.0-gca2814 signedPeerRecord=None
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 identify: info received                    topics="libp2p identify" tid=42735718 stream=16U*4WTCZa:6abf664bab80cb8f064dbbf5 pubkey=ok(sec...bc2e)) addresses=/ip4/127.0.0.1/tcp/64357 protocols=/ipfs/id/1.0.0,/libp2p/autonat/1.0.0,/libp2p/circuit/relay/0.2.0/hop,/vac/waku/metadata/1.0.0,/mix/1.0.0,/vac/waku/relay/2.0.0,/ipfs/ping/1.0.0,/vac/waku/lightpush/3.0.0,/vac/waku/lightpush/2.0.0-beta1,/vac/waku/filter-push/2.0.0-beta1 observable_address=ok(/ip4/127.0.0.1/tcp/64617) proto_version=ipfs/0.1.0 agent_version=logos-delivery-v0.39.0-gca2814 signedPeerRecord=None
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 identify: info received                    topics="libp2p identify" tid=42735718 stream=16U*6bo61Y:6abf664bab80cb8f064dbbf7 pubkey=ok(sec...93c8)) addresses=/ip4/127.0.0.1/tcp/64358 protocols=/ipfs/id/1.0.0,/libp2p/autonat/1.0.0,/libp2p/circuit/relay/0.2.0/hop,/vac/waku/metadata/1.0.0,/mix/1.0.0,/vac/waku/relay/2.0.0,/ipfs/ping/1.0.0,/vac/waku/lightpush/3.0.0,/vac/waku/lightpush/2.0.0-beta1,/vac/waku/filter-push/2.0.0-beta1 observable_address=ok(/ip4/127.0.0.1/tcp/64618) proto_version=ipfs/0.1.0 agent_version=logos-delivery-v0.39.0-gca2814 signedPeerRecord=None
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*YE5QBd:6abf664bab80cb8f064dbbf2 peer=16U*YE5QBd closed=false
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*4WTCZa:6abf664bab80cb8f064dbbf4 peer=16U*4WTCZa closed=false
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 Event identified                           topics="waku node peer_manager" tid=42735718 peerId=16U*YE5QBd
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 Event identified                           topics="waku node peer_manager" tid=42735718 peerId=16U*4WTCZa
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 starting pubsub read loop                  topics="libp2p pubsubpeer" tid=42735718 stream=16U*6bo61Y:6abf664bab80cb8f064dbbf6 peer=16U*6bo61Y closed=false
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.840] [out] [delivery_module] DBG 2026-10-02 10:07:39.840+02:00 Event identified                           topics="waku node peer_manager" tid=42735718 peerId=16U*6bo61Y
+[2026-10-02 10:07:39.841] [out] [delivery_module] DBG 2026-10-02 10:07:39.841+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.841] [out] [delivery_module] DBG 2026-10-02 10:07:39.841+02:00 Received WakuMetadata request              topics="waku metadata" tid=42735718 remoteClusterId=ok(42) remoteShards="[0]" localClusterId=42 localShards="[0]" peer=16U*Y9HYmY
+[2026-10-02 10:07:39.842] [out] [delivery_module] DBG 2026-10-02 10:07:39.842+02:00 Received WakuMetadata request              topics="waku metadata" tid=42735718 remoteClusterId=ok(42) remoteShards="[0]" localClusterId=42 localShards="[0]" peer=16U*YE5QBd
+[2026-10-02 10:07:39.842] [out] [delivery_module] DBG 2026-10-02 10:07:39.842+02:00 Received WakuMetadata request              topics="waku metadata" tid=42735718 remoteClusterId=ok(42) remoteShards="[0]" localClusterId=42 localShards="[0]" peer=16U*4WTCZa
+[2026-10-02 10:07:39.842] [out] [delivery_module] DBG 2026-10-02 10:07:39.842+02:00 Received WakuMetadata request              topics="waku metadata" tid=42735718 remoteClusterId=ok(42) remoteShards="[0]" localClusterId=42 localShards="[0]" peer=16U*6bo61Y
+[2026-10-02 10:07:39.842] [out] [delivery_module] DBG 2026-10-02 10:07:39.842+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 no listener registered                     tid=42735719 event=onConnectionChange
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 Finished dialing multiple peers            tid=42735718 successfulConns=4 attempted=4
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 Starting peer exchange loop                topics="waku node peerexchange api" tid=42735718
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 Retrieving peer info via peer exchange protocol topics="waku node peerexchange api" tid=42735718 amount=5
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 Peer exchange request could not be made as no peer exchange peers found topics="waku peer_exchange client" tid=42735718
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 Failed to retrieve peer info via peer exchange protocol topics="waku node peerexchange api" tid=42735718 error="(status_code: SERVICE_UNAVAILABLE, status_desc: ok(peer_not_found_failure))"
+[2026-10-02 10:07:39.843] [out] [delivery_module] DBG 2026-10-02 10:07:39.843+02:00 Cannot fetch peers from peer exchange      topics="waku node peerexchange api" tid=42735718 cause="(status_code: SERVICE_UNAVAILABLE, status_desc: ok(peer_not_found_failure))"
+[2026-10-02 10:07:39.843] [out] [delivery_module] INF 2026-10-02 10:07:39.843+02:00 Relay peer connections                     topics="waku node peer_manager" tid=42735718 inRelayConns=0/50 outRelayConns=4/25 totalConnections=4/150 notConnectedPeers=0 outsideBackoffPeers=0
+[2026-10-02 10:07:39.844] [out] [delivery_module] DBG 2026-10-02 10:07:39.844+02:00 ENR addresses updated                      topics="waku enr" tid=42735718 retained=1 total=1
+[2026-10-02 10:07:39.844] [out] [delivery_module] INF 2026-10-02 10:07:39.844+02:00 Node is online                             topics="waku online monitor" tid=42735718
+[2026-10-02 10:07:39.844] [out] [delivery_module] INF 2026-10-02 10:07:39.844+02:00 Health monitor loop start                  tid=42735718
+[2026-10-02 10:07:39.844] [out] [delivery_module] DBG 2026-10-02 10:07:39.844+02:00 calculateConnectionState                   tid=42735718 relayCount=4 storeClientCount=0 lightpushCount=4 filterCount=0
+[2026-10-02 10:07:39.844] [out] [delivery_module] DBG 2026-10-02 10:07:39.844+02:00 connectionStatus change                    tid=42735718 oldstatus=Disconnected newstatus=Connected
+[2026-10-02 10:07:39.844] [out] [delivery_module] INF 2026-10-02 10:07:39.844+02:00 starting keepalive                         tid=42735718 randomPeersKeepalive=10s allPeersKeepalive=2m
+qt.qpa.fonts: Populating font family aliases took 43 ms. Replace uses of missing font family "Sans Serif" with one that exists to avoid this cost. 
+[2026-10-02 10:07:39.937] [out] [delivery_module] DBG 2026-10-02 10:07:39.937+02:00 No mesh peer for the given pubsub topic    topics="waku relay" tid=42735718 pubsubTopic=/waku/2/rs/42/0
+Loaded UI plugin: "/nix/store/bsan64ld93pjyzdxsj3my1ia2jhfghl0-logos-forum_module-plugin-dir"
+[QmlInspector] Inspector server listening on port 3768
+[QmlInspector] Client connected from "::1"
+[QmlInspector] Client disconnected
+[QmlInspector] Client connected from "::1"
+[QmlInspector] Client disconnected
+[QmlInspector] Client connected from "::1"
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+[2026-10-02 10:08:09.834] [out] [delivery_module] DBG 2026-10-02 10:08:09.834+02:00 Accepted an incoming connection            topics="libp2p switch" tid=42735718 conn=:6abf6669ab80cb8f064dbc09
+[2026-10-02 10:08:09.834] [out] [delivery_module] DBG 2026-10-02 10:08:09.834+02:00 About to accept incoming connection        topics="libp2p switch" tid=42735718
+[2026-10-02 10:08:09.836] [out] [delivery_module] DBG 2026-10-02 10:08:09.836+02:00 dialMe answer is reachable                 topics="libp2p autonatservice" tid=42735718 peerId=16Uiu2HAmG5rWJw11eyijpaZhmMojf8gdehZWDrjiWiuuV7YE5QBd
+[2026-10-02 10:08:09.837] [out] [delivery_module] DBG 2026-10-02 10:08:09.836+02:00 Current status                             topics="libp2p autonatservice" tid=42735718 currentStats=Unknown confidence=none() answers=[Reachable]
+[2026-10-02 10:08:09.838] [out] [delivery_module] DBG 2026-10-02 10:08:09.838+02:00 Accepted an incoming connection            topics="libp2p switch" tid=42735718 conn=:6abf6669ab80cb8f064dbc0d
+[2026-10-02 10:08:09.838] [out] [delivery_module] DBG 2026-10-02 10:08:09.838+02:00 About to accept incoming connection        topics="libp2p switch" tid=42735718
+[2026-10-02 10:08:09.840] [out] [delivery_module] DBG 2026-10-02 10:08:09.840+02:00 dialMe answer is reachable                 topics="libp2p autonatservice" tid=42735718 peerId=16Uiu2HAkudzkcbzpRLFKUuumW8Y3RQWGFirTvFyWxD5Tjd4WTCZa
+[2026-10-02 10:08:09.840] [out] [delivery_module] DBG 2026-10-02 10:08:09.840+02:00 Current status                             topics="libp2p autonatservice" tid=42735718 currentStats=Unknown confidence=none() answers=[Reachable, Reachable]
+[2026-10-02 10:08:09.842] [out] [delivery_module] DBG 2026-10-02 10:08:09.842+02:00 Accepted an incoming connection            topics="libp2p switch" tid=42735718 conn=:6abf6669ab80cb8f064dbc11
+[2026-10-02 10:08:09.842] [out] [delivery_module] DBG 2026-10-02 10:08:09.842+02:00 About to accept incoming connection        topics="libp2p switch" tid=42735718
+[2026-10-02 10:08:09.844] [out] [delivery_module] DBG 2026-10-02 10:08:09.844+02:00 dialMe answer is reachable                 topics="libp2p autonatservice" tid=42735718 peerId=16Uiu2HAmDSxtt7hwooRgDeiA6P11A4in4eAz5PsBDiMnBfY9HYmY
+[2026-10-02 10:08:09.844] [out] [delivery_module] DBG 2026-10-02 10:08:09.844+02:00 Current status                             topics="libp2p autonatservice" tid=42735718 currentStats=Reachable confidence=ok(1.0) answers=[Reachable, Reachable, Reachable]
+[2026-10-02 10:08:09.844] [out] [delivery_module] DBG 2026-10-02 10:08:09.844+02:00 Peer reachability status                   tid=42735718 networkReachability=Reachable confidence=1.0
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+qt.remoteobjects: connectionToSource is null
+[QmlInspector] Client disconnected
+[QmlInspector] Client connected from "::1"
+[QmlInspector] Client disconnected

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "text": "TECHNICAL TEST DATA: M1 Required-send round trip",
+  "sender_port": 3768,
+  "receiver_port": 3769,
+  "sender_propagated": true,
+  "receiver_rendered": true
+}

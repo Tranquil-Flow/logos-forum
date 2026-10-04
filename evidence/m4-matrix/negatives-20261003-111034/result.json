@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "layer": "m4-negatives",
+  "evidence": "<repo>/evidence/m4-matrix/negatives-20261003-111034",
+  "cases": {
+    "n1_quota_pressure": {
+      "upload_dispatched": true,
+      "readback_verified": false,
+      "honest": true,
+      "verdict": "PASS",
+      "note": "oversize upload beyond quota must not yield verified bytes"
+    },
+    "n2_double_createNode": {
+      "node_exists_after_first": true,
+      "second_create_refused": true,
+      "verdict": "PASS",
+      "note": "in-app guard: getNodeInfo success before createNode => visible coexistence refusal, never reconfigure"
+    },
+    "n3_oversize_transport": {
+      "transport_send": "dispatched",
+      "app_merge_rejects": true,
+      "app_merge_receipt": "core-tests bounds (body<=4096) \u2014 100/0",
+      "measured": false,
+      "verdict": "BY-CONSTRUCTION",
+      "note": "transport is a pipe; the APP bound is enforced at merge (unit-receipted) \u2014 not a transport-layer measurement"
+    }
+  },
+  "error": "RuntimeError: n4 createNode: None"
+}

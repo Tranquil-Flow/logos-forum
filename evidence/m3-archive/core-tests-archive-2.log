@@ -1,0 +1,28 @@
+=== core-tests (archive) 2 2026-10-02T12:18:20Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/m1dna5ksnkhp2qhkkpnciw3xx9rprqls-forum-core-tests.drv
+building '/nix/store/m1dna5ksnkhp2qhkkpnciw3xx9rprqls-forum-core-tests.drv'...
+forum-core-tests> FAIL /nix/store/p14zgyq7yfgranh96r99i519caczm434-test_main.cpp:277: verify_inventory(*inv, archive.pub_hex) == InvVerify::Valid
+forum-core-tests> FAIL /nix/store/p14zgyq7yfgranh96r99i519caczm434-test_main.cpp:340: verify_inventory(*inv2, archive.pub_hex) == InvVerify::Valid
+forum-core-tests> core tests: 76 checks, 2 failures
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/m1dna5ksnkhp2qhkkpnciw3xx9rprqls-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/wjk45bzy7n6pfddf5mya1rph0piy5k8c-forum-core-tests
+       Last 3 log lines:
+       > FAIL /nix/store/p14zgyq7yfgranh96r99i519caczm434-test_main.cpp:277: verify_inventory(*inv, archive.pub_hex) == InvVerify::Valid
+       > FAIL /nix/store/p14zgyq7yfgranh96r99i519caczm434-test_main.cpp:340: verify_inventory(*inv2, archive.pub_hex) == InvVerify::Valid
+       > core tests: 76 checks, 2 failures
+       For full logs, run:
+         nix log /nix/store/m1dna5ksnkhp2qhkkpnciw3xx9rprqls-forum-core-tests.drv
+=== exit=1 2026-10-02T12:19:07Z

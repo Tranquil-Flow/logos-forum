@@ -1,0 +1,15 @@
+=== stage 1: 'Check transport' → store() opened? ===
+file:///nix/store/0pvy2s1y0i9s7k7smvx3a3bxgxdg9mwf-logos-qt-mcp/test-framework/framework.mjs:47
+      sock.once("error", (err) => reject(new Error(`Cannot connect to inspector: ${err.message}`)));
+                                         ^
+
+Error: Cannot connect to inspector: 
+    at Socket.<anonymous> (file:///nix/store/0pvy2s1y0i9s7k7smvx3a3bxgxdg9mwf-logos-qt-mcp/test-framework/framework.mjs:47:42)
+    at Object.onceWrapper (node:events:634:26)
+    at Socket.emit (node:events:531:35)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+Node.js v22.22.2
+FAIL: stage 1 driver crashed

@@ -1,0 +1,15 @@
+=== m5 cleaninstall run 2 2026-10-02T18:44:11Z
+=== 1/5 fresh .lgx build
+lgx sha256: 523a4de31da9773072a3041c93ed5053ee88defb4b53d4ff42b2cb0c09dda598
+=== 2/5 fresh isolated profile
+=== 3/5 seed install layout (module + its declared dependencies)
+seeded forum_module (plugins, darwin-arm64-dev)
+seeded delivery_module (modules, darwin-arm64-dev)
+seeded storage_module (modules, darwin-arm64-dev)
+=== 4/5 launch isolated Basecamp host (inspector :3771)
+=== 5/5 drive the real UI (tile → module view → honest states)
+{"tile_clicked":true,"module_view":true,"Connected":true,"Backend status: Ready":true,"Transport: no transport configured — posting unavailable (Required policy)":true}
+=== 6/5 cleanup proof
+tools/m5_cleaninstall.sh: line 116: 78663 Killed: 9               LOGOS_NO_SCHEME_REGISTER=1 QML_INSPECTOR_PORT=$PORT "$BC" --user-dir "$PROFILE" > "$EVID/basecamp.log" 2>&1
+tools/m5_cleaninstall.sh: line 123: V: unbound variable
+=== exit=1 2026-10-02T18:45:22Z

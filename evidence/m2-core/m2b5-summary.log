@@ -1,0 +1,40 @@
+=== ui-dev 5 2026-10-01T21:15:44Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+copying path '/nix/store/jc3mfa7ybzh32bkvdj5xiib1vkx8jy6x-source' from 'https://cache.nixos.org'...
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: rejected ca28145fdc5e9858595126a3d6b01ec19882e31c because shallow roots are not allowed to be updated
+these 4 derivations will be built:
+  /nix/store/ijpzjgiihnk9alkfhbfkqdh2j64wxjy7-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/d7mhmm7lmi7h9dgmazwgb6nw09qm830h-logos-forum_module-module.drv
+  /nix/store/ha1nq874v4gszfz2v7fm5r7n1rjdp8cf-logos-forum_module-plugin-dir.drv
+  /nix/store/6qqlq9mh10mifwl23429grgg39fqygxm-run-logos-standalone-ui.drv
+these 3 paths will be fetched (7.5 MiB download, 58.6 MiB unpacked):
+  /nix/store/0ngiwswr7wf0yi6z2fdacdqmqm1bpinv-ShellCheck-0.10.0
+  /nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev
+  /nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin
+copying path '/nix/store/0ngiwswr7wf0yi6z2fdacdqmqm1bpinv-ShellCheck-0.10.0' from 'https://cache.nixos.org'...
+copying path '/nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin' from 'https://cache.nixos.org'...
+copying path '/nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev' from 'https://cache.nixos.org'...
+building '/nix/store/ijpzjgiihnk9alkfhbfkqdh2j64wxjy7-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/d7mhmm7lmi7h9dgmazwgb6nw09qm830h-logos-forum_module-module.drv'...
+building '/nix/store/ha1nq874v4gszfz2v7fm5r7n1rjdp8cf-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/6qqlq9mh10mifwl23429grgg39fqygxm-run-logos-standalone-ui.drv'...
+=== ui-dev exit=0
+=== m2b run 5 2026-10-01T21:17:44Z
+=== m2b exit=1 2026-10-01T21:19:54Z
+=== 1/6 relays up (fresh identities)
+=== 2/6 boot instances
+=== waiting for BOTH instances' transport readiness (node boot ~1min)
+READY
+READY
+=== 3/6 P1 online post
+P1_NOT_RECEIVED
+FAIL: P1 not received
+=== cleanup 2026-10-01T21:19:48Z

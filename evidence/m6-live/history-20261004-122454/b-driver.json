@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "phase": "fetch",
+  "text": "TECHNICAL TEST DATA: offline-reader history check 2026-10-04T10:24:54Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 1,
+      "what": "transport ready",
+      "state": "transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events"
+    },
+    {
+      "t_s": 5,
+      "what": "history row rendered"
+    }
+  ],
+  "initial_thread": "[]",
+  "thread": "[\"id b19d0a652696286b [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-04T10:24:54Z\"]"
+}

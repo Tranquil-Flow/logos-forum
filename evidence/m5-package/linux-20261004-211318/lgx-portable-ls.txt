@@ -1,0 +1,4 @@
+total 7368
+dr-xr-xr-x    2 root root      4096 Jan  1  1970 .
+drwxrwxr-t 1024 root nixbld  729088 Oct  4 19:16 ..
+-r--r--r--    1 root root   6805426 Jan  1  1970 logos-forum_module-module.lgx

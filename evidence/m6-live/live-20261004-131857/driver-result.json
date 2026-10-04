@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T11:19:05Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 7,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 7,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 7,
+      "what": "A state",
+      "state": "connected — sending 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 69,
+      "what": "A state",
+      "state": "Required send FAILED: Unable to send within retry time window — text retained; post stored for retry (automatic retry 1/3 in 15 s)"
+    },
+    {
+      "t_s": 84,
+      "what": "A state",
+      "state": "sending via Required policy (request 67676d379394a3a98e4b) — awaiting propagation"
+    },
+    {
+      "t_s": 85,
+      "what": "A state",
+      "state": "Required send propagated (request 67676d379394a3a98e4b)"
+    },
+    {
+      "t_s": 85,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… posts you write now are saved and sent once connected.",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "connected — sending 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "connected — sending 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)",
+    "Required send FAILED: Unable to send within retry time window — text retained; post stored for retry (automatic retry 1/3 in 15 s)",
+    "sending via Required policy (request 67676d379394a3a98e4b) — awaiting propagation",
+    "Required send propagated (request 67676d379394a3a98e4b)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id 1d00e362f85f6dde [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T11:19:05Z\"]",
+  "b_thread": "[\"id 1d00e362f85f6dde [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T11:19:05Z\"]"
+}

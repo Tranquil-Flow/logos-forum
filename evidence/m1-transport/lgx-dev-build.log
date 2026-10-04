@@ -1,0 +1,39 @@
+=== dev lgx (M1 tree, deps bundled) 2026-10-01T19:57:09Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+waiting for another Nix process to finish fetching input 'github:NixOS/nixpkgs/e9f00bd893984bc8ce46c895c3bf7cac95331127?narHash=sha256-0m27AKv6ka%2Bq270dw48KflE0LwQYrO7Fm4/2//KCVWg%3D'...
+waiting for another Nix process to finish fetching input 'github:logos-co/logos-nix/7c1eb8bc390546f32aaf134866a1c7db8e9311cc?narHash=sha256-EOG96lY4KnZadh2lczZFMPnfPP9tWXdWt1p1CP8Gvww%3D'...
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/gpisylhicafkv6krga1sphvi9sk8vss4-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/7g8j75lks6qjxfa911y7rfqma81gxxg9-logos-forum_module-module.drv
+  /nix/store/b9ypkrz19xn1xxhpmm0wv6qf8i4ivavm-logos-forum_module-module-metadata.json.drv
+  /nix/store/inags98dp0s5fp6513z49b58fghf9ia7-logos-forum_module-module-lgx-0.1.0.drv
+building '/nix/store/b9ypkrz19xn1xxhpmm0wv6qf8i4ivavm-logos-forum_module-module-metadata.json.drv'...
+building '/nix/store/gpisylhicafkv6krga1sphvi9sk8vss4-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/7g8j75lks6qjxfa911y7rfqma81gxxg9-logos-forum_module-module.drv'...
+building '/nix/store/inags98dp0s5fp6513z49b58fghf9ia7-logos-forum_module-module-lgx-0.1.0.drv'...
+=== exit=0 2026-10-01T19:58:11Z
+assets/
+assets/icon.png
+assets/lidl/
+assets/lidl/delivery_module.lidl
+assets/lidl/storage_module.lidl
+manifest.json
+variants/
+variants/darwin-arm64-dev/
+variants/darwin-arm64-dev/forum_module_plugin.dylib
+variants/darwin-arm64-dev/forum_module_replica_factory.dylib
+variants/darwin-arm64-dev/metadata.json
+variants/darwin-arm64-dev/qml/
+variants/darwin-arm64-dev/qml/Main.qml
+variants/darwin-arm64-dev/qml/qmldir
+variants/darwin-arm64-dev/src/
+variants/darwin-arm64-dev/src/icons/
+variants/darwin-arm64-dev/src/icons/icon.png

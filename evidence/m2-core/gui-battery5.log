@@ -1,0 +1,17 @@
+=== ui-dev (nixpkgs override past damaged path) 2026-10-03T08:28:56Z
+ui-dev exit=1
+error: Cannot build '/nix/store/a5cx53a7m6iviwpyc852iz00j2ga1a1i-logos-forum_module-module-lib-0.1.0.drv'.
+error: Cannot build '/nix/store/0gjsxrgw4vf3qysy49fg0mva6gvm5a14-logos-forum_module-module.drv'.
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/xgq427ky7w1lprfc5b4xp2kzqvcfxhiv-logos-forum_module-plugin-dir.drv'.
+=== integration (nixpkgs override) 2026-10-03T09:18:49Z
+integ exit=1
+logos-forum_module-module-lib> ninja: build stopped: subcommand failed.
+       Reason: builder failed with exit code 1.
+       > ninja: build stopped: subcommand failed.
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency

@@ -1,0 +1,7 @@
+=== ui-dev 9 (sync-send restore) 2026-10-02T08:46:48Z
+ui-dev exit=0
+=== m1 smoke (sync-send tree) 2026-10-02T08:48:43Z
+=== exit=1 2026-10-02T08:51:13Z
+  "status": "FAIL",
+  "error": "timeout waiting for sender propagation state: sender transport state: {\"id\":184,\"ok\":true,\"result\":\"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events\",\"undefined\":false}"
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261002-104843"}

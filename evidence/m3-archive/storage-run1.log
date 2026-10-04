@@ -1,0 +1,6 @@
+=== m3 storage harness run 1 2026-10-02T12:27:59Z
+=== 1/7 corpus (TECHNICAL TEST DATA, signed, 5 posts)
+=== 2/7 archive roles up (loopback, no public bootstrap)
+RESULT {"status": "FAIL", "layer": "m3-storage-lifecycle", "evidence": "<repo>/evidence/m3-archive/storage-20261002-142759", "claims": [], "corpus": {"posts": 5, "bytes": 1629, "sha256": "f8a8c605708e5c7e8bcd49d304fe94477a3aeabf6a1ef5d2891402a95be30780", "author_is_archive": false}, "error": "RuntimeError: ('call', 'storage_module', 'init', 'str:{\"data-dir\": \"~/.local/share/lp0026-forum-dev/m3-storage/archive-a/storage-data\", \"log-level\": \"INFO\", \"log-file\": \"<repo>/evidence/m3-archive/storage-20261002-142759/archive-a/storage.log\", \"listen-ip\": \"127.0.0.1\", \"listen-port\": 52730, \"nat\": \"extip:127.0.0.1\", \"no-bootstrap-node\": true, \"bootstrap-node\": [], \"mix-enabled\": false, \"num-threads\": 1, \"storage-quota\": 67108864, \"block-ttl\": \"600s\", \"block-mi\": \"5s\"}'): {\"code\":\"NO_DAEMON\",\"message\":\"No client config at ~/.local/share/lp0026-forum-dev/m3-storage/archive-a/session/client/config.yaml. Start a daemon in this session (it writes one on boot), or install a dial spec with `logosctl client config set FILE` alongside the matching token file.\",\"status\":\"error\"}\n "}
+cleanup leftover: none
+=== exit=1 2026-10-02T12:28:01Z

@@ -1,0 +1,8 @@
+{
+  "canonical": "archive-v1|archive=2b812cc4fcf6fc585ed282c3f9c615232dc883e7c5f6ada2fecd7e946379f310|epoch=1|forum=general|predecessor=|posts=5|created=1790951167464|seg=zDvZRwzm5M9YxGmPPGcKXK71uhECtRMzQNZcjDtjvzExtqzSvcGF:ec4e1f9961655bc02605b69f18422d84ebd92e54114b60a2c91aaba44343720f:1629:5:fdeaee150d896116f34b0c3f34b54f42b8e71ec701d23858d11eb21160c25d63:f48d70eb9b97286e5eac3910f67d977b056aa532b3ce320b441fd0e968ae3c12",
+  "signature": "2090166e741a83a1dcd077d690d97a1a2518825eeb3325fc30d919ff4fded332eff378c6a446953a4ae2493a47cb15e8b4a3fcc58f81b23d2b7f8882f7fbab00",
+  "id": "c9ded9fe74320e30e8d288a445ce3b74a4bae17c545fec735e6b9f20df2bca52",
+  "archive_pub": "2b812cc4fcf6fc585ed282c3f9c615232dc883e7c5f6ada2fecd7e946379f310",
+  "epoch": 1,
+  "author_pub": "7c2d08ec1db9ace9b93d241414738873d44aca99e5a8e25bbe2d01ee93407dfc"
+}

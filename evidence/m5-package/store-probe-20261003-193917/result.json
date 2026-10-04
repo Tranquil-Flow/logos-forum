@@ -1,0 +1,30 @@
+{
+  "status": "FAIL",
+  "stage_rc": {
+    "s1": 1,
+    "s2": 99,
+    "s3": 99
+  },
+  "stage1": {
+    "_err": "missing"
+  },
+  "stage2": {
+    "_skip": true
+  },
+  "stage3": {
+    "_skip": true
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261003-193917",
+  "note": "store_probe drives the real QML buttons; reads outcome.text (post-slot Text) + QtRO PROP \u2014 not the watch handle.",
+  "layer": "store-open-wedge-probe",
+  "bisect": "open",
+  "host_smoking_gun": {
+    "eventResponse_warnings": 2,
+    "getAvailableConfigs_calls": 1,
+    "interpretation": "eventResponse warning fires every time a slot is invoked; the slot runs but its return value never reaches the replica"
+  },
+  "diagnosis": "QtRO back-channel wedge: capability_module cannot connect to eventResponse signal \u2014 slot return is computed but never delivered to the replica. Not a store issue (slot runs, getAvailableConfigs fires; SQLite open / WAL / migration hypotheses all ruled out by the precreated and nowal bisect rungs both passing-through with the same wedge).",
+  "gate_label": "M2-GUI BLOCKED-with-receipts (QtRO back-channel wedge in dev launcher; store is healthy; CI integration-25 4/4 holds)"
+}

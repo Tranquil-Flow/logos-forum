@@ -1,0 +1,60 @@
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=4534723 pubsubTopic=/waku/2/rs/3/7 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*NSkuby msg_hash=0xe4b589e65a53d968fec9952298711cf6a79929d8443323178e09fbc4d309f155 mixify=true
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Publish                                    topics="waku lightpush client" tid=4534723 myPeerId=16U*FMCSLG peerId= msgHash=0xe4b589e65a53d968fec9952298711cf6a79929d8443323178e09fbc4d309f155 sentTime=1791110503694225152
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Destination data                           tid=4534723 destination=MixDestination[MixNode](16Uiu2HAmTUbnxLGT9JvV6mu9oPyDjqHK4Phs1VDJNUgESgNSkuby)
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Selected mix node:                         tid=4534723 indexInPath=0 peerId=16U*VpJprH
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Selected mix node:                         tid=4534723 indexInPath=1 peerId=16U*kGyuEP
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Selected mix node:                         tid=4534723 indexInPath=2 peerId=16U*NSkuby
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Selected mix node for surbs:               tid=4534723 indexInPath=0 peerId=16U*TwqBiH
+[2026-10-04 12:41:43.694] [out] [delivery_module] DBG 2026-10-04 12:41:43.694+02:00 Selected mix node for surbs:               tid=4534723 indexInPath=1 peerId=16U*kGyuEP
+[2026-10-04 12:41:43.745] [out] [delivery_module] DBG 2026-10-04 12:41:43.745+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*Yn2Pww
+[2026-10-04 12:41:43.745] [out] [delivery_module] DBG 2026-10-04 12:41:43.745+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*2pfeoX
+[2026-10-04 12:41:43.745] [out] [delivery_module] DBG 2026-10-04 12:41:43.745+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*oeaQi3
+[2026-10-04 12:41:43.791] [out] [delivery_module] DBG 2026-10-04 12:41:43.791+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:43.809] [out] [delivery_module] DBG 2026-10-04 12:41:43.809+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*2pfeoX
+[2026-10-04 12:41:43.809] [out] [delivery_module] DBG 2026-10-04 12:41:43.809+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*oeaQi3
+[2026-10-04 12:41:43.809] [out] [delivery_module] DBG 2026-10-04 12:41:43.809+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*Yn2Pww
+[2026-10-04 12:41:43.894] [out] [delivery_module] DBG 2026-10-04 12:41:43.894+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:43.895] [out] [delivery_module] DBG 2026-10-04 12:41:43.895+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:43.903] [out] [delivery_module] DBG 2026-10-04 12:41:43.903+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*Yn2Pww
+[2026-10-04 12:41:43.903] [out] [delivery_module] DBG 2026-10-04 12:41:43.903+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*oeaQi3
+[2026-10-04 12:41:43.903] [out] [delivery_module] DBG 2026-10-04 12:41:43.903+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*2pfeoX
+[2026-10-04 12:41:43.998] [out] [delivery_module] DBG 2026-10-04 12:41:43.998+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:43.999] [out] [delivery_module] DBG 2026-10-04 12:41:43.998+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:43.999] [out] [delivery_module] DBG 2026-10-04 12:41:43.999+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:43.999] [out] [delivery_module] DBG 2026-10-04 12:41:43.999+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:44.101] [out] [delivery_module] DBG 2026-10-04 12:41:44.101+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:44.102] [out] [delivery_module] DBG 2026-10-04 12:41:44.102+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:44.102] [out] [delivery_module] DBG 2026-10-04 12:41:44.102+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:44.205] [out] [delivery_module] DBG 2026-10-04 12:41:44.205+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:44.863] [out] [delivery_module] DBG 2026-10-04 12:41:44.863+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:44.865] [out] [delivery_module] DBG 2026-10-04 12:41:44.865+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:44.966] [out] [delivery_module] DBG 2026-10-04 12:41:44.965+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:44.966] [out] [delivery_module] DBG 2026-10-04 12:41:44.965+02:00 no listener registered                     tid=4534725 event=onTopicHealthChange
+[2026-10-04 12:41:44.968] [out] [delivery_module] DBG 2026-10-04 12:41:44.968+02:00 calculateConnectionState                   tid=4534723 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 12:41:45.492] [out] [delivery_module] DBG 2026-10-04 12:41:45.492+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*NSkuby
+[2026-10-04 12:41:45.492] [out] [delivery_module] DBG 2026-10-04 12:41:45.492+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*iSrhve
+[2026-10-04 12:41:45.492] [out] [delivery_module] DBG 2026-10-04 12:41:45.492+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*TwqBiH
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*oN8hgK
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*VpJprH
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*P1S397
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*T3UNSE
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*kGyuEP
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*VpJprH
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*T3UNSE
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*P1S397
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*kGyuEP
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*NSkuby
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*iSrhve
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*TwqBiH
+[2026-10-04 12:41:45.493] [out] [delivery_module] DBG 2026-10-04 12:41:45.493+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*oN8hgK
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*kGyuEP
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*VpJprH
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*P1S397
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*T3UNSE
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*TwqBiH
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*oN8hgK
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*NSkuby
+[2026-10-04 12:41:45.494] [out] [delivery_module] DBG 2026-10-04 12:41:45.494+02:00 Lookup query                               topics="kad-dht find" tid=4534723 peer=16U*iSrhve
+[2026-10-04 12:41:45.645] [out] [delivery_module] DBG 2026-10-04 12:41:45.645+02:00 Message propagated via Mix                 topics="send service mix processor" tid=4534723 requestId=c38688468e6ca6e5d167 msgHash=0xe4b589e65a53d968fec9952298711cf6a79929d8443323178e09fbc4d309f155
+[2026-10-04 12:41:45.645] [out] [delivery_module] INF 2026-10-04 12:41:45.645+02:00 Message successfully propagated            topics="send service" tid=4534723 requestId=c38688468e6ca6e5d167 msgHash=withheld
+[2026-10-04 12:41:45.645] [out] [delivery_module] INF 2026-10-04 12:41:45.645+02:00 Message successfully sent over mix         topics="send service" tid=4534723 requestId=c38688468e6ca6e5d167

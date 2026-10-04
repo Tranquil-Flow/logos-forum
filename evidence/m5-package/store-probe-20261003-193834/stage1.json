@@ -1,0 +1,16 @@
+=== stage 1: 'Check transport' → store() opened? ===
+{
+  "stage1": "FAIL",
+  "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+  "direct_has_outbox": false,
+  "outcome": "(empty — QML watch success callback did not fire)",
+  "outcome_has_outbox": false,
+  "transportState_before": "no transport configured — posting unavailable (Required policy)",
+  "transportState_after": "no transport configured — posting unavailable (Required policy)",
+  "transportState_changed": false,
+  "accounts": [],
+  "topics": [],
+  "threadPosts_count": 0,
+  "diagnosis": "store broken (no path returned 'outbox:')"
+}
+FAIL: stage 1 driver crashed

@@ -1,0 +1,129 @@
+run-logos-standalone-ui: hot-reloading QML from <repo>/src/qml
+  (export DEV_QML_PATH to override, or LOGOS_QML_HOT_RELOAD=0 to disable)
+Session directory: "~/Library/Application Support/Logos/LogosStandalone"
+[2026-10-03 20:55:19.464] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[2026-10-03 20:55:19.494] [out] [capability_module] [2026-10-03 20:55:19.494] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_a5b280d1f378" at "20:55:19.498"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_a5b280d1f378"
+LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:7e1db66f…"
+RemoteTransportConnection: Requesting object: "capability_module" at "20:55:19.499"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141320896
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 20:55:19.500] [info] [logos] Module loaded: capability_module
+LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:af702f60…"
+RemoteTransportConnection: Requesting object: "capability_module" at "20:55:19.525"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141307136
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 20:55:19.524] [info] [logos] Module loaded: modules_state
+RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_a5b280d1f378" at "20:55:19.525"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_a5b280d1f378"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_a5b280d1f378" at "20:55:19.525"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_a5b280d1f378"
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/lvakpj3h33pr28ad6sb586skmwy22v17-logos-forum_module-plugin-dir/src/icons/icon.png"
+[2026-10-03 20:55:19.559] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:08888822…"
+RemoteTransportConnection: Requesting object: "capability_module" at "20:55:19.560"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141399936
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 20:55:19.560] [info] [logos] Module loaded: delivery_module
+RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_a5b280d1f378" at "20:55:19.560"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_a5b280d1f378"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_a5b280d1f378" at "20:55:19.560"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_a5b280d1f378"
+LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+RemoteTransportConnection: Requesting object: "modules_state" at "20:55:19.560"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141401568
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "delivery_module"
+[2026-10-03 20:55:19.588] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:7f0bea00…"
+RemoteTransportConnection: Requesting object: "capability_module" at "20:55:19.589"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141307168
+LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141401344
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[2026-10-03 20:55:19.589] [info] [logos] Pushed module snapshot to modules_state
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141353760
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 20:55:19.589] [info] [logos] Module loaded: storage_module
+RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_a5b280d1f378" at "20:55:19.590"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_a5b280d1f378"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_a5b280d1f378" at "20:55:19.590"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_a5b280d1f378"
+LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "storage_module"
+DEV_QML_PATH override active: <repo>/src/qml/Main.qml
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_a5b280d1f378" at "20:55:19.591"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_a5b280d1f378"
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:c5bc6dc1…"
+RemoteTransportConnection: Requesting object: "capability_module" at "20:55:19.591"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141322112
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553141359328
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+qt.qpa.fonts: Populating font family aliases took 35 ms. Replace uses of missing font family "Sans Serif" with one that exists to avoid this cost. 
+QML hot reload active — watching <repo>/src/qml 
+  edit any .qml/.js under it and save; set LOGOS_QML_HOT_RELOAD=0 to disable
+Loaded UI plugin: "/nix/store/lvakpj3h33pr28ad6sb586skmwy22v17-logos-forum_module-plugin-dir"
+[QmlInspector] Inspector server listening on port 3789
+[QmlInspector] Client connected from "::1"
+[2026-10-03 20:55:20.952] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[2026-10-03 20:55:20.953] [info] [logos] [delivery_module] DeliveryModuleImpl::getAvailableConfigs called
+[2026-10-03 20:55:20.953] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get available configs - context not initialized. Call createNode first.
+[2026-10-03 20:55:20.953] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[2026-10-03 20:55:20.958] [info] [logos] [delivery_module] DeliveryModuleImpl::getAvailableConfigs called
+[2026-10-03 20:55:20.958] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get available configs - context not initialized. Call createNode first.
+[QmlInspector] Client disconnected
+[QmlInspector] Client connected from "::1"
+[QmlInspector] Client disconnected
+[QmlInspector] Client connected from "::1"
+[QmlInspector] Client disconnected

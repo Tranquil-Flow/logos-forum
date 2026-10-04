@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "layer": "m2b-cli-protocol",
+  "evidence": "<repo>/evidence/m2-core/m2b-cli-20261003-212136",
+  "claims": [
+    "p1-wire-verified-independently",
+    "p2-required-failed-honestly-relays-down",
+    "p2-signed-wire-durably-retained",
+    "p2-exactly-once-distinct-event-id",
+    "p2-original-signed-bytes-resent"
+  ],
+  "p1": {
+    "verified": true,
+    "event_ids": [
+      "a37ed4b339d9a6de870112c89b12a1763e7a58ee302be07bc9b0785630f20a69"
+    ],
+    "deliveries_seen": 1,
+    "author": "dceacaedaba84922a7f0917cdcbe34a86208f1b388a529bdfa62f462c10913d8"
+  },
+  "p2_send_refused": true,
+  "p2_expected_event_id": "aa7ad1b632bef2f929b39f9320cfb668bda431d771cbe73b2ff117434958b281",
+  "p2": {
+    "verified": true,
+    "event_ids": [
+      "aa7ad1b632bef2f929b39f9320cfb668bda431d771cbe73b2ff117434958b281"
+    ],
+    "deliveries_seen": 1,
+    "author": "dceacaedaba84922a7f0917cdcbe34a86208f1b388a529bdfa62f462c10913d8"
+  },
+  "wire_format": "canonical-bytes ++ \\n ++ sig-hex; Ed25519 RFC 8032 (libsodium in product, python-cryptography in harness \u2014 same standard)",
+  "canonical_sample_sha256": "a37ed4b339d9a6de870112c89b12a1763e7a58ee302be07bc9b0785630f20a69"
+}

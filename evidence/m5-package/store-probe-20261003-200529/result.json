@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "layer": "store-open-wedge-probe",
+  "bisect": "open",
+  "stage_rc": {
+    "s1": 99,
+    "s2": 1,
+    "s3": 1
+  },
+  "stage_summary": {
+    "s1_slot_return": "WEDGED",
+    "s2_prop_sync": "WEDGED",
+    "s3_post_path": "WEDGED"
+  },
+  "stage1": {
+    "_skip": true
+  },
+  "stage2": {
+    "stage2": "FAIL",
+    "backend_alive_after_stage1": true,
+    "textfield_found": true,
+    "click_result": {
+      "clicked": true,
+      "id": 2005,
+      "matchedId": "2",
+      "matchedText": "Add alias",
+      "matchedType": "Button_QMLTYPE_1",
+      "ok": true,
+      "widget": "QQuickWidget",
+      "x": 459,
+      "y": 70
+    },
+    "direct_slot_return": "{\"id\":2006,\"ok\":true,\"result\":null,\"undefined\":true}",
+    "echo_slot_return": "{\"id\":2007,\"ok\":true,\"result\":null,\"undefined\":true}",
+    "accounts_before": [],
+    "accounts_after": [],
+    "accounts_prop_has_demo": false,
+    "prop_sync_works": false,
+    "outcome": "(empty)",
+    "channel": "wedged",
+    "interpretation_hint": "PROP-sync also wedged \u2192 first slot call kills the QtRO source-replica connection; all subsequent slot calls are no-ops; need source-side fix (worker-thread dispatch + marshalled PROP updates) OR upstream capability_module eventResponse fix"
+  },
+  "stage3": {
+    "stage3": "FAIL",
+    "reason": "topic outcome never updated"
+  },
+  "host_smoking_gun": {
+    "eventResponse_warnings": 0,
+    "getAvailableConfigs_calls": 0,
+    "interpretation": "no wedge signature observed"
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261003-200529",
+  "diagnosis": "SKIP=1 variant \u2014 same as 200641. Stage 2 cannot dispatch slots to the source even on a fresh source (stage 1 skipped). L3 wedge is from the first slot call.",
+  "gate_label": "M2-GUI BLOCKED-with-receipts (see diagnosis)",
+  "next_steps": [
+    "If PROP-sync is also wedged: deeper QtRO bug; needs upstream capability_module eventResponse fix",
+    "Accept that the dev-launcher shape (logos-standalone-app 1.0.0) is permanently limited; the nix-sandboxed prod build is unaffected"
+  ],
+  "wedge_layers_identified": [
+    "L1 slot-return channel",
+    "L2 PROP-sync channel",
+    "L3 QML\u2192source slot dispatch: confirmed by SKIP=1"
+  ]
+}

@@ -1,0 +1,17 @@
+=== ui-dev (helper fix) 2026-10-03T07:52:24Z
+ui-dev exit=1
+error: Cannot build '/nix/store/yppmn93hjrzaidmhw1drikch5gn1zs4y-logos-forum_module-module-lib-0.1.0.drv'.
+       > /nix/var/nix/builds/nix-40617-681650007/abhcy09msa1drw6nsi5d71nfnqshj2jx-source/src/forum_module_backend.cpp:403:23: error: cannot initialize a variable of type 'forum::Store *' with an rvalue of type 'bool'
+error: Cannot build '/nix/store/dpv20qvvb49zx9bfdrr6jny8qma8hrbn-logos-forum_module-module.drv'.
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/rn2nb5pnygzs7jwk3iih9jdkjsszgrda-logos-forum_module-plugin-dir.drv'.
+=== integration (helper fix) 2026-10-03T07:54:03Z
+integ exit=1
+       Reason: builder failed with exit code 1.
+       > ninja: build stopped: subcommand failed.
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency

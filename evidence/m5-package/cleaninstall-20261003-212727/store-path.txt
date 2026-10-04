@@ -1,0 +1,3 @@
+Support/Logos/ui-host/forum.db
+Support/Logos/ui-host/forum.db-shm
+Support/Logos/ui-host/forum.db-wal

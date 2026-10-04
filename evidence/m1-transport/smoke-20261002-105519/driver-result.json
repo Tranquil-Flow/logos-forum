@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "text": "TECHNICAL TEST DATA: M1 Required-send round trip",
+  "sender_port": 3768,
+  "receiver_port": 3769,
+  "error": "timeout waiting for sender propagation state: timeout: evaluate :3768"
+}

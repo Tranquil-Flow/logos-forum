@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "layer": "m2b-cli-protocol",
+  "evidence": "<repo>/evidence/m2-core/m2b-cli-20261003-194612",
+  "claims": [],
+  "error": "RuntimeError: sender node never came up (no multiaddrs)"
+}

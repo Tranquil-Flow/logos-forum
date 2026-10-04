@@ -1,0 +1,380 @@
+run-logos-standalone-ui: hot-reloading QML from <repo>/src/qml
+  (export DEV_QML_PATH to override, or LOGOS_QML_HOT_RELOAD=0 to disable)
+Session directory: "~/Library/Application Support/Logos/LogosStandalone"
+[2026-10-03 21:08:38.414] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[2026-10-03 21:08:38.449] [out] [capability_module] [2026-10-03 21:08:38.449] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_58490420492f" at "21:08:38.450"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_58490420492f"
+LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:e2e606f6…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:08:38.450"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151046432
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 21:08:38.531] [info] [logos] Module loaded: capability_module
+LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:89fec2a5…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:08:38.566"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151018784
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 21:08:38.566] [info] [logos] Module loaded: modules_state
+RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_58490420492f" at "21:08:38.566"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_58490420492f"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_58490420492f" at "21:08:38.566"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_58490420492f"
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/hvaxfjndlvdc2din115i62wg7hlsw1s1-logos-forum_module-plugin-dir/src/icons/icon.png"
+[2026-10-03 21:08:38.613] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:dcbb0bd6…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:08:38.614"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553150987392
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 21:08:38.614] [info] [logos] Module loaded: delivery_module
+RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_58490420492f" at "21:08:38.614"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_58490420492f"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_58490420492f" at "21:08:38.614"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_58490420492f"
+LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+RemoteTransportConnection: Requesting object: "modules_state" at "21:08:38.614"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151091872
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "delivery_module"
+[2026-10-03 21:08:38.649] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:538cb8a7…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:08:38.650"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151057792
+LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151082464
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[2026-10-03 21:08:38.650] [info] [logos] Pushed module snapshot to modules_state
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553150952192
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 21:08:38.651] [info] [logos] Module loaded: storage_module
+RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_58490420492f" at "21:08:38.651"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_58490420492f"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_58490420492f" at "21:08:38.651"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_58490420492f"
+LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "storage_module"
+DEV_QML_PATH override active: <repo>/src/qml/Main.qml
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_58490420492f" at "21:08:38.651"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_58490420492f"
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:a066c10b…"
+RemoteTransportConnection: Requesting object: "capability_module" at "21:08:38.651"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151248704
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553151247680
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-03 21:08:38.868] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[2026-10-03 21:08:38.870] [info] [logos] [delivery_module] DeliveryModuleImpl::getNodeInfo called with nodeInfoId: MyPeerId
+[2026-10-03 21:08:38.870] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get node info - context not initialized. Call createNode first.
+[2026-10-03 21:08:38.870] [info] [logos] [delivery_module] DeliveryModuleImpl::createNode called
+[2026-10-03 21:08:38.932] [info] [logos] [delivery_module] DeliveryModuleImpl: Waiting for createNode callback...
+[2026-10-03 21:08:38.937] [out] [delivery_module] DBG 2026-10-03 21:08:38.937+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=2998941
+[2026-10-03 21:08:38.937] [out] [delivery_module] INF 2026-10-03 21:08:38.937+02:00 Sharding configuration:                    topics="waku conf builder" tid=2998941 shardingConf="(kind: AutoSharding, numShardsInCluster: 1)" subscribeShards=@[0]
+[2026-10-03 21:08:38.937] [out] [delivery_module] INF 2026-10-03 21:08:38.937+02:00 Configuration: Enabled protocols           topics="waku conf" tid=2998941 relay=true rlnRelay=false store=false filter=false lightPush=false peerExchange=false rendezvous=false
+[2026-10-03 21:08:38.938] [out] [delivery_module] INF 2026-10-03 21:08:38.937+02:00 Configuration. Network                     topics="waku conf" tid=2998941 cluster=42
+[2026-10-03 21:08:38.938] [out] [delivery_module] DBG 2026-10-03 21:08:38.938+02:00 Configuration. Active Relay Shards         topics="waku conf" tid=2998941 shard=0
+[2026-10-03 21:08:38.938] [out] [delivery_module] INF 2026-10-03 21:08:38.938+02:00 Setting up storage                         tid=2998941
+[2026-10-03 21:08:38.938] [out] [delivery_module] INF 2026-10-03 21:08:38.938+02:00 Initializing node                          tid=2998941
+[2026-10-03 21:08:38.939] [out] [delivery_module] INF 2026-10-03 21:08:38.939+02:00 Initializing networking                    tid=2998941 addrs=@[/ip4/127.0.0.1/tcp/54689]
+[2026-10-03 21:08:38.939] [out] [delivery_module] INF 2026-10-03 21:08:38.939+02:00 Mounting protocols                         tid=2998941
+[2026-10-03 21:08:38.940] [out] [delivery_module] INF 2026-10-03 21:08:38.939+02:00 Created WakuMetadata protocol              topics="waku node" tid=2998941 clusterId=42 shards="[0]"
+[2026-10-03 21:08:38.940] [out] [delivery_module] INF 2026-10-03 21:08:38.940+02:00 Mounting mix protocol                      topics="waku node" tid=2998941INF 2026-10-03 21:08:38.940+02:00 node info                                  topics="waku node" tid=2998941 wakuInfo="(listenAddresses: [/ip4/127.0.0.1/tcp/54689/p2p/16Uiu2HAmNux7CbCGuSmwc4tfh35t5JTQyAeZz3Zwitrhztf5s5TY], enrUri: enr:-JS4QAi2gFLLlF587K7o8EFzp7MIYJ0eLU7mCuLYIyt9o4LibUx5EYtkZmOr2qGHcFsNUyAG5FXFHldVgTOmIEEw7ccBgmlkgnY0gmlwhH8AAAGCcnOFACoBAACJc2VjcDI1NmsxoQOYaguaXwBbPhpCKxXi2V4PfIE-36CSgYcuVdrTogdLo4N0Y3CC1aGFd2FrdTIh, mixPubKey: none())"
+[2026-10-03 21:08:38.940] [out] [delivery_module]  nodeId="(listenAddresses: [/ip4/127.0.0.1/tcp/54689/p2p/16Uiu2HAmNux7CbCGuSmwc4tfh35t5JTQyAeZz3Zwitrhztf5s5TY], enrUri: enr:-JS4QAi2gFLLlF587K7o8EFzp7MIYJ0eLU7mCuLYIyt9o4LibUx5EYtkZmOr2qGHcFsNUyAG5FXFHldVgTOmIEEw7ccBgmlkgnY0gmlwhH8AAAGCcnOFACoBAACJc2VjcDI1NmsxoQOYaguaXwBbPhpCKxXi2V4PfIE-36CSgYcuVdrTogdLo4N0Y3CC1aGFd2FrdTIh, mixPubKey: none())"
+[2026-10-03 21:08:38.940] [out] [delivery_module] INF 2026-10-03 21:08:38.940+02:00 local addr                                 topics="waku node" tid=2998941 localaddr=/ip4/127.0.0.1/tcp/54689
+[2026-10-03 21:08:38.940] [out] [delivery_module] INF 2026-10-03 21:08:38.940+02:00 mixPubKey                                  topics="waku node" tid=2998941 mixPubKey="[30, 52, 149, 13, 10, 64, 15, 75, 201, 216, 210, 212, 5, 119, 211, 92, 105, 197, 224, 37, 212, 2, 106, 136, 203, 62, 149, 133, 157, 209, 74, 19]"
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 Using mix bootstrap nodes                  topics="waku mix" tid=2998941 entries=4 poolSize=4
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting store client                      topics="waku node store api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 Mounting auto sharding                     topics="waku node" tid=2998941 clusterId=42 shardCount=1
+[2026-10-03 21:08:38.941] [out] [delivery_module] DBG 2026-10-03 21:08:38.941+02:00 Shards created from content topics         tid=2998941 contentTopics=[] shards=[]
+[2026-10-03 21:08:38.941] [out] [delivery_module] DBG 2026-10-03 21:08:38.941+02:00 Setting max message size                   tid=2998941 num_bytes=153600
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting relay protocol                    topics="waku node relay api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] DBG 2026-10-03 21:08:38.941+02:00 relay mounted successfully                 topics="waku node relay api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] DBG 2026-10-03 21:08:38.941+02:00 Adding validator to signed shards          tid=2998941 protectedShards=[] clusterId=42
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting libp2p ping protocol              topics="waku node ping api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting light push client                 topics="waku node lightpush api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting legacy light push client          topics="waku node lightpush api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] DBG 2026-10-03 21:08:38.941+02:00 Adding peer to service slots               topics="waku node peer_manager" tid=2998941 peerId=16U*Rt7brp addr=/ip4/127.0.0.1/tcp/54685 service=/vac/waku/lightpush/3.0.0
+[2026-10-03 21:08:38.941] [out] [delivery_module] DBG 2026-10-03 21:08:38.941+02:00 Adding peer to service slots               topics="waku node peer_manager" tid=2998941 peerId=16U*Rt7brp addr=/ip4/127.0.0.1/tcp/54685 service=/vac/waku/lightpush/2.0.0-beta1
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting filter client                     topics="waku node filter api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 mounting waku peer exchange client         topics="waku node peerexchange api" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 No external callbacks to be set            topics="wakunode waku" tid=2998941
+[2026-10-03 21:08:38.941] [out] [delivery_module] INF 2026-10-03 21:08:38.941+02:00 Setting up AutonatService                  topics="libp2p autonatservice" tid=2998941
+[2026-10-03 21:08:38.942] [info] [logos] [delivery_module] DeliveryModuleImpl::createNode callback called with ret: 0
+[2026-10-03 21:08:38.943] [info] [logos] [delivery_module] DeliveryModuleImpl: Delivery context created successfully
+[2026-10-03 21:08:38.944] [info] [logos] [delivery_module] DeliveryModuleImpl::start called
+[2026-10-03 21:08:38.944] [out] [delivery_module] INF 2026-10-03 21:08:38.944+02:00 Retrieve dynamic bootstrap nodes           topics="wakunode waku" tid=2998941
+[2026-10-03 21:08:38.944] [info] [logos] [delivery_module] DeliveryModuleImpl::getNodeInfo called with nodeInfoId: MyPeerId
+[2026-10-03 21:08:38.944] [out] [delivery_module] INF 2026-10-03 21:08:38.944+02:00 Running nwaku node                         tid=2998941 version=v0.39.0-gca2814
+[2026-10-03 21:08:38.944] [out] [delivery_module] INF 2026-10-03 21:08:38.944+02:00 Starting Waku node                         topics="waku node" tid=2998941 version=v0.39.0-gca2814
+[2026-10-03 21:08:38.944] [out] [delivery_module] DBG 2026-10-03 21:08:38.944+02:00 starting switch for peer                   topics="libp2p switch" tid=2998941 peerInfo="(peerId: 16Uiu2HAmNux7CbCGuSmwc4tfh35t5JTQyAeZz3Zwitrhztf5s5TY, listenAddrs: [/ip4/127.0.0.1/tcp/54689], addrs: [], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-03 21:08:38.945] [out] [delivery_module] DBG 2026-10-03 21:08:38.945+02:00 About to accept incoming connection        topics="libp2p switch" tid=2998941
+[2026-10-03 21:08:38.946] [out] [delivery_module] INF 2026-10-03 21:08:38.946+02:00 start                                      topics="waku relay" tid=2998941
+[2026-10-03 21:08:38.946] [out] [delivery_module] DBG 2026-10-03 21:08:38.946+02:00 Started libp2p node                        topics="libp2p switch" tid=2998941 peer="(peerId: 16Uiu2HAmNux7CbCGuSmwc4tfh35t5JTQyAeZz3Zwitrhztf5s5TY, listenAddrs: [/ip4/127.0.0.1/tcp/54689], addrs: [/ip4/127.0.0.1/tcp/54689], protocols: [/ipfs/id/1.0.0, /libp2p/autonat/1.0.0, /libp2p/circuit/relay/0.2.0/hop, /vac/waku/metadata/1.0.0, /mix/1.0.0, /vac/waku/relay/2.0.0, /ipfs/ping/1.0.0, /vac/waku/filter-push/2.0.0-beta1], protoVersion: ipfs/0.1.0, agentVersion: logos-delivery-v0.39.0-gca2814)"
+[2026-10-03 21:08:38.947] [out] [delivery_module] INF 2026-10-03 21:08:38.947+02:00 Announced base resolved                    topics="waku node" tid=2998941 addrs=@[/ip4/127.0.0.1/tcp/54689] explicit=@[/ip4/127.0.0.1/tcp/54689]
+[2026-10-03 21:08:38.947] [out] [delivery_module] DBG 2026-10-03 21:08:38.947+02:00 ENR addresses updated                      topics="waku enr" tid=2998941 retained=1 total=1
+[2026-10-03 21:08:38.947] [out] [delivery_module] INF 2026-10-03 21:08:38.947+02:00 Node started successfully                  topics="waku node" tid=2998941
+[2026-10-03 21:08:38.947] [out] [delivery_module] DBG 2026-10-03 21:08:38.947+02:00 Dialing multiple peers                     tid=2998941 numOfPeers=4 nodes="@[\"/ip4/127.0.0.1/tcp/54685/p2p/16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp\", \"/ip4/127.0.0.1/tcp/54686/p2p/16Uiu2HAm6DBUZPjvfZW7oSCr6u7BN5Cc1R76EjGmgTtZRQdHrJL9\", \"/ip4/127.0.0.1/tcp/54687/p2p/16Uiu2HAmCCvt6pd7n8UEByK6xM6EL59VE8EBqm9HHPkrvnJcNLui\", \"/ip4/127.0.0.1/tcp/54688/p2p/16Uiu2HAm63dK7ZZGCza3gh12Cmwbc7Fy8xM5REe63wcYb76gXABY\"]"
+[2026-10-03 21:08:38.948] [out] [delivery_module] DBG 2026-10-03 21:08:38.948+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*Rt7brp addrs="[/ip4/127.0.0.1/tcp/54685]"
+[2026-10-03 21:08:38.948] [out] [delivery_module] DBG 2026-10-03 21:08:38.948+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54685 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54685]"
+[2026-10-03 21:08:38.948] [out] [delivery_module] DBG 2026-10-03 21:08:38.948+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*dHrJL9 addrs="[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:08:38.948] [out] [delivery_module] DBG 2026-10-03 21:08:38.948+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54686 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:08:38.948] [out] [delivery_module] DBG 2026-10-03 21:08:38.948+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:08:38.948] [out] [delivery_module] DBG 2026-10-03 21:08:38.948+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*6gXABY addrs="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*Rt7brp address=/ip4/127.0.0.1/tcp/54685 hostname=127.0.0.1
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*dHrJL9 address=/ip4/127.0.0.1/tcp/54686 hostname=127.0.0.1
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*6gXABY address=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Finished dialing multiple peers            tid=2998941 successfulConns=0 attempted=4
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Starting peer exchange loop                topics="waku node peerexchange api" tid=2998941
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Retrieving peer info via peer exchange protocol topics="waku node peerexchange api" tid=2998941 amount=5
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Peer exchange request could not be made as no peer exchange peers found topics="waku peer_exchange client" tid=2998941
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Failed to retrieve peer info via peer exchange protocol topics="waku node peerexchange api" tid=2998941 error="(status_code: SERVICE_UNAVAILABLE, status_desc: ok(peer_not_found_failure))"
+[2026-10-03 21:08:38.949] [out] [delivery_module] DBG 2026-10-03 21:08:38.949+02:00 Cannot fetch peers from peer exchange      topics="waku node peerexchange api" tid=2998941 cause="(status_code: SERVICE_UNAVAILABLE, status_desc: ok(peer_not_found_failure))"
+[2026-10-03 21:08:38.949] [out] [delivery_module] INF 2026-10-03 21:08:38.949+02:00 Relay peer connections                     topics="waku node peer_manager" tid=2998941 inRelayConns=0/50 outRelayConns=0/25 totalConnections=0/150 notConnectedPeers=4 outsideBackoffPeers=0
+[2026-10-03 21:08:38.950] [info] [logos] [delivery_module] DeliveryModuleImpl::subscribe called with contentTopic: /lp0026forum/1/general/text
+[2026-10-03 21:08:38.950] [out] [delivery_module] DBG 2026-10-03 21:08:38.950+02:00 ENR addresses updated                      topics="waku enr" tid=2998941 retained=1 total=1
+[2026-10-03 21:08:38.950] [out] [delivery_module] DBG 2026-10-03 21:08:38.950+02:00 Subscribing to pubsub topic                topics="waku relay" tid=2998941 pubsubTopic=/waku/2/rs/42/0
+[2026-10-03 21:08:38.951] [out] [delivery_module] INF 2026-10-03 21:08:38.951+02:00 Health monitor loop start                  tid=2998941
+[2026-10-03 21:08:38.952] [out] [delivery_module] DBG 2026-10-03 21:08:38.952+02:00 calculateConnectionState                   tid=2998941 relayCount=0 storeClientCount=0 lightpushCount=0 filterCount=0
+[2026-10-03 21:08:38.952] [out] [delivery_module] INF 2026-10-03 21:08:38.952+02:00 starting keepalive                         tid=2998941 randomPeersKeepalive=10s allPeersKeepalive=2m
+[2026-10-03 21:08:38.952] [out] [delivery_module] DBG 2026-10-03 21:08:38.952+02:00 No mesh peer for the given pubsub topic    topics="waku relay" tid=2998941 pubsubTopic=/waku/2/rs/42/0
+[2026-10-03 21:08:38.955] [out] [delivery_module] WRN 2026-10-03 21:08:38.955+02:00 Messaging persistence disabled, could not open persistency job tid=2998941 jobId=messaging reason="PersistencyError(peBackend: openBackend: open ~/Library/Application Support/Logos/LogosStandalone/module_data/delivery_module/5145dd8132c8/data/messaging.db failed: database is locked)"
+[2026-10-03 21:08:38.959] [info] [logos] [delivery_module] DeliveryModuleImpl: Subscribe completed for topic: /lp0026forum/1/general/text with success
+[2026-10-03 21:08:38.998] [out] [delivery_module] INF 2026-10-03 21:08:38.998+02:00 Node is online                             topics="waku online monitor" tid=2998941
+Loaded UI plugin: "/nix/store/hvaxfjndlvdc2din115i62wg7hlsw1s1-logos-forum_module-plugin-dir"
+[QmlInspector] Inspector server listening on port 3768
+[QmlInspector] Client connected from "::1"
+[2026-10-03 21:08:46.015] [info] [logos] [delivery_module] DeliveryModuleImpl::send called with contentTopic: /lp0026forum/1/general/text
+[2026-10-03 21:08:46.015] [out] [delivery_module] DBG 2026-10-03 21:08:46.015+02:00 SendService.send: processing delivery task topics="send service" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47
+[2026-10-03 21:08:46.015] [info] [logos] [delivery_module] DeliveryModuleImpl: Send initiated for topic: /lp0026forum/1/general/text, with success, requestId: fc4db69b3bb78402f583
+[2026-10-03 21:08:46.015] [out] [delivery_module] DBG 2026-10-03 21:08:46.015+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=1
+[2026-10-03 21:08:46.015] [out] [delivery_module] DBG 2026-10-03 21:08:46.015+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:08:46.015] [out] [delivery_module] DBG 2026-10-03 21:08:46.015+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054526016237056
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*6gXABY
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:08:46.016] [out] [delivery_module] DBG 2026-10-03 21:08:46.016+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*dHrJL9
+[2026-10-03 21:08:46.018] [out] [delivery_module] DBG 2026-10-03 21:08:46.018+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:08:46.018] [out] [delivery_module] DBG 2026-10-03 21:08:46.018+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:08:46.018] [out] [delivery_module] DBG 2026-10-03 21:08:46.018+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:08:46.018] [out] [delivery_module] DBG 2026-10-03 21:08:46.018+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*JcNLui protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54687]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*JcNLui addrs=@[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:08:51.019] [out] [delivery_module] DBG 2026-10-03 21:08:51.019+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:08:51.019] [out] [delivery_module] DBG 2026-10-03 21:08:51.019+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=2
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054531976185088
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*dHrJL9
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:08:51.976] [out] [delivery_module] DBG 2026-10-03 21:08:51.976+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:08:51.977] [out] [delivery_module] DBG 2026-10-03 21:08:51.977+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*dHrJL9 addrs="[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:08:51.977] [out] [delivery_module] DBG 2026-10-03 21:08:51.977+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54686 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:08:51.978] [out] [delivery_module] DBG 2026-10-03 21:08:51.978+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*dHrJL9 address=/ip4/127.0.0.1/tcp/54686 hostname=127.0.0.1
+[2026-10-03 21:08:51.978] [out] [delivery_module] DBG 2026-10-03 21:08:51.978+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*dHrJL9 protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54686]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*dHrJL9 addrs=@[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:08:56.977] [out] [delivery_module] DBG 2026-10-03 21:08:56.977+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:08:56.977] [out] [delivery_module] DBG 2026-10-03 21:08:56.977+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=3
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054537979293184
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:08:57.979] [out] [delivery_module] DBG 2026-10-03 21:08:57.979+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*dHrJL9
+[2026-10-03 21:08:57.981] [out] [delivery_module] DBG 2026-10-03 21:08:57.981+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*6gXABY addrs="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:08:57.981] [out] [delivery_module] DBG 2026-10-03 21:08:57.981+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:08:57.981] [out] [delivery_module] DBG 2026-10-03 21:08:57.981+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*6gXABY address=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1
+[2026-10-03 21:08:57.981] [out] [delivery_module] DBG 2026-10-03 21:08:57.981+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*6gXABY protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54688]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*6gXABY addrs=@[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:02.983] [out] [delivery_module] DBG 2026-10-03 21:09:02.983+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:02.983] [out] [delivery_module] DBG 2026-10-03 21:09:02.983+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=4
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054543986299904
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:09:03.986] [out] [delivery_module] DBG 2026-10-03 21:09:03.986+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*dHrJL9
+[2026-10-03 21:09:03.988] [out] [delivery_module] DBG 2026-10-03 21:09:03.988+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*6gXABY addrs="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:03.988] [out] [delivery_module] DBG 2026-10-03 21:09:03.988+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:03.988] [out] [delivery_module] DBG 2026-10-03 21:09:03.988+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*6gXABY address=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1
+[2026-10-03 21:09:03.988] [out] [delivery_module] DBG 2026-10-03 21:09:03.988+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*6gXABY protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54688]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*6gXABY addrs=@[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:08.990] [out] [delivery_module] DBG 2026-10-03 21:09:08.990+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:08.990] [out] [delivery_module] DBG 2026-10-03 21:09:08.990+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=5
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054549993310976
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*dHrJL9
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*dHrJL9
+[2026-10-03 21:09:09.993] [out] [delivery_module] DBG 2026-10-03 21:09:09.993+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:09.995] [out] [delivery_module] DBG 2026-10-03 21:09:09.995+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:09.995] [out] [delivery_module] DBG 2026-10-03 21:09:09.995+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:09.995] [out] [delivery_module] DBG 2026-10-03 21:09:09.995+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:09:09.995] [out] [delivery_module] DBG 2026-10-03 21:09:09.995+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*JcNLui protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54687]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*JcNLui addrs=@[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:14.996] [out] [delivery_module] DBG 2026-10-03 21:09:14.996+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:14.996] [out] [delivery_module] DBG 2026-10-03 21:09:14.996+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:15.998] [out] [delivery_module] DBG 2026-10-03 21:09:15.998+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=6
+[2026-10-03 21:09:15.998] [out] [delivery_module] DBG 2026-10-03 21:09:15.998+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:15.998] [out] [delivery_module] DBG 2026-10-03 21:09:15.998+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:15.998] [out] [delivery_module] DBG 2026-10-03 21:09:15.998+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054555998936832
+[2026-10-03 21:09:15.998] [out] [delivery_module] DBG 2026-10-03 21:09:15.998+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:15.999] [out] [delivery_module] DBG 2026-10-03 21:09:15.998+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:09:15.999] [out] [delivery_module] DBG 2026-10-03 21:09:15.999+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:15.999] [out] [delivery_module] DBG 2026-10-03 21:09:15.999+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:15.999] [out] [delivery_module] DBG 2026-10-03 21:09:15.999+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*dHrJL9
+[2026-10-03 21:09:15.999] [out] [delivery_module] DBG 2026-10-03 21:09:15.999+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:16.000] [out] [delivery_module] DBG 2026-10-03 21:09:16.000+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*6gXABY addrs="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:16.000] [out] [delivery_module] DBG 2026-10-03 21:09:16.000+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:16.001] [out] [delivery_module] DBG 2026-10-03 21:09:16.000+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*6gXABY address=/ip4/127.0.0.1/tcp/54688 hostname=127.0.0.1
+[2026-10-03 21:09:16.001] [out] [delivery_module] DBG 2026-10-03 21:09:16.001+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*6gXABY protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54688]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*6gXABY addrs=@[/ip4/127.0.0.1/tcp/54688]"
+[2026-10-03 21:09:21.001] [out] [delivery_module] DBG 2026-10-03 21:09:21.001+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:21.001] [out] [delivery_module] DBG 2026-10-03 21:09:21.001+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=7
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054562004072960
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*6gXABY
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:09:22.004] [out] [delivery_module] DBG 2026-10-03 21:09:22.004+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:22.005] [out] [delivery_module] DBG 2026-10-03 21:09:22.005+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:22.005] [out] [delivery_module] DBG 2026-10-03 21:09:22.005+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:22.006] [out] [delivery_module] DBG 2026-10-03 21:09:22.006+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:09:22.006] [out] [delivery_module] DBG 2026-10-03 21:09:22.006+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*JcNLui protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54687]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*JcNLui addrs=@[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:27.008] [out] [delivery_module] DBG 2026-10-03 21:09:27.008+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:27.008] [out] [delivery_module] DBG 2026-10-03 21:09:27.008+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=8
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054568011152128
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*6gXABY
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*dHrJL9
+[2026-10-03 21:09:28.011] [out] [delivery_module] DBG 2026-10-03 21:09:28.011+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:28.014] [out] [delivery_module] DBG 2026-10-03 21:09:28.014+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:28.015] [out] [delivery_module] DBG 2026-10-03 21:09:28.014+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:28.015] [out] [delivery_module] DBG 2026-10-03 21:09:28.015+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:09:28.015] [out] [delivery_module] DBG 2026-10-03 21:09:28.015+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*JcNLui protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54687]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*JcNLui addrs=@[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:33.017] [out] [delivery_module] DBG 2026-10-03 21:09:33.017+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:33.018] [out] [delivery_module] DBG 2026-10-03 21:09:33.017+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=9
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054574020626944
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*6gXABY
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:09:34.020] [out] [delivery_module] DBG 2026-10-03 21:09:34.020+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:34.022] [out] [delivery_module] DBG 2026-10-03 21:09:34.022+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:34.022] [out] [delivery_module] DBG 2026-10-03 21:09:34.022+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:34.022] [out] [delivery_module] DBG 2026-10-03 21:09:34.022+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:09:34.022] [out] [delivery_module] DBG 2026-10-03 21:09:34.022+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*JcNLui protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54687]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*JcNLui addrs=@[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:38.946] [out] [delivery_module] DBG 2026-10-03 21:09:38.946+02:00 Retrieving peer info via peer exchange protocol topics="waku node peerexchange api" tid=2998941 amount=5
+[2026-10-03 21:09:38.946] [out] [delivery_module] DBG 2026-10-03 21:09:38.946+02:00 Peer exchange request could not be made as no peer exchange peers found topics="waku peer_exchange client" tid=2998941
+[2026-10-03 21:09:38.946] [out] [delivery_module] DBG 2026-10-03 21:09:38.946+02:00 Failed to retrieve peer info via peer exchange protocol topics="waku node peerexchange api" tid=2998941 error="(status_code: SERVICE_UNAVAILABLE, status_desc: ok(peer_not_found_failure))"
+[2026-10-03 21:09:38.946] [out] [delivery_module] DBG 2026-10-03 21:09:38.946+02:00 Cannot fetch peers from peer exchange      topics="waku node peerexchange api" tid=2998941 cause="(status_code: SERVICE_UNAVAILABLE, status_desc: ok(peer_not_found_failure))"
+[2026-10-03 21:09:39.023] [out] [delivery_module] DBG 2026-10-03 21:09:39.023+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:39.024] [out] [delivery_module] DBG 2026-10-03 21:09:39.024+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:40.028] [out] [delivery_module] DBG 2026-10-03 21:09:40.028+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=10
+[2026-10-03 21:09:40.028] [out] [delivery_module] DBG 2026-10-03 21:09:40.028+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:40.028] [out] [delivery_module] DBG 2026-10-03 21:09:40.028+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:40.028] [out] [delivery_module] DBG 2026-10-03 21:09:40.028+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054580028364032
+[2026-10-03 21:09:40.028] [out] [delivery_module] DBG 2026-10-03 21:09:40.028+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:40.029] [out] [delivery_module] DBG 2026-10-03 21:09:40.028+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*JcNLui
+[2026-10-03 21:09:40.029] [out] [delivery_module] DBG 2026-10-03 21:09:40.029+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*6gXABY
+[2026-10-03 21:09:40.029] [out] [delivery_module] DBG 2026-10-03 21:09:40.029+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:40.029] [out] [delivery_module] DBG 2026-10-03 21:09:40.029+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*dHrJL9
+[2026-10-03 21:09:40.029] [out] [delivery_module] DBG 2026-10-03 21:09:40.029+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*JcNLui
+[2026-10-03 21:09:40.034] [out] [delivery_module] DBG 2026-10-03 21:09:40.034+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*JcNLui addrs="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:40.034] [out] [delivery_module] DBG 2026-10-03 21:09:40.034+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:40.034] [out] [delivery_module] DBG 2026-10-03 21:09:40.034+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*JcNLui address=/ip4/127.0.0.1/tcp/54687 hostname=127.0.0.1
+[2026-10-03 21:09:40.034] [out] [delivery_module] DBG 2026-10-03 21:09:40.034+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*JcNLui protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54687]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*JcNLui addrs=@[/ip4/127.0.0.1/tcp/54687]"
+[2026-10-03 21:09:45.037] [out] [delivery_module] DBG 2026-10-03 21:09:45.037+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:45.037] [out] [delivery_module] DBG 2026-10-03 21:09:45.037+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:46.039] [out] [delivery_module] DBG 2026-10-03 21:09:46.039+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 tryCount=11
+[2026-10-03 21:09:46.039] [out] [delivery_module] DBG 2026-10-03 21:09:46.039+02:00 Publishing message without RLN proof       tid=2998941
+[2026-10-03 21:09:46.039] [out] [delivery_module] DBG 2026-10-03 21:09:46.039+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*Rt7brp msg_hash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 mixify=true
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.039+02:00 Publish                                    topics="waku lightpush client" tid=2998941 myPeerId=16U*f5s5TY peerId= msgHash=0xc8aef7efb6c0661b13cabffa33a8b52556221b9e8b07807a76059e20986d0d47 sentTime=1791054586039968000
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.040+02:00 Destination data                           tid=2998941 destination=MixDestination[MixNode](16Uiu2HAkvVP1h3y4Jhq5PZq5UDSSCzJNgqEsnSDLPsUxL5Rt7brp)
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.040+02:00 Selected mix node:                         tid=2998941 indexInPath=0 peerId=16U*dHrJL9
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.040+02:00 Selected mix node:                         tid=2998941 indexInPath=1 peerId=16U*6gXABY
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.040+02:00 Selected mix node:                         tid=2998941 indexInPath=2 peerId=16U*Rt7brp
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.040+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=0 peerId=16U*6gXABY
+[2026-10-03 21:09:46.040] [out] [delivery_module] DBG 2026-10-03 21:09:46.040+02:00 Selected mix node for surbs:               tid=2998941 indexInPath=1 peerId=16U*dHrJL9
+[2026-10-03 21:09:46.044] [out] [delivery_module] DBG 2026-10-03 21:09:46.044+02:00 Dialing peer                               topics="libp2p dialer" tid=2998941 peerId=16U*dHrJL9 addrs="[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:09:46.044] [out] [delivery_module] DBG 2026-10-03 21:09:46.044+02:00 Expanded address and hostname              topics="libp2p dialer" tid=2998941 expandedAddress=/ip4/127.0.0.1/tcp/54686 hostname=127.0.0.1 resolvedAddresses="[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:09:46.045] [out] [delivery_module] DBG 2026-10-03 21:09:46.045+02:00 Dialing failed                             topics="libp2p dialer" tid=2998941 description="TcpTransport dial error: (61) Connection refused" peerId=16U*dHrJL9 address=/ip4/127.0.0.1/tcp/54686 hostname=127.0.0.1
+[2026-10-03 21:09:46.045] [out] [delivery_module] DBG 2026-10-03 21:09:46.045+02:00 Error dialing                              topics="libp2p dialer" tid=2998941 conn=nil peerId=16U*dHrJL9 protos="[/mix/1.0.0]" addrs="[/ip4/127.0.0.1/tcp/54686]" description="Unable to establish outgoing link in establishConnection: peer_id=16U*dHrJL9 addrs=@[/ip4/127.0.0.1/tcp/54686]"
+[2026-10-03 21:09:51.047] [out] [delivery_module] DBG 2026-10-03 21:09:51.047+02:00 Mix lightpush timed out                    topics="waku node lightpush api" tid=2998941 pubsubTopic=/waku/2/rs/42/0 timeout=5s
+[2026-10-03 21:09:51.048] [out] [delivery_module] DBG 2026-10-03 21:09:51.047+02:00 MixSendProcessor.sendImpl failed           topics="send service mix processor" tid=2998941 error="Waku lightpush over mix timed out"
+[2026-10-03 21:09:51.048] [out] [delivery_module] ERR 2026-10-03 21:09:51.048+02:00 Failed to send message                     topics="send service" tid=2998941 requestId=fc4db69b3bb78402f583 msgHash=withheld error="Unable to send within retry time window" age=1m5s36ms155us
+[QmlInspector] Client disconnected

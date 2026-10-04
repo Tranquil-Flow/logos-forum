@@ -1,0 +1,13 @@
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/yq6iarsricpxm1z2rz5jda0vqbcmk9zn-logos-forum_module-plugin-dir/src/icons/icon.png"
+Loaded UI plugin: "/nix/store/yq6iarsricpxm1z2rz5jda0vqbcmk9zn-logos-forum_module-plugin-dir"
+[2026-10-04 13:22:09.551] [out] [delivery_module] DBG 2026-10-04 13:22:09.551+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=4818844
+[2026-10-04 13:22:09.552] [out] [delivery_module] INF 2026-10-04 13:22:09.552+02:00 Configuration: Enabled protocols           topics="waku conf" tid=4818844 relay=true rlnRelay=false store=false filter=true lightPush=true peerExchange=true rendezvous=true
+[2026-10-04 13:22:09.553] [out] [delivery_module] INF 2026-10-04 13:22:09.553+02:00 mounting store client                      topics="waku node store api" tid=4818844
+[2026-10-04 13:22:13.575] [out] [delivery_module] DBG 2026-10-04 13:22:13.575+02:00 calculateConnectionState                   tid=4818844 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 13:22:13.678] [out] [delivery_module] DBG 2026-10-04 13:22:13.678+02:00 calculateConnectionState                   tid=4818844 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 13:22:13.846] [out] [delivery_module] DBG 2026-10-04 13:22:13.846+02:00 calculateConnectionState                   tid=4818844 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 13:22:13.947] [out] [delivery_module] DBG 2026-10-04 13:22:13.947+02:00 calculateConnectionState                   tid=4818844 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 13:22:14.049] [out] [delivery_module] DBG 2026-10-04 13:22:14.049+02:00 calculateConnectionState                   tid=4818844 relayCount=8 storeClientCount=6 lightpushCount=8 filterCount=8
+[2026-10-04 13:22:14.548] [out] [delivery_module] INF 2026-10-04 13:22:14.548+02:00 Message received                           tid=4818844 msg_hash=0x3536d2bc118ea36bf982b71e8824e135008c7efbd93163fd1235cb8e0ecf50c2 contentTopic=/lp0026forum/1/general/text pubsubTopic=/waku/2/rs/3/7 source=history
+[2026-10-04 13:22:14.558] [info] [logos] [delivery_module] DeliveryModuleImpl::storeQuery called with peerAddr: /dns4/delivery-01.do-ams3.logos.dev.status.im/tcp/30303/p2p/16Uiu2HAmTUbnxLGT9JvV6mu9oPyDjqHK4Phs1VDJNUgESgNSkuby

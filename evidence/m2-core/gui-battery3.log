@@ -1,0 +1,17 @@
+=== ui-dev (cond fix) 2026-10-03T08:02:37Z
+ui-dev exit=1
+error: Cannot build '/nix/store/0dg0nxcw1zb4qbzds2jaczd3biqw943y-logos-forum_module-module-lib-0.1.0.drv'.
+error: Cannot build '/nix/store/156i5zzrp3hd1nbd17ggjjidl3gvfcrl-logos-forum_module-module.drv'.
+error: Build failed due to failed dependency
+error: Cannot build '/nix/store/8zm0vkzc9ysmpshx2knhsqn2w8gqh40x-logos-forum_module-plugin-dir.drv'.
+=== integration (cond fix) 2026-10-03T08:04:55Z
+integ exit=1
+logos-forum_module-module-lib> ninja: build stopped: subcommand failed.
+       Reason: builder failed with exit code 1.
+       > ninja: build stopped: subcommand failed.
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency

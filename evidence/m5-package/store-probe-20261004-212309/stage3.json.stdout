@@ -1,0 +1,12 @@
+=== stage 3: topic create + post (no transport) ===
+{
+  "stage3": "PASS",
+  "topic_outcome": "Topic created",
+  "send_outcome": "Not sent (unavailable) — your text is kept here. Connect to the Logos network to send it.",
+  "threadPosts": [
+    "id 3d3d76c39d2439cb [failed]: TECHNICAL TEST DATA: store_probe stage3"
+  ],
+  "thread_has_failed": true,
+  "thread_has_body": true,
+  "composer_kept": true
+}

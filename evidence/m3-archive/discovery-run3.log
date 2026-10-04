@@ -1,0 +1,14 @@
+=== m3b discovery run 3 2026-10-02T15:30:25Z
+=== 1/6 relays (ordinary bootstrap)
+=== 2/6 archive: storage corpus + signed inventory
+corpus CID (harness-side record only): zDvZRwzm3mtYwgL5Dmcf3cF1CtdbPAdzCZMgQC4hGHaEMCrU3BAk
+=== 3/6 archive delivery node (store:true); reader boots FIRST
+=== 3b/6 archive sends the signed announce
+announce send: a2664d71af41666805c7
+=== 4/6 reader watch: live propagation window
+live announce in reader watch: False
+=== 4b/6 retained path: bounded Store query to archive peer
+archive store peer (ordinary peer info): /ip4/127.0.0.1/tcp/52934/p2p/16Uiu2HAmVKaebfYV1NRYasAwnw96Bz84h8NUKqjct2XMxqvqhHQF
+RESULT {"status": "FAIL", "layer": "m3b-fresh-reader-discovery", "evidence": "<repo>/evidence/m3-archive/discovery-20261002-173026", "claims": [], "archive": {"cid": "zDvZRwzm3mtYwgL5Dmcf3cF1CtdbPAdzCZMgQC4hGHaEMCrU3BAk", "inv_id": "c825d6870c57e3f6a77ab8da4a2054f9f9b71da52b8cbe81e1b996700dd94c06", "corpus_sha": "9ebefbef369af13a7a320d788cb0dc430769330e2cc633c3317fdc01398e50bf", "posts": 3}, "live_announce_seen": false, "discovery_path": "store-query", "discovered": {"cid": "zDvZRwzm1rV6MrWPXfQv7gTWwjx1RfDHQHnNUdPq5TxE5SMjmopF", "inv_id": "6937237d3d1c3f034da8d42eaf2a62de1e9e4b674ecc8d723b4b3e6e2cf7a455", "archive": "a63f37b27460b3240b9915a9badaef973d0bf848570fd1d2b76a95d786a6440b", "epoch": 1}, "error": "RuntimeError: discovered CID/inv_id mismatch with archive record"}
+cleanup leftover: none
+=== exit=1 2026-10-02T15:33:00Z

@@ -1,0 +1,16 @@
+=== core-tests (archive) 3 2026-10-02T12:21:52Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/d0c7i8q6nhdc9l5m03sxl9009mkpcnyg-forum-core-tests.drv
+building '/nix/store/d0c7i8q6nhdc9l5m03sxl9009mkpcnyg-forum-core-tests.drv'...
+forum-core-tests> core tests: 76 checks, 0 failures
+=== exit=0 2026-10-02T12:22:38Z
+core tests: 76 checks, 0 failures

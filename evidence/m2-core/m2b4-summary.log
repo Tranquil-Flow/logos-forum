@@ -1,0 +1,12 @@
+=== m2b run 4 2026-10-01T21:08:02Z
+=== m2b exit=1 2026-10-01T21:10:22Z
+=== 1/6 relays up (fresh identities)
+=== 2/6 boot instances
+=== waiting for BOTH instances' transport readiness (node boot ~1min)
+READY
+READY
+=== 3/6 P1 online post
+{"transport":"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events","outcome":""}
+P1_NOT_RECEIVED
+FAIL: P1 not received
+=== cleanup 2026-10-01T21:10:16Z

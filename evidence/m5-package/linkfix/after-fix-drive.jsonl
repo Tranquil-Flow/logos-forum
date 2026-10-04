@@ -1,0 +1,13 @@
+{"t":"18:48:59.940","k":"connected","v":true}
+{"t":"18:49:02.943","k":"idle-liveness-age-ms","v":497}
+{"t":"18:49:05.945","k":"idle-liveness-age-ms","v":508}
+{"t":"18:49:08.947","k":"idle-liveness-age-ms","v":509}
+{"t":"18:49:11.949","k":"idle-liveness-age-ms","v":507}
+{"t":"18:49:12.453","k":"echo-outcome","v":"ECHO:h1-echo"}
+{"t":"18:49:12.957","k":"createAccount-outcome","v":"CA:ok"}
+{"t":"18:49:13.960","k":"accounts-prop","v":"[\"h1demo\"]"}
+{"t":"18:49:13.960","k":"topics-prop","v":"[\"63a7abd8e1eed54fed0435d452327009663d8c51b0b1d6407d5a6924b3097057|General (0)\"]"}
+{"t":"18:49:14.962","k":"transportStatus-outcome","v":"TS:delivery: present (loaded; node not created yet); storage: present (v3.0.0); outbox: 1 durable post(s); privacy: unverified until a Required send completes"}
+{"t":"18:49:15.465","k":"createAccount2-outcome","v":"CA2:ok"}
+{"t":"18:49:16.468","k":"accounts-prop-2","v":"[\"h1after\",\"h1demo\"]"}
+{"t":"18:49:16.468","k":"liveness-age-end","v":2028}

@@ -1,0 +1,35 @@
+INF 2026-10-02 16:24:34.388+02:00 Creating a private key and saving it       tid=43937505
+WRN 2026-10-02 16:24:34.388+02:00 Node has been marked with --no-bootstrap-node and will NOT be bootstrapped topics="libstorage libstoragelifecycle" tid=43937505
+INF 2026-10-02 16:24:34.388+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=43937505 numThreads=12
+WRN 2026-10-02 16:24:34.425+02:00 No key for a QueryResponse                 topics="storage repostore" tid=43937505
+NTC 2026-10-02 16:24:34.425+02:00 Started Storage node                       topics="storage node" tid=43937505 id=16U*7fStuz addrs="[/ip4/127.0.0.1/tcp/64266]"
+INF 2026-10-02 16:24:36.951+02:00 Storing data                               topics="storage node" tid=43937505
+INF 2026-10-02 16:24:36.954+02:00 Stored data                                topics="storage node" tid=43937505 manifestCid=zDv*zSvcGF treeCid=zDz*zyZVa5 blocks=1 datasetSize=1629'NByte filename=some("corpus.txt") mimetype=some("text/plain")
+WRN 2026-10-02 16:25:34.426+02:00 No key for a QueryResponse                 topics="storage repostore" tid=43937505
+INF 2026-10-02 16:26:07.487+02:00 Storing data                               topics="storage node" tid=43937505
+INF 2026-10-02 16:26:07.489+02:00 Stored data                                topics="storage node" tid=43937505 manifestCid=zDv*u4ADJR treeCid=zDz*y6KLiS blocks=1 datasetSize=40'NByte filename=some("secret.txt") mimetype=some("text/plain")
+WRN 2026-10-02 16:26:34.432+02:00 No key for a QueryResponse                 topics="storage repostore" tid=43937505
+NTC 2026-10-02 16:26:52.604+02:00 Stopping Storage node                      topics="storage node" tid=43937505
+INF 2026-10-02 16:26:52.604+02:00 Timer loop has stopped                     tid=43937505 name=maintenance
+WRN 2026-10-02 16:26:52.604+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.604+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.604+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise local store loop       topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task loop                topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505
+WRN 2026-10-02 16:26:52.605+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=43937505
+INF 2026-10-02 16:26:52.605+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=43937505

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "phase": "fetch",
+  "text": "TECHNICAL TEST DATA: offline-reader history check 2026-10-04T11:20:33Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 5,
+      "what": "transport ready",
+      "state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events"
+    },
+    {
+      "t_s": 5,
+      "what": "history row rendered"
+    },
+    {
+      "t_s": 5,
+      "what": "load older posts clicked"
+    },
+    {
+      "t_s": 6,
+      "what": "load older posts finished",
+      "state": "loaded 7 message(s) from the last 7 days on the network store; 6 post(s) recovered in total"
+    }
+  ],
+  "initial_thread": "[]",
+  "history_state_after_catchup": "1 post(s) recovered from the network's history",
+  "history_state_after_load": "loaded 7 message(s) from the last 7 days on the network store; 6 post(s) recovered in total",
+  "thread": "[\"id feb30ef1ef521725 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:22:29Z\",\"id b19d0a652696286b [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-04T10:24:54Z\",\"id 90b154894ec54048 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:41:39Z\",\"id 0717dd5423561f02 [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-04T10:41:53Z\",\"id 1d00e362f85f6dde [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T11:19:05Z\",\"id b06ad229c424f415 [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-04T11:20:33Z\"]"
+}

@@ -1,0 +1,16 @@
+cleanup verified: no relay processes remain
+Traceback (most recent call last):
+  File "<repo>/tools/m1_topology.py", line 336, in <module>
+    main()
+  File "<repo>/tools/m1_topology.py", line 326, in main
+    cmd_start(args)
+  File "<repo>/tools/m1_topology.py", line 261, in cmd_start
+    with relay_sessions(state, runtime, evidence) as ids:
+  File "<python>/cpython-3.11.15-macos-aarch64-none/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "<repo>/tools/m1_topology.py", line 191, in relay_sessions
+    subprocess.run(ctl + ["install", "-y", DELIVERY_LGX],
+  File "<python>/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['~/.local/share/lp0026-forum-dev/runtime/logosctl-aarch64-macos/bin/logosctl', '--config-dir', '~/.local/share/lp0026-forum-dev/m1-run/relays/relays/core1', 'install', '-y', '~/.local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx']' returned non-zero exit status 2.

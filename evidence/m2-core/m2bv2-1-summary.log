@@ -1,0 +1,11 @@
+=== m2b v2 run 2026-10-02T08:29:04Z
+=== m2b exit=1 2026-10-02T08:39:48Z
+=== 1/7 relays up (fresh identities)
+=== 2/7 sender (in-app) + receiver (CLI) up
+=== 3/7 P1 compose (direct invocation, immediate on ready)
+compose attempt 1 empty — restarting sender
+compose attempt 2 empty — restarting sender
+compose attempt 3 empty — restarting sender
+FAIL: P1 compose never dispatched
+=== cleanup 2026-10-02T08:31:01Z
+eval 'pkill -f '\''m2-run'\'' 2>/dev/null; E=$(ls -dt <repo>/evidence/m2-core/outbox-20261002-10* 2>/dev/null | head -1); echo "EV=$E"; cat $E/compose-1.json 2>/dev/null; echo; S=$(ls -t $E/sender-app-*.log 2>/dev/null | head -1); grep -c FORUMDBG $S 2>/dev/null; grep -nE '\''connectionToSource|Loaded UI plugin'\'' $S 2>/dev/null | tail -3'

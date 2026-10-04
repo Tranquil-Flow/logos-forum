@@ -1,0 +1,15 @@
+{
+  "data-dir": "~/.local/share/lp0026-forum-dev/m3-storage/archive-a/storage-data",
+  "log-level": "INFO",
+  "log-file": "<repo>/evidence/m3-archive/storage-20261002-142759/archive-a/storage.log",
+  "listen-ip": "127.0.0.1",
+  "listen-port": 52730,
+  "nat": "extip:127.0.0.1",
+  "no-bootstrap-node": true,
+  "bootstrap-node": [],
+  "mix-enabled": false,
+  "num-threads": 1,
+  "storage-quota": 67108864,
+  "block-ttl": "600s",
+  "block-mi": "5s"
+}

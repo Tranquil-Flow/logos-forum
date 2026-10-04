@@ -1,0 +1,15 @@
+=== m3b discovery run 5 (paged + self-consistent chain) 2026-10-02T17:13:30Z
+=== 1/6 relays (ordinary bootstrap)
+=== 2/6 archive: storage corpus + signed inventory
+corpus CID (harness-side record only): zDvZRwzm12cdfijFo94746159MvHVWM18p5zoQ6kZXXV9ci7sKAF
+=== 3/6 archive delivery node (store:true); reader boots FIRST
+=== 3b/6 archive sends the signed announce
+announce send: 0584c1d34a20b7a215ac
+=== 4/6 reader watch: live propagation window
+live announce in reader watch: False
+discovered announce candidates (newest first): [(1, '272ddef94254')]
+=== 5/6 reader verifies the newest SELF-CONSISTENT chain
+candidate 272ddef94254: chain invalid (non-hexadecimal number found in fromhex() arg at position 1)
+RESULT {"status": "FAIL", "layer": "m3b-fresh-reader-discovery", "evidence": "<repo>/evidence/m3-archive/discovery-20261002-191330", "claims": [], "archive": {"cid": "zDvZRwzm12cdfijFo94746159MvHVWM18p5zoQ6kZXXV9ci7sKAF", "inv_id": "272ddef94254122b490133d38a92ccc62724a2d28491942322a0cb859aca5c52", "corpus_sha": "4223dc2afa71d5a9280bf6cb066a73b2e0d7f1f9234aff68e631f25f1b9fec87", "posts": 3}, "live_announce_seen": false, "candidates": [{"inv_id": "272ddef94254122b490133d38a92ccc62724a2d28491942322a0cb859aca5c52", "cid": "zDvZRwzm12cdfijFo94746159MvHVWM18p5zoQ6kZXXV9ci7sKAF", "epoch": 1, "ts": 1790961295049}], "error": "RuntimeError: no self-consistent announce chain found among 1 candidate(s)"}
+cleanup leftover: none
+=== exit=1 2026-10-02T17:15:46Z

@@ -1,0 +1,9 @@
+=== ui-dev 11 (watchdog A/B off) 2026-10-02T09:14:07Z
+building '/nix/store/5j1cx2l5h8qi9k5339xkc2nxv7ss5hvf-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/b6iyww13l1j3h0lj5nmxy3xg0spw0iys-run-logos-standalone-ui.drv'...
+ui-dev exit=0
+=== m1 smoke (no pings) 2026-10-02T09:15:38Z
+=== exit=1 2026-10-02T09:18:08Z
+  "status": "FAIL",
+  "error": "timeout waiting for sender propagation state: sender transport state: {\"id\":184,\"ok\":true,\"result\":\"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events\",\"undefined\":false}"
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261002-111538"}

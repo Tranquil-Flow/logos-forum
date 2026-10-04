@@ -1,0 +1,7 @@
+=== ui-dev 10 (M1-era subscriptions) 2026-10-02T08:54:22Z
+ui-dev exit=1
+=== m1 smoke (M1-era subs) 2026-10-02T08:55:19Z
+=== exit=1 2026-10-02T08:57:55Z
+  "status": "FAIL",
+  "error": "timeout waiting for sender propagation state: timeout: evaluate :3768"
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261002-105519"}

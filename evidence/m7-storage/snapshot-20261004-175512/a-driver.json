@@ -1,0 +1,48 @@
+{
+  "status": "FAIL",
+  "phase": "save",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T15:55:12Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 14,
+      "what": "transport ready"
+    },
+    {
+      "t_s": 34,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T15:55:12Z (1/2)"
+    },
+    {
+      "t_s": 37,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T15:55:12Z (2/2)"
+    },
+    {
+      "t_s": 116,
+      "what": "posts sent"
+    },
+    {
+      "t_s": 116,
+      "what": "save snapshot clicked"
+    },
+    {
+      "t_s": 118,
+      "what": "snapshot saved",
+      "state": "saved 3 post(s) on Logos Storage (zDvZRwzmCBJj6Sot…) and announced it in this topic; this device serves the snapshot while Basecamp runs"
+    }
+  ],
+  "archive_state": "saved 3 post(s) on Logos Storage (zDvZRwzmCBJj6Sot…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "error": "timeout waiting for announcement sent through Mix: announcement: id 088a5800b1208019 [received]: Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzkzVHSEzfAuBtxP35Uv82EWfZ",
+  "last_archive_state": "saved 3 post(s) on Logos Storage (zDvZRwzmCBJj6Sot…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "last_state": "Required send propagated (request 6d196b5d8e61c85b71fb)",
+  "thread": [
+    "id 088a5800b1208019 [received]: Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzkzVHSEzfAuBtxP35Uv82EWfZajvYBizj1VCfuqG98omeS\npeer: 16Uiu2HAmU6BxM8zsRcfvQJiWgswbJJXABgfr3q1KvVN9gVP6eung\naddrs: /ip4/127.0.0.1/tcp/8571",
+    "id a8d1005eb5c6a532 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T15:55:12Z (1/2)",
+    "id 992fd99cb0aef8de [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T15:55:12Z (2/2)",
+    "id 98aa17581ea1e58a [sent]: Snapshot of this topic on Logos Storage: 3 post(s).\ncid: zDvZRwzmCBJj6SotG12i2f9Fh6rrgdpcLr4wEM7saM6X57kVWYYU\npeer: 16Uiu2HAmSNvgZF1am4UczkLwFZiukMxWBgRjC1kEwGnQW1TwcQtv\naddrs: /ip4/127.0.0.1/tcp/8571"
+  ]
+}

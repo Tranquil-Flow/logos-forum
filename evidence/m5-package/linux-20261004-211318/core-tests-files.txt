@@ -1,0 +1,2 @@
+/work/result-core-tests/test-output.txt
+/work/result-core-tests/core_tests

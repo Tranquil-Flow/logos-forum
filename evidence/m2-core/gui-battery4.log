@@ -1,0 +1,15 @@
+=== ui-dev (ternary fix) 2026-10-03T08:12:54Z
+ui-dev exit=1
+error:
+       error: cannot read directory "/nix/store/jc3mfa7ybzh32bkvdj5xiib1vkx8jy6x-source/pkgs/os-specific/darwin/apple-source-releases": No such file or directory
+=== integration (ternary fix) 2026-10-03T08:13:52Z
+integ exit=1
+logos-forum_module-module-lib> ninja: build stopped: subcommand failed.
+       Reason: builder failed with exit code 1.
+       > ninja: build stopped: subcommand failed.
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency

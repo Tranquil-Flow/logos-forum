@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:41:39Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 5,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 5,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 5,
+      "what": "A state",
+      "state": "connected — sending 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 7,
+      "what": "A state",
+      "state": "Required send propagated (request c38688468e6ca6e5d167)"
+    },
+    {
+      "t_s": 7,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… (posts are sent only through Mix)",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "connected — sending 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "connected — sending 1 stored post(s) with original signed bytes (same event IDs — receivers dedup)",
+    "Required send propagated (request c38688468e6ca6e5d167)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id 90b154894ec54048 [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:41:39Z\"]",
+  "b_thread": "[\"id 90b154894ec54048 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T10:41:39Z\"]"
+}

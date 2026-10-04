@@ -1,0 +1,7 @@
+relay core1 up pid=86314 port=57687
+relay core2 up pid=86344 port=57688
+relay core3 up pid=86367 port=57689
+relay core4 up pid=86453 port=57690
+relay listeners accepting on all ports
+topology up; relays stop when this process exits
+PID 86310

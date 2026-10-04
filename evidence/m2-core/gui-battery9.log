@@ -1,0 +1,12 @@
+=== integration (PINNED closure, GUI surface) 2026-10-03T10:04:03Z
+integ exit=1
+forum_module-integration-test>   ✓ forum_module: transport status honest
+forum_module-integration-test> 4 passed, 2 failed
+       Reason: builder failed with exit code 1.
+       >   ✓ forum_module: UI loads
+       >   ✓ forum_module: backend connects
+       >   ✗ forum_module: create topic through the UI
+       >   ✓ forum_module: post path refuses honestly without transport
+       >   ✗ forum_module: refused post shows failed state in thread
+       >   ✓ forum_module: transport status honest
+       > 4 passed, 2 failed

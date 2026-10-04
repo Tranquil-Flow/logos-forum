@@ -1,0 +1,6 @@
+INF 2026-10-02 15:55:31.600+02:00 Creating a private key and saving it       tid=43847581
+WRN 2026-10-02 15:55:31.601+02:00 Node has been marked with --no-bootstrap-node and will NOT be bootstrapped topics="libstorage libstoragelifecycle" tid=43847581
+INF 2026-10-02 15:55:31.601+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=43847581 numThreads=1
+WRN 2026-10-02 15:55:31.624+02:00 Storage is not started                     topics="storage node" tid=43847581
+WRN 2026-10-02 15:55:31.787+02:00 No key for a QueryResponse                 topics="storage repostore" tid=43847581
+NTC 2026-10-02 15:55:31.789+02:00 Started Storage node                       topics="storage node" tid=43847581 id=16U*eGLz83 addrs="[/ip4/127.0.0.1/tcp/59077]"

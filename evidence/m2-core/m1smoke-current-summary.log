@@ -1,0 +1,4 @@
+=== m1 smoke on CURRENT tree 2026-10-02T08:40:34Z
+=== exit=1 2026-10-02T08:43:06Z
+  "status": "FAIL",
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261002-104034"}

@@ -1,0 +1,15 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+this derivation will be built:
+  /nix/store/0clhazw40k1f2wkk7v83a26ds8rl5s8k-forum-core-tests.drv
+building '/nix/store/0clhazw40k1f2wkk7v83a26ds8rl5s8k-forum-core-tests.drv'...
+forum-core-tests> FAIL /nix/store/xwlc5p8kfdcr0rxxha6wghg6nwq15phf-test_main.cpp:389: th[0].body == std::string("first post")
+forum-core-tests> FAIL /nix/store/xwlc5p8kfdcr0rxxha6wghg6nwq15phf-test_main.cpp:390: th[1].body == std::string("a reply")
+forum-core-tests> FAIL /nix/store/xwlc5p8kfdcr0rxxha6wghg6nwq15phf-test_main.cpp:391: th[1].alias == std::string("bob")
+forum-core-tests> core tests: 125 checks, 3 failures
+error: Cannot build '/nix/store/0clhazw40k1f2wkk7v83a26ds8rl5s8k-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/l0dqmrlsh8f4z27gfvqscxni7bcascln-forum-core-tests

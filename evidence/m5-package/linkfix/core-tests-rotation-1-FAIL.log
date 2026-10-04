@@ -1,0 +1,32 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+copying path '/nix/store/jc3mfa7ybzh32bkvdj5xiib1vkx8jy6x-source' from 'https://cache.nixos.org'...
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/p5412kgfrsz9sr6kd642ry3435lhjrgn-forum-core-tests.drv
+these 2 paths will be fetched (31.3 KiB download, 237.0 KiB unpacked):
+  /nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev
+  /nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin
+copying path '/nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin' from 'https://cache.nixos.org'...
+building '/nix/store/p5412kgfrsz9sr6kd642ry3435lhjrgn-forum-core-tests.drv'...
+forum-core-tests> FAIL /nix/store/9bwh8jsn4bhfzknnrh98bj8ajlv1g8r9-test_main.cpp:559: r2.has_value() && r2->every == 2 && r2->rotations == 2
+forum-core-tests> FAIL /nix/store/9bwh8jsn4bhfzknnrh98bj8ajlv1g8r9-test_main.cpp:560: b.seen("t1") == uint32_t(5)
+forum-core-tests> core tests: 149 checks, 2 failures
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/p5412kgfrsz9sr6kd642ry3435lhjrgn-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/4dw40qqm1gp385jyq054fibpkgfzjkn8-forum-core-tests
+       Last 3 log lines:
+       > FAIL /nix/store/9bwh8jsn4bhfzknnrh98bj8ajlv1g8r9-test_main.cpp:559: r2.has_value() && r2->every == 2 && r2->rotations == 2
+       > FAIL /nix/store/9bwh8jsn4bhfzknnrh98bj8ajlv1g8r9-test_main.cpp:560: b.seen("t1") == uint32_t(5)
+       > core tests: 149 checks, 2 failures
+       For full logs, run:
+         nix log /nix/store/p5412kgfrsz9sr6kd642ry3435lhjrgn-forum-core-tests.drv

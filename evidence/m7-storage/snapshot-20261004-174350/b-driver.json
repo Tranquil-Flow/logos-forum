@@ -1,0 +1,17 @@
+{
+  "status": "FAIL",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T15:43:50Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "error": "timeout waiting for restore finished: ",
+  "last_archive_state": "",
+  "last_state": "no transport configured — posting unavailable (Required policy)",
+  "thread": []
+}

@@ -1,0 +1,5 @@
+WRN 2026-10-02 15:22:36.170+02:00 Data directory has insecure permissions. Correcting them. tid=43700578 data_dir=~/.local/share/lp0026-forum-dev/m3-storage/cfg-probe4/storage-data current_permissions=0755 required_permissions=0700
+INF 2026-10-02 15:22:36.171+02:00 Creating a private key and saving it       tid=43700578
+WRN 2026-10-02 15:22:36.171+02:00 Node has been marked with --no-bootstrap-node and will NOT be bootstrapped topics="libstorage libstoragelifecycle" tid=43700578
+INF 2026-10-02 15:22:36.171+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=43700578 numThreads=12
+WRN 2026-10-02 15:22:36.196+02:00 Storage is not started                     topics="storage node" tid=43700578

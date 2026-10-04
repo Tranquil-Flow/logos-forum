@@ -1,0 +1,21 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/hib5zg74hzcwynsm4xppvfy3zypiwbz6-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/575bydmm29pnza9ljszmil64paaqd83k-logos-forum_module-module.drv
+  /nix/store/0cn42mxyaakzvj1aqyy52mp9iis1a76z-logos-forum_module-plugin-dir.drv
+  /nix/store/3aplg82xvhf763cn46c3g3s4yd1cvb7g-run-logos-standalone-ui.drv
+this path will be fetched (7.5 MiB download, 58.4 MiB unpacked):
+  /nix/store/0ngiwswr7wf0yi6z2fdacdqmqm1bpinv-ShellCheck-0.10.0
+copying path '/nix/store/0ngiwswr7wf0yi6z2fdacdqmqm1bpinv-ShellCheck-0.10.0' from 'https://cache.nixos.org'...
+building '/nix/store/hib5zg74hzcwynsm4xppvfy3zypiwbz6-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/575bydmm29pnza9ljszmil64paaqd83k-logos-forum_module-module.drv'...
+building '/nix/store/0cn42mxyaakzvj1aqyy52mp9iis1a76z-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/3aplg82xvhf763cn46c3g3s4yd1cvb7g-run-logos-standalone-ui.drv'...

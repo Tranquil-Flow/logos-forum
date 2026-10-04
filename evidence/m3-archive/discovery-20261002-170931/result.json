@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "layer": "m3b-fresh-reader-discovery",
+  "evidence": "<repo>/evidence/m3-archive/discovery-20261002-170931",
+  "claims": [],
+  "error": "RuntimeError: ['--json', 'storage_module', 'call', 'storage_module', 'init', 'str:{\"data-dir\": \"~/.local/share/lp0026-forum-dev/m3-discovery/archive/data/storage\", \"log-level\": \"info\", \"log-file\": \"<repo>/evidence/m3-archive/discovery-20261002-170931/archive/storage.log\", \"listen-ip\": \"127.0.0.1\", \"listen-port\": 50861, \"nat\": \"extip:127.0.0.1\", \"no-bootstrap-node\": true, \"bootstrap-node\": [], \"mix-enabled\": false, \"num-threads\": 0, \"storage-quota\": 67108864, \"block-ttl\": \"24h\", \"block-mi\": \"1m\"}']:  The following argument was not expected: storage_module\nRun with --help for more information.\n"
+}

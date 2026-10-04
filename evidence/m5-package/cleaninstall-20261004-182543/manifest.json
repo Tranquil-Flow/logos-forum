@@ -1,0 +1,25 @@
+{
+  "author": "",
+  "category": "communication",
+  "dependencies": [
+    "delivery_module",
+    "storage_module"
+  ],
+  "description": "LP-0026: a text-first forum with privacy-required posting and verifiable non-author archives",
+  "display_name": "Forum",
+  "hashes": {
+    "assets": "d1fbec8bf93996875c3c5834b762aec10858e2d7900616e27601543042a8f480",
+    "root": "ca84b702b469bf7ad698a743f366536f67a4c421d10e5498ad2e9e407fab7a85",
+    "variants": "eeb173d2bfafef34bd99f736b59cd1d07b57224cd987a1e06206f50ad0c51d71",
+    "variants/darwin-arm64-dev": "fe0903f0d0f03de33afa017b25ff09ad25111a511ccddaed946ddca088c328df"
+  },
+  "icon": "assets/icon.png",
+  "main": {
+    "darwin-arm64-dev": "forum_module_plugin.dylib"
+  },
+  "manifestVersion": "0.6.0",
+  "name": "forum_module",
+  "type": "ui_qml",
+  "version": "0.1.0",
+  "view": "qml/Main.qml"
+}

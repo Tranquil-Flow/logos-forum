@@ -1,0 +1,32 @@
+INF 2026-10-03 21:38:39.773+02:00 Creating a private key and saving it       tid=3350703
+WRN 2026-10-03 21:38:39.774+02:00 Node has been marked with --no-bootstrap-node and will NOT be bootstrapped topics="libstorage libstoragelifecycle" tid=3350703
+INF 2026-10-03 21:38:39.774+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=3350703 numThreads=12
+WRN 2026-10-03 21:38:39.804+02:00 No key for a QueryResponse                 topics="storage repostore" tid=3350703
+NTC 2026-10-03 21:38:39.805+02:00 Started Storage node                       topics="storage node" tid=3350703 id=16U*NY7EYz addrs="[/ip4/127.0.0.1/tcp/64912]"
+INF 2026-10-03 21:38:39.853+02:00 Storing data                               topics="storage node" tid=3350703
+ERR 2026-10-03 21:38:39.854+02:00 Unable to store block                      topics="storage node" tid=3350703 cid=zDx*YJT96P err="Quota usage would exceed the limit. Used: 65536'NByte, reserved: 0'NByte, limit: 16384'NByte"
+ERR 2026-10-03 21:38:39.854+02:00 Failed to FILE.                            topics="libstorage libstorageupload" tid=3350703 error="Failed to finalize the upload session: Unable to store block zDxWB8ED26yYtu1nohaiLvYyKHkhLswJD2uMBLyp61eWQDYJT96P"
+NTC 2026-10-03 21:39:31.694+02:00 Stopping Storage node                      topics="storage node" tid=3350703
+INF 2026-10-03 21:39:31.694+02:00 Timer loop has stopped                     tid=3350703 name=maintenance
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise local store loop       topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task loop                topics="storage discoveryengine advertiser" tid=3350703
+WRN 2026-10-03 21:39:31.695+02:00 Cancelled advertise task runner            topics="storage discoveryengine advertiser" tid=3350703
+INF 2026-10-03 21:39:31.695+02:00 Exiting advertise task runner              topics="storage discoveryengine advertiser" tid=3350703

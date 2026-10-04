@@ -1,0 +1,27 @@
+{
+  "status": "FAIL",
+  "layer": "m3-storage-lifecycle",
+  "evidence": "<repo>/evidence/m3-archive/storage-20261002-162405",
+  "claims": [
+    "two-archives-hold-verifiable-bytes",
+    "byte-exact-readback-both-archives",
+    "non-author-inventories-signed-and-verified",
+    "archive-keys-distinct-from-author-key"
+  ],
+  "corpus": {
+    "posts": 5,
+    "bytes": 1629,
+    "sha256": "ec4e1f9961655bc02605b69f18422d84ebd92e54114b60a2c91aaba44343720f",
+    "author_is_archive": false
+  },
+  "archives": {
+    "a": "/ip4/127.0.0.1/tcp/64266/p2p/16Uiu2HAm6dS3vk6ri2VC27i8QjS4LUjMqNbrASzefdec6W7fStuz",
+    "b": "/ip4/127.0.0.1/tcp/64267/p2p/16Uiu2HAmEbYFafPt3Vw3Ze1vyphD4W4qKHPrSc1bx1W3zyqJ6zZz",
+    "public_bootstrap": false
+  },
+  "cids": {
+    "a": "zDvZRwzm5M9YxGmPPGcKXK71uhECtRMzQNZcjDtjvzExtqzSvcGF",
+    "b": "zDvZRwzm5M9YxGmPPGcKXK71uhECtRMzQNZcjDtjvzExtqzSvcGF"
+  },
+  "error": "RuntimeError: private local readback failed"
+}

@@ -1,0 +1,12 @@
+=== integration (explicit CI db path) 2026-10-03T10:33:23Z
+integ exit=1
+forum_module-integration-test>   ✗ forum_module: backend connects
+forum_module-integration-test>   ✗ forum_module: create topic through the UI
+forum_module-integration-test>   ✗ forum_module: post path refuses honestly without transport
+forum_module-integration-test>   ✗ forum_module: refused post shows failed state in thread
+       Reason: builder failed with exit code 124.
+       >   ✗ forum_module: UI loads
+       >   ✗ forum_module: backend connects
+       >   ✗ forum_module: create topic through the UI
+       >   ✗ forum_module: post path refuses honestly without transport
+       >   ✗ forum_module: refused post shows failed state in thread

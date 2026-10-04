@@ -1,0 +1,1 @@
+interrupted by operator (docker stop) at 2026-10-04T13:21:55Z: network ~84 KB/s, host build given priority

@@ -1,0 +1,24 @@
+=== 1/7 relays up (fresh identities)
+wrote ~/.local/share/lp0026-forum-dev/m2-run/sender.json for role sender (mode 0600)
+=== 2/7 sender (in-app) + receiver (CLI) up
+wrote ~/.local/share/lp0026-forum-dev/m2-run/receiver-cli/node-config.json for role receiver (mode 0600)
+receiver CLI session up (watch pid 21186)
+=== 3/7 P1 compose (direct invocation, immediate on ready)
+{"outcome":"","transport":"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events"}
+compose attempt 1 empty — restarting sender
+tools/m2_run.sh: line 127: 21133 Terminated: 15          QT_QPA_PLATFORM=offscreen LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/sender.db" FORUM_TRANSPORT_CONFIG="$STATE/sender.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/sender-app-$SENDER_LOG_N.log" 2>&1
+{"outcome":"","transport":"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events"}
+compose attempt 2 empty — restarting sender
+tools/m2_run.sh: line 127: 21292 Terminated: 15          QT_QPA_PLATFORM=offscreen LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/sender.db" FORUM_TRANSPORT_CONFIG="$STATE/sender.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/sender-app-$SENDER_LOG_N.log" 2>&1
+{"outcome":"","transport":"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events"}
+compose attempt 3 empty — restarting sender
+tools/m2_run.sh: line 127: 21818 Terminated: 15          QT_QPA_PLATFORM=offscreen LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/sender.db" FORUM_TRANSPORT_CONFIG="$STATE/sender.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/sender-app-$SENDER_LOG_N.log" 2>&1
+FAIL: P1 compose never dispatched
+=== cleanup 2026-10-02T08:31:01Z
+tools/m2_run.sh: line 47: 21186 Terminated: 15          $RCV_CTL watch delivery_module > "$EVID/receiver-watch.jsonl" 2>&1
+tools/m2_run.sh: line 47: 22069 Terminated: 15          QT_QPA_PLATFORM=offscreen LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/sender.db" FORUM_TRANSPORT_CONFIG="$STATE/sender.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/sender-app-$SENDER_LOG_N.log" 2>&1
+stop issued for: core1, core2, core3, core4
+21138 ~/.local/share/lp0026-forum-dev/runtime/logosctl-aarch64-macos/bin/logosctl --config-dir ~/.local/share/lp0026-forum-dev/m2-run/receiver-cli daemon start
+21173 ~/.local/share/lp0026-forum-dev/runtime/logosctl-aarch64-macos/bin/logos_host --name delivery_module --path ~/.local/share/lp0026-forum-dev/m2-run/receiver-cli/modules/delivery_module/delivery_module_plugin.dylib --instance-persistence-path ~/.local/share/lp0026-forum-dev/m2-run/receiver-cli/data/delivery_module/8262dde6b786 --token-source stdin
+[process entry of the local terminal tool removed]
+WARNING: leftover smoke-owned processes

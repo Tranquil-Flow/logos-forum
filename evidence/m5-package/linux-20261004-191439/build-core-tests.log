@@ -1,0 +1,5 @@
+this derivation will be built:
+  /nix/store/6wghibgkllrhdcynlphqx6l67d8iv25y-forum-core-tests.drv
+building '/nix/store/6wghibgkllrhdcynlphqx6l67d8iv25y-forum-core-tests.drv'...
+core tests: 177 checks, 0 failures
+/work/result-core-tests

@@ -1,0 +1,13 @@
+=== ui-dev (second ternary fix, override) 2026-10-03T09:22:36Z
+ui-dev exit=0
+=== integration (second ternary fix, override) 2026-10-03T09:24:43Z
+integ exit=1
+forum_module-integration-test> 1 passed, 5 failed
+       Reason: builder failed with exit code 1.
+       >   ✓ forum_module: UI loads
+       >   ✗ forum_module: backend connects
+       >   ✗ forum_module: create topic through the UI
+       >   ✗ forum_module: post path refuses honestly without transport
+       >   ✗ forum_module: refused post shows failed state in thread
+       >   ✗ forum_module: transport status honest
+       > 1 passed, 5 failed

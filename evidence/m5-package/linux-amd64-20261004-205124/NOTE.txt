@@ -1,0 +1,15 @@
+FAIL (environment, not source): Windows cross-build in an x86_64 Linux
+container emulated by Rosetta on Apple silicon.
+
+Host-side evaluation worked (HOST_EVAL=1: drv closure exported from the macOS
+host and imported into the container — see host-eval/import logs), and the
+whole mingw toolchain closure substituted from cache.nixos.org. The build then
+stopped at the first native tool run inside the emulated container:
+
+  repc (qtremoteobjects-6.11.1) -> exit 139 (SIGSEGV), both replica and source
+  headers — build-lgx-portable.log lines 1070-1077.
+
+repc is an x86_64-linux build tool; it segfaults under emulation before
+reading our .rep file. Conclusion: emulated Linux on this Mac cannot produce
+the Windows package. The Windows variant is built on real x86_64 Linux in CI
+(.github/workflows/ci.yml job `windows`). Kept as a receipt; raw logs unedited.

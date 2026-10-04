@@ -1,0 +1,11 @@
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/a520x5a79fn5a479j7jly13nzv3iln5x-logos-forum_module-plugin-dir/src/icons/icon.png"
+Loaded UI plugin: "/nix/store/a520x5a79fn5a479j7jly13nzv3iln5x-logos-forum_module-plugin-dir"
+[2026-10-04 19:01:07.654] [out] [delivery_module] DBG 2026-10-04 19:01:07.654+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=6168652
+[2026-10-04 19:01:07.654] [out] [delivery_module] INF 2026-10-04 19:01:07.654+02:00 Configuration: Enabled protocols           topics="waku conf" tid=6168652 relay=true rlnRelay=false store=false filter=true lightPush=true peerExchange=true rendezvous=true
+[2026-10-04 19:01:07.656] [out] [delivery_module] INF 2026-10-04 19:01:07.656+02:00 mounting store client                      topics="waku node store api" tid=6168652
+[2026-10-04 19:01:21.692] [out] [delivery_module] DBG 2026-10-04 19:01:21.692+02:00 calculateConnectionState                   tid=6168652 relayCount=6 storeClientCount=5 lightpushCount=6 filterCount=6
+[2026-10-04 19:01:21.795] [out] [delivery_module] DBG 2026-10-04 19:01:21.795+02:00 calculateConnectionState                   tid=6168652 relayCount=6 storeClientCount=5 lightpushCount=6 filterCount=6
+[2026-10-04 19:01:22.572] [out] [delivery_module] INF 2026-10-04 19:01:22.571+02:00 Message received                           tid=6168652 msg_hash=0xbccc41c76475dfbf751cb15fc6b12878aa05438be9167e4617d7cca04f9bee11 contentTopic=/lp0026forum/1/general/text pubsubTopic=/waku/2/rs/3/7 source=history
+[2026-10-04 19:01:22.718] [info] [logos] [delivery_module] DeliveryModuleImpl::storeQuery called with peerAddr: /dns4/delivery-01.do-ams3.logos.dev.status.im/tcp/30303/p2p/16Uiu2HAmTUbnxLGT9JvV6mu9oPyDjqHK4Phs1VDJNUgESgNSkuby
+[2026-10-04 19:01:23.262] [info] [logos] [delivery_module] DeliveryModuleImpl::storeQuery called with peerAddr: /dns4/delivery-01.do-ams3.logos.dev.status.im/tcp/30303/p2p/16Uiu2HAmTUbnxLGT9JvV6mu9oPyDjqHK4Phs1VDJNUgESgNSkuby

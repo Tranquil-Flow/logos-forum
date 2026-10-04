@@ -1,0 +1,5 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+/nix/store/c006nh1v0xfp5zr09b521d5j4z2kbmjb-logos-forum_module-module-lgx-0.1.0.drv

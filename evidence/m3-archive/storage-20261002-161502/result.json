@@ -1,0 +1,25 @@
+{
+  "status": "FAIL",
+  "layer": "m3-storage-lifecycle",
+  "evidence": "<repo>/evidence/m3-archive/storage-20261002-161502",
+  "claims": [
+    "two-archives-hold-verifiable-bytes",
+    "byte-exact-readback-both-archives"
+  ],
+  "corpus": {
+    "posts": 5,
+    "bytes": 1629,
+    "sha256": "1f3fd6e73959dda3fc93d8531e74439fa1595b7954f36c4f9225c1f8dfe69d41",
+    "author_is_archive": false
+  },
+  "archives": {
+    "a": "/ip4/127.0.0.1/tcp/63630/p2p/16Uiu2HAm6QPPFA8GZcdxReW7WTfiDmf3tksxt4xyUHkDasvaMKxF",
+    "b": "/ip4/127.0.0.1/tcp/63631/p2p/16Uiu2HAm3Q6tGVKfW3AStT3jb4esNPtp4iJm9ch6k1dCCnrZiWWu",
+    "public_bootstrap": false
+  },
+  "cids": {
+    "a": "zDvZRwzmDSFPojnyDduyUBkR9iucRWb8CaBu3jXRimj4o3NTPyS7",
+    "b": "zDvZRwzmDSFPojnyDduyUBkR9iucRWb8CaBu3jXRimj4o3NTPyS7"
+  },
+  "error": "AttributeError: 'str' object has no attribute 'decode'"
+}

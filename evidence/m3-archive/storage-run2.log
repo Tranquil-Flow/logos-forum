@@ -1,0 +1,6 @@
+=== m3 storage harness run 2 2026-10-02T12:35:47Z
+=== 1/7 corpus (TECHNICAL TEST DATA, signed, 5 posts)
+=== 2/7 archive roles up (loopback, no public bootstrap)
+RESULT {"status": "FAIL", "layer": "m3-storage-lifecycle", "evidence": "<repo>/evidence/m3-archive/storage-20261002-143547", "claims": [], "corpus": {"posts": 5, "bytes": 1629, "sha256": "58146501a96f09cd990af341c1b14f235f78702836a9a09b5dcdeea90fe1dbcc", "author_is_archive": false}, "error": "RuntimeError: archive-a init failed: False"}
+cleanup leftover: none
+=== exit=1 2026-10-02T12:36:09Z

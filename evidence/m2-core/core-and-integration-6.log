@@ -1,0 +1,335 @@
+=== core-tests 6 2026-10-01T20:42:23Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/n3045daw5ggf85fyq0xk712rjk8zfzxw-forum-core-tests.drv
+building '/nix/store/n3045daw5ggf85fyq0xk712rjk8zfzxw-forum-core-tests.drv'...
+forum-core-tests> core tests: 63 checks, 0 failures
+=== core exit=0 2026-10-01T20:42:55Z
+core tests: 63 checks, 0 failures
+=== integration 7 2026-10-01T20:42:55Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: rejected ca28145fdc5e9858595126a3d6b01ec19882e31c because shallow roots are not allowed to be updated
+these 4 derivations will be built:
+  /nix/store/16fakwqq116dkrvnlp77x72lzwkh78v6-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/j6vi9yf575mvsr3p589pcichglcm5f41-logos-forum_module-module.drv
+  /nix/store/h2q0xxxs6n2pqhvvshcndag6gfh0xs44-run-standalone.drv
+  /nix/store/a680svw4q6mk6xls33b18hvhkp58jjb8-forum_module-integration-test.drv
+this path will be fetched (8.5 MiB download, 53.3 MiB unpacked):
+  /nix/store/2haz1qvxgshwfnf34ds3ldhrw1fr19xl-nodejs-22.19.0-dev
+copying path '/nix/store/2haz1qvxgshwfnf34ds3ldhrw1fr19xl-nodejs-22.19.0-dev' from 'https://cache.nixos.org'...
+building '/nix/store/16fakwqq116dkrvnlp77x72lzwkh78v6-logos-forum_module-module-lib-0.1.0.drv'...
+logos-forum_module-module-lib> Running phase: qtPreHook
+logos-forum_module-module-lib> Running phase: unpackPhase
+logos-forum_module-module-lib> unpacking source archive /nix/store/rhvpb3h3cjl6xf7cmn5648zarv7wsacy-lplhqfri2c6fyidj6y15pl3lyidfwvjp-source
+logos-forum_module-module-lib> source root is lplhqfri2c6fyidj6y15pl3lyidfwvjp-source
+logos-forum_module-module-lib> Running phase: patchPhase
+logos-forum_module-module-lib> Running phase: updateAutotoolsGnuConfigScriptsPhase
+logos-forum_module-module-lib> Running phase: configurePhase
+logos-forum_module-module-lib> Running logos-cpp-generator (api-style=qt)...
+logos-forum_module-module-lib> Generating deps from LIDL: delivery_module, storage_module
+logos-forum_module-module-lib> Generated logos_sdk.h and logos_sdk.cpp
+logos-forum_module-module-lib> Running logos-qt-generator --backend consumer for the Qt-typed dependency wrappers...
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.cpp
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.cpp
+logos-forum_module-module-lib> Checking generated files in generated_code:
+logos-forum_module-module-lib> total 188
+logos-forum_module-module-lib> drwxr-xr-x  8 _nixbld1 nixbld   256 Oct  1 20:44 .
+logos-forum_module-module-lib> drwxr-xr-x 22 _nixbld1 nixbld   704 Oct  1 20:44 ..
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 61780 Oct  1 20:44 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 12269 Oct  1 20:44 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld    94 Oct  1 20:44 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld   363 Oct  1 20:44 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 87563 Oct  1 20:44 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 15623 Oct  1 20:44 storage_module_api.h
+logos-forum_module-module-lib> Creating include directory and moving generated files...
+logos-forum_module-module-lib> Generated include directory:
+logos-forum_module-module-lib> total 188
+logos-forum_module-module-lib> drwxr-xr-x 8 _nixbld1 nixbld   256 Oct  1 20:44 .
+logos-forum_module-module-lib> drwxr-xr-x 6 _nixbld1 nixbld   192 Oct  1 20:44 ..
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 61780 Oct  1 20:44 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 12269 Oct  1 20:44 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld    94 Oct  1 20:44 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld   363 Oct  1 20:44 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 87563 Oct  1 20:44 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 15623 Oct  1 20:44 storage_module_api.h
+logos-forum_module-module-lib> Stamped logos_protocol_version=0.9.0 into metadata.json
+logos-forum_module-module-lib> logos-module-builder: generating ui plugin glue (forum_module)...
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_interface.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.cpp
+logos-forum_module-module-lib> fixing cmake files...
+logos-forum_module-module-lib> cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/share/doc/ForumPlugin -DCMAKE_INSTALL_INFODIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/strip -DCMAKE_RANLIB=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/ranlib -DCMAKE_AR=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/ar -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_INSTALL_PREFIX=/nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0 -GNinja -DLOGOS_MODULE_ROOT=/nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0 -DLOGOS_CPP_SDK_ROOT=/nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk -DLOGOS_QT_SDK_ROOT=/nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk -DLOGOS_QT_HOST_ROOT=/nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0 -DLOGOS_PROTOCOL_ROOT=/nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol -DLOGOS_VIEW_TEMPLATE_DIR=/nix/store/py6wzmragypgh2lbaimz1z23qzcv8ckr-logos-view-templates -DLOGOS_VIEW_INCLUDE_DIR=/nix/store/ndn52sc7anhfvn2h047ffwsqn25hs62i-logos-view-module-include
+logos-forum_module-module-lib> -- The CXX compiler identification is Clang 19.1.7
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info - done
+logos-forum_module-module-lib> -- Check for working CXX compiler: /nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/clang++ - skipped
+logos-forum_module-module-lib> -- Detecting CXX compile features
+logos-forum_module-module-lib> -- Detecting CXX compile features - done
+logos-forum_module-module-lib> -- LogosModule.cmake: /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake
+logos-forum_module-module-lib> -- Found logos-module at: /nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0
+logos-forum_module-module-lib> -- Found logos-cpp-sdk at: /nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk
+logos-forum_module-module-lib> -- Found logos-qt-sdk at: /nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk
+logos-forum_module-module-lib> -- Found logos-protocol at: /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol
+logos-forum_module-module-lib> -- Qt host runtime: logos-qt-host::logos_qt_host at /nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+logos-forum_module-module-lib> -- Found Threads: TRUE
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC - Success
+logos-forum_module-module-lib> -- Found WrapAtomic: TRUE
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/qvv2ddin29xa8fqmsv567b6xlnhbvpv0-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found Boost: /nix/store/2blqfsz18yp066ky15nvkihcvwqq7bqz-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found OpenSSL: /nix/store/0ais7wnqw8xzj0331c2jka53s6g14wqb-openssl-3.5.1/lib/libcrypto.dylib (found version "3.5.1")
+logos-forum_module-module-lib> -- Found nlohmann_json: /nix/store/hs7wcady8i97dqq7qiaiaq05srnq6yih-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/qvv2ddin29xa8fqmsv567b6xlnhbvpv0-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+logos-forum_module-module-lib>   /nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:625 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Logos module forum_module: replica factory plugin from src/forum_module.rep (class Forum, QML Logos.Forum.Forum)
+logos-forum_module-module-lib> -- Logos module forum_module configured successfully
+logos-forum_module-module-lib> -- Configuring done (1.7s)
+logos-forum_module-module-lib> -- Generating done (0.1s)
+logos-forum_module-module-lib> CMake Warning:
+logos-forum_module-module-lib>   Manually-specified variables were not used by the project:
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib>     BUILD_TESTING
+logos-forum_module-module-lib>     CMAKE_C_COMPILER
+logos-forum_module-module-lib>     CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+logos-forum_module-module-lib>     CMAKE_POLICY_DEFAULT_CMP0025
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Build files have been written to: /nix/var/nix/builds/nix-79794-2237554399/lplhqfri2c6fyidj6y15pl3lyidfwvjp-source/build
+logos-forum_module-module-lib> cmake: enabled parallel building
+logos-forum_module-module-lib> cmake: enabled parallel installing
+logos-forum_module-module-lib> Running phase: buildPhase
+logos-forum_module-module-lib> build flags: -j4
+logos-forum_module-module-lib> [0/2] Re-checking globbed directories...
+logos-forum_module-module-lib> [1/19] Automatic MOC for target forum_module_module_plugin
+logos-forum_module-module-lib> [2/19] Automatic MOC for target forum_module_replica_factory
+logos-forum_module-module-lib> [3/19] Generating rep_forum_module_replica.h
+logos-forum_module-module-lib> [4/19] Generating rep_forum_module_source.h
+logos-forum_module-module-lib> [5/19] Generating moc_rep_forum_module_replica.cpp
+logos-forum_module-module-lib> [6/19] Generating moc_rep_forum_module_source.cpp
+logos-forum_module-module-lib> [7/19] Building CXX object CMakeFiles/forum_module_replica_factory.dir/forum_module_replica_factory_autogen/mocs_compilation.cpp.o
+logos-forum_module-module-lib> [8/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/forum_module_module_plugin_autogen/mocs_compilation.cpp.o
+logos-forum_module-module-lib> [9/19] Building CXX object CMakeFiles/forum_module_replica_factory.dir/replica_factory_forum_module/LogosViewReplicaFactory.cpp.o
+logos-forum_module-module-lib> [10/19] Building CXX object CMakeFiles/forum_module_replica_factory.dir/moc_rep_forum_module_replica.cpp.o
+logos-forum_module-module-lib> [11/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/core/forum_core.cpp.o
+logos-forum_module-module-lib> [12/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+logos-forum_module-module-lib> [13/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+logos-forum_module-module-lib> [14/19] Linking CXX shared library modules/forum_module_replica_factory.dylib
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a0z4ipq0hcakknsi5f1icgpdmch3simf-qtremoteobjects-6.9.2/lib/QtRemoteObjects.framework/Versions/A/QtRemoteObjects) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/fn7iqppsl6z7ikbspxnjirwdz345w8mj-qtdeclarative-6.9.2/lib/QtQml.framework/Versions/A/QtQml) was built for newer macOS version (12.0) than being linked (11.3)ld: warning: ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Versions/A/QtCore) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtNetwork.framework/Versions/A/QtNetwork) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> [15/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o
+logos-forum_module-module-lib> [16/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+logos-forum_module-module-lib> [17/19] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+logos-forum_module-module-lib> [18/19] Linking CXX shared library modules/forum_module_plugin.dylib
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a0z4ipq0hcakknsi5f1icgpdmch3simf-qtremoteobjects-6.9.2/lib/QtRemoteObjects.framework/Versions/A/QtRemoteObjects) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Versions/A/QtCore) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtNetwork.framework/Versions/A/QtNetwork) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> Running phase: glibPreInstallPhase
+logos-forum_module-module-lib> Running phase: installPhase
+logos-forum_module-module-lib> Copying replica factory plugin: forum_module_replica_factory.dylib
+logos-forum_module-module-lib> Running phase: qtOwnPathsHook
+logos-forum_module-module-lib> Running phase: fixupPhase
+logos-forum_module-module-lib> checking for references to /nix/var/nix/builds/nix-79794-2237554399/ in /nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0...
+logos-forum_module-module-lib> patching script interpreter paths in /nix/store/mk9jf73z9zjfk36p07h6h98rlsx6q0jw-logos-forum_module-module-lib-0.1.0
+logos-forum_module-module-lib> Running phase: postPatchMkspecs
+building '/nix/store/j6vi9yf575mvsr3p589pcichglcm5f41-logos-forum_module-module.drv'...
+logos-forum_module-module> Normalized LIDL: /nix/var/nix/builds/nix-79794-2237554400/tmp.DuVLxVKG8h
+logos-forum_module-module> Installed canonical LIDL contract: delivery_module
+logos-forum_module-module> Normalized LIDL: /nix/var/nix/builds/nix-79794-2237554400/tmp.AwkljQIzDv
+logos-forum_module-module> Installed canonical LIDL contract: storage_module
+logos-forum_module-module> Copied QML view directory from src/qml
+logos-forum_module-module> Generated qmldir at qml/qmldir (module com.logos.module.forum_module)
+building '/nix/store/h2q0xxxs6n2pqhvvshcndag6gfh0xs44-run-standalone.drv'...
+building '/nix/store/a680svw4q6mk6xls33b18hvhkp58jjb8-forum_module-integration-test.drv'...
+forum_module-integration-test> Running integration tests: forum_module-integration-test (1 file(s), timeout: 120s per file)...
+forum_module-integration-test> Running: ui-tests.mjs
+forum_module-integration-test> Launching: /nix/store/n6xg8zasn9hxj7xbgkf7z145pqalhi3b-run-standalone -platform offscreen
+forum_module-integration-test> Waiting for inspector to become available...
+forum_module-integration-test> [app:err] Session directory: "/var/empty/Library/Application Support/Logos/LogosStandalone"
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/capability_module/790ff203a3fc"
+forum_module-integration-test> [app:err] [2026-10-01 20:44:23.318] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+forum_module-integration-test> [app:out] [2026-10-01 20:44:23.366] [out] [capability_module] [2026-10-01 20:44:23.366] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+forum_module-integration-test> [app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_9665e6862693" at "20:44:23.369"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_9665e6862693"
+forum_module-integration-test> [app:err] LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:20815647…"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Requesting object: "capability_module" at "20:44:23.370"
+forum_module-integration-test> [app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+forum_module-integration-test> [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144897440
+forum_module-integration-test> [app:err] [LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+forum_module-integration-test> [app:err] LogosAPIConsumer: informModuleToken completed with result: true
+forum_module-integration-test> [LogosObject] Destroying RemoteLogosObject 0
+forum_module-integration-test> [2026-10-01 20:44:23.370] [info] [logos] Module loaded: capability_module
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/modules_state/8f8a2954fc9d"
+forum_module-integration-test> [app:err] LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:cb5aabc3…"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Requesting object: "capability_module" at "20:44:23.404"
+forum_module-integration-test> [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+forum_module-integration-test> [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144844032
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+forum_module-integration-test> LogosAPIConsumer: informModuleToken completed with result: true
+forum_module-integration-test> [LogosObject] Destroying RemoteLogosObject 0
+forum_module-integration-test> [2026-10-01 20:44:23.403] [info] [logos] Module loaded: modules_state
+forum_module-integration-test> RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_9665e6862693" at "20:44:23.404"
+forum_module-integration-test> RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_9665e6862693"
+forum_module-integration-test> RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_9665e6862693" at "20:44:23.404"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_9665e6862693"
+forum_module-integration-test> [app:err] LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+forum_module-integration-test> [app:err] LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+forum_module-integration-test> Logos Core started (modules dir: "/nix/store/lij9cs9brhb2v8wxpybkj7vhin4srri2-forum_module-integration-test-modules" )
+forum_module-integration-test> [app:err] Set app icon from metadata: "/nix/store/jylnvxgq136bskf1xlxyx79ibmjy1s14-logos-forum_module-module/lib/src/icons/icon.png"
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/delivery_module/25962ecf40a0"
+forum_module-integration-test> [app:err] [2026-10-01 20:44:23.460] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+forum_module-integration-test> [app:err] LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:f30e9246…"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Requesting object: "capability_module" at "20:44:23.461"
+forum_module-integration-test> [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+forum_module-integration-test> [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144870304
+forum_module-integration-test> [app:err] [LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+forum_module-integration-test> [app:err] LogosAPIConsumer: informModuleToken completed with result: true
+forum_module-integration-test> [LogosObject] Destroying RemoteLogosObject 0
+forum_module-integration-test> [app:err] [2026-10-01 20:44:23.461] [info] [logos] Module loaded: delivery_module
+forum_module-integration-test> RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_9665e6862693" at "20:44:23.461"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_9665e6862693"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_9665e6862693" at "20:44:23.461"
+forum_module-integration-test> RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_9665e6862693"
+forum_module-integration-test> LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+forum_module-integration-test> [app:err] LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Requesting object: "modules_state" at "20:44:23.461"
+forum_module-integration-test> [app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+forum_module-integration-test> [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144845792
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [app:err] [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> [app:err] LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [app:err] [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> Loaded dependency (with transitive deps): "delivery_module"
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/storage_module/736965fc6d99"
+forum_module-integration-test> [app:err] [2026-10-01 20:44:23.503] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+forum_module-integration-test> [app:err] LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:36970589…"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Requesting object: "capability_module" at "20:44:23.505"
+forum_module-integration-test> [app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144958496
+forum_module-integration-test> [app:err] LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+forum_module-integration-test> LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+forum_module-integration-test> [app:err] [LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+forum_module-integration-test> [LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+forum_module-integration-test> [app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144845568
+forum_module-integration-test> [app:err] LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> [app:err] LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> [app:err] [2026-10-01 20:44:23.506] [info] [logos] Pushed module snapshot to modules_state
+forum_module-integration-test> [app:err] LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+forum_module-integration-test> [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144871520
+forum_module-integration-test> [app:err] [LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+forum_module-integration-test> [app:err] LogosAPIConsumer: informModuleToken completed with result: true
+forum_module-integration-test> [app:err] [LogosObject] Destroying RemoteLogosObject 0
+forum_module-integration-test> [2026-10-01 20:44:23.506] [info] [logos] Module loaded: storage_module
+forum_module-integration-test> [app:err] RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_9665e6862693" at "20:44:23.506"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_9665e6862693"
+forum_module-integration-test> RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_9665e6862693" at "20:44:23.506"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_9665e6862693"
+forum_module-integration-test> LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+forum_module-integration-test> LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> [app:err] Loaded dependency (with transitive deps): "storage_module"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_9665e6862693" at "20:44:23.507"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_9665e6862693"
+forum_module-integration-test> [app:err] LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:233e3672…"
+forum_module-integration-test> [app:err] RemoteTransportConnection: Requesting object: "capability_module" at "20:44:23.507"
+forum_module-integration-test> [app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+forum_module-integration-test> [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144959424
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+forum_module-integration-test> [app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 105553144869504
+forum_module-integration-test> [app:err] LogosAPIClient: getToken for module: "modules_state"
+forum_module-integration-test> LogosAPIClient: Found token for module: "modules_state"
+forum_module-integration-test> [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+forum_module-integration-test> [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+forum_module-integration-test> [app:err] LogosAPIConsumer: informModuleToken completed with result: true
+forum_module-integration-test> [LogosObject] Destroying RemoteLogosObject 0
+forum_module-integration-test> [app:err] qt.qpa.fonts: Populating font family aliases took 26 ms. Replace uses of missing font family "Sans Serif" with one that exists to avoid this cost.
+forum_module-integration-test> [app:err] Loaded UI plugin: "/nix/store/jylnvxgq136bskf1xlxyx79ibmjy1s14-logos-forum_module-module/lib"
+forum_module-integration-test> [app:err] [QmlInspector] Inspector server listening on port 3768
+forum_module-integration-test> Inspector connected.
+forum_module-integration-test> [app:err] [QmlInspector] Client connected from "::1"
+forum_module-integration-test> [app:err] [QmlInspector] Client disconnected
+forum_module-integration-test> 
+forum_module-integration-test> Running 4 test(s)...
+forum_module-integration-test> 
+forum_module-integration-test> [app:err] [QmlInspector] Client connected from "::1"
+forum_module-integration-test>   ✓ forum_module: UI loads
+forum_module-integration-test>   ✓ forum_module: backend connects
+forum_module-integration-test>   ✓ forum_module: post path routes and refuses honestly without transport
+forum_module-integration-test> [app:err] [2026-10-01 20:44:26.667] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+forum_module-integration-test> [app:err] [2026-10-01 20:44:26.669] [info] [logos] [delivery_module] DeliveryModuleImpl::getAvailableConfigs called
+forum_module-integration-test> [2026-10-01 20:44:26.669] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get available configs - context not initialized. Call createNode first.
+forum_module-integration-test> [app:err] [2026-10-01 20:44:26.671] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+forum_module-integration-test>   ✓ forum_module: transport status reports module presence honestly
+forum_module-integration-test> 
+forum_module-integration-test> 4 passed, 0 failed
+forum_module-integration-test> 
+forum_module-integration-test> [app:err] [QmlInspector] Client disconnected
+forum_module-integration-test> All integration tests passed
+=== integ exit=0 2026-10-01T20:44:27Z

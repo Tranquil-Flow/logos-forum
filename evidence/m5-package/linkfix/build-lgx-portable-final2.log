@@ -1,0 +1,27 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 5 derivations will be built:
+  /nix/store/sj1amb4qr6p090b00bl5h0xxq1n4flqx-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/1p0rcm40p2lq1sl19c1ihkrg8b4h7nrz-logos-forum_module-module.drv
+  /nix/store/q62sr3142z9h54dj86bmhdqx3mp42jx1-closure-info.drv
+  /nix/store/yzcismh7cwdni32q0h0984wq6miwi734-logos-forum_module-module-bundle-0.1.0.drv
+  /nix/store/9647hw5kcffvd50b7v6ffc1d3ba47sx5-logos-forum_module-module-lgx-0.1.0.drv
+these 3 paths will be fetched (165.1 KiB download, 1.0 MiB unpacked):
+  /nix/store/mnqfvgpmqx4jjyhpsxrscfxgh3fq3102-cctools-1010.6-dev
+  /nix/store/y2f6yak1mppkfz0vbczard914xajb663-file-5.45-dev
+  /nix/store/2gmh2mz52jbj4jizbkv8c3gxiyirgmck-sigtool-0.1.3
+copying path '/nix/store/mnqfvgpmqx4jjyhpsxrscfxgh3fq3102-cctools-1010.6-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/y2f6yak1mppkfz0vbczard914xajb663-file-5.45-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/2gmh2mz52jbj4jizbkv8c3gxiyirgmck-sigtool-0.1.3' from 'https://cache.nixos.org'...
+building '/nix/store/sj1amb4qr6p090b00bl5h0xxq1n4flqx-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/1p0rcm40p2lq1sl19c1ihkrg8b4h7nrz-logos-forum_module-module.drv'...
+building '/nix/store/q62sr3142z9h54dj86bmhdqx3mp42jx1-closure-info.drv'...
+building '/nix/store/yzcismh7cwdni32q0h0984wq6miwi734-logos-forum_module-module-bundle-0.1.0.drv'...
+building '/nix/store/9647hw5kcffvd50b7v6ffc1d3ba47sx5-logos-forum_module-module-lgx-0.1.0.drv'...

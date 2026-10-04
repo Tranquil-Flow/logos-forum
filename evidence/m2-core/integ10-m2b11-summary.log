@@ -1,0 +1,20 @@
+=== integration 10 (watchdog tree) 2026-10-02T08:01:53Z
+integ exit=0
+forum_module-integration-test>   ✓ forum_module: UI loads
+forum_module-integration-test>   ✓ forum_module: backend connects
+forum_module-integration-test>   ✓ forum_module: post path routes and refuses honestly without transport
+forum_module-integration-test>   ✓ forum_module: transport status reports module presence honestly
+forum_module-integration-test> 4 passed, 0 failed
+forum_module-integration-test> All integration tests passed
+=== ui-dev 7 2026-10-02T08:03:57Z
+ui-dev exit=0
+=== m2b run 11 2026-10-02T08:05:31Z
+=== m2b exit=1 2026-10-02T08:08:40Z
+=== 1/7 relays up (fresh identities)
+=== 2/7 boot instances
+=== 3/7 P1 online post (with recovery)
+compose attempt 1 produced no outcome (alive=False) — recovering
+compose attempt 2 produced no outcome (alive=False) — recovering
+compose attempt 3 produced no outcome (alive=False) — recovering
+FAIL: P1 compose never produced an outcome
+=== cleanup 2026-10-02T08:08:33Z

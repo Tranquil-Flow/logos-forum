@@ -1,0 +1,17 @@
+{
+  "status": "FAIL",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:04:25Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "error": "FATAL Logos Storage refused the download: storage_module: call to 'storage_module.downloadToUrl' timed out after 20000ms",
+  "last_archive_state": "Logos Storage refused the download: storage_module: call to 'storage_module.downloadToUrl' timed out after 20000ms",
+  "last_state": "no transport configured — posting unavailable (Required policy)",
+  "thread": []
+}

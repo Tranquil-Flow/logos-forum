@@ -1,0 +1,27 @@
+Forum in the RELEASE Basecamp app (LogosBasecamp 0.3.1, the pinned dmg
+sha256 115102ed…, unpacked by tools/demo_profiles.sh app), on a fresh
+--user-dir, with the release package (#lgx-portable) and the official
+delivery_module 0.3.0 / storage_module 3.0.0 packages seeded by
+tools/demo_profiles.sh setup. Opened with --uri=basecamp://app/forum_module.
+
+before-R2/ (package built before this fix):
+  - "Successfully loaded UI module: forum_module"; ui-host --name forum_module
+    running; deps delivery_module + storage_module loaded by Basecamp.
+  - BUT no module_data/forum_module/ (tree.txt): the backend opens its store
+    lazily on the first user action, so a reopened profile showed no saved
+    topics/posts until the user clicked something. Product gap.
+
+Fix: src/qml/Main.qml asks the backend once, 300 ms after it reports ready,
+to refresh (setSearch(""), side-effect free) — the store opens outside the
+handshake window, which is the constraint from integration-21/22/23.
+UI suite after the fix: polish-20261004/integration-storeopen-7.log, 13/13.
+
+after-R3/ (package sha256 in forum-lgx-sha256.txt):
+  - module_data/forum_module/forum.db created ~10 s after launch with no
+    interaction, in the per-profile location (tree.txt); store-posts.txt shows
+    the default General topic.
+
+Not shown here (release app has no inspector; screen capture is not
+available from this shell): clicking through the UI. That path is covered by
+the UI suite and the real-host runs (m5b, m6, m7); the demo video covers it
+in the release app.

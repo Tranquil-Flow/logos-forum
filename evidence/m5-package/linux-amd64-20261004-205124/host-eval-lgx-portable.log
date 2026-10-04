@@ -1,0 +1,7 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+evaluation warning: 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'
+/nix/store/19qrpc0l47l4i1c54fkc6fmkyglvbylr-logos-forum_module-module-lgx-x86_64-w64-mingw32-0.1.0.drv
+147M	$TMPDIR/tmp.BtiAzZvWme/lgx-portable.closure

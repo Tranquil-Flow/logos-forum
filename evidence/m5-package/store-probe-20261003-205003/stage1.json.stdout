@@ -1,0 +1,17 @@
+=== stage 1: 'Check transport' → store() opened? ===
+{
+  "stage1": "PASS",
+  "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+  "direct_has_outbox": false,
+  "outcome": "delivery: present (loaded; node not created yet); storage: present (v3.0.0); outbox: 1 durable post(s); privacy: unverified until a Required send completes",
+  "outcome_has_outbox": true,
+  "transportState_before": "no transport configured — posting unavailable (Required policy)",
+  "transportState_after": "no transport configured — posting unavailable (Required policy)",
+  "transportState_changed": false,
+  "accounts": [],
+  "topics": [
+    "c09f15320af5b70cb05faa91bd3022d1599ccfbe8f8769f5853ef7c9cbce5874|General (0)"
+  ],
+  "threadPosts_count": 0,
+  "diagnosis": "outbox observed via QML watch only; direct read did not expose slot result"
+}

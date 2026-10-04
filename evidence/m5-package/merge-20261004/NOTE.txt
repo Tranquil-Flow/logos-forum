@@ -1,0 +1,5 @@
+PASS: the macOS release package (darwin-arm64, result-lgx-portable on the
+final tree) and the Linux one (linux-arm64, linux-20261004-211318) merge with
+the official lgx tool into one package that verifies and lists both
+variants. CI job `all-platforms` does the same with the Windows package
+added (Windows cannot be built locally — see linux-amd64-*/NOTE.txt).

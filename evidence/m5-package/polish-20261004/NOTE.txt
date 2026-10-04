@@ -1,0 +1,9 @@
+Test-harness race, not a product defect: the transport-status test clicked 'Check transport' right after opening the new 'Network details' toggle, before the button was visible, so the click missed and outcome.text still held the earlier refusal text. Fix: the test waits for checkButton.visible before clicking (integration-toggle-2.log).
+
+integration-toggle-2-FAIL.log: the visibility wait passed but the click still produced the Re-check result. The inspector's findAndClick matches a case-insensitive substring and takes the first element whose click succeeds, so "Check transport" can land on "Re-check transport". Fix: exact matching for both clicks plus a wait for a laid-out button (integration-toggle-3.log).
+
+integration-toggle-3-FAIL.log: exact matching did not change the result; the returned text is exactly what recheckTransport() returns. The inspector clicks by synthesising a mouse event at the item's centre, so a layout shift (the toggle's label widening to "Hide network details" moved the buttons) can land the click on the neighbour. Fix: the toggle moved to the right end of the row, so opening it moves nothing to its left; the test logs which element the click matched (integration-toggle-4.log).
+
+integration-toggle-4-FAIL.log: the click matched "Check transport" yet outcome.text still showed the recheck text; diagnostic run with geometry logging follows (integration-toggle-5.log).
+
+integration-toggle-5-FAIL.log (diagnostic): before the click, checkButton and recheckButton report the same scene position (20,708). The headless test window renders no frames, so the layout never re-positions buttons that become visible; the synthesised mouse click at that point reaches Re-check. A real window lays them out on the next frame. Fix (test only): open "Network details" by mouse, then emit checkButton.clicked() (integration-toggle-6.log).

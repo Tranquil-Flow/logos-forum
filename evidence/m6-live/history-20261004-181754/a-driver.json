@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "phase": "post",
+  "text": "TECHNICAL TEST DATA: offline-reader history check 2026-10-04T16:17:54Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 14,
+      "what": "transport ready",
+      "state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events"
+    },
+    {
+      "t_s": 39,
+      "what": "post clicked"
+    },
+    {
+      "t_s": 111,
+      "what": "retry",
+      "n": 1,
+      "after": "Required send FAILED: Unable to send within retry time window — text retained; post stored for retry (automatic retry 1/3 in 15 s)"
+    },
+    {
+      "t_s": 118,
+      "what": "propagated"
+    }
+  ],
+  "initial_thread": "[]",
+  "thread": "[\"id f3c7ee8db1a65322 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-04T16:17:19Z\",\"id 3428f95158d19376 [sent]: TECHNICAL TEST DATA: offline-reader history check 2026-10-04T16:17:54Z\"]"
+}

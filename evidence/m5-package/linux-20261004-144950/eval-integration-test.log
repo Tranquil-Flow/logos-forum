@@ -1,0 +1,41 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+evaluation warning: `mesa.drivers` is deprecated, use `mesa` instead
+warning: unable to download 'https://cache.nixos.org/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nixos.org; retrying in 73 ms (attempt 1/5)
+warning: unable to download 'https://cache.nixos.org/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nixos.org; retrying in 177 ms (attempt 2/5)
+warning: unable to download 'https://cache.nixos.org/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nixos.org; retrying in 152 ms (attempt 3/5)
+warning: unable to download 'https://cache.nixos.org/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nixos.org; retrying in 48 ms (attempt 4/5)
+warning: unable to download 'https://cache.nixos.org/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nixos.org
+warning: unable to download 'https://cache.nix.logos.co/public/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nix.logos.co; retrying in 3 ms (attempt 1/5)
+warning: unable to download 'https://cache.nix.logos.co/public/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nix.logos.co; retrying in 39 ms (attempt 2/5)
+warning: unable to download 'https://cache.nix.logos.co/public/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nix.logos.co; retrying in 395 ms (attempt 3/5)
+warning: unable to download 'https://cache.nix.logos.co/public/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nix.logos.co; retrying in 308 ms (attempt 4/5)
+warning: unable to download 'https://cache.nix.logos.co/public/nix-cache-info': Could not resolve hostname (6) Could not resolve host: cache.nix.logos.co
+unpacking 'github:oxalica/rust-overlay/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99?narHash=sha256-3xBsGnGDLOFtnPZ1D3j2LU19wpAlYefRKTlkv648rU0%3D' into the Git cache...
+warning: unable to download 'https://github.com/oxalica/rust-overlay/archive/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99.tar.gz': Could not connect to server (7) Failed to connect to github.com port 443 after 7 ms: Could not connect to server; retrying in 53 ms (attempt 1/5)
+warning: unable to download 'https://github.com/oxalica/rust-overlay/archive/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99.tar.gz': Could not connect to server (7) Failed to connect to github.com port 443 after 2 ms: Could not connect to server; retrying in 195 ms (attempt 2/5)
+warning: unable to download 'https://github.com/oxalica/rust-overlay/archive/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99.tar.gz': Could not connect to server (7) Failed to connect to github.com port 443 after 2 ms: Could not connect to server; retrying in 259 ms (attempt 3/5)
+warning: unable to download 'https://github.com/oxalica/rust-overlay/archive/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99.tar.gz': Could not connect to server (7) Failed to connect to github.com port 443 after 3 ms: Could not connect to server; retrying in 673 ms (attempt 4/5)
+error:
+       … while calling the 'derivationStrict' builtin
+         at «nix-internal»/derivation-internal.nix:37:12:
+           36|
+           37|   strict = derivationStrict drvAttrs;
+             |            ^
+           38|
+
+       … while evaluating derivation 'forum_module-integration-test'
+         whose name attribute is located at «github:NixOS/nixpkgs/e9f00bd893984bc8ce46c895c3bf7cac95331127?narHash=sha256-0m27AKv6ka%2Bq270dw48KflE0LwQYrO7Fm4/2//KCVWg%3D»/pkgs/stdenv/generic/make-derivation.nix:539:13
+
+       … while evaluating attribute 'buildCommand' of derivation 'forum_module-integration-test'
+         at /nix/store/x176qyag5schj0i70bxq0dgiy24kskaq-source/flake.nix:68:13:
+           67|           integration-test = base.packages.${system}.integration-test.overrideAttrs (old: {
+           68|             buildCommand = ''
+             |             ^
+           69|               export FORUM_DB_PATH="$TMPDIR/forum-ci.db"
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: Failed to open archive (Source threw exception: error: unable to download 'https://github.com/oxalica/rust-overlay/archive/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99.tar.gz': Could not connect to server (7) Failed to connect to github.com port 443 after 0 ms: Could not connect to server)

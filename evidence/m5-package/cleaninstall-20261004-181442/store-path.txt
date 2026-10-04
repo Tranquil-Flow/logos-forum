@@ -1,0 +1,3 @@
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/module_data/forum_module/forum.db
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/module_data/forum_module/forum.db-shm
+~/.local/share/lp0026-forum-dev/basecamp-profiles/m5-cleaninstall/module_data/forum_module/forum.db-wal

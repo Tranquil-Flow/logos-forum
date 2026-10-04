@@ -1,0 +1,20 @@
+=== integration 11 (lazy-store tree) 2026-10-02T08:15:17Z
+integ exit=0
+forum_module-integration-test>   ✓ forum_module: UI loads
+forum_module-integration-test>   ✓ forum_module: backend connects
+forum_module-integration-test>   ✓ forum_module: post path routes and refuses honestly without transport
+forum_module-integration-test>   ✓ forum_module: transport status reports module presence honestly
+forum_module-integration-test> 4 passed, 0 failed
+forum_module-integration-test> All integration tests passed
+=== ui-dev 8 2026-10-02T08:16:53Z
+ui-dev exit=0
+=== m2b run 12 2026-10-02T08:18:22Z
+=== m2b exit=1 2026-10-02T08:21:30Z
+=== 1/7 relays up (fresh identities)
+=== 2/7 boot instances
+=== 3/7 P1 online post (with recovery)
+compose attempt 1 produced no outcome (alive=False) — recovering
+compose attempt 2 produced no outcome (alive=False) — recovering
+compose attempt 3 produced no outcome (alive=False) — recovering
+FAIL: P1 compose never produced an outcome
+=== cleanup 2026-10-02T08:21:24Z

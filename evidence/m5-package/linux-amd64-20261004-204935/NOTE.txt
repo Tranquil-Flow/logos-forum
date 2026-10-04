@@ -1,0 +1,1 @@
+FAIL (evaluation again): same "stack overflow (possible infinite recursion)" with the container's stack limit raised (log: "stack: unlimited"), so the shell stack limit was not the cause. Evaluation still succeeds natively on macOS. Next approach: evaluate on the host and import the derivation closure into the amd64 container, which then only builds.

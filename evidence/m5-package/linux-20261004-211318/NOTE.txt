@@ -1,0 +1,9 @@
+PASS on the final tree (aarch64-linux, nixos/nix container): core-tests,
+integration-test (13 passed, 0 failed — build-integration-test.log) and
+lgx-portable (linux-arm64 variant; sha256 in lgx-portable-sha256.txt).
+
+core-tests was already built for this exact derivation, so the build log is
+silent. core-tests-output.txt was copied afterwards from that derivation's
+output (drv 6wghibgk…-forum-core-tests.drv, named in eval-core-tests.log →
+out 7ps8mv3z…-forum-core-tests): 177 checks, 0 failures.
+tools/linux_build.sh now copies this file on every run.

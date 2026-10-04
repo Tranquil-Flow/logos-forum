@@ -1,0 +1,25 @@
+{
+  "stage2": "FAIL",
+  "backend_alive_after_stage1": true,
+  "textfield_found": true,
+  "click_result": {
+    "clicked": true,
+    "id": 2005,
+    "matchedId": "2",
+    "matchedText": "Add alias",
+    "matchedType": "Button_QMLTYPE_1",
+    "ok": true,
+    "widget": "QQuickWidget",
+    "x": 459,
+    "y": 70
+  },
+  "direct_slot_return": "{\"id\":2006,\"ok\":true,\"result\":null,\"undefined\":true}",
+  "echo_slot_return": "{\"id\":2007,\"ok\":true,\"result\":null,\"undefined\":true}",
+  "accounts_before": [],
+  "accounts_after": [],
+  "accounts_prop_has_demo": false,
+  "prop_sync_works": false,
+  "outcome": "(empty)",
+  "channel": "wedged",
+  "interpretation_hint": "PROP-sync also wedged → first slot call kills the QtRO source-replica connection; all subsequent slot calls are no-ops; need source-side fix (worker-thread dispatch + marshalled PROP updates) OR upstream capability_module eventResponse fix"
+}

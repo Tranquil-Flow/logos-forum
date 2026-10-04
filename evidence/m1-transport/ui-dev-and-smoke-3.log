@@ -1,0 +1,22 @@
+=== ui-dev rebuild 2 2026-10-01T20:23:37Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/lgx2sd6hh1lm85ql86vbjxh4zjzpvsgf-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/b8324rjn6cycifw6s4243xs6c9kppwnm-logos-forum_module-module.drv
+  /nix/store/jzhsc9a5pj9fyw0zsmv18myphbd9r8v6-logos-forum_module-plugin-dir.drv
+  /nix/store/ygswh2bww9d0d8p6fkr4w27shp5f862s-run-logos-standalone-ui.drv
+building '/nix/store/lgx2sd6hh1lm85ql86vbjxh4zjzpvsgf-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/b8324rjn6cycifw6s4243xs6c9kppwnm-logos-forum_module-module.drv'...
+building '/nix/store/jzhsc9a5pj9fyw0zsmv18myphbd9r8v6-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/ygswh2bww9d0d8p6fkr4w27shp5f862s-run-logos-standalone-ui.drv'...
+=== exit=0 2026-10-01T20:25:00Z
+=== smoke 3 2026-10-01T20:25:02Z
+=== smoke exit=0 2026-10-01T20:26:10Z

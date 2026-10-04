@@ -1,0 +1,15 @@
+=== m2b-cli run 2026-10-02T09:47:09Z
+=== 1/6 relays up
+=== 2/6 CLI sessions up
+=== 3/7 P1 signed wire → Required send → independent verify
+P1 send request: dd11a720ee8c581ace3c
+P1 verify: {'verified': True, 'event_ids': ['9080c1abca91e2a97496a2b5856abf7a9b0828d0925a91471cf8b1e2ee015d5e'], 'deliveries_seen': 1, 'author': 'd8f7a391a21b662b012181a9750f46c7eb5dece5a15cb57cb283a6884ca8f1fd'}
+=== 4/7 relays stop → P2 Required send must fail honestly
+P2 send dispatched (awaiting Required refusal event)
+=== 5/7 relays back (same identities) + resend ORIGINAL bytes
+P2 resend request: 69041a21766a16f6fc34
+=== 6/7 P2 independent verify + exactly-once distinct IDs
+P2 verify: {'verified': False, 'reason': 'deadline', 'deliveries_seen': 0}
+RESULT {"status": "FAIL", "layer": "m2b-cli-protocol", "evidence": "<repo>/evidence/m2-core/m2b-cli-20261002-114709", "claims": ["p1-wire-verified-independently", "p2-required-failed-honestly-relays-down", "p2-signed-wire-durably-retained"], "p1": {"verified": true, "event_ids": ["9080c1abca91e2a97496a2b5856abf7a9b0828d0925a91471cf8b1e2ee015d5e"], "deliveries_seen": 1, "author": "d8f7a391a21b662b012181a9750f46c7eb5dece5a15cb57cb283a6884ca8f1fd"}, "p2_send_refused": true, "error": "RuntimeError: P2 not verified after retry: {'verified': False, 'reason': 'deadline', 'deliveries_seen': 0}"}
+cleanup leftover: 19142
+=== exit=1 2026-10-02T09:51:55Z

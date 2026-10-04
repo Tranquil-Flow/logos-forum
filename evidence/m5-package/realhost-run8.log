@@ -1,0 +1,8 @@
+=== m5b realhost gui run 8 (FORUM_DB_PATH explicit) 2026-10-03T11:55:29Z
+=== 1/4 fresh profile + module + deps (install layout)
+seeded forum_module (plugins, darwin-arm64-dev)
+seeded delivery_module (modules, darwin-arm64-dev)
+seeded storage_module (modules, darwin-arm64-dev)
+=== 2/4 isolated host launch (real window, inspector :3788)
+FAIL: port 3788 still held after sweep
+=== exit=1 2026-10-03T11:56:28Z

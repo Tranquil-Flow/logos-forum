@@ -1,0 +1,31 @@
+=== m5 cleaninstall run 3 2026-10-02T18:52:10Z
+=== 1/5 fresh .lgx build
+lgx sha256: 523a4de31da9773072a3041c93ed5053ee88defb4b53d4ff42b2cb0c09dda598
+=== 2/5 fresh isolated profile
+=== 3/5 seed install layout (module + its declared dependencies)
+seeded forum_module (plugins, darwin-arm64-dev)
+seeded delivery_module (modules, darwin-arm64-dev)
+seeded storage_module (modules, darwin-arm64-dev)
+=== 4/5 launch isolated Basecamp host (inspector :3771)
+=== 5/5 drive the real UI (tile → module view → honest states)
+{"tile_clicked":true,"module_view":true,"Connected":true,"Backend status: Ready":true,"Transport: no transport configured — posting unavailable (Required policy)":true}
+=== 6/5 cleanup proof
+{
+  "status": "PASS",
+  "layer": "m5-clean-install",
+  "lgx_sha256": "523a4de31da9773072a3041c93ed5053ee88defb4b53d4ff42b2cb0c09dda598",
+  "variant": "darwin-arm64-dev",
+  "fresh_profile": true,
+  "isolated_user_dir": true,
+  "ui_drive": {
+    "tile_clicked": true,
+    "module_view": true,
+    "Connected": true,
+    "Backend status: Ready": true,
+    "Transport: no transport configured \u2014 posting unavailable (Required policy)": true
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/cleaninstall-20261002-205210"
+}
+=== exit=0 2026-10-02T18:53:52Z

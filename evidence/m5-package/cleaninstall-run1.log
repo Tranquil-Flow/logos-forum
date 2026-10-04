@@ -1,0 +1,10 @@
+=== m5 cleaninstall 2026-10-02T18:25:27Z
+=== 1/5 fresh .lgx build
+lgx sha256: 523a4de31da9773072a3041c93ed5053ee88defb4b53d4ff42b2cb0c09dda598
+=== 2/5 fresh isolated profile
+=== 3/5 seed from the freshly built payload (install layout)
+variant: darwin-arm64-dev
+=== 4/5 launch isolated Basecamp host (inspector :3771)
+=== 5/5 drive the real UI (tile → module view → honest states)
+FAIL: UI drive failed
+=== exit=1 2026-10-02T18:40:30Z

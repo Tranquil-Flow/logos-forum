@@ -1,0 +1,14 @@
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/jbwcafc1qzg56hcipv60xkak5mimwwz5-logos-forum_module-plugin-dir/src/icons/icon.png"
+Loaded UI plugin: "/nix/store/jbwcafc1qzg56hcipv60xkak5mimwwz5-logos-forum_module-plugin-dir"
+[2026-10-04 12:26:26.987] [out] [delivery_module] DBG 2026-10-04 12:26:26.986+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=4417131
+[2026-10-04 12:26:26.987] [out] [delivery_module] INF 2026-10-04 12:26:26.987+02:00 Configuration: Enabled protocols           topics="waku conf" tid=4417131 relay=true rlnRelay=false store=false filter=true lightPush=true peerExchange=true rendezvous=true
+[2026-10-04 12:26:26.988] [out] [delivery_module] INF 2026-10-04 12:26:26.988+02:00 mounting store client                      topics="waku node store api" tid=4417131
+[2026-10-04 12:26:31.005] [out] [delivery_module] DBG 2026-10-04 12:26:31.005+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-04 12:26:31.107] [out] [delivery_module] DBG 2026-10-04 12:26:31.107+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-04 12:26:31.359] [out] [delivery_module] DBG 2026-10-04 12:26:31.359+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-04 12:26:31.460] [out] [delivery_module] DBG 2026-10-04 12:26:31.460+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-04 12:26:31.562] [out] [delivery_module] DBG 2026-10-04 12:26:31.562+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-04 12:26:31.597] [out] [delivery_module] INF 2026-10-04 12:26:31.597+02:00 Message received                           tid=4417131 msg_hash=0x5d98ec30e48afe127835041fdd45b0045d773a07eb72f187d835f3078d66cc58 contentTopic=/lp0026forum/1/general/text pubsubTopic=/waku/2/rs/3/7 source=history
+[2026-10-04 12:26:31.673] [out] [delivery_module] DBG 2026-10-04 12:26:31.673+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-04 12:26:31.776] [out] [delivery_module] DBG 2026-10-04 12:26:31.776+02:00 calculateConnectionState                   tid=4417131 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6

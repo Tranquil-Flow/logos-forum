@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "phase": "save",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:42:10Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 14,
+      "what": "transport ready"
+    },
+    {
+      "t_s": 34,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:42:10Z (1/2)"
+    },
+    {
+      "t_s": 37,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:42:10Z (2/2)"
+    },
+    {
+      "t_s": 45,
+      "what": "posts sent"
+    },
+    {
+      "t_s": 45,
+      "what": "save snapshot clicked"
+    },
+    {
+      "t_s": 47,
+      "what": "snapshot saved",
+      "state": "saved 5 post(s) on Logos Storage (zDvZRwzm4PZ6dfxT…) and announced it in this topic; this device serves the snapshot while Basecamp runs"
+    },
+    {
+      "t_s": 134,
+      "what": "announcement sent"
+    }
+  ],
+  "archive_state": "saved 5 post(s) on Logos Storage (zDvZRwzm4PZ6dfxT…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "announcement": "Snapshot of this topic on Logos Storage: 5 post(s).\ncid: zDvZRwzm4PZ6dfxTh2Dmu1AyndtXqeuE14NdQe9xdtuP7k81iy3n\npeer: 16Uiu2HAkzoWseWBJYvsd7hVVHQsy4xLpxV118az9brtzPRVYpYf2\naddrs: /ip4/127.0.0.1/tcp/8571",
+  "announcement_author": "id b2d9a3b962fb1834",
+  "thread": [
+    "id b3d9075e4d4dfed5 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:34:28Z (1/2)",
+    "id 8b38c815816930e4 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:34:28Z (2/2)",
+    "id 496b30a23b05f3f8 [received]: Snapshot of this topic on Logos Storage: 3 post(s).\ncid: zDvZRwzkwBj1Hmp8QnqRGK4LUtsfVXgnbscecQak9J2KZGRt6Qtq\npeer: 16Uiu2HAm6G4jJL1upnTpvfK8aGWsxQ2zVnuDpyZHLn5xvavQRoGg\naddrs: /ip4/127.0.0.1/tcp/8571",
+    "id d1d8685f93b85e4e [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:42:10Z (1/2)",
+    "id 20f86f3a8847f1a0 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:42:10Z (2/2)",
+    "id b2d9a3b962fb1834 [sent]: Snapshot of this topic on Logos Storage: 5 post(s).\ncid: zDvZRwzm4PZ6dfxTh2Dmu1AyndtXqeuE14NdQe9xdtuP7k81iy3n\npeer: 16Uiu2HAkzoWseWBJYvsd7hVVHQsy4xLpxV118az9brtzPRVYpYf2\naddrs: /ip4/127.0.0.1/tcp/8571"
+  ]
+}

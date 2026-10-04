@@ -1,0 +1,38 @@
+=== core-tests regression 2026-10-01T20:53:18Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/4igjfzccbdmywhdfkg4pc7xfzyqld00s-forum-core-tests.drv
+building '/nix/store/4igjfzccbdmywhdfkg4pc7xfzyqld00s-forum-core-tests.drv'...
+forum-core-tests> core tests: 63 checks, 0 failures
+=== core exit=0
+core tests: 63 checks, 0 failures
+=== ui-dev 4 2026-10-01T20:53:49Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 4 derivations will be built:
+  /nix/store/0j64vp1bd1s70ik6rv7v48979bnr7adn-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/y15vlbhsk0p0d20k1pcjy2hnpp0dx33b-logos-forum_module-module.drv
+  /nix/store/zhyah2k4w73wr98n2d5x4in4f1563qw3-logos-forum_module-plugin-dir.drv
+  /nix/store/vwdkjhd368pgn6mwrrdlj899ljvhlzi5-run-logos-standalone-ui.drv
+building '/nix/store/0j64vp1bd1s70ik6rv7v48979bnr7adn-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/y15vlbhsk0p0d20k1pcjy2hnpp0dx33b-logos-forum_module-module.drv'...
+building '/nix/store/zhyah2k4w73wr98n2d5x4in4f1563qw3-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/vwdkjhd368pgn6mwrrdlj899ljvhlzi5-run-logos-standalone-ui.drv'...
+=== ui-dev exit=0
+=== m2b run 2 2026-10-01T20:55:15Z
+=== m2b exit=1 2026-10-01T20:56:59Z

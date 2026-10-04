@@ -1,0 +1,736 @@
+these 10 derivations will be built:
+  /nix/store/gm5b7x1jfksfn4ylk4llglhlrng5y2mq-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/dxw5bpamgzk1wx3fzp6fk1ri5rddjnsn-logos-forum_module-module.drv
+  /nix/store/nrk9x0nrix8622715ha27sjhwyrqbisd-logos-liblogos-build-0.1.0.drv
+  /nix/store/b755ljc75sy4zmxs80jsm8czv8m9zgzx-logos-liblogos-lib-0.1.0.drv
+  /nix/store/ldl5syjjvk14gqsy5bwn4d2h2lq547dm-logos-liblogos-bin-0.1.0.drv
+  /nix/store/pnj93vm85z587ncly4mbh2q116p2p073-logos-liblogos.drv
+  /nix/store/k2a70q1anlzzhflvp8iwqvjkhnp7p6s5-logos-standalone-app-1.0.0.drv
+  /nix/store/w2np3prh7dbcn6kwz23j3ih6hzwcsx8r-forum_module-integration-test-modules.drv
+  /nix/store/xl0qigryswic4cn4vx84jg8l8xbk9pfk-run-standalone.drv
+  /nix/store/6k7mnkwn4k77i9h463fa2ksarp2y8xbh-forum_module-integration-test.drv
+these 15 paths will be fetched (191.3 MiB download, 911.9 MiB unpacked):
+  /nix/store/9i66jfhn8wpcynja8dcig110aals2281-ffmpeg-7.1.1-bin
+  /nix/store/aikdjp0vj9fwx60i7a5jy1hq0y3y488x-ffmpeg-7.1.1-dev
+  /nix/store/ir0r62d9rz0spb6m7wl2hsgaw6n1plq1-ffmpeg-7.1.1-lib
+  /nix/store/qjm9dm5d0hyfsphjfpnbpynm9vz3caba-gtk4-4.18.6
+  /nix/store/ma69lli6zayw4aj23j57hkhb5458vds1-libadwaita-1.7.6
+  /nix/store/ykl3fvv5xn0cirvzjkv87ay4p6r1h8z7-mesa-25.2.3
+  /nix/store/kghd7ga02ka8527aj3rgcxyqsllbhvs9-qtwebengine-6.9.2
+  /nix/store/z3jq08a1cy2fg7z3hb2p6w5w93zlvxz1-qtwebengine-6.9.2-dev
+  /nix/store/14d7n92gw1zr312rxlis7jvcy0jf1yik-qtwebview-6.9.2
+  /nix/store/ghh0pf3phm5cqzhhas9g1b513dimlv85-qtwebview-6.9.2-dev
+  /nix/store/zcs8mc5za3ia7mia0a4qb9mmsly76ffb-sdl2-compat-2.32.56
+  /nix/store/m4a0x6h07xifyjd50za30ay2gm2yf4p0-sdl3-3.2.20-lib
+  /nix/store/ab1gswrh76qwr79h1799zv0hyxwn26c6-webkitgtk-2.50.0+abi=4.1
+  /nix/store/vhxb7d4933fbq9m0i0c6kr7janm847nw-webkitgtk-2.50.0+abi=4.1-dev
+  /nix/store/7yg7qakqy0lanbq9zmx2gbb4f2mhqs25-zenity-4.1.90
+copying path '/nix/store/ykl3fvv5xn0cirvzjkv87ay4p6r1h8z7-mesa-25.2.3' from 'https://cache.nixos.org'...
+copying path '/nix/store/ab1gswrh76qwr79h1799zv0hyxwn26c6-webkitgtk-2.50.0+abi=4.1' from 'https://cache.nixos.org'...
+building '/nix/store/gm5b7x1jfksfn4ylk4llglhlrng5y2mq-logos-forum_module-module-lib-0.1.0.drv'...
+Running phase: qtPreHook
+Running phase: unpackPhase
+unpacking source archive /nix/store/4aqjajpdy94rxk6ib6zqwwkmx5l6z3f4-s48036b9xsvyczgrxxykh2y8zv6p0jp6-source
+source root is s48036b9xsvyczgrxxykh2y8zv6p0jp6-source
+Running phase: patchPhase
+Running phase: updateAutotoolsGnuConfigScriptsPhase
+Running phase: configurePhase
+Running logos-cpp-generator (api-style=qt)...
+Generating deps from LIDL: delivery_module, storage_module
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated logos_sdk.h and logos_sdk.cpp
+Running logos-qt-generator --backend consumer for the Qt-typed dependency wrappers...
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated: ./generated_code/delivery_module_api.h
+Generated: ./generated_code/delivery_module_api.cpp
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated: ./generated_code/storage_module_api.h
+Generated: ./generated_code/storage_module_api.cpp
+Checking generated files in generated_code:
+total 196
+drwxr-xr-x 2 nixbld1 nixbld  4096 Oct  4 17:17 .
+drwxr-xr-x 8 nixbld1 nixbld  4096 Oct  4 17:17 ..
+-rw-r--r-- 1 nixbld1 nixbld 61780 Oct  4 17:17 delivery_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 12269 Oct  4 17:17 delivery_module_api.h
+-rw-r--r-- 1 nixbld1 nixbld    94 Oct  4 17:17 logos_sdk.cpp
+-rw-r--r-- 1 nixbld1 nixbld   363 Oct  4 17:17 logos_sdk.h
+-rw-r--r-- 1 nixbld1 nixbld 87563 Oct  4 17:17 storage_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 15623 Oct  4 17:17 storage_module_api.h
+Creating include directory and moving generated files...
+Generated include directory:
+total 196
+drwxr-xr-x 2 nixbld1 nixbld  4096 Oct  4 17:17 .
+drwxr-xr-x 3 nixbld1 nixbld  4096 Oct  4 17:17 ..
+-rw-r--r-- 1 nixbld1 nixbld 61780 Oct  4 17:17 delivery_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 12269 Oct  4 17:17 delivery_module_api.h
+-rw-r--r-- 1 nixbld1 nixbld    94 Oct  4 17:17 logos_sdk.cpp
+-rw-r--r-- 1 nixbld1 nixbld   363 Oct  4 17:17 logos_sdk.h
+-rw-r--r-- 1 nixbld1 nixbld 87563 Oct  4 17:17 storage_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 15623 Oct  4 17:17 storage_module_api.h
+Stamped logos_protocol_version=0.9.0 into metadata.json
+logos-module-builder: generating ui plugin glue (forum_module)...
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated: ./generated_code/forum_module_ui_interface.h
+Generated: ./generated_code/forum_module_ui_glue.h
+Generated: ./generated_code/forum_module_ui_glue.cpp
+fixing cmake files...
+cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/share/doc/ForumPlugin -DCMAKE_INSTALL_INFODIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/strip -DCMAKE_RANLIB=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ranlib -DCMAKE_AR=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ar -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=/nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0 -GNinja -DLOGOS_MODULE_ROOT=/nix/store/s1d3v0qw2d7icg1d7wxh9kcm84vmq70q-logos-module-0.1.0 -DLOGOS_CPP_SDK_ROOT=/nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk -DLOGOS_QT_SDK_ROOT=/nix/store/zjqcvly3c42i1822dh3hj2bz41qaxki8-logos-qt-sdk -DLOGOS_QT_HOST_ROOT=/nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0 -DLOGOS_PROTOCOL_ROOT=/nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol -DLOGOS_VIEW_TEMPLATE_DIR=/nix/store/kpspkgigwbynp091y1r106fx6g38h8id-logos-view-templates -DLOGOS_VIEW_INCLUDE_DIR=/nix/store/s4aaf7d67jl69psw2k7ji6kz1lk4b973-logos-view-module-include
+-- The CXX compiler identification is GNU 14.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- LogosModule.cmake: /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake
+-- Found logos-module at: /nix/store/s1d3v0qw2d7icg1d7wxh9kcm84vmq70q-logos-module-0.1.0
+-- Found logos-cpp-sdk at: /nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk
+-- Found logos-qt-sdk at: /nix/store/zjqcvly3c42i1822dh3hj2bz41qaxki8-logos-qt-sdk
+-- Found logos-protocol at: /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol
+-- Qt host runtime: logos-qt-host::logos_qt_host at /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+  /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+  CMakeLists.txt:16 (logos_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+  CMakeLists.txt:16 (logos_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenSSL: /nix/store/rzlvprd99wlbiv2wsqgp23kmxhkm1yfr-openssl-3.5.1/lib/libcrypto.so (found version "3.5.1")
+-- Found nlohmann_json: /nix/store/j65j62dxmbkm976qnhpp4mvd1zi3by9l-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+  /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:625 (find_package)
+  CMakeLists.txt:16 (logos_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Logos module forum_module: replica factory plugin from src/forum_module.rep (class Forum, QML Logos.Forum.Forum)
+-- Logos module forum_module configured successfully
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_TESTING
+    CMAKE_C_COMPILER
+    CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+    CMAKE_POLICY_DEFAULT_CMP0025
+
+
+-- Build files have been written to: /nix/var/nix/builds/nix-195-1126513061/s48036b9xsvyczgrxxykh2y8zv6p0jp6-source/build
+cmake: enabled parallel building
+cmake: enabled parallel installing
+Running phase: buildPhase
+build flags: -j2
+[0/2] Re-checking globbed directories...
+[1/20] Automatic MOC for target forum_module_replica_factory
+[2/20] Automatic MOC for target forum_module_module_plugin
+[3/20] Generating rep_forum_module_replica.h
+[4/20] Generating rep_forum_module_source.h
+[5/20] Generating moc_rep_forum_module_replica.cpp
+[6/20] Generating moc_rep_forum_module_source.cpp
+[7/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/forum_module_replica_factory_autogen/mocs_compilation.cpp.o
+[8/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/forum_module_module_plugin_autogen/mocs_compilation.cpp.o
+[9/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/core/forum_core.cpp.o
+[10/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/archive/archive_core.cpp.o
+[11/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o
+[12/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+[13/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+[14/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+[15/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/replica_factory_forum_module/LogosViewReplicaFactory.cpp.o
+[16/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/moc_rep_forum_module_replica.cpp.o
+[17/20] Linking CXX shared library modules/forum_module_replica_factory.so
+[18/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+[19/20] Linking CXX shared library modules/forum_module_plugin.so
+Running phase: glibPreInstallPhase
+Running phase: installPhase
+Copying replica factory plugin: forum_module_replica_factory.so
+Running phase: qtOwnPathsHook
+Running phase: fixupPhase
+shrinking RPATHs of ELF executables and libraries in /nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0
+shrinking /nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/lib/forum_module_replica_factory.so
+shrinking /nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0/lib/forum_module_plugin.so
+checking for references to /nix/var/nix/builds/nix-195-1126513061/ in /nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0...
+patching script interpreter paths in /nix/store/75jx1bm1bc0vyd57qgwmch2i0zgc14v2-logos-forum_module-module-lib-0.1.0
+Running phase: postPatchMkspecs
+building '/nix/store/nrk9x0nrix8622715ha27sjhwyrqbisd-logos-liblogos-build-0.1.0.drv'...
+Running phase: qtPreHook
+Running phase: unpackPhase
+unpacking source archive /nix/store/yj590r5xycnv158dy06gdw1bn9c37lfq-ws7cbfrxlip6h8j93h8vs9h3g69h8zkw-source
+source root is ws7cbfrxlip6h8j93h8vs9h3g69h8zkw-source
+Running phase: patchPhase
+Running phase: updateAutotoolsGnuConfigScriptsPhase
+Running phase: configurePhase
+fixing cmake files...
+cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/share/doc/SimplePluginExample -DCMAKE_INSTALL_INFODIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/strip -DCMAKE_RANLIB=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ranlib -DCMAKE_AR=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ar -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=/nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0 -GNinja -DLOGOS_CPP_SDK_ROOT=/nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk -DLOGOS_PROTOCOL_ROOT=/nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol -DLOGOS_QT_HOST_ROOT=/nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0 -DLOGOS_MODULE_ROOT=/nix/store/3lflr45yi6klswbdz3gnm9aamwn09r7g-logos-module-0.1.0 -DPROCESS_STATS_ROOT=/nix/store/x0x5lnqqjp39yacgp4hg2lflsy5c20j4-process-stats -DLOGOS_CONTAINER_ROOT=/nix/store/nahiwhlal84iswlqwiq9d7yrskzcklwi-logos-container -DLOGOS_MODULE_LOADER_ROOT=/nix/store/ifvzzlypafpzz7ldd7q8igvilawphkdp-logos-module-loader -DLOGOS_PACKAGE_MANAGER_ROOT=/nix/store/qskl3wqcihfxg4zw4klxp1d1z766r9rb-logos-package-manager-lib-1.0.0-dev
+-- The CXX compiler identification is GNU 14.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Found nlohmann_json: /nix/store/j65j62dxmbkm976qnhpp4mvd1zi3by9l-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+-- Found OpenSSL: /nix/store/rzlvprd99wlbiv2wsqgp23kmxhkm1yfr-openssl-3.5.1/lib/libcrypto.so (found version "3.5.1")
+-- Using logos-protocol at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol
+-- Using logos-qt-host at /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+  src/CMakeLists.txt:37 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  src/CMakeLists.txt:37 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+  src/CMakeLists.txt:39 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Using logos-module at /nix/store/3lflr45yi6klswbdz3gnm9aamwn09r7g-logos-module-0.1.0
+-- Using process-stats at /nix/store/x0x5lnqqjp39yacgp4hg2lflsy5c20j4-process-stats
+-- Using logos-container at /nix/store/nahiwhlal84iswlqwiq9d7yrskzcklwi-logos-container
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/zgm3jlcsgch5552ycr3sisasrg30zja4-logos-container-subprocess/lib/cmake/LogosContainerImpl/LogosContainerImplConfig.cmake:12 (find_dependency)
+  src/CMakeLists.txt:143 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0") found components: process
+-- Using logos-module-loader at /nix/store/ifvzzlypafpzz7ldd7q8igvilawphkdp-logos-module-loader
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/yf5z6r6hljh9fsb1agq63sf5h1m21iyy-logos-module-loader-qt/lib/cmake/LogosFormatLoaderImpl/LogosFormatLoaderImplConfig.cmake:11 (find_dependency)
+  src/CMakeLists.txt:163 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0") found components: filesystem
+CMake Warning (dev) at src/CMakeLists.txt:268 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0") found components: process filesystem
+-- Using logos-package-manager at /nix/store/qskl3wqcihfxg4zw4klxp1d1z766r9rb-logos-package-manager-lib-1.0.0-dev
+-- Using system GoogleTest
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/zgm3jlcsgch5552ycr3sisasrg30zja4-logos-container-subprocess/lib/cmake/LogosContainerImpl/LogosContainerImplConfig.cmake:12 (find_dependency)
+  tests/CMakeLists.txt:37 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0") found components: process
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/yf5z6r6hljh9fsb1agq63sf5h1m21iyy-logos-module-loader-qt/lib/cmake/LogosFormatLoaderImpl/LogosFormatLoaderImplConfig.cmake:11 (find_dependency)
+  tests/CMakeLists.txt:38 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0") found components: filesystem
+-- Configuring done (0.6s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_TESTING
+    CMAKE_C_COMPILER
+    CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+    CMAKE_POLICY_DEFAULT_CMP0025
+
+
+-- Build files have been written to: /nix/var/nix/builds/nix-195-1126513062/ws7cbfrxlip6h8j93h8vs9h3g69h8zkw-source/build
+cmake: enabled parallel building
+cmake: enabled parallel installing
+Running phase: buildPhase
+build flags: -j2
+[1/38] Automatic MOC for target logos_core
+[2/38] Automatic MOC for target dep_range_fixture_plugin
+[3/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core_autogen/mocs_compilation.cpp.o
+[4/38] Automatic MOC for target dep_malformed_fixture_plugin
+[5/38] Building CXX object src/CMakeFiles/logos_core.dir/logging/logos_log.cpp.o
+[6/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/logos_core.cpp.o
+[7/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/dependency_resolver.cpp.o
+[8/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/dependency_gate.cpp.o
+[9/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/module_registry.cpp.o
+[10/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/module_state_observer.cpp.o
+[11/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/access_policy.cpp.o
+[12/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/composite_module_loader.cpp.o
+[13/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/module_loader_registry.cpp.o
+[14/38] Building CXX object tests/CMakeFiles/dep_range_fixture_plugin.dir/dep_range_fixture_plugin_autogen/mocs_compilation.cpp.o
+[15/38] Building CXX object tests/CMakeFiles/dep_range_fixture_plugin.dir/fixtures/dep_range_fixture_plugin.cpp.o
+[16/38] Building CXX object tests/CMakeFiles/dep_malformed_fixture_plugin.dir/dep_malformed_fixture_plugin_autogen/mocs_compilation.cpp.o
+[17/38] Building CXX object tests/CMakeFiles/dep_malformed_fixture_plugin.dir/fixtures/dep_malformed_fixture_plugin.cpp.o
+[18/38] Building CXX object src/CMakeFiles/logos_core.dir/logos_core/module_manager.cpp.o
+[19/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_app_lifecycle.cpp.o
+[20/38] Linking CXX shared library lib/liblogos_core.so
+[21/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_access_policy.cpp.o
+[22/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_process_stats.cpp.o
+[23/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_dependency_resolver.cpp.o
+[24/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_module_manager.cpp.o
+[25/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_subprocess_manager.cpp.o
+[26/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_module_name_validation.cpp.o
+[27/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_composite_module_loader.cpp.o
+[28/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_module_loader_registry.cpp.o
+[29/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_module_loader_abstraction.cpp.o
+[30/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_protocol_gate.cpp.o
+[31/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_dependency_gate.cpp.o
+[32/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_module_state_observer.cpp.o
+[33/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_expected_exit_marks.cpp.o
+[34/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_load_verdict.cpp.o
+[35/38] Linking CXX shared module lib/dep_range_fixture_plugin.so
+[36/38] Linking CXX shared module lib/dep_malformed_fixture_plugin.so
+[37/38] Building CXX object tests/CMakeFiles/logos_core_tests.dir/test_load_concurrency.cpp.o
+[38/38] Linking CXX executable bin/logos_core_tests
+Running phase: glibPreInstallPhase
+Running phase: installPhase
+install flags: -j2 install
+[0/1] Install the project...
+-- Install configuration: "Release"
+-- Installing: /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/lib/liblogos_core.so
+-- Installing: /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/include/logos_core.h
+Running phase: qtOwnPathsHook
+Running phase: fixupPhase
+shrinking RPATHs of ELF executables and libraries in /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0
+shrinking /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/lib/liblogos_core.so
+checking for references to /nix/var/nix/builds/nix-195-1126513062/ in /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0...
+patching script interpreter paths in /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0
+stripping (with command strip and flags -S -p) in  /nix/store/l43dy1qgyqzw87bb76pw0cx52fxbijvg-logos-liblogos-build-0.1.0/lib
+Running phase: postPatchMkspecs
+building '/nix/store/dxw5bpamgzk1wx3fzp6fk1ri5rddjnsn-logos-forum_module-module.drv'...
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Normalized LIDL: /nix/var/nix/builds/nix-195-1126513063/tmp.a0uCDs44un
+Installed canonical LIDL contract: delivery_module
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Normalized LIDL: /nix/var/nix/builds/nix-195-1126513063/tmp.4S8Zkf85Ip
+Installed canonical LIDL contract: storage_module
+Copied QML view directory from src/qml
+Generated qmldir at qml/qmldir (module com.logos.module.forum_module)
+building '/nix/store/b755ljc75sy4zmxs80jsm8czv8m9zgzx-logos-liblogos-lib-0.1.0.drv'...
+building '/nix/store/ldl5syjjvk14gqsy5bwn4d2h2lq547dm-logos-liblogos-bin-0.1.0.drv'...
+Running phase: patchPhase
+Running phase: updateAutotoolsGnuConfigScriptsPhase
+Running phase: configurePhase
+no configure script, doing nothing
+Running phase: buildPhase
+no Makefile or custom buildPhase, doing nothing
+Running phase: installPhase
+Running phase: fixupPhase
+shrinking RPATHs of ELF executables and libraries in /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblogos_core.so
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblgx.so
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/libpackage_manager_lib.so
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblogos_qt_host.so
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblogos_protocol.so
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/modules/modules_state/modules_state_plugin.so
+shrinking /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/modules/capability_module/capability_module_plugin.so
+checking for references to /nix/var/nix/builds/nix-195-1126513065/ in /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0...
+patching script interpreter paths in /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0
+building '/nix/store/pnj93vm85z587ncly4mbh2q116p2p073-logos-liblogos.drv'...
+/nix/store/s1xq9n26nx5fk2ksil9i0xrxirvsa2da-logos-liblogos-lib-0.1.0/lib:
+liblogos_core.so: Keeping existing link to /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblogos_core.so
+liblgx.so: Keeping existing link to /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblgx.so
+libpackage_manager_lib.so: Keeping existing link to /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/libpackage_manager_lib.so
+liblogos_qt_host.so: Keeping existing link to /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblogos_qt_host.so
+liblogos_protocol.so: Keeping existing link to /nix/store/czf56znyr70nzhrm19ib2swggyl385fw-logos-liblogos-bin-0.1.0/lib/liblogos_protocol.so
+copying path '/nix/store/qjm9dm5d0hyfsphjfpnbpynm9vz3caba-gtk4-4.18.6' from 'https://cache.nixos.org'...
+copying path '/nix/store/vhxb7d4933fbq9m0i0c6kr7janm847nw-webkitgtk-2.50.0+abi=4.1-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/ma69lli6zayw4aj23j57hkhb5458vds1-libadwaita-1.7.6' from 'https://cache.nixos.org'...
+copying path '/nix/store/7yg7qakqy0lanbq9zmx2gbb4f2mhqs25-zenity-4.1.90' from 'https://cache.nixos.org'...
+copying path '/nix/store/m4a0x6h07xifyjd50za30ay2gm2yf4p0-sdl3-3.2.20-lib' from 'https://cache.nixos.org'...
+copying path '/nix/store/zcs8mc5za3ia7mia0a4qb9mmsly76ffb-sdl2-compat-2.32.56' from 'https://cache.nixos.org'...
+copying path '/nix/store/ir0r62d9rz0spb6m7wl2hsgaw6n1plq1-ffmpeg-7.1.1-lib' from 'https://cache.nixos.org'...
+copying path '/nix/store/9i66jfhn8wpcynja8dcig110aals2281-ffmpeg-7.1.1-bin' from 'https://cache.nixos.org'...
+copying path '/nix/store/kghd7ga02ka8527aj3rgcxyqsllbhvs9-qtwebengine-6.9.2' from 'https://cache.nixos.org'...
+copying path '/nix/store/aikdjp0vj9fwx60i7a5jy1hq0y3y488x-ffmpeg-7.1.1-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/z3jq08a1cy2fg7z3hb2p6w5w93zlvxz1-qtwebengine-6.9.2-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/14d7n92gw1zr312rxlis7jvcy0jf1yik-qtwebview-6.9.2' from 'https://cache.nixos.org'...
+copying path '/nix/store/ghh0pf3phm5cqzhhas9g1b513dimlv85-qtwebview-6.9.2-dev' from 'https://cache.nixos.org'...
+building '/nix/store/k2a70q1anlzzhflvp8iwqvjkhnp7p6s5-logos-standalone-app-1.0.0.drv'...
+Running phase: qtPreHook
+Running phase: unpackPhase
+unpacking source archive /nix/store/hnilzgikbvv050im2bvxkdvs0fl7qnss-jckak9im99akg11qb90d6j69ja8riw4q-source
+source root is jckak9im99akg11qb90d6j69ja8riw4q-source
+Running phase: patchPhase
+Running phase: updateAutotoolsGnuConfigScriptsPhase
+Running phase: configurePhase
+Copying logos-qt-mcp source for inspector...
+-- The CXX compiler identification is GNU 14.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+-- Found OpenGL: /nix/store/wk994cq6kf682saqynadrkdbi8qa8vx1-libglvnd-1.7.0/lib/libOpenGL.so
+-- Found WrapOpenGL: TRUE
+-- Found WrapVulkanHeaders: /nix/store/cr0sff5xq7xkikipa4dbsccr72hbv08v-vulkan-headers-1.4.321.0/include
+-- logos-liblogos   : /nix/store/y81jgaz986a3d1mn3hy70zyzay84nsi9-logos-liblogos
+-- logos-cpp-sdk    : /nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk
+-- logos-qt-host    : /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0
+-- logos-protocol   : /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol
+-- logos-view-module-runtime : /nix/store/rmi8p5l3gik8bpw64rzbpn60hk5kddxp-logos-view-module-runtime-1.0.0
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+  CMakeLists.txt:64 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  CMakeLists.txt:64 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenSSL: /nix/store/rzlvprd99wlbiv2wsqgp23kmxhkm1yfr-openssl-3.5.1/lib/libcrypto.so (found version "3.5.1")
+-- Found nlohmann_json: /nix/store/j65j62dxmbkm976qnhpp4mvd1zi3by9l-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+  CMakeLists.txt:67 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /nix/var/nix/builds/nix-195-1126513067/jckak9im99akg11qb90d6j69ja8riw4q-source/build
+Running phase: buildPhase
+[10/10] Linking CXX executable bin/logos-standalone-app
+Running phase: glibPreInstallPhase
+Running phase: installPhase
+Installed ui-host binary from logos-view-module-runtime
+cp: missing destination file operand after '/nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/lib/'
+Try 'cp --help' for more information.
+Built-in modules: capability_module modules_state 
+Running phase: qtOwnPathsHook
+Running phase: dropIconThemeCache
+Running phase: fixupPhase
+wrapping Qt applications in /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/sbin /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/libexec /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/Applications
+wrapping /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/logos_host
+wrapping /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/.logos-standalone-app-bin
+wrapping /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/ui-host
+shrinking RPATHs of ELF executables and libraries in /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/lib/liblogos_core.so
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/lib/liblgx.so
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/lib/libpackage_manager_lib.so
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/lib/liblogos_qt_host.so
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/lib/liblogos_protocol.so
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/.ui-host-wrapped
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/..logos-standalone-app-bin-wrapped
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/.logos_host-wrapped
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/logos_host
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/.logos-standalone-app-bin
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/ui-host
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/modules/modules_state/modules_state_plugin.so
+shrinking /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/modules/capability_module/capability_module_plugin.so
+checking for references to /nix/var/nix/builds/nix-195-1126513067/ in /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0...
+patching script interpreter paths in /nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0
+/nix/store/f1xamszcq6x3y5a805kcyyddc6barmll-logos-standalone-app-1.0.0/bin/logos-standalone-app: interpreter directive changed from "#!/bin/sh" to "/nix/store/hxmi7d6vbdgbzklm4icfk2y83ncw8la9-bash-5.3p3/bin/sh"
+Running phase: postPatchMkspecs
+building '/nix/store/w2np3prh7dbcn6kwz23j3ih6hzwcsx8r-forum_module-integration-test-modules.drv'...
+Bundled delivery_module from LGX into /nix/store/yglf5fksrlb62s116jaag071b38rd638-forum_module-integration-test-modules/delivery_module/
+Bundled storage_module from LGX into /nix/store/yglf5fksrlb62s116jaag071b38rd638-forum_module-integration-test-modules/storage_module/
+building '/nix/store/xl0qigryswic4cn4vx84jg8l8xbk9pfk-run-standalone.drv'...
+building '/nix/store/6k7mnkwn4k77i9h463fa2ksarp2y8xbh-forum_module-integration-test.drv'...
+Running integration tests: forum_module-integration-test (1 file(s), timeout: 120s per file)...
+Running: ui-tests.mjs
+Launching: /nix/store/fzzv6zwmwknl874nygcdqnlwrwfhqgn3-run-standalone -platform offscreen
+Waiting for inspector to become available...
+[app:err] Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+[app:err] Session directory: "/homeless-shelter/.local/share/Logos/LogosStandalone"
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/capability_module/e05316649ebf"
+[app:err] [2026-10-04 17:21:49.408] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[app:err] [2026-10-04 17:21:49.414] [warning] [logos] [capability_module] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 17:21:49.414] [info] [logos] [capability_module] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 17:21:49.414] [info] [logos] [capability_module] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 17:21:49.414] [info] [logos] [capability_module] for more information.
+[app:out] [2026-10-04 17:21:49.416] [out] [capability_module] [2026-10-04 17:21:49.416] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_bbe7fabcd973" at "17:21:49.418"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_bbe7fabcd973"
+[app:err] LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:1f70a297…"
+RemoteTransportConnection: Requesting object: "capability_module" at "17:21:49.420"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649714528
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[app:err] [2026-10-04 17:21:49.420] [info] [logos] Module loaded: capability_module
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/modules_state/97482ff36647"
+[app:err] [2026-10-04 17:21:49.425] [warning] [logos] [modules_state] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 17:21:49.425] [info] [logos] [modules_state] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 17:21:49.425] [info] [logos] [modules_state] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 17:21:49.425] [info] [logos] [modules_state] for more information.
+[app:err] LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:37fad3d7…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "17:21:49.427"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649644160
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-04 17:21:49.427] [info] [logos] Module loaded: modules_state
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_bbe7fabcd973" at "17:21:49.427"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_bbe7fabcd973"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_bbe7fabcd973" at "17:21:49.427"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_bbe7fabcd973"
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started (modules dir: "/nix/store/yglf5fksrlb62s116jaag071b38rd638-forum_module-integration-test-modules" )
+[app:err] Set app icon from metadata: "/nix/store/ksqg54n140q1n6h1889di501fhdmb8kj-logos-forum_module-module/lib/src/icons/icon.png"
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/delivery_module/c06790238925"
+[app:err] [2026-10-04 17:21:49.435] [warning] [logos] [delivery_module] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 17:21:49.435] [info] [logos] [delivery_module] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 17:21:49.435] [info] [logos] [delivery_module] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 17:21:49.435] [info] [logos] [delivery_module] for more information.
+[app:err] [2026-10-04 17:21:49.439] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+[app:err] LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:e58fda8d…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "17:21:49.439"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649857168
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-04 17:21:49.439] [info] [logos] Module loaded: delivery_module
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_bbe7fabcd973" at "17:21:49.439"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_bbe7fabcd973"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_bbe7fabcd973" at "17:21:49.439"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_bbe7fabcd973"
+[app:err] LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[app:err] RemoteTransportConnection: Requesting object: "modules_state" at "17:21:49.440"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649862080
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "delivery_module"
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/storage_module/52e53e3482ea"
+[app:err] [2026-10-04 17:21:49.445] [warning] [logos] [storage_module] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 17:21:49.445] [info] [logos] [storage_module] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 17:21:49.445] [info] [logos] [storage_module] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 17:21:49.445] [info] [logos] [storage_module] for more information.
+[app:err] [2026-10-04 17:21:49.447] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+[app:err] LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:dbe43d26…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "17:21:49.448"
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649808944
+[app:err] LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649980912
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] [2026-10-04 17:21:49.449] [info] [logos] Pushed module snapshot to modules_state
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 650075872
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-04 17:21:49.449] [info] [logos] Module loaded: storage_module
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_bbe7fabcd973" at "17:21:49.449"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_bbe7fabcd973"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_bbe7fabcd973" at "17:21:49.450"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_bbe7fabcd973"
+[app:err] LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "storage_module"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_bbe7fabcd973" at "17:21:49.450"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_bbe7fabcd973"
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:a057cf6c…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "17:21:49.450"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 650071568
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 649858352
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[app:err] Fontconfig error: Cannot load default config file: No such file: (null)
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] Loaded UI plugin: "/nix/store/ksqg54n140q1n6h1889di501fhdmb8kj-logos-forum_module-module/lib"
+[app:err] [QmlInspector] Inspector server listening on port 3768
+Inspector connected.
+[app:err] [QmlInspector] Client connected from "::ffff:127.0.0.1"
+[QmlInspector] Client disconnected
+
+Running 13 test(s)...
+
+[app:err] [QmlInspector] Client connected from "::ffff:127.0.0.1"
+  ✓ forum_module: UI loads
+  ✓ forum_module: backend connects
+  ✓ forum_module: alias account is created, selected and listed
+  ✓ forum_module: topic is created and listed
+  ✓ forum_module: post path refuses honestly without transport
+  ✓ forum_module: browsing topics switches the thread
+  ✓ forum_module: refused post is stored and shown as failed in the thread
+  ✓ forum_module: identity modes — alias + id, id only, anonymous
+  ✓ forum_module: alias key rotation — manual, by posts and by age
+  ✓ forum_module: search filters topics and posts
+  ✓ forum_module: storage snapshot controls are honest offline
+  ✓ forum_module: network join is offered, not automatic
+[app:err] [2026-10-04 17:22:01.311] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[app:err] [2026-10-04 17:22:01.312] [info] [logos] [delivery_module] DeliveryModuleImpl::getAvailableConfigs called
+[2026-10-04 17:22:01.312] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get available configs - context not initialized. Call createNode first.
+[app:err] [2026-10-04 17:22:01.313] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+  ✓ forum_module: transport status honest
+
+13 passed, 0 failed
+
+[app:err] [QmlInspector] Client disconnected
+All integration tests passed
+/work/result-integration-test

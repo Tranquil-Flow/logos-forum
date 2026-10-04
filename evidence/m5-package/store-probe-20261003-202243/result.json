@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "layer": "qtro-dev-launcher-wedge-probe",
+  "bisect": "open",
+  "stage_rc": {
+    "s1": 1,
+    "s2": 1,
+    "s3": 1
+  },
+  "stage_summary": {
+    "s1_slot_return": "WEDGED",
+    "s2_prop_sync": "WEDGED",
+    "s3_post_path": "WEDGED"
+  },
+  "wedge_layers_identified": [
+    "L1 slot-return channel: slot result never delivered to replica (eventResponse missing in capability_module)",
+    "L2 PROP-sync channel: set* PROP updates don't propagate after first slot call",
+    "L3 QML\u2192source slot dispatch: even trivial echo/createAccount slots never invoke on the source after stage 1 runs"
+  ],
+  "stage1": {
+    "stage1": "FAIL",
+    "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+    "direct_has_outbox": false,
+    "outcome": "(empty \u2014 QML watch success callback did not fire)",
+    "outcome_has_outbox": false,
+    "transportState_before": "no transport configured \u2014 posting unavailable (Required policy)",
+    "transportState_after": "no transport configured \u2014 posting unavailable (Required policy)",
+    "transportState_changed": false,
+    "accounts": [],
+    "topics": [],
+    "threadPosts_count": 0,
+    "diagnosis": "no observable outbox from stage1 (slot-return/callback path wedged or source dispatch absent)"
+  },
+  "stage2": {
+    "stage2": "FAIL",
+    "backend_alive_after_stage1": true,
+    "textfield_found": true,
+    "textfield_text_before_set": "",
+    "textfield_text_after_set": "demo",
+    "button_enabled_before_click": true,
+    "click_result": {
+      "clicked": true,
+      "id": 2009,
+      "matchedId": "5",
+      "matchedText": "Add alias",
+      "matchedType": "Button_QMLTYPE_6",
+      "ok": true,
+      "widget": "QQuickWidget",
+      "x": 459,
+      "y": 70
+    },
+    "direct_slot_return": "{\"id\":2010,\"ok\":true,\"result\":null,\"undefined\":true}",
+    "echo_slot_return": "{\"id\":2011,\"ok\":true,\"result\":null,\"undefined\":true}",
+    "accounts_before": [],
+    "accounts_after": [],
+    "accounts_prop_has_demo": false,
+    "prop_sync_works": false,
+    "outcome": "(empty)",
+    "channel": "wedged",
+    "interpretation_hint": "PROP-sync also wedged \u2192 first slot call kills the QtRO source-replica connection; all subsequent slot calls are no-ops; need source-side fix (worker-thread dispatch + marshalled PROP updates) OR upstream capability_module eventResponse fix"
+  },
+  "stage3": {
+    "stage3": "FAIL",
+    "reason": "topic outcome never updated"
+  },
+  "host_smoking_gun": {
+    "eventResponse_warnings": 2,
+    "getAvailableConfigs_calls": 1,
+    "interpretation": "eventResponse warning fires every time a slot is invoked; slot runs (getAvailableConfigs called) but its return value never reaches the replica"
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261003-202243",
+  "diagnosis": "store healthy; slot-return channel wedged AND PROP-sync channel wedged AND QML\u2192source slot dispatch itself stops working after the first slot call in the dev launcher (logos-standalone-app 1.0.0). The host log shows zero slot invocations for stage 2/3 even when the QML button click reports 'clicked: true' and the QML evaluate(slotCall) returns a WatchHandle. The accounts table is empty after the probe (no createAccount ever ran on the source). This is a deeper QtRO source-replica connection wedge than the original 'eventResponse' framing.",
+  "gate_label": "M2-GUI BLOCKED-with-receipts (see diagnosis)",
+  "next_steps": [
+    "Current wedge requires upstream capability_module/source-link repair OR a source-side architecture change that avoids the wedged QtRO slot/PROP path; a QML-only refactor is insufficient while PROP-sync and dispatch are wedged",
+    "Keep nix-sandboxed CI and CLI-protocol receipts as the functional evidence until the dev-launcher wedge is repaired"
+  ]
+}

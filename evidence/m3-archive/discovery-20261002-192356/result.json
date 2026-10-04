@@ -1,0 +1,22 @@
+{
+  "status": "FAIL",
+  "layer": "m3b-fresh-reader-discovery",
+  "evidence": "<repo>/evidence/m3-archive/discovery-20261002-192356",
+  "claims": [],
+  "archive": {
+    "cid": "zDvZRwzkvpuDrU9793SjgFRfo28fDtPeoPvbR9kyxZCsRvHSVofS",
+    "inv_id": "729b30cc39bbcafe125ce5a027b551da7ae2d1a7989ade5513126e2bc52fd51e",
+    "corpus_sha": "fb173a618307033f71d6984986d8664bf99a22d0a73ca06e34a439bc9b7c62da",
+    "posts": 3
+  },
+  "live_announce_seen": false,
+  "candidates": [
+    {
+      "inv_id": "729b30cc39bbcafe125ce5a027b551da7ae2d1a7989ade5513126e2bc52fd51e",
+      "cid": "zDvZRwzkvpuDrU9793SjgFRfo28fDtPeoPvbR9kyxZCsRvHSVofS",
+      "epoch": 1,
+      "ts": 1790961926536
+    }
+  ],
+  "error": "RuntimeError: no self-consistent announce chain found among 1 candidate(s)"
+}

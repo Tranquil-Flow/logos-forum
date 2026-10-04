@@ -1,0 +1,6 @@
+FAIL before the Storage restore was reached: the snapshot was saved on Logos Storage, but
+its announcement post stayed [pending] through the driver's 300 s window. In this window
+the public logos.dev network was slow/failing for Mix sends: the two test posts needed
+332 s to propagate and a-app.log shows repeated Delivery "Failed to send message" errors
+(18:48-18:54). Runs 184209 and 185554 on the same build PASSED end to end. Recorded as a
+public-network Mix availability failure. Raw files unchanged.

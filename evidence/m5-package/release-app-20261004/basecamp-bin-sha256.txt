@@ -1,0 +1,1 @@
+d94f945014c9047d89813f79eef36ce37d8f4f6e43f97c43f7081682ee91abc6  ~/lp0026-demo/LogosBasecamp-0.3.1.app/Contents/MacOS/LogosBasecamp.bin

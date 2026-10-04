@@ -1,0 +1,13 @@
+=== ui-dev 6 2026-10-01T21:38:44Z
+ui-dev exit=0
+=== m2b run 6 2026-10-01T21:49:37Z
+=== m2b exit=1 2026-10-01T21:51:50Z
+=== 1/6 relays up (fresh identities)
+=== 2/6 boot instances
+=== waiting for BOTH instances' transport readiness (node boot ~1min)
+READY
+READY
+=== 3/6 P1 online post
+P1_NOT_RECEIVED
+FAIL: P1 not received
+=== cleanup 2026-10-01T21:51:44Z

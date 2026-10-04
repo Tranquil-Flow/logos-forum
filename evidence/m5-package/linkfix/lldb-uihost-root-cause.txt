@@ -1,0 +1,97 @@
+(lldb) process attach --pid 25203
+Process 25203 stopped
+* thread #1, queue = 'com.apple.main-thread', stop reason = signal SIGSTOP
+    frame #0: 0x000000018d6526f8 libsystem_kernel.dylib`poll + 8
+libsystem_kernel.dylib`poll:
+->  0x18d6526f8 <+8>:  b.lo   0x18d652718               ; <+40>
+    0x18d6526fc <+12>: pacibsp 
+    0x18d652700 <+16>: stp    x29, x30, [sp, #-0x10]!
+    0x18d652704 <+20>: mov    x29, sp
+Target 0: (.ui-host-wrapped) stopped.
+Executable binary set to "/nix/store/vfzdcnscq2pssd29khd6462g0p04vdiy-logos-standalone-app-1.0.0/bin/.ui-host-wrapped".
+Architecture set to: arm64-apple-macosx-.
+(lldb) command script import ./nowd.py
+(lldb) nowd
+watchdog neutralised: bp@1042eebf4 -> 1042eebe4
+(lldb) process handle -s false -n false -p true SIGPIPE SIGCHLD SIGUSR1 SIGUSR2 SIGALRM
+NAME         PASS   STOP   NOTIFY
+===========  =====  =====  ======
+SIGPIPE      true   false  false
+SIGCHLD      true   false  false
+SIGUSR1      true   false  false
+SIGUSR2      true   false  false
+SIGALRM      true   false  false
+(lldb) breakpoint set -n exit
+Breakpoint 2: 10 locations.
+(lldb) breakpoint set -n _exit
+Breakpoint 3: where = libsystem_kernel.dylib`__exit, address = 0x000000018d65157c
+(lldb) breakpoint set -n abort
+Breakpoint 4: 19 locations.
+(lldb) breakpoint set -n raise
+Breakpoint 5: 5 locations.
+(lldb) breakpoint set -n __pthread_kill
+Breakpoint 6: where = libsystem_kernel.dylib`__pthread_kill, address = 0x000000018d6525e0
+(lldb) continue
+Process 25203 resuming
+Process 25203 stopped
+* thread #1, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+    frame #0: 0x0000000000000000 
+error: memory read failed for 0x0
+Target 0: (.ui-host-wrapped) stopped.
+(lldb) bt 40
+* thread #1, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+  * frame #0: 0x0000000000000000 
+    frame #1: 0x00000001067ac598 forum_module_plugin.dylib`forum::KeyPair::generate() + 392
+    frame #2: 0x00000001067a0120 forum_module_plugin.dylib`ForumModuleBackend::ensureTopic() + 340
+    frame #3: 0x000000010679fbb8 forum_module_plugin.dylib`ForumModuleBackend::store() + 200
+    frame #4: 0x00000001067a250c forum_module_plugin.dylib`ForumModuleBackend::createAccount(QString) + 204
+    frame #5: 0x000000010684b4f0 forum_module_plugin.dylib`ForumSource::qt_static_metacall(QObject*, QMetaObject::Call, int, void**) + 2140
+    frame #6: 0x000000010684bfbc forum_module_plugin.dylib`ForumSimpleSource::qt_metacall(QMetaObject::Call, int, void**) + 160
+    frame #7: 0x00000001047d20e0 QtRemoteObjects`QRemoteObjectSourceBase::invoke(QMetaObject::Call, int, QList<QVariant> const&, QVariant*) + 908
+    frame #8: 0x00000001047dc06c QtRemoteObjects`QRemoteObjectSourceIo::onServerRead(QObject*) + 7052
+    frame #9: 0x0000000105477e9c QtCore`void doActivate<false>(QObject*, int, void**) + 1408
+    frame #10: 0x0000000105477e9c QtCore`void doActivate<false>(QObject*, int, void**) + 1408
+    frame #11: 0x0000000105477ee8 QtCore`void doActivate<false>(QObject*, int, void**) + 1484
+    frame #12: 0x0000000104b248d4 QtNetwork`QAbstractSocketPrivate::canReadNotification() + 268
+    frame #13: 0x0000000104b2f2fc QtNetwork`QReadNotifier::event(QEvent*) + 36
+    frame #14: 0x000000010541b4e8 QtCore`QCoreApplicationPrivate::notify_helper(QObject*, QEvent*) + 512
+    frame #15: 0x000000010541bbe8 QtCore`QCoreApplication::sendEvent(QObject*, QEvent*) + 164
+    frame #16: 0x00000001055d76d8 QtCore`QEventDispatcherUNIXPrivate::activateSocketNotifiers() + 148
+    frame #17: 0x00000001055d8100 QtCore`QEventDispatcherUNIX::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) + 1084
+    frame #18: 0x0000000105426dac QtCore`QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) + 592
+    frame #19: 0x000000010541b7e4 QtCore`QCoreApplication::exec() + 144
+    frame #20: 0x00000001042edd24 .ui-host-wrapped`main + 7060
+    frame #21: 0x000000018d2cfe00 dyld`start + 6992
+(lldb) thread backtrace all
+* thread #1, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+  * frame #0: 0x0000000000000000 
+    frame #1: 0x00000001067ac598 forum_module_plugin.dylib`forum::KeyPair::generate() + 392
+    frame #2: 0x00000001067a0120 forum_module_plugin.dylib`ForumModuleBackend::ensureTopic() + 340
+    frame #3: 0x000000010679fbb8 forum_module_plugin.dylib`ForumModuleBackend::store() + 200
+    frame #4: 0x00000001067a250c forum_module_plugin.dylib`ForumModuleBackend::createAccount(QString) + 204
+    frame #5: 0x000000010684b4f0 forum_module_plugin.dylib`ForumSource::qt_static_metacall(QObject*, QMetaObject::Call, int, void**) + 2140
+    frame #6: 0x000000010684bfbc forum_module_plugin.dylib`ForumSimpleSource::qt_metacall(QMetaObject::Call, int, void**) + 160
+    frame #7: 0x00000001047d20e0 QtRemoteObjects`QRemoteObjectSourceBase::invoke(QMetaObject::Call, int, QList<QVariant> const&, QVariant*) + 908
+    frame #8: 0x00000001047dc06c QtRemoteObjects`QRemoteObjectSourceIo::onServerRead(QObject*) + 7052
+    frame #9: 0x0000000105477e9c QtCore`void doActivate<false>(QObject*, int, void**) + 1408
+    frame #10: 0x0000000105477e9c QtCore`void doActivate<false>(QObject*, int, void**) + 1408
+    frame #11: 0x0000000105477ee8 QtCore`void doActivate<false>(QObject*, int, void**) + 1484
+    frame #12: 0x0000000104b248d4 QtNetwork`QAbstractSocketPrivate::canReadNotification() + 268
+    frame #13: 0x0000000104b2f2fc QtNetwork`QReadNotifier::event(QEvent*) + 36
+    frame #14: 0x000000010541b4e8 QtCore`QCoreApplicationPrivate::notify_helper(QObject*, QEvent*) + 512
+    frame #15: 0x000000010541bbe8 QtCore`QCoreApplication::sendEvent(QObject*, QEvent*) + 164
+    frame #16: 0x00000001055d76d8 QtCore`QEventDispatcherUNIXPrivate::activateSocketNotifiers() + 148
+    frame #17: 0x00000001055d8100 QtCore`QEventDispatcherUNIX::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) + 1084
+    frame #18: 0x0000000105426dac QtCore`QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) + 592
+    frame #19: 0x000000010541b7e4 QtCore`QCoreApplication::exec() + 144
+    frame #20: 0x00000001042edd24 .ui-host-wrapped`main + 7060
+    frame #21: 0x000000018d2cfe00 dyld`start + 6992
+  thread #2
+    frame #0: 0x000000018d64b9f0 libsystem_kernel.dylib`__workq_kernreturn + 8
+  thread #4
+    frame #0: 0x000000018d64d308 libsystem_kernel.dylib`__semwait_signal + 8
+    frame #1: 0x000000018d529cc0 libsystem_c.dylib`nanosleep + 220
+    frame #2: 0x000000018d532e24 libsystem_c.dylib`sleep + 52
+    frame #3: 0x00000001042eebec .ui-host-wrapped`void* std::__1::__thread_proxy[abi:ne190107]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, main::$_1>>(void*) + 84
+    frame #4: 0x000000018d68dc58 libsystem_pthread.dylib`_pthread_start + 136
+(lldb) quit

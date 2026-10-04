@@ -1,0 +1,44 @@
+=== core-tests (topics/replies GUI foundation) 2026-10-03T07:21:31Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/jd6pj96y9j5ii7960gpfnihdxsdy0l6a-forum-core-tests.drv
+building '/nix/store/jd6pj96y9j5ii7960gpfnihdxsdy0l6a-forum-core-tests.drv'...
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:356: tid.has_value()
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:358: tops.size() == size_t(1)
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:370: e1.has_value()
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:372: s.merge_verified(*e1) == MergeResult::Accepted
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:379: e2.has_value()
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:383: s.merge_verified(*e2) == MergeResult::Duplicate
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:385: th.size() == size_t(2)
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:404: e3.has_value()
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:405: s.merge_verified(*e3) == MergeResult::Accepted
+forum-core-tests> FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:406: s.thread(*tid).size() == size_t(3)
+forum-core-tests> core tests: 93 checks, 10 failures
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/jd6pj96y9j5ii7960gpfnihdxsdy0l6a-forum-core-tests.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/d3gbpnqlrjipmsy44ipl0rdv82nm46zh-forum-core-tests
+       Last 11 log lines:
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:356: tid.has_value()
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:358: tops.size() == size_t(1)
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:370: e1.has_value()
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:372: s.merge_verified(*e1) == MergeResult::Accepted
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:379: e2.has_value()
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:383: s.merge_verified(*e2) == MergeResult::Duplicate
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:385: th.size() == size_t(2)
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:404: e3.has_value()
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:405: s.merge_verified(*e3) == MergeResult::Accepted
+       > FAIL /nix/store/rk8cjy1ni0canivljkjcch1gwc5wrnx3-test_main.cpp:406: s.thread(*tid).size() == size_t(3)
+       > core tests: 93 checks, 10 failures
+       For full logs, run:
+         nix log /nix/store/jd6pj96y9j5ii7960gpfnihdxsdy0l6a-forum-core-tests.drv
+=== exit=1 2026-10-03T07:22:20Z

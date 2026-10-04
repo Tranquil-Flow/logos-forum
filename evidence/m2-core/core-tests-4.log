@@ -1,0 +1,40 @@
+=== core-tests 4 2026-10-01T20:35:36Z
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+this derivation will be built:
+  /nix/store/zig0a125fmrj0d9wmhbzsiyqfb6i62wx-forum-core-tests.drv
+building '/nix/store/zig0a125fmrj0d9wmhbzsiyqfb6i62wx-forum-core-tests.drv'...
+forum-core-tests> FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:72: e1.has_value()
+forum-core-tests> FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:75: e2.has_value()
+forum-core-tests> FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:78: e1->id.size() == size_t(64)
+forum-core-tests> FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:86: e.has_value()
+forum-core-tests> FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:87: verify(kp.pub_hex, e->canonical, e->signature)
+forum-core-tests> FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:92: pos != std::string::npos
+forum-core-tests> libc++abi: terminating due to uncaught exception of type std::out_of_range: basic_string
+forum-core-tests> /nix/var/nix/builds/nix-62957-3683861716/.attr-0l2nkwhif96f51f4amnlf414lhl4rv9vh8iffyp431v6s28gsr90: line 9: 65850 Abort trap: 6              $out/core_tests
+forum-core-tests>      65851 Done                       | tee $out/test-output.txt
+❌ path:<repo>#core-tests
+error: Cannot build '/nix/store/zig0a125fmrj0d9wmhbzsiyqfb6i62wx-forum-core-tests.drv'.
+       Reason: builder failed with exit code 134.
+       Output paths:
+         /nix/store/0dkjj6m4rcnbxvwld3jir6sb1nb46diw-forum-core-tests
+       Last 9 log lines:
+       > FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:72: e1.has_value()
+       > FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:75: e2.has_value()
+       > FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:78: e1->id.size() == size_t(64)
+       > FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:86: e.has_value()
+       > FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:87: verify(kp.pub_hex, e->canonical, e->signature)
+       > FAIL /nix/store/kqkxwi5in97rjhcqf7795pi9craklvz1-test_main.cpp:92: pos != std::string::npos
+       > libc++abi: terminating due to uncaught exception of type std::out_of_range: basic_string
+       > /nix/var/nix/builds/nix-62957-3683861716/.attr-0l2nkwhif96f51f4amnlf414lhl4rv9vh8iffyp431v6s28gsr90: line 9: 65850 Abort trap: 6              $out/core_tests
+       >      65851 Done                       | tee $out/test-output.txt
+       For full logs, run:
+         nix log /nix/store/zig0a125fmrj0d9wmhbzsiyqfb6i62wx-forum-core-tests.drv
+=== exit=1 2026-10-01T20:36:08Z

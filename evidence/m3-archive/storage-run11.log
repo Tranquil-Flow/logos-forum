@@ -1,0 +1,12 @@
+=== m3 storage harness run 11 2026-10-02T14:32:02Z
+=== 1/7 corpus (TECHNICAL TEST DATA, signed, 5 posts)
+=== 2/7 archive roles up (loopback, no public bootstrap)
+=== 3/7 upload corpus to BOTH archives (advertise=true, explicit)
+=== 4/7 per-archive NON-AUTHOR signed inventories
+=== 5/7 reader/provider separation (advertise=false negative)
+=== 6/7 finite retention positive control (short TTL expires)
+waiting 210s for expiry (block-ttl=1m)
+=== 7/7 loss/repair: archive A data dir wiped; B still verifies
+RESULT {"status": "PASS", "layer": "m3-storage-lifecycle", "evidence": "<repo>/evidence/m3-archive/storage-20261002-163203", "claims": ["two-archives-hold-verifiable-bytes", "byte-exact-readback-both-archives", "non-author-inventories-signed-and-verified", "archive-keys-distinct-from-author-key", "private-upload-not-advertised-local-read-ok", "finite-ttl-expiry-positive-control", "finite-ttl-refresh-restores-bytes", "second-archive-verifies-after-one-loss"], "corpus": {"posts": 5, "bytes": 1629, "sha256": "c21b1117d2fe5ef81b65c6f1a0c97922d4d2f5613f3bc3339fce7c229925ef8f", "author_is_archive": false}, "archives": {"a": "/ip4/127.0.0.1/tcp/64678/p2p/16Uiu2HAmBmR8TskAim9rUHG4KDcDwbxm1pcFwdmX8R8tEy4vfm3H", "b": "/ip4/127.0.0.1/tcp/64679/p2p/16Uiu2HAmM3iTBJE4ntg3bXhwtLkJzLzqDXTEceAmeVpB4iC2bBrf", "public_bootstrap": false}, "cids": {"a": "zDvZRwzkxu9YWWZCH5wbnPehwWPML8SDWpWXCiArKNg1BbeBK36W", "b": "zDvZRwzkxu9YWWZCH5wbnPehwWPML8SDWpWXCiArKNg1BbeBK36W"}}
+cleanup leftover: none
+=== exit=0 2026-10-02T14:35:58Z

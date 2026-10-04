@@ -1,0 +1,6 @@
+relay core1 up pid=57921 port=65194
+relay core2 up pid=57963 port=65195
+relay core3 up pid=57991 port=65196
+relay core4 up pid=58031 port=65197
+topology up; relays stop when this process exits
+PID 57917

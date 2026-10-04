@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "stage_rc": {
+    "s1": 1,
+    "s2": 99,
+    "s3": 99
+  },
+  "stage1": {
+    "_err": "missing"
+  },
+  "stage2": {
+    "_skip": true
+  },
+  "stage3": {
+    "_skip": true
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261003-193410",
+  "note": "pre-fix run \u2014 QML_INSPECTOR_PORT env was not yet exported to the node driver, so the inspector client connected to the wrong port (3788) and the host disconnected before any slot was triggered. The wedge evidence is in the three later runs (193834 precreated, 193917 nowal, 194029 final open) where the slot DID run and showed the same eventResponse warning. This run is preserved for the driver-fix audit trail.",
+  "layer": "store-open-wedge-probe",
+  "bisect": "open",
+  "host_smoking_gun": {
+    "eventResponse_warnings": 0,
+    "getAvailableConfigs_calls": 0,
+    "interpretation": "eventResponse warning fires every time a slot is invoked; the slot runs but its return value never reaches the replica"
+  },
+  "diagnosis": "QtRO back-channel wedge: capability_module cannot connect to eventResponse signal \u2014 slot return is computed but never delivered to the replica. Not a store issue (slot runs, getAvailableConfigs fires; SQLite open / WAL / migration hypotheses all ruled out by the precreated and nowal bisect rungs both passing-through with the same wedge).",
+  "gate_label": "M2-GUI BLOCKED-with-receipts (QtRO back-channel wedge in dev launcher; store is healthy; CI integration-25 4/4 holds)",
+  "status_note": "host died before slot triggered \u2014 pre-fix driver (wrong port); preserved for audit only"
+}

@@ -1,0 +1,38 @@
+{
+  "layer": "local-loopback-delivery-mix",
+  "relays": {
+    "core1": {
+      "multiaddr": "/ip4/127.0.0.1/tcp/55600/p2p/16Uiu2HAmSqZK3wWAoEZzBDUTwz7RDyduQQd66KC1WaVjgzn1Zd3L",
+      "mix_public_key": "e0a4bb0430085eb8efc9f4d96d3130dc8eae4885ceb423318587c96eb240c002"
+    },
+    "core2": {
+      "multiaddr": "/ip4/127.0.0.1/tcp/55601/p2p/16Uiu2HAkyju1HCvZ7d77gQJXWy1xJT5f2myLFZPGW5jK5TwFvUFo",
+      "mix_public_key": "496f9885cc6ff9b762003842fdd1c594e0945bae9f6602abc3a5eb90f5ffe40c"
+    },
+    "core3": {
+      "multiaddr": "/ip4/127.0.0.1/tcp/55602/p2p/16Uiu2HAmVqWd5KaXpFDguTHm9NEsw4TDTTtB6YTGJSc9ojTrtoHe",
+      "mix_public_key": "f606fce8f902b017c3e3ef663795b920c7af7fb6cff22d1e3daa225454fed925"
+    },
+    "core4": {
+      "multiaddr": "/ip4/127.0.0.1/tcp/55603/p2p/16Uiu2HAmGTwVaCHjngCvMzfWre8BCL2vqhR7WnvVu7RgSbXoSAnA",
+      "mix_public_key": "f587f0be516ed562d72d9eefc31ec0831b5ebef0aae95b54d60f78fd44836773"
+    }
+  },
+  "apps": {
+    "sender": {
+      "multiaddr": "/ip4/127.0.0.1/tcp/55604/p2p/16Uiu2HAm7UVMNVRfXYJQTGp5YfcJB7sxbgqzdTmwyzUoMm3nhUmS",
+      "anonymity_level": "Required",
+      "mix_public_key": "faa712b3fd20887814c46bdba3833ebc7aee86bdb05fac566c6fb600eedc8065"
+    },
+    "receiver": {
+      "multiaddr": "/ip4/127.0.0.1/tcp/55605/p2p/16Uiu2HAmDj5HJSPU3kCf5vm14ZEnLeu89nLJLb9ZGQRvzwmGkJN9",
+      "anonymity_level": "None",
+      "mix_public_key": null
+    }
+  },
+  "limits": {
+    "public_peers": 0,
+    "relay_nodes": 4,
+    "payload_cap": "50 labelled posts / 5 MiB"
+  }
+}

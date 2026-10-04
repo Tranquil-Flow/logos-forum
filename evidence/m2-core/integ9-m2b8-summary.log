@@ -1,0 +1,19 @@
+=== integration 9 (ports clean) 2026-10-01T22:22:38Z
+integ exit=0
+forum_module-integration-test>   ✓ forum_module: UI loads
+forum_module-integration-test>   ✓ forum_module: backend connects
+forum_module-integration-test>   ✓ forum_module: post path routes and refuses honestly without transport
+forum_module-integration-test>   ✓ forum_module: transport status reports module presence honestly
+forum_module-integration-test> 4 passed, 0 failed
+forum_module-integration-test> All integration tests passed
+=== m2b run 8 2026-10-01T22:24:08Z
+=== m2b exit=1 2026-10-01T22:26:20Z
+=== 1/6 relays up (fresh identities)
+=== 2/6 boot instances
+=== waiting for BOTH instances' transport readiness (node boot ~1min)
+READY
+READY
+=== 3/6 P1 online post
+P1_NOT_RECEIVED
+FAIL: P1 not received
+=== cleanup 2026-10-01T22:26:14Z

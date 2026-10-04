@@ -1,0 +1,14 @@
+# inputs
+18b1eb9a3465ace47f680bc467488e5b9b55cade482f3bf797999d4135fe4194  mac.lgx
+cbe467b8d90ff420dbd28abc42c5792779a540dbd8094c01fa52b3dde1e7f8c4  linux.lgx
+# lgx tool: github:logos-co/logos-package -> /nix/store/0x82gvqdh5g6ir6smm6m8c3k2ixs94w2-lgx-all-0.1.0
+# merge
+Merged 2 packages into merged.lgx (darwin-arm64, linux-arm64)
+# verify
+Package structure is valid: merged.lgx
+Package is unsigned
+# variants
+variants/darwin-arm64/
+variants/linux-arm64/
+# output
+22b4124a8b69522ad573573d965a59ebc866f024e00ce07e0d579072af9347f0  merged.lgx

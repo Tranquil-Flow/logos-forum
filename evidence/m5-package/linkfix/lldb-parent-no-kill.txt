@@ -1,0 +1,69 @@
+(lldb) process attach --pid 22419
+Process 22419 stopped
+* thread #1, queue = 'com.apple.main-thread', stop reason = signal SIGSTOP
+    frame #0: 0x000000018d654e80 libsystem_kernel.dylib`__select + 8
+libsystem_kernel.dylib`__select:
+->  0x18d654e80 <+8>:  b.lo   0x18d654ea0               ; <+40>
+    0x18d654e84 <+12>: pacibsp 
+    0x18d654e88 <+16>: stp    x29, x30, [sp, #-0x10]!
+    0x18d654e8c <+20>: mov    x29, sp
+Target 0: (..logos-standalone-app-bin-wrapped) stopped.
+Executable binary set to "/nix/store/vfzdcnscq2pssd29khd6462g0p04vdiy-logos-standalone-app-1.0.0/bin/..logos-standalone-app-bin-wrapped".
+Architecture set to: arm64-apple-macosx-.
+(lldb) process handle -s false -n false -p true SIGPIPE SIGCHLD SIGUSR1 SIGUSR2 SIGALRM
+NAME         PASS   STOP   NOTIFY
+===========  =====  =====  ======
+SIGPIPE      true   false  false
+SIGCHLD      true   false  false
+SIGUSR1      true   false  false
+SIGUSR2      true   false  false
+SIGALRM      true   false  false
+(lldb) breakpoint set -n kill
+Breakpoint 1: 5 locations.
+(lldb) breakpoint set -r 'QProcess::(kill|terminate)'
+Breakpoint 2: 2 locations.
+(lldb) continue
+Process 22419 resuming
+Process 22419 stopped
+* thread #1, queue = 'com.apple.main-thread', stop reason = signal SIGTERM
+    frame #0: 0x000000018d64dbe4 libsystem_kernel.dylib`__write_nocancel + 8
+libsystem_kernel.dylib`__write_nocancel:
+->  0x18d64dbe4 <+8>:  b.lo   0x18d64dc04               ; <+40>
+    0x18d64dbe8 <+12>: pacibsp 
+    0x18d64dbec <+16>: stp    x29, x30, [sp, #-0x10]!
+    0x18d64dbf0 <+20>: mov    x29, sp
+Target 0: (..logos-standalone-app-bin-wrapped) stopped.
+(lldb) bt 30
+* thread #1, queue = 'com.apple.main-thread', stop reason = signal SIGTERM
+  * frame #0: 0x000000018d64dbe4 libsystem_kernel.dylib`__write_nocancel + 8
+    frame #1: 0x000000018d54cbbc libsystem_c.dylib`__swrite + 24
+    frame #2: 0x000000018d52e264 libsystem_c.dylib`_swrite + 108
+    frame #3: 0x000000018d52c304 libsystem_c.dylib`__sflush + 232
+    frame #4: 0x000000018d52e13c libsystem_c.dylib`__xvprintf + 296
+    frame #5: 0x000000018d52dff4 libsystem_c.dylib`vfprintf_l + 144
+    frame #6: 0x000000018d52df58 libsystem_c.dylib`fprintf + 68
+    frame #7: 0x0000000108ac4334 QtCore`preformattedMessageHandler(QtMsgType, QMessageLogContext const&, QString const&) + 180
+    frame #8: 0x0000000108ac64f8 QtCore`qDefaultMessageHandler(QtMsgType, QMessageLogContext const&, QString const&) + 156
+    frame #9: 0x0000000108ac5ef4 QtCore`qt_message_print(QtMsgType, QMessageLogContext const&, QString const&) + 304
+    frame #10: 0x0000000108ac5d14 QtCore`qt_message_output(QtMsgType, QMessageLogContext const&, QString const&) + 204
+    frame #11: 0x0000000108ad5c8c QtCore`QDebug::~QDebug() + 296
+    frame #12: 0x0000000104101100 ..logos-standalone-app-bin-wrapped`InspectorServer::onClientDisconnected() + 260
+    frame #13: 0x0000000108b9fe9c QtCore`void doActivate<false>(QObject*, int, void**) + 1408
+    frame #14: 0x0000000105af0b74 QtNetwork`QAbstractSocket::disconnectFromHost() + 468
+    frame #15: 0x0000000105aec914 QtNetwork`QAbstractSocketPrivate::canReadNotification() + 332
+    frame #16: 0x0000000105af72fc QtNetwork`QReadNotifier::event(QEvent*) + 36
+    frame #17: 0x0000000105fdba04 QtWidgets`QApplicationPrivate::notify_helper(QObject*, QEvent*) + 332
+    frame #18: 0x0000000105fdcabc QtWidgets`QApplication::notify(QObject*, QEvent*) + 468
+    frame #19: 0x0000000108b43be8 QtCore`QCoreApplication::sendEvent(QObject*, QEvent*) + 164
+    frame #20: 0x0000000108dff6d8 QtCore`socketNotifierSourceDispatch(_GSource*, int (*)(void*), void*) + 132
+    frame #21: 0x0000000105e45e04 libglib-2.0.0.dylib`g_main_context_dispatch_unlocked + 380
+    frame #22: 0x0000000105e4637c libglib-2.0.0.dylib`g_main_context_iterate_unlocked + 704
+    frame #23: 0x0000000105e46504 libglib-2.0.0.dylib`g_main_context_iteration + 116
+    frame #24: 0x0000000108dfee38 QtCore`QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) + 108
+    frame #25: 0x0000000108b4edac QtCore`QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) + 592
+    frame #26: 0x0000000108b437e4 QtCore`QCoreApplication::exec() + 144
+    frame #27: 0x00000001040d8320 ..logos-standalone-app-bin-wrapped`main + 10656
+    frame #28: 0x000000018d2cfe00 dyld`start + 6992
+(lldb) detach
+Process 22419 detached
+(lldb) quit

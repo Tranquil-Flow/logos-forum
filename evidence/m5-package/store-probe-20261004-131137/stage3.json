@@ -1,0 +1,11 @@
+{
+  "stage3": "PASS",
+  "topic_outcome": "Topic created",
+  "send_outcome": "Not sent (unavailable) — your text is kept here. Connect to the Logos network to send it.",
+  "threadPosts": [
+    "id 7d6b4cbae06d6f42 [failed]: TECHNICAL TEST DATA: store_probe stage3"
+  ],
+  "thread_has_failed": true,
+  "thread_has_body": true,
+  "composer_kept": true
+}

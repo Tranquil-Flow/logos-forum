@@ -1,0 +1,2 @@
+	@loader_path/./libsqlite3.dylib (compatibility version 9.0.0, current version 9.6.0)
+	@loader_path/./libsodium.26.dylib (compatibility version 29.0.0, current version 29.0.0)

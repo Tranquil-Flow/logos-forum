@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "status_meaning": "probe ran and cleaned up; the product verdict is gate_label",
+  "layer": "dev-launcher-gui-probe",
+  "bisect": "open",
+  "stage_rc": {
+    "s1": 0,
+    "s2": 0,
+    "s3": 0
+  },
+  "stage_summary": {
+    "s1_slot_return": "WORKS",
+    "s2_prop_sync": "WORKS",
+    "s3_post_path": "WORKS"
+  },
+  "ui_host_alive_after_stages": true,
+  "plugin_links_libsodium": true,
+  "plugin_links_libsqlite3": true,
+  "stage1": {
+    "stage1": "PASS",
+    "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+    "direct_has_outbox": false,
+    "outcome": "delivery: present (loaded; node not created yet); storage: present (v3.0.0); outbox: 22 post(s) waiting to send; privacy: unverified until a Required send completes",
+    "outcome_has_outbox": true,
+    "transportState_before": "no transport configured \u2014 posting unavailable (Required policy)",
+    "transportState_after": "no transport configured \u2014 posting unavailable (Required policy)",
+    "transportState_changed": false,
+    "accounts": [
+      "demo"
+    ],
+    "topics": [
+      "0f77347de9f47d770171c261e452f81b2d926d1ed99bb564085c34894664bfe7|Probe Topic (1)|0",
+      "8f0a388ea6d489389cb0d40ac46cabcdbc7c3654d35cf18d47d016c33f46d786|Probe Topic (1)|0",
+      "21c2aaf3c2c1b92af6a4dad69a51d28d090198c983f2110230997f1d8ab600ef|Probe Topic (1)|0",
+      "2f45d55a3d0e15f8d7be1454e024a3479b861077685e1246c145e8cfc4d1e84b|Probe Topic (1)|1",
+      "866d302ae597ac00abb0ef123a4a6b5cb22ad8cd644ca11f330685dea6ee0d82|Probe Topic (1)|1",
+      "6e6bdac5cc9af0b2a646d1be4d7f2c1d4e6d12fd4d0d070b440531bc7d2c15bf|Probe Topic (1)|1",
+      "30850bab21863f28916b7c3f238c846b767cd7ca273a90a879d1b6eaf170233b|Probe Topic (1)|1",
+      "d0c1800e3461ca16928e3396799e96a77da7e378fc68bc5ce1e5b47d0429156d|Probe Topic (1)|1",
+      "2c8b7639bd4a3ed30140f0d854354f53680fe5b6a4245cd2aa02ffdb4ea8bce3|Probe Topic (1)|1",
+      "0659db102e33bc8b71edcdbcbf946f124ee6248a203e491973e88fb718c08e5e|Probe Topic (1)|1",
+      "6b635c337b987a6c9383dee6bad13e9a30f0e9045a9a5acc075c8f0cab4603f1|Probe Topic (0)|0",
+      "c09f15320af5b70cb05faa91bd3022d1599ccfbe8f8769f5853ef7c9cbce5874|General (0)|0",
+      "6dd197737fd8823d246042887f3199242e632bb00c0ffefb3e5699520d052344|General (0)|0"
+    ],
+    "threadPosts_count": 0,
+    "diagnosis": "outbox observed via QML watch only; direct read did not expose slot result"
+  },
+  "stage2": {
+    "stage2": "PASS",
+    "backend_alive_after_stage1": true,
+    "textfield_found": true,
+    "textfield_text_before_set": "",
+    "textfield_text_after_set": "demo",
+    "button_enabled_before_click": true,
+    "click_result": {
+      "clicked": true,
+      "id": 2009,
+      "matchedId": "6",
+      "matchedText": "Add alias",
+      "matchedType": "Button_QMLTYPE_2",
+      "ok": true,
+      "widget": "QQuickWidget",
+      "x": 522.75,
+      "y": 103
+    },
+    "direct_slot_return": "{\"id\":2010,\"ok\":true,\"result\":null,\"undefined\":true}",
+    "echo_slot_return": "{\"id\":2011,\"ok\":true,\"result\":null,\"undefined\":true}",
+    "accounts_before": [
+      "demo"
+    ],
+    "accounts_after": [
+      "demo"
+    ],
+    "accounts_prop_has_demo": true,
+    "prop_sync_works": true,
+    "outcome": "error: alias already exists",
+    "channel": "PROP-sync",
+    "interpretation_hint": "PROP-sync works \u2192 just need to refactor slot-return buttons to read PROPs only"
+  },
+  "stage3": {
+    "stage3": "PASS",
+    "topic_outcome": "Topic created",
+    "send_outcome": "Not sent (unavailable) \u2014 your text is kept here. Connect to the Logos network to send it.",
+    "threadPosts": [
+      "id 3d3d76c39d2439cb [failed]: TECHNICAL TEST DATA: store_probe stage3"
+    ],
+    "thread_has_failed": true,
+    "thread_has_body": true,
+    "composer_kept": true
+  },
+  "host_log_counts": {
+    "eventResponse_warnings": 2,
+    "getAvailableConfigs_calls": 2,
+    "note": "the capability_module eventResponse warning is benign noise (present in passing runs too)"
+  },
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261004-212309",
+  "diagnosis": "all three channels work in the dev launcher (slot return, PROP sync, post path); ui-host survived every stage; plugin links libsodium+libsqlite3. The earlier '3-layer QtRO wedge' was the ui-host SIGSEGV'ing on a null sodium_init (plugin linked with -undefined dynamic_lookup and no libsodium) \u2014 fixed by LINK_LIBRARIES.",
+  "gate_label": "M2-GUI PASS (dev launcher: slot return + PROP sync + post path)"
+}

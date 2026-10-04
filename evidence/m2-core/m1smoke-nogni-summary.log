@@ -1,0 +1,9 @@
+=== ui-dev 12 (no post-start getNodeInfo) 2026-10-02T09:27:43Z
+building '/nix/store/k79r024krz79d8xsymha39jl518yv7cv-run-logos-standalone-ui.drv'...
+ui-dev exit=0
+=== m1 smoke (A/B noGetNodeInfo) 2026-10-02T09:30:11Z
+=== exit=1 2026-10-02T09:32:42Z
+  "status": "FAIL",
+  "sender_port": 3768,
+  "error": "timeout waiting for sender propagation state: sender transport state: {\"id\":184,\"ok\":true,\"result\":\"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events\",\"undefined\":false}"
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261002-113011"}

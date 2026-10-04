@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "layer": "m2b-cli-protocol",
+  "evidence": "<repo>/evidence/m2-core/m2b-cli-20261002-234241",
+  "claims": [],
+  "error": "RuntimeError: P1 not verified on the wire: {'verified': False, 'reason': 'deadline', 'deliveries_seen': 0}"
+}

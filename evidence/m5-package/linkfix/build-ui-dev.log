@@ -1,0 +1,27 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: rejected ca28145fdc5e9858595126a3d6b01ec19882e31c because shallow roots are not allowed to be updated
+copying path '/nix/store/abmxwmr9chh3v5dr3iw4yjxz9dmllvn4-source' from 'https://cache.nixos.org'...
+these 4 derivations will be built:
+  /nix/store/qfgcbnydmcdx8z4aa5ck8prg1d0a0qc1-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/mp4qpyvjzxyr36w9f1r98h2sc4ahzpb7-logos-forum_module-module.drv
+  /nix/store/n9ia05011i9z65gbjyh2bg5xncry0qgc-logos-forum_module-plugin-dir.drv
+  /nix/store/slgl1w8b9cv0dly6nii6g4vwcz0spiyg-run-logos-standalone-ui.drv
+these 3 paths will be fetched (7.5 MiB download, 58.6 MiB unpacked):
+  /nix/store/0ngiwswr7wf0yi6z2fdacdqmqm1bpinv-ShellCheck-0.10.0
+  /nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev
+  /nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin
+copying path '/nix/store/0ngiwswr7wf0yi6z2fdacdqmqm1bpinv-ShellCheck-0.10.0' from 'https://cache.nixos.org'...
+copying path '/nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin' from 'https://cache.nixos.org'...
+copying path '/nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev' from 'https://cache.nixos.org'...
+building '/nix/store/qfgcbnydmcdx8z4aa5ck8prg1d0a0qc1-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/mp4qpyvjzxyr36w9f1r98h2sc4ahzpb7-logos-forum_module-module.drv'...
+building '/nix/store/n9ia05011i9z65gbjyh2bg5xncry0qgc-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/slgl1w8b9cv0dly6nii6g4vwcz0spiyg-run-logos-standalone-ui.drv'...

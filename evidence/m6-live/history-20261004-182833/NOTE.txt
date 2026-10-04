@@ -1,0 +1,6 @@
+FAIL at the author's post stage, on the public network: Delivery reported "Unable to send
+within retry time window" for the initial Required send and for each automatic retry
+(15/30/60 s), after which the app stopped retrying and kept the stored post (designed,
+bounded behaviour; see timeline). live-20261004-182756, run a minute earlier on the same
+build, sent through Mix successfully. Recorded as a public logos.dev Mix availability
+failure; not rewritten. Raw files unchanged.

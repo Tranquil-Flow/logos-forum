@@ -1,0 +1,338 @@
+=== m1 backend build 2026-10-01T19:29:21Z
+these 2 derivations will be built:
+  /nix/store/wv4ls9iwi32qvj9mhaq2kwczj37cl2l0-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/x956bif9hzi39a73p1a113lp364vi7v5-logos-forum_module-module.drv
+building '/nix/store/wv4ls9iwi32qvj9mhaq2kwczj37cl2l0-logos-forum_module-module-lib-0.1.0.drv'...
+logos-forum_module-module-lib> Running phase: qtPreHook
+logos-forum_module-module-lib> Running phase: unpackPhase
+logos-forum_module-module-lib> unpacking source archive /nix/store/j8zsfavii1r8x390009qqfx562wpkznk-s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source
+logos-forum_module-module-lib> source root is s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source
+logos-forum_module-module-lib> Running phase: patchPhase
+logos-forum_module-module-lib> Running phase: updateAutotoolsGnuConfigScriptsPhase
+logos-forum_module-module-lib> Running phase: configurePhase
+logos-forum_module-module-lib> Running logos-cpp-generator (api-style=qt)...
+logos-forum_module-module-lib> Generating deps from LIDL: delivery_module, storage_module
+logos-forum_module-module-lib> Generated logos_sdk.h and logos_sdk.cpp
+logos-forum_module-module-lib> Running logos-qt-generator --backend consumer for the Qt-typed dependency wrappers...
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.cpp
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.cpp
+logos-forum_module-module-lib> Checking generated files in generated_code:
+logos-forum_module-module-lib> total 188
+logos-forum_module-module-lib> drwxr-xr-x  8 _nixbld1 nixbld   256 Oct  1 19:29 .
+logos-forum_module-module-lib> drwxr-xr-x 19 _nixbld1 nixbld   608 Oct  1 19:29 ..
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 61780 Oct  1 19:29 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 12269 Oct  1 19:29 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld    94 Oct  1 19:29 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld   363 Oct  1 19:29 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 87563 Oct  1 19:29 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 15623 Oct  1 19:29 storage_module_api.h
+logos-forum_module-module-lib> Creating include directory and moving generated files...
+logos-forum_module-module-lib> Generated include directory:
+logos-forum_module-module-lib> total 188
+logos-forum_module-module-lib> drwxr-xr-x 8 _nixbld1 nixbld   256 Oct  1 19:29 .
+logos-forum_module-module-lib> drwxr-xr-x 6 _nixbld1 nixbld   192 Oct  1 19:29 ..
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 61780 Oct  1 19:29 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 12269 Oct  1 19:29 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld    94 Oct  1 19:29 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld   363 Oct  1 19:29 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 87563 Oct  1 19:29 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 15623 Oct  1 19:29 storage_module_api.h
+logos-forum_module-module-lib> Stamped logos_protocol_version=0.9.0 into metadata.json
+logos-forum_module-module-lib> logos-module-builder: generating ui plugin glue (forum_module)...
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_interface.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.cpp
+logos-forum_module-module-lib> fixing cmake files...
+logos-forum_module-module-lib> cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/share/doc/ForumPlugin -DCMAKE_INSTALL_INFODIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/strip -DCMAKE_RANLIB=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/ranlib -DCMAKE_AR=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/ar -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_INSTALL_PREFIX=/nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0 -GNinja -DLOGOS_MODULE_ROOT=/nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0 -DLOGOS_CPP_SDK_ROOT=/nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk -DLOGOS_QT_SDK_ROOT=/nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk -DLOGOS_QT_HOST_ROOT=/nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0 -DLOGOS_PROTOCOL_ROOT=/nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol -DLOGOS_VIEW_TEMPLATE_DIR=/nix/store/py6wzmragypgh2lbaimz1z23qzcv8ckr-logos-view-templates -DLOGOS_VIEW_INCLUDE_DIR=/nix/store/ndn52sc7anhfvn2h047ffwsqn25hs62i-logos-view-module-include
+logos-forum_module-module-lib> -- The CXX compiler identification is Clang 19.1.7
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info - done
+logos-forum_module-module-lib> -- Check for working CXX compiler: /nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/clang++ - skipped
+logos-forum_module-module-lib> -- Detecting CXX compile features
+logos-forum_module-module-lib> -- Detecting CXX compile features - done
+logos-forum_module-module-lib> -- LogosModule.cmake: /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake
+logos-forum_module-module-lib> -- Found logos-module at: /nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0
+logos-forum_module-module-lib> -- Found logos-cpp-sdk at: /nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk
+logos-forum_module-module-lib> -- Found logos-qt-sdk at: /nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk
+logos-forum_module-module-lib> -- Found logos-protocol at: /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol
+logos-forum_module-module-lib> -- Qt host runtime: logos-qt-host::logos_qt_host at /nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+logos-forum_module-module-lib> -- Found Threads: TRUE
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC - Success
+logos-forum_module-module-lib> -- Found WrapAtomic: TRUE
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/qvv2ddin29xa8fqmsv567b6xlnhbvpv0-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found Boost: /nix/store/2blqfsz18yp066ky15nvkihcvwqq7bqz-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found OpenSSL: /nix/store/0ais7wnqw8xzj0331c2jka53s6g14wqb-openssl-3.5.1/lib/libcrypto.dylib (found version "3.5.1")
+logos-forum_module-module-lib> -- Found nlohmann_json: /nix/store/hs7wcady8i97dqq7qiaiaq05srnq6yih-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/qvv2ddin29xa8fqmsv567b6xlnhbvpv0-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+logos-forum_module-module-lib>   /nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:625 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Logos module forum_module: replica factory plugin from src/forum_module.rep (class Forum, QML Logos.Forum.Forum)
+logos-forum_module-module-lib> -- Logos module forum_module configured successfully
+logos-forum_module-module-lib> -- Configuring done (1.3s)
+logos-forum_module-module-lib> -- Generating done (0.1s)
+logos-forum_module-module-lib> CMake Warning:
+logos-forum_module-module-lib>   Manually-specified variables were not used by the project:
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib>     BUILD_TESTING
+logos-forum_module-module-lib>     CMAKE_C_COMPILER
+logos-forum_module-module-lib>     CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+logos-forum_module-module-lib>     CMAKE_POLICY_DEFAULT_CMP0025
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Build files have been written to: /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/build
+logos-forum_module-module-lib> cmake: enabled parallel building
+logos-forum_module-module-lib> cmake: enabled parallel installing
+logos-forum_module-module-lib> Running phase: buildPhase
+logos-forum_module-module-lib> build flags: -j4
+logos-forum_module-module-lib> [0/2] Re-checking globbed directories...
+logos-forum_module-module-lib> [1/18] Automatic MOC for target forum_module_replica_factory
+logos-forum_module-module-lib> [2/18] Automatic MOC for target forum_module_module_plugin
+logos-forum_module-module-lib> [3/18] Generating rep_forum_module_replica.h
+logos-forum_module-module-lib> [4/18] Generating rep_forum_module_source.h
+logos-forum_module-module-lib> [5/18] Generating moc_rep_forum_module_replica.cpp
+logos-forum_module-module-lib> [6/18] Generating moc_rep_forum_module_source.cpp
+logos-forum_module-module-lib> [7/18] Building CXX object CMakeFiles/forum_module_replica_factory.dir/forum_module_replica_factory_autogen/mocs_compilation.cpp.o
+logos-forum_module-module-lib> [8/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/forum_module_module_plugin_autogen/mocs_compilation.cpp.o
+logos-forum_module-module-lib> [9/18] Building CXX object CMakeFiles/forum_module_replica_factory.dir/moc_rep_forum_module_replica.cpp.o
+logos-forum_module-module-lib> [10/18] Building CXX object CMakeFiles/forum_module_replica_factory.dir/replica_factory_forum_module/LogosViewReplicaFactory.cpp.o
+logos-forum_module-module-lib> [11/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+logos-forum_module-module-lib> [12/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o
+logos-forum_module-module-lib> FAILED: [code=1] CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o
+logos-forum_module-module-lib> /nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/clang++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DQT_CORE_LIB -DQT_NETWORK_LIB -DQT_NO_DEBUG -DQT_REMOTEOBJECTS_LIB -Dforum_module_module_plugin_EXPORTS -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/build/forum_module_module_plugin_autogen/include -I/nix/store/ndn52sc7anhfvn2h047ffwsqn25hs62i-logos-view-module-include/include -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/build -I/nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0/include/module_lib -I/nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk/include/cpp -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include -I/nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0/include/cpp -I/nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0/include/core -I/nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk/include/cpp -I/nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/include/cpp -I/nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/build/view_plugin_base_forum_module -isystem /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers -iframework /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib -isystem /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/mkspecs/macx-clang -isystem /nix/store/a0z4ipq0hcakknsi5f1icgpdmch3simf-qtremoteobjects-6.9.2/lib/QtRemoteObjects.framework/Headers -iframework /nix/store/a0z4ipq0hcakknsi5f1icgpdmch3simf-qtremoteobjects-6.9.2/lib -isystem /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtNetwork.framework/Headers -isystem /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/include/implementations/qt_local -isystem /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/include/implementations/qt_remote -isystem /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/include/implementations/mock -isystem /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/include/implementations/plain -O3 -DNDEBUG -isysroot /nix/store/rhlyld20zdzdi5wghb4b12gw52s9whr9-apple-sdk-11.3/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -fPIC -MD -MT CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o -MF CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o.d -o CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o -c /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:92:53: error: no viable conversion from 'QString' to 'QByteArray'
+logos-forum_module-module-lib>    92 |         modules().delivery_module.send(kForumTopic, QString::fromLatin1(payload));
+logos-forum_module-module-lib>       |                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qbytearray.h:92:5: note: candidate constructor not viable: no known conversion from 'QString' to 'const char *' for 1st argument
+logos-forum_module-module-lib>    92 |     QByteArray(const char *, qsizetype size = -1);
+logos-forum_module-module-lib>       |     ^          ~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qbytearray.h:101:12: note: candidate constructor not viable: no known conversion from 'QString' to 'QByteArray &&' for 1st argument
+logos-forum_module-module-lib>   101 |     inline QByteArray(QByteArray && other) noexcept
+logos-forum_module-module-lib>       |            ^          ~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qbytearray.h:636:20: note: candidate constructor not viable: no known conversion from 'QString' to 'const QByteArray &' for 1st argument
+logos-forum_module-module-lib>   636 | inline QByteArray::QByteArray(const QByteArray &a) noexcept : d(a.d)
+logos-forum_module-module-lib>       |                    ^          ~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qbytearray.h:95:14: note: explicit constructor is not a candidate
+logos-forum_module-module-lib>    95 |     explicit QByteArray(QByteArrayView v) : QByteArray(v.data(), v.size()) {}
+logos-forum_module-module-lib>       |              ^
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qbytearray.h:513:21: note: explicit constructor is not a candidate
+logos-forum_module-module-lib>   513 |     explicit inline QByteArray(const DataPointer &dd) : d(dd) {}
+logos-forum_module-module-lib>       |                     ^
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qbytearray.h:515:21: note: explicit constructor is not a candidate
+logos-forum_module-module-lib>   515 |     explicit inline QByteArray(DataPointer &&dd) : d(std::move(dd)) {}
+logos-forum_module-module-lib>       |                     ^
+logos-forum_module-module-lib> /nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Headers/qstring.h:1064:23: note: candidate function
+logos-forum_module-module-lib>  1064 |     Q_IMPLICIT inline operator std::u16string_view() const noexcept;
+logos-forum_module-module-lib>       |                       ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include/delivery_module_api.h:66:62: note: passing argument to parameter 'payload' here
+logos-forum_module-module-lib>    66 |     LogosResult send(const QString& contentTopic, QByteArray payload, logos::CallError* err = nullptr, Timeout timeout = Timeout());
+logos-forum_module-module-lib>       |                                                              ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51: error: no viable conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51)' to 'std::function<void (const QString &, const QString &, qlonglong)>' (aka 'function<void (const QString &, const QString &, long long)>')
+logos-forum_module-module-lib>   113 |     modules().delivery_module.onMessagePropagated([this](const QString &requestId) {
+logos-forum_module-module-lib>       |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   114 |         if (requestId == m_lastSendRequest) {
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   115 |             setTransportStateFromEvent(
+logos-forum_module-module-lib>       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   116 |                 QStringLiteral("Required send propagated (request %1)").arg(requestId));
+logos-forum_module-module-lib>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   117 |         }
+logos-forum_module-module-lib>       |         ~
+logos-forum_module-module-lib>   118 |     });
+logos-forum_module-module-lib>       |     ~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:856:47: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51)' to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+logos-forum_module-module-lib>   856 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_HIDE_FROM_ABI function(nullptr_t) _NOEXCEPT {}
+logos-forum_module-module-lib>       |                                               ^        ~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:857:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51)' to 'const function<void (const QString &, const QString &, long long)> &' for 1st argument
+logos-forum_module-module-lib>   857 |   _LIBCPP_HIDE_FROM_ABI function(const function&);
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:858:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51)' to 'function<void (const QString &, const QString &, long long)> &&' for 1st argument
+logos-forum_module-module-lib>   858 |   _LIBCPP_HIDE_FROM_ABI function(function&&) _NOEXCEPT;
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:860:25: note: candidate template ignored: requirement '__callable<(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51) &, false>::value' was not satisfied [with _Fp = (lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:113:51)]
+logos-forum_module-module-lib>   860 |   _LIBCPP_HIDE_FROM_ABI function(_Fp);
+logos-forum_module-module-lib>       |                         ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include/delivery_module_api.h:32:125: note: passing argument to parameter 'callback' here
+logos-forum_module-module-lib>    32 |     bool onMessagePropagated(std::function<void(const QString& requestId, const QString& messageHash, qlonglong timestamp)> callback);
+logos-forum_module-module-lib>       |                                                                                                                             ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45: error: no viable conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45)' to 'std::function<void (const QString &, const QString &, qlonglong)>' (aka 'function<void (const QString &, const QString &, long long)>')
+logos-forum_module-module-lib>   119 |     modules().delivery_module.onMessageSent([this](const QString &requestId) {
+logos-forum_module-module-lib>       |                                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   120 |         if (requestId == m_lastSendRequest) {
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   121 |             setTransportStateFromEvent(
+logos-forum_module-module-lib>       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   122 |                 QStringLiteral("Required send validated by network (request %1)").arg(requestId));
+logos-forum_module-module-lib>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   123 |         }
+logos-forum_module-module-lib>       |         ~
+logos-forum_module-module-lib>   124 |     });
+logos-forum_module-module-lib>       |     ~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:856:47: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45)' to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+logos-forum_module-module-lib>   856 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_HIDE_FROM_ABI function(nullptr_t) _NOEXCEPT {}
+logos-forum_module-module-lib>       |                                               ^        ~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:857:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45)' to 'const function<void (const QString &, const QString &, long long)> &' for 1st argument
+logos-forum_module-module-lib>   857 |   _LIBCPP_HIDE_FROM_ABI function(const function&);
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:858:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45)' to 'function<void (const QString &, const QString &, long long)> &&' for 1st argument
+logos-forum_module-module-lib>   858 |   _LIBCPP_HIDE_FROM_ABI function(function&&) _NOEXCEPT;
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:860:25: note: candidate template ignored: requirement '__callable<(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45) &, false>::value' was not satisfied [with _Fp = (lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:119:45)]
+logos-forum_module-module-lib>   860 |   _LIBCPP_HIDE_FROM_ABI function(_Fp);
+logos-forum_module-module-lib>       |                         ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include/delivery_module_api.h:30:119: note: passing argument to parameter 'callback' here
+logos-forum_module-module-lib>    30 |     bool onMessageSent(std::function<void(const QString& requestId, const QString& messageHash, qlonglong timestamp)> callback);
+logos-forum_module-module-lib>       |                                                                                                                       ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46: error: no viable conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46)' to 'std::function<void (const QString &, const QString &, const QString &, qlonglong)>' (aka 'function<void (const QString &, const QString &, const QString &, long long)>')
+logos-forum_module-module-lib>   125 |     modules().delivery_module.onMessageError([this](const QString &requestId, const QString &error) {
+logos-forum_module-module-lib>       |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   126 |         if (requestId == m_lastSendRequest || requestId.isEmpty()) {
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   127 |             setTransportStateFromEvent(
+logos-forum_module-module-lib>       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   128 |                 QStringLiteral("Required send FAILED: %1 — text retained").arg(error));
+logos-forum_module-module-lib>       |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   129 |         }
+logos-forum_module-module-lib>       |         ~
+logos-forum_module-module-lib>   130 |     });
+logos-forum_module-module-lib>       |     ~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:856:47: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46)' to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+logos-forum_module-module-lib>   856 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_HIDE_FROM_ABI function(nullptr_t) _NOEXCEPT {}
+logos-forum_module-module-lib>       |                                               ^        ~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:857:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46)' to 'const function<void (const QString &, const QString &, const QString &, long long)> &' for 1st argument
+logos-forum_module-module-lib>   857 |   _LIBCPP_HIDE_FROM_ABI function(const function&);
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:858:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46)' to 'function<void (const QString &, const QString &, const QString &, long long)> &&' for 1st argument
+logos-forum_module-module-lib>   858 |   _LIBCPP_HIDE_FROM_ABI function(function&&) _NOEXCEPT;
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:860:25: note: candidate template ignored: requirement '__callable<(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46) &, false>::value' was not satisfied [with _Fp = (lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:125:46)]
+logos-forum_module-module-lib>   860 |   _LIBCPP_HIDE_FROM_ABI function(_Fp);
+logos-forum_module-module-lib>       |                         ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include/delivery_module_api.h:31:142: note: passing argument to parameter 'callback' here
+logos-forum_module-module-lib>    31 |     bool onMessageError(std::function<void(const QString& requestId, const QString& messageHash, const QString& error, qlonglong timestamp)> callback);
+logos-forum_module-module-lib>       |                                                                                                                                              ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49: error: no viable conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'std::function<void (const QString &, const QString &, QByteArray, const QString &, qlonglong)>' (aka 'function<void (const QString &, const QString &, QByteArray, const QString &, long long)>')
+logos-forum_module-module-lib>   131 |     modules().delivery_module.onMessageReceived([this](const QString & /*topic*/,
+logos-forum_module-module-lib>       |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   132 |                                                        const QString &payloadB64) {
+logos-forum_module-module-lib>       |                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   133 |         const QByteArray json = QByteArray::fromBase64(payloadB64.toLatin1());
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   134 |         QJsonObject obj = QJsonDocument::fromJson(json).object();
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   135 |         if (obj[QStringLiteral("type")].toString() != QStringLiteral("post")) {
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   136 |             return; // not ours — bound parsing, ignore
+logos-forum_module-module-lib>       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   137 |         }
+logos-forum_module-module-lib>       |         ~
+logos-forum_module-module-lib>   138 |         const QString text = obj[QStringLiteral("text")].toString().left(kMaxPostChars);
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   139 |         if (text.isEmpty()) {
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   140 |             return;
+logos-forum_module-module-lib>       |             ~~~~~~~
+logos-forum_module-module-lib>   141 |         }
+logos-forum_module-module-lib>       |         ~
+logos-forum_module-module-lib>   142 |         m_receivedPosts.append(text);
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   143 |         while (m_receivedPosts.size() > kMaxPosts) {
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   144 |             m_receivedPosts.removeFirst();
+logos-forum_module-module-lib>       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib>   145 |         }
+logos-forum_module-module-lib>       |         ~
+logos-forum_module-module-lib>   146 |         setReceivedPosts(m_receivedPosts);
+logos-forum_module-module-lib>       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:856:47: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+logos-forum_module-module-lib>   856 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_HIDE_FROM_ABI function(nullptr_t) _NOEXCEPT {}
+logos-forum_module-module-lib>       |                                               ^        ~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:857:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'const function<void (const QString &, const QString &, QByteArray, const QString &, long long)> &' for 1st argument
+logos-forum_module-module-lib>   857 |   _LIBCPP_HIDE_FROM_ABI function(const function&);
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:858:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'function<void (const QString &, const QString &, QByteArray, const QString &, long long)> &&' for 1st argument
+logos-forum_module-module-lib>   858 |   _LIBCPP_HIDE_FROM_ABI function(function&&) _NOEXCEPT;
+logos-forum_module-module-lib>       |                         ^        ~~~~~~~~~~
+logos-forum_module-module-lib> /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:860:25: note: candidate template ignored: requirement '__callable<(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49) &, false>::value' was not satisfied [with _Fp = (lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)]
+logos-forum_module-module-lib>   860 |   _LIBCPP_HIDE_FROM_ABI function(_Fp);
+logos-forum_module-module-lib>       |                         ^
+logos-forum_module-module-lib> /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include/delivery_module_api.h:33:169: note: passing argument to parameter 'callback' here
+logos-forum_module-module-lib>    33 |     bool onMessageReceived(std::function<void(const QString& messageHash, const QString& contentTopic, QByteArray payload, const QString& source, qlonglong timestamp)> callback);
+logos-forum_module-module-lib>       |                                                                                                                                                                         ^
+logos-forum_module-module-lib> 5 errors generated.
+logos-forum_module-module-lib> [13/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+logos-forum_module-module-lib> [14/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+logos-forum_module-module-lib> [15/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+logos-forum_module-module-lib> ninja: build stopped: subcommand failed.
+error: Cannot build '/nix/store/wv4ls9iwi32qvj9mhaq2kwczj37cl2l0-logos-forum_module-module-lib-0.1.0.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/2dldrk8jg8zgama06nca93ghf8488vgi-logos-forum_module-module-lib-0.1.0
+       Last 25 log lines:
+       >       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       >   145 |         }
+       >       |         ~
+       >   146 |         setReceivedPosts(m_receivedPosts);
+       >       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       > /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:856:47: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'nullptr_t' (aka 'std::nullptr_t') for 1st argument
+       >   856 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_HIDE_FROM_ABI function(nullptr_t) _NOEXCEPT {}
+       >       |                                               ^        ~~~~~~~~~
+       > /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:857:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'const function<void (const QString &, const QString &, QByteArray, const QString &, long long)> &' for 1st argument
+       >   857 |   _LIBCPP_HIDE_FROM_ABI function(const function&);
+       >       |                         ^        ~~~~~~~~~~~~~~~
+       > /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:858:25: note: candidate constructor not viable: no known conversion from '(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)' to 'function<void (const QString &, const QString &, QByteArray, const QString &, long long)> &&' for 1st argument
+       >   858 |   _LIBCPP_HIDE_FROM_ABI function(function&&) _NOEXCEPT;
+       >       |                         ^        ~~~~~~~~~~
+       > /nix/store/797z3fy28rz9hd7k7jr1hysq9mhjvggb-libcxx-19.1.7-dev/include/c++/v1/__functional/function.h:860:25: note: candidate template ignored: requirement '__callable<(lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49) &, false>::value' was not satisfied [with _Fp = (lambda at /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/src/forum_module_backend.cpp:131:49)]
+       >   860 |   _LIBCPP_HIDE_FROM_ABI function(_Fp);
+       >       |                         ^
+       > /nix/var/nix/builds/nix-2690-1422194496/s6kmh5m07fi6ka7q6k6zxnw77drprzvj-source/generated_code/include/delivery_module_api.h:33:169: note: passing argument to parameter 'callback' here
+       >    33 |     bool onMessageReceived(std::function<void(const QString& messageHash, const QString& contentTopic, QByteArray payload, const QString& source, qlonglong timestamp)> callback);
+       >       |                                                                                                                                                                         ^
+       > 5 errors generated.
+       > [13/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+       > [14/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+       > [15/18] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+       > ninja: build stopped: subcommand failed.
+       For full logs, run:
+         nix log /nix/store/wv4ls9iwi32qvj9mhaq2kwczj37cl2l0-logos-forum_module-module-lib-0.1.0.drv
+error: Cannot build '/nix/store/x956bif9hzi39a73p1a113lp364vi7v5-logos-forum_module-module.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/l3q5ka7vz32ka54qr37hr2qwad8jrm8h-logos-forum_module-module
+❌ path:<repo>#
+error: Build failed due to failed dependency
+=== m1 backend build exit=1 2026-10-01T19:30:11Z

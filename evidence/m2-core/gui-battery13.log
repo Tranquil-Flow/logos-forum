@@ -1,0 +1,12 @@
+=== ui-dev (fast-fail store) 2026-10-03T10:53:22Z
+ui-dev exit=0
+=== integration (store-optional suite) 2026-10-03T10:54:59Z
+integ exit=0
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/delivery_module/7d8a4a7535b9"
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/storage_module/74f881c35d3b"
+forum_module-integration-test>   ✓ forum_module: UI loads
+forum_module-integration-test>   ✓ forum_module: backend connects
+forum_module-integration-test>   ✓ forum_module: post path refuses honestly without transport
+forum_module-integration-test>   ✓ forum_module: transport status honest
+forum_module-integration-test> 4 passed, 0 failed
+forum_module-integration-test> All integration tests passed

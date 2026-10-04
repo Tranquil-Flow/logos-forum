@@ -1,0 +1,4 @@
+=== m2b run 3 2026-10-01T21:01:07Z
+=== m2b exit=1 2026-10-01T21:03:19Z
+P1_NOT_RECEIVED
+FAIL: P1 not received

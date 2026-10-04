@@ -1,0 +1,18 @@
+=== ui-dev (GUI surface) 2026-10-03T07:42:12Z
+ui-dev exit=1
+error: Cannot build '/nix/store/2x6pwlzsqr2r04nl1cyq4f042mjwzb26-logos-forum_module-module-lib-0.1.0.drv'.
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:436:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:447:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:456:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:463:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+       > /nix/var/nix/builds/nix-36996-2965961216/xxnj9m1i10r1p5jnsy2462icwkk9szgj-source/src/forum_module_backend.cpp:474:9: error: use of undeclared identifier 'setTransportStateFromEvent'
+=== integration (GUI surface) 2026-10-03T07:43:56Z
+integ exit=1
+       Reason: builder failed with exit code 1.
+       > ninja: build stopped: subcommand failed.
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency
+       Reason: 1 dependency failed.
+error: Build failed due to failed dependency

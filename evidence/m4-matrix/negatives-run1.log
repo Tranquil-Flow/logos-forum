@@ -1,0 +1,7 @@
+=== m4 negatives run 1 2026-10-02T18:11:54Z
+=== N1 quota-pressure (tiny quota, oversized upload)
+N1: {'upload_dispatched': True, 'readback_verified': False, 'honest': True, 'verdict': 'PASS', 'note': 'oversize upload beyond quota must not yield verified bytes'}
+=== N2 double-createNode (coexistence trigger)
+RESULT {"status": "PASS", "layer": "m4-negatives", "evidence": "<repo>/evidence/m4-matrix/negatives-20261002-201154", "cases": {"n1_quota_pressure": {"upload_dispatched": true, "readback_verified": false, "honest": true, "verdict": "PASS", "note": "oversize upload beyond quota must not yield verified bytes"}}, "error": "RuntimeError: delivery createNode: {'error': None, 'success': True, 'value': None}"}
+cleanup leftover: none
+=== exit=1 2026-10-02T18:12:17Z

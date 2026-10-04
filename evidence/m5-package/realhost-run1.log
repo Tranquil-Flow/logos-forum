@@ -1,0 +1,9 @@
+=== m5b realhost gui 2026-10-03T10:58:09Z
+=== 1/4 fresh profile + module + deps (install layout)
+seeded forum_module (plugins, darwin-arm64-dev)
+seeded delivery_module (modules, darwin-arm64-dev)
+seeded storage_module (modules, darwin-arm64-dev)
+=== 2/4 isolated host launch (real window, inspector :3774)
+=== 3/4 drive the REAL forum flows (store-backed)
+FAIL: UI drive failed
+=== exit=1 2026-10-03T10:59:21Z

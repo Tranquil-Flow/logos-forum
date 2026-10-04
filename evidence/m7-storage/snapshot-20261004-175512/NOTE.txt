@@ -1,0 +1,5 @@
+App behaviour PASSED for the save phase (posts and the new announcement 98aa17581ea1e58a
+shown [sent]); the run FAILED in the test driver: profile A started with an empty store
+and received run 174350's announcement from the network's store (Delivery catch-up), and
+the driver picked that first matching row. Driver fixed to match the announcement by the
+CID in archiveState. Restore phase did not run. Raw files unchanged.

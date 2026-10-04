@@ -1,0 +1,13 @@
+{
+  "status": "FAIL",
+  "layer": "m3-storage-lifecycle",
+  "evidence": "<repo>/evidence/m3-archive/storage-20261002-154615",
+  "claims": [],
+  "corpus": {
+    "posts": 5,
+    "bytes": 1629,
+    "sha256": "91793cf970e48ab2100cb658f9c42a767ff77a81fc1f61ccf41e438b955356ce",
+    "author_is_archive": false
+  },
+  "error": "RuntimeError: archive-a init failed: False"
+}

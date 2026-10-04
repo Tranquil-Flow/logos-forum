@@ -1,0 +1,10 @@
+WRN 2026-10-04 18:11:56.662+02:00 Data directory has insecure permissions. Correcting them. tid=6006130 data_dir=~/.local/share/lp0026-forum-dev/m7-storage/a-storage current_permissions=0755 required_permissions=0700
+INF 2026-10-04 18:11:56.662+02:00 Creating a private key and saving it       tid=6006130
+WRN 2026-10-04 18:11:56.662+02:00 Node has been marked with --no-bootstrap-node and will NOT be bootstrapped topics="libstorage libstoragelifecycle" tid=6006130
+INF 2026-10-04 18:11:56.663+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=6006130 numThreads=12
+WRN 2026-10-04 18:11:56.667+02:00 No key for a QueryResponse                 topics="storage repostore" tid=6006130
+NTC 2026-10-04 18:11:56.667+02:00 Started Storage node                       topics="storage node" tid=6006130 id=16U*mLzMVL addrs="[/ip4/127.0.0.1/tcp/8571]"
+INF 2026-10-04 18:11:56.923+02:00 Storing data                               topics="storage node" tid=6006130
+INF 2026-10-04 18:11:56.925+02:00 Stored data                                topics="storage node" tid=6006130 manifestCid=zDv*mbDc5K treeCid=zDz*dWtgxm blocks=1 datasetSize=3833'NByte filename=some("topic-6dd197737fd8-1791130316922.txt") mimetype=some("text/plain")
+WRN 2026-10-04 18:12:56.670+02:00 No key for a QueryResponse                 topics="storage repostore" tid=6006130
+WRN 2026-10-04 18:13:56.657+02:00 No key for a QueryResponse                 topics="storage repostore" tid=6006130

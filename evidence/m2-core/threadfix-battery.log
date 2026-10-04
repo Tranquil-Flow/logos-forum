@@ -1,0 +1,12 @@
+=== ui-dev (threading fix) 2026-10-03T06:13:49Z
+ui-dev exit=0
+=== integration (watchdog restored) 2026-10-03T06:29:01Z
+integ exit=0
+forum_module-integration-test> [app:err] InstancePersistence::resolveInstance: failed to create directory: "/var/empty/Library/Application Support/Logos/LogosStandalone/module_data/storage_module/9d496ca374f3"
+forum_module-integration-test> 4 passed, 0 failed
+forum_module-integration-test> All integration tests passed
+=== m1 smoke on thread-fixed tree 2026-10-03T06:31:32Z
+=== smoke exit=1 2026-10-03T06:34:12Z
+  "status": "FAIL",
+  "error": "timeout waiting for sender propagation state: sender transport state: {\"id\":184,\"ok\":true,\"result\":\"transport ready: Required policy configured on an app-owned local node — privacy verified per send via propagation events\",\"undefined\":false}"
+{"status":"FAIL","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261003-083132"}

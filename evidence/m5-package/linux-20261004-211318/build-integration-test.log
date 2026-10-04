@@ -1,0 +1,387 @@
+these 4 derivations will be built:
+  /nix/store/j3j670q82xnmmnlcy92fp397rn2ga607-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/0zcxncm66bbywkjczqz7xzqfs1kn6mxz-logos-forum_module-module.drv
+  /nix/store/jyq5w3r24agky2bjwzf3wc43l1ylvfll-run-standalone.drv
+  /nix/store/gsra1naznrpkgv1hkb0vdaj912cmm0c9-forum_module-integration-test.drv
+building '/nix/store/j3j670q82xnmmnlcy92fp397rn2ga607-logos-forum_module-module-lib-0.1.0.drv'...
+Running phase: qtPreHook
+Running phase: unpackPhase
+unpacking source archive /nix/store/dppvqj6g85qnlak162qsqw694v0cxr5n-sbyn1h4p7v4bnw1lppmn38slnr6klm97-source
+source root is sbyn1h4p7v4bnw1lppmn38slnr6klm97-source
+Running phase: patchPhase
+Running phase: updateAutotoolsGnuConfigScriptsPhase
+Running phase: configurePhase
+Running logos-cpp-generator (api-style=qt)...
+Generating deps from LIDL: delivery_module, storage_module
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated logos_sdk.h and logos_sdk.cpp
+Running logos-qt-generator --backend consumer for the Qt-typed dependency wrappers...
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated: ./generated_code/delivery_module_api.h
+Generated: ./generated_code/delivery_module_api.cpp
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated: ./generated_code/storage_module_api.h
+Generated: ./generated_code/storage_module_api.cpp
+Checking generated files in generated_code:
+total 196
+drwxr-xr-x 2 nixbld1 nixbld  4096 Oct  4 19:15 .
+drwxr-xr-x 8 nixbld1 nixbld  4096 Oct  4 19:15 ..
+-rw-r--r-- 1 nixbld1 nixbld 61780 Oct  4 19:15 delivery_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 12269 Oct  4 19:15 delivery_module_api.h
+-rw-r--r-- 1 nixbld1 nixbld    94 Oct  4 19:15 logos_sdk.cpp
+-rw-r--r-- 1 nixbld1 nixbld   363 Oct  4 19:15 logos_sdk.h
+-rw-r--r-- 1 nixbld1 nixbld 87563 Oct  4 19:15 storage_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 15623 Oct  4 19:15 storage_module_api.h
+Creating include directory and moving generated files...
+Generated include directory:
+total 196
+drwxr-xr-x 2 nixbld1 nixbld  4096 Oct  4 19:15 .
+drwxr-xr-x 3 nixbld1 nixbld  4096 Oct  4 19:15 ..
+-rw-r--r-- 1 nixbld1 nixbld 61780 Oct  4 19:15 delivery_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 12269 Oct  4 19:15 delivery_module_api.h
+-rw-r--r-- 1 nixbld1 nixbld    94 Oct  4 19:15 logos_sdk.cpp
+-rw-r--r-- 1 nixbld1 nixbld   363 Oct  4 19:15 logos_sdk.h
+-rw-r--r-- 1 nixbld1 nixbld 87563 Oct  4 19:15 storage_module_api.cpp
+-rw-r--r-- 1 nixbld1 nixbld 15623 Oct  4 19:15 storage_module_api.h
+Stamped logos_protocol_version=0.9.0 into metadata.json
+logos-module-builder: generating ui plugin glue (forum_module)...
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Generated: ./generated_code/forum_module_ui_interface.h
+Generated: ./generated_code/forum_module_ui_glue.h
+Generated: ./generated_code/forum_module_ui_glue.cpp
+fixing cmake files...
+cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/share/doc/ForumPlugin -DCMAKE_INSTALL_INFODIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/strip -DCMAKE_RANLIB=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ranlib -DCMAKE_AR=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ar -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=/nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0 -GNinja -DLOGOS_MODULE_ROOT=/nix/store/s1d3v0qw2d7icg1d7wxh9kcm84vmq70q-logos-module-0.1.0 -DLOGOS_CPP_SDK_ROOT=/nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk -DLOGOS_QT_SDK_ROOT=/nix/store/zjqcvly3c42i1822dh3hj2bz41qaxki8-logos-qt-sdk -DLOGOS_QT_HOST_ROOT=/nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0 -DLOGOS_PROTOCOL_ROOT=/nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol -DLOGOS_VIEW_TEMPLATE_DIR=/nix/store/kpspkgigwbynp091y1r106fx6g38h8id-logos-view-templates -DLOGOS_VIEW_INCLUDE_DIR=/nix/store/s4aaf7d67jl69psw2k7ji6kz1lk4b973-logos-view-module-include
+-- The CXX compiler identification is GNU 14.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- LogosModule.cmake: /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake
+-- Found logos-module at: /nix/store/s1d3v0qw2d7icg1d7wxh9kcm84vmq70q-logos-module-0.1.0
+-- Found logos-cpp-sdk at: /nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk
+-- Found logos-qt-sdk at: /nix/store/zjqcvly3c42i1822dh3hj2bz41qaxki8-logos-qt-sdk
+-- Found logos-protocol at: /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol
+-- Qt host runtime: logos-qt-host::logos_qt_host at /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE
+CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+  /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+  CMakeLists.txt:16 (logos_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+  CMakeLists.txt:16 (logos_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenSSL: /nix/store/rzlvprd99wlbiv2wsqgp23kmxhkm1yfr-openssl-3.5.1/lib/libcrypto.so (found version "3.5.1")
+-- Found nlohmann_json: /nix/store/j65j62dxmbkm976qnhpp4mvd1zi3by9l-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+  Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+  --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+  /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:625 (find_package)
+  CMakeLists.txt:16 (logos_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Logos module forum_module: replica factory plugin from src/forum_module.rep (class Forum, QML Logos.Forum.Forum)
+-- Logos module forum_module configured successfully
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_TESTING
+    CMAKE_C_COMPILER
+    CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+    CMAKE_POLICY_DEFAULT_CMP0025
+
+
+-- Build files have been written to: /nix/var/nix/builds/nix-153-312711273/sbyn1h4p7v4bnw1lppmn38slnr6klm97-source/build
+cmake: enabled parallel building
+cmake: enabled parallel installing
+Running phase: buildPhase
+build flags: -j4
+[0/2] Re-checking globbed directories...
+[1/20] Automatic MOC for target forum_module_replica_factory
+[2/20] Automatic MOC for target forum_module_module_plugin
+[3/20] Generating rep_forum_module_replica.h
+[4/20] Generating rep_forum_module_source.h
+[5/20] Generating moc_rep_forum_module_replica.cpp
+[6/20] Generating moc_rep_forum_module_source.cpp
+[7/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/forum_module_replica_factory_autogen/mocs_compilation.cpp.o
+[8/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/forum_module_module_plugin_autogen/mocs_compilation.cpp.o
+[9/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/replica_factory_forum_module/LogosViewReplicaFactory.cpp.o
+[10/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/moc_rep_forum_module_replica.cpp.o
+[11/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/archive/archive_core.cpp.o
+[12/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/core/forum_core.cpp.o
+[13/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+[14/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+[15/20] Linking CXX shared library modules/forum_module_replica_factory.so
+[16/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+[17/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o
+[18/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+[19/20] Linking CXX shared library modules/forum_module_plugin.so
+Running phase: glibPreInstallPhase
+Running phase: installPhase
+Copying replica factory plugin: forum_module_replica_factory.so
+Running phase: qtOwnPathsHook
+Running phase: fixupPhase
+shrinking RPATHs of ELF executables and libraries in /nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0
+shrinking /nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/lib/forum_module_replica_factory.so
+shrinking /nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0/lib/forum_module_plugin.so
+checking for references to /nix/var/nix/builds/nix-153-312711273/ in /nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0...
+patching script interpreter paths in /nix/store/zrhpwq4kmf72c9q6n01h7d2bkh0f1zp8-logos-forum_module-module-lib-0.1.0
+Running phase: postPatchMkspecs
+building '/nix/store/0zcxncm66bbywkjczqz7xzqfs1kn6mxz-logos-forum_module-module.drv'...
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Normalized LIDL: /nix/var/nix/builds/nix-153-312711274/tmp.U1AJXHOqGy
+Installed canonical LIDL contract: delivery_module
+Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+Normalized LIDL: /nix/var/nix/builds/nix-153-312711274/tmp.klgLtJjyYO
+Installed canonical LIDL contract: storage_module
+Copied QML view directory from src/qml
+Generated qmldir at qml/qmldir (module com.logos.module.forum_module)
+building '/nix/store/jyq5w3r24agky2bjwzf3wc43l1ylvfll-run-standalone.drv'...
+building '/nix/store/gsra1naznrpkgv1hkb0vdaj912cmm0c9-forum_module-integration-test.drv'...
+Running integration tests: forum_module-integration-test (1 file(s), timeout: 120s per file)...
+Running: ui-tests.mjs
+Launching: /nix/store/3q1p90g98rzsrb29kr7lkz1yh1ls6whs-run-standalone -platform offscreen
+Waiting for inspector to become available...
+[app:err] Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+If this causes problems, reconfigure your locale. See the locale(1) manual
+for more information.
+[app:err] Session directory: "/homeless-shelter/.local/share/Logos/LogosStandalone"
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/capability_module/b4fc717afbcc"
+[app:err] [2026-10-04 19:15:54.406] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[app:err] [2026-10-04 19:15:54.415] [warning] [logos] [capability_module] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 19:15:54.415] [info] [logos] [capability_module] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 19:15:54.415] [info] [logos] [capability_module] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 19:15:54.415] [info] [logos] [capability_module] for more information.
+[app:out] [2026-10-04 19:15:54.419] [out] [capability_module] [2026-10-04 19:15:54.419] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_f01761f10edc" at "19:15:54.424"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_f01761f10edc"
+[app:err] LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:2ffe119e…"
+RemoteTransportConnection: Requesting object: "capability_module" at "19:15:54.425"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 511851360
+[app:err] [LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[app:err] [2026-10-04 19:15:54.425] [info] [logos] Module loaded: capability_module
+InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/modules_state/9ce1c5b50c4f"
+[app:err] [2026-10-04 19:15:54.432] [warning] [logos] [modules_state] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 19:15:54.432] [info] [logos] [modules_state] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 19:15:54.432] [info] [logos] [modules_state] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 19:15:54.432] [info] [logos] [modules_state] for more information.
+[app:err] LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:5a926563…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "19:15:54.436"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 511780992
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[app:err] [2026-10-04 19:15:54.436] [info] [logos] Module loaded: modules_state
+RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_f01761f10edc" at "19:15:54.436"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_f01761f10edc"
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_f01761f10edc" at "19:15:54.436"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_f01761f10edc"
+[app:err] LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+[app:err] LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started (modules dir: "/nix/store/yglf5fksrlb62s116jaag071b38rd638-forum_module-integration-test-modules" )
+[app:err] Set app icon from metadata: "/nix/store/i9viqwvmhhh26vv34cg5mc2wa82jxy0j-logos-forum_module-module/lib/src/icons/icon.png"
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/delivery_module/80a3f8cf9b6c"
+[app:err] [2026-10-04 19:15:54.447] [warning] [logos] [delivery_module] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 19:15:54.447] [info] [logos] [delivery_module] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 19:15:54.447] [info] [logos] [delivery_module] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 19:15:54.447] [info] [logos] [delivery_module] for more information.
+[app:err] [2026-10-04 19:15:54.458] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+[app:err] LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:9466cde1…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "19:15:54.460"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 512001392
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-04 19:15:54.460] [info] [logos] Module loaded: delivery_module
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_f01761f10edc" at "19:15:54.460"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_f01761f10edc"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_f01761f10edc" at "19:15:54.461"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_f01761f10edc"
+[app:err] LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[app:err] RemoteTransportConnection: Requesting object: "modules_state" at "19:15:54.461"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 512025904
+[app:err] [LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] Loaded dependency (with transitive deps): "delivery_module"
+[app:err] InstancePersistence::resolveInstance: failed to create directory: "/homeless-shelter/.local/share/Logos/LogosStandalone/module_data/storage_module/085ef15fe99e"
+[app:err] [2026-10-04 19:15:54.467] [warning] [logos] [storage_module] Warning: Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+[2026-10-04 19:15:54.467] [info] [logos] [storage_module] Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+[2026-10-04 19:15:54.467] [info] [logos] [storage_module] If this causes problems, reconfigure your locale. See the locale(1) manual
+[2026-10-04 19:15:54.467] [info] [logos] [storage_module] for more information.
+[app:err] [2026-10-04 19:15:54.475] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+[app:err] LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:4555cc5d…"
+[app:err] RemoteTransportConnection: Requesting object: "capability_module" at "19:15:54.477"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 512148032
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 511947536
+[app:err] LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 512124816
+[app:err] LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] [2026-10-04 19:15:54.477] [info] [logos] Pushed module snapshot to modules_state
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-04 19:15:54.477] [info] [logos] Module loaded: storage_module
+RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_f01761f10edc" at "19:15:54.477"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_f01761f10edc"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_f01761f10edc" at "19:15:54.477"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_f01761f10edc"
+LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[app:err] [LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+Loaded dependency (with transitive deps): "storage_module"
+[app:err] RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_f01761f10edc" at "19:15:54.477"
+[app:err] RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_f01761f10edc"
+[app:err] LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:24ce777d…"
+RemoteTransportConnection: Requesting object: "capability_module" at "19:15:54.478"
+[app:err] [LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 512292256
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+[app:err] [LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 512187136
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[app:err] LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[app:err] Fontconfig error: Cannot load default config file: No such file: (null)
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] 
+Fontconfig error: No writable cache directories
+        /var/cache/fontconfig
+        /homeless-shelter/.cache/fontconfig
+[app:err] Loaded UI plugin: "/nix/store/i9viqwvmhhh26vv34cg5mc2wa82jxy0j-logos-forum_module-module/lib"
+[app:err] [QmlInspector] Inspector server listening on port 3768
+Inspector connected.
+[app:err] [QmlInspector] Client connected from "::ffff:127.0.0.1"
+[QmlInspector] Client disconnected
+
+Running 13 test(s)...
+
+[app:err] [QmlInspector] Client connected from "::ffff:127.0.0.1"
+  ✓ forum_module: UI loads
+  ✓ forum_module: backend connects
+  ✓ forum_module: alias account is created, selected and listed
+  ✓ forum_module: topic is created and listed
+  ✓ forum_module: post path refuses honestly without transport
+  ✓ forum_module: browsing topics switches the thread
+  ✓ forum_module: refused post is stored and shown as failed in the thread
+  ✓ forum_module: identity modes — alias + id, id only, anonymous
+  ✓ forum_module: alias key rotation — manual, by posts and by age
+  ✓ forum_module: search filters topics and posts
+  ✓ forum_module: storage snapshot controls are honest offline
+  ✓ forum_module: network join is offered, not automatic
+[app:err] [2026-10-04 19:16:05.974] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[app:err] [2026-10-04 19:16:05.975] [info] [logos] [delivery_module] DeliveryModuleImpl::getAvailableConfigs called
+[2026-10-04 19:16:05.975] [info] [logos] [delivery_module] DeliveryModuleImpl: Cannot get available configs - context not initialized. Call createNode first.
+[app:err] [2026-10-04 19:16:05.976] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+  ✓ forum_module: transport status honest
+
+13 passed, 0 failed
+
+[app:err] [QmlInspector] Client disconnected
+All integration tests passed
+/work/result-integration-test

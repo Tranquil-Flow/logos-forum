@@ -1,0 +1,17 @@
+=== m2b-cli hardened v2 2026-10-03T09:07:29Z
+=== 1/6 relays up
+=== 2/6 CLI sessions up
+RESULT {"status": "FAIL", "layer": "m2b-cli-protocol", "evidence": "<repo>/evidence/m2-core/m2b-cli-20261003-110729", "claims": [], "error": "RuntimeError: sender node never came up (no multiaddrs)"}
+cleanup leftover: none
+=== m2b exit=1 2026-10-03T09:10:34Z
+=== m4 negatives v2 2026-10-03T09:10:34Z
+=== N1 quota-pressure (tiny quota, oversized upload)
+N1: {'upload_dispatched': True, 'readback_verified': False, 'honest': True, 'verdict': 'PASS', 'note': 'oversize upload beyond quota must not yield verified bytes'}
+=== N2 double-createNode (coexistence trigger)
+N2: {'node_exists_after_first': True, 'second_create_refused': True, 'verdict': 'PASS', 'note': 'in-app guard: getNodeInfo success before createNode => visible coexistence refusal, never reconfigure'}
+=== N3 oversize wire via transport (app bound is 4 KiB)
+N3: {'transport_send': 'dispatched', 'app_merge_rejects': True, 'app_merge_receipt': 'core-tests bounds (body<=4096) — 100/0', 'measured': False, 'verdict': 'BY-CONSTRUCTION', 'note': 'transport is a pipe; the APP bound is enforced at merge (unit-receipted) — not a transport-layer measurement'}
+=== N4 replay collapse at verified-ID layer (measured)
+RESULT {"status": "PASS", "layer": "m4-negatives", "evidence": "<repo>/evidence/m4-matrix/negatives-20261003-111034", "cases": {"n1_quota_pressure": {"upload_dispatched": true, "readback_verified": false, "honest": true, "verdict": "PASS", "note": "oversize upload beyond quota must not yield verified bytes"}, "n2_double_createNode": {"node_exists_after_first": true, "second_create_refused": true, "verdict": "PASS", "note": "in-app guard: getNodeInfo success before createNode => visible coexistence refusal, never reconfigure"}, "n3_oversize_transport": {"transport_send": "dispatched", "app_merge_rejects": true, "app_merge_receipt": "core-tests bounds (body<=4096) \u2014 100/0", "measured": false, "verdict": "BY-CONSTRUCTION", "note": "transport is a pipe; the APP bound is enforced at merge (unit-receipted) \u2014 not a transport-layer measurement"}}, "error": "RuntimeError: n4 createNode: None"}
+cleanup leftover: none
+=== negatives exit=1 2026-10-03T09:11:46Z

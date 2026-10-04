@@ -1,0 +1,17 @@
+{
+  "status": "FAIL",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-04T16:34:28Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "error": "FATAL could not fetch snapshot zDvZRwzkwBj1Hmp8… from Logos Storage: Failed to start download. (the node that serves it may be offline)",
+  "last_archive_state": "could not fetch snapshot zDvZRwzkwBj1Hmp8… from Logos Storage: Failed to start download. (the node that serves it may be offline)",
+  "last_state": "no transport configured — posting unavailable (Required policy)",
+  "thread": []
+}

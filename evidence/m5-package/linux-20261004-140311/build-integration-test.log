@@ -1,0 +1,178 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+evaluation warning: `mesa.drivers` is deprecated, use `mesa` instead
+unpacking 'github:oxalica/rust-overlay/8d6387ed6d8e6e6672fd3ed4b61b59d44b124d99?narHash=sha256-3xBsGnGDLOFtnPZ1D3j2LU19wpAlYefRKTlkv648rU0%3D' into the Git cache...
+unpacking 'github:oxalica/rust-overlay/755d3669699a7c62aef35af187d75dc2728cfd85?narHash=sha256-wieWskQxZLPlNXX06JEB0bMoS/ZYQ89xBzF0RL9lyLs%3D' into the Git cache...
+these 10 derivations will be built:
+  /nix/store/0zy81y59pqpghk4c14a5b0vqg2vg2zgx-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/5scqj0fzhqcv8lba7qzaq0918g3cwc9i-logos-forum_module-module.drv
+  /nix/store/nrk9x0nrix8622715ha27sjhwyrqbisd-logos-liblogos-build-0.1.0.drv
+  /nix/store/b755ljc75sy4zmxs80jsm8czv8m9zgzx-logos-liblogos-lib-0.1.0.drv
+  /nix/store/ldl5syjjvk14gqsy5bwn4d2h2lq547dm-logos-liblogos-bin-0.1.0.drv
+  /nix/store/pnj93vm85z587ncly4mbh2q116p2p073-logos-liblogos.drv
+  /nix/store/k2a70q1anlzzhflvp8iwqvjkhnp7p6s5-logos-standalone-app-1.0.0.drv
+  /nix/store/w2np3prh7dbcn6kwz23j3ih6hzwcsx8r-forum_module-integration-test-modules.drv
+  /nix/store/3lgcn1iaklq3vb0v2qfml22mllf20n2s-run-standalone.drv
+  /nix/store/452kdgxmqx1k099rv7hpw630pas38rwb-forum_module-integration-test.drv
+these 16 paths will be fetched (194.6 MiB download, 931.7 MiB unpacked):
+  /nix/store/9i66jfhn8wpcynja8dcig110aals2281-ffmpeg-7.1.1-bin
+  /nix/store/aikdjp0vj9fwx60i7a5jy1hq0y3y488x-ffmpeg-7.1.1-dev
+  /nix/store/ir0r62d9rz0spb6m7wl2hsgaw6n1plq1-ffmpeg-7.1.1-lib
+  /nix/store/lmyl42swqblkvk30395df3yx0vl7aa3p-gst-plugins-bad-1.26.5
+  /nix/store/qjm9dm5d0hyfsphjfpnbpynm9vz3caba-gtk4-4.18.6
+  /nix/store/ma69lli6zayw4aj23j57hkhb5458vds1-libadwaita-1.7.6
+  /nix/store/ykl3fvv5xn0cirvzjkv87ay4p6r1h8z7-mesa-25.2.3
+  /nix/store/kghd7ga02ka8527aj3rgcxyqsllbhvs9-qtwebengine-6.9.2
+  /nix/store/z3jq08a1cy2fg7z3hb2p6w5w93zlvxz1-qtwebengine-6.9.2-dev
+  /nix/store/14d7n92gw1zr312rxlis7jvcy0jf1yik-qtwebview-6.9.2
+  /nix/store/ghh0pf3phm5cqzhhas9g1b513dimlv85-qtwebview-6.9.2-dev
+  /nix/store/zcs8mc5za3ia7mia0a4qb9mmsly76ffb-sdl2-compat-2.32.56
+  /nix/store/m4a0x6h07xifyjd50za30ay2gm2yf4p0-sdl3-3.2.20-lib
+  /nix/store/ab1gswrh76qwr79h1799zv0hyxwn26c6-webkitgtk-2.50.0+abi=4.1
+  /nix/store/vhxb7d4933fbq9m0i0c6kr7janm847nw-webkitgtk-2.50.0+abi=4.1-dev
+  /nix/store/7yg7qakqy0lanbq9zmx2gbb4f2mhqs25-zenity-4.1.90
+copying path '/nix/store/ykl3fvv5xn0cirvzjkv87ay4p6r1h8z7-mesa-25.2.3' from 'https://cache.nixos.org'...
+copying path '/nix/store/ab1gswrh76qwr79h1799zv0hyxwn26c6-webkitgtk-2.50.0+abi=4.1' from 'https://cache.nixos.org'...
+building '/nix/store/0zy81y59pqpghk4c14a5b0vqg2vg2zgx-logos-forum_module-module-lib-0.1.0.drv'...
+copying path '/nix/store/lmyl42swqblkvk30395df3yx0vl7aa3p-gst-plugins-bad-1.26.5' from 'https://cache.nixos.org'...
+logos-forum_module-module-lib> Running phase: qtPreHook
+logos-forum_module-module-lib> Running phase: unpackPhase
+logos-forum_module-module-lib> unpacking source archive /nix/store/vkgxy4jig6arww22qqli09zc7ajcc2fb-n5qmj2ps2ccyy4p69hns06p75dr6c2fr-source
+logos-forum_module-module-lib> source root is n5qmj2ps2ccyy4p69hns06p75dr6c2fr-source
+logos-forum_module-module-lib> Running phase: patchPhase
+logos-forum_module-module-lib> Running phase: updateAutotoolsGnuConfigScriptsPhase
+logos-forum_module-module-lib> Running phase: configurePhase
+logos-forum_module-module-lib> Running logos-cpp-generator (api-style=qt)...
+logos-forum_module-module-lib> Generating deps from LIDL: delivery_module, storage_module
+logos-forum_module-module-lib> Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+logos-forum_module-module-lib> Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+logos-forum_module-module-lib> If this causes problems, reconfigure your locale. See the locale(1) manual
+logos-forum_module-module-lib> for more information.
+logos-forum_module-module-lib> Generated logos_sdk.h and logos_sdk.cpp
+logos-forum_module-module-lib> Running logos-qt-generator --backend consumer for the Qt-typed dependency wrappers...
+logos-forum_module-module-lib> Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+logos-forum_module-module-lib> Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+logos-forum_module-module-lib> If this causes problems, reconfigure your locale. See the locale(1) manual
+logos-forum_module-module-lib> for more information.
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.cpp
+logos-forum_module-module-lib> Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+logos-forum_module-module-lib> Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+logos-forum_module-module-lib> If this causes problems, reconfigure your locale. See the locale(1) manual
+logos-forum_module-module-lib> for more information.
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.cpp
+logos-forum_module-module-lib> Checking generated files in generated_code:
+logos-forum_module-module-lib> total 196
+logos-forum_module-module-lib> drwxr-xr-x 2 nixbld1 nixbld  4096 Oct  4 12:06 .
+logos-forum_module-module-lib> drwxr-xr-x 8 nixbld1 nixbld  4096 Oct  4 12:06 ..
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 61780 Oct  4 12:06 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 12269 Oct  4 12:06 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld    94 Oct  4 12:06 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld   363 Oct  4 12:06 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 87563 Oct  4 12:06 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 15623 Oct  4 12:06 storage_module_api.h
+logos-forum_module-module-lib> Creating include directory and moving generated files...
+logos-forum_module-module-lib> Generated include directory:
+logos-forum_module-module-lib> total 196
+logos-forum_module-module-lib> drwxr-xr-x 2 nixbld1 nixbld  4096 Oct  4 12:06 .
+logos-forum_module-module-lib> drwxr-xr-x 3 nixbld1 nixbld  4096 Oct  4 12:06 ..
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 61780 Oct  4 12:06 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 12269 Oct  4 12:06 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld    94 Oct  4 12:06 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld   363 Oct  4 12:06 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 87563 Oct  4 12:06 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 nixbld1 nixbld 15623 Oct  4 12:06 storage_module_api.h
+logos-forum_module-module-lib> Stamped logos_protocol_version=0.9.0 into metadata.json
+logos-forum_module-module-lib> logos-module-builder: generating ui plugin glue (forum_module)...
+logos-forum_module-module-lib> Detected locale "C" with character encoding "ANSI_X3.4-1968", which is not UTF-8.
+logos-forum_module-module-lib> Qt depends on a UTF-8 locale, and has switched to "C.UTF-8" instead.
+logos-forum_module-module-lib> If this causes problems, reconfigure your locale. See the locale(1) manual
+logos-forum_module-module-lib> for more information.
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_interface.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.cpp
+logos-forum_module-module-lib> fixing cmake files...
+logos-forum_module-module-lib> cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/share/doc/ForumPlugin -DCMAKE_INSTALL_INFODIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/strip -DCMAKE_RANLIB=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ranlib -DCMAKE_AR=/nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/ar -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=/nix/store/5vp6f1m8cxws2ij2pj8a7j4pp3gvaiy3-logos-forum_module-module-lib-0.1.0 -GNinja -DLOGOS_MODULE_ROOT=/nix/store/s1d3v0qw2d7icg1d7wxh9kcm84vmq70q-logos-module-0.1.0 -DLOGOS_CPP_SDK_ROOT=/nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk -DLOGOS_QT_SDK_ROOT=/nix/store/zjqcvly3c42i1822dh3hj2bz41qaxki8-logos-qt-sdk -DLOGOS_QT_HOST_ROOT=/nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0 -DLOGOS_PROTOCOL_ROOT=/nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol -DLOGOS_VIEW_TEMPLATE_DIR=/nix/store/kpspkgigwbynp091y1r106fx6g38h8id-logos-view-templates -DLOGOS_VIEW_INCLUDE_DIR=/nix/store/s4aaf7d67jl69psw2k7ji6kz1lk4b973-logos-view-module-include
+logos-forum_module-module-lib> -- The CXX compiler identification is GNU 14.3.0
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info - done
+logos-forum_module-module-lib> -- Check for working CXX compiler: /nix/store/hf8w753nxqwkc5y5kjx33fx8fxw2dczp-gcc-wrapper-14.3.0/bin/g++ - skipped
+logos-forum_module-module-lib> -- Detecting CXX compile features
+logos-forum_module-module-lib> -- Detecting CXX compile features - done
+logos-forum_module-module-lib> -- LogosModule.cmake: /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake
+logos-forum_module-module-lib> -- Found logos-module at: /nix/store/s1d3v0qw2d7icg1d7wxh9kcm84vmq70q-logos-module-0.1.0
+logos-forum_module-module-lib> -- Found logos-cpp-sdk at: /nix/store/hiw9v1z624l4a4c2ffqzw1q0r2dpaabh-logos-cpp-sdk
+logos-forum_module-module-lib> -- Found logos-qt-sdk at: /nix/store/zjqcvly3c42i1822dh3hj2bz41qaxki8-logos-qt-sdk
+logos-forum_module-module-lib> -- Found logos-protocol at: /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol
+logos-forum_module-module-lib> -- Qt host runtime: logos-qt-host::logos_qt_host at /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+logos-forum_module-module-lib> -- Found Threads: TRUE
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC - Success
+logos-forum_module-module-lib> -- Found WrapAtomic: TRUE
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found Boost: /nix/store/yqjlazp6f5c6cxf7n3dskxkg416ml56j-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found OpenSSL: /nix/store/rzlvprd99wlbiv2wsqgp23kmxhkm1yfr-openssl-3.5.1/lib/libcrypto.so (found version "3.5.1")
+logos-forum_module-module-lib> -- Found nlohmann_json: /nix/store/j65j62dxmbkm976qnhpp4mvd1zi3by9l-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/3fy87d13qsvaxkv6phcdyc52232c7l97-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/9v4ip3df0nx55vwqm1gvfiff0j0as7ik-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+logos-forum_module-module-lib>   /nix/store/d03kf3axiqr9709f410m6k0jmpb6rph6-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:625 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Logos module forum_module: replica factory plugin from src/forum_module.rep (class Forum, QML Logos.Forum.Forum)
+logos-forum_module-module-lib> -- Logos module forum_module configured successfully
+logos-forum_module-module-lib> -- Configuring done (1.5s)
+logos-forum_module-module-lib> -- Generating done (0.0s)
+logos-forum_module-module-lib> CMake Warning:
+logos-forum_module-module-lib>   Manually-specified variables were not used by the project:
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib>     BUILD_TESTING
+logos-forum_module-module-lib>     CMAKE_C_COMPILER
+logos-forum_module-module-lib>     CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+logos-forum_module-module-lib>     CMAKE_POLICY_DEFAULT_CMP0025
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Build files have been written to: /nix/var/nix/builds/nix-84-783610026/n5qmj2ps2ccyy4p69hns06p75dr6c2fr-source/build
+logos-forum_module-module-lib> cmake: enabled parallel building
+logos-forum_module-module-lib> cmake: enabled parallel installing
+logos-forum_module-module-lib> Running phase: buildPhase
+logos-forum_module-module-lib> build flags: -j2
+logos-forum_module-module-lib> [0/2] Re-checking globbed directories...
+logos-forum_module-module-lib> [1/20] Automatic MOC for target forum_module_replica_factory
+logos-forum_module-module-lib> [2/20] Automatic MOC for target forum_module_module_plugin
+logos-forum_module-module-lib> [3/20] Generating rep_forum_module_replica.h
+logos-forum_module-module-lib> [4/20] Generating rep_forum_module_source.h
+logos-forum_module-module-lib> [5/20] Generating moc_rep_forum_module_replica.cpp
+logos-forum_module-module-lib> [6/20] Generating moc_rep_forum_module_source.cpp
+copying path '/nix/store/qjm9dm5d0hyfsphjfpnbpynm9vz3caba-gtk4-4.18.6' from 'https://cache.nixos.org'...

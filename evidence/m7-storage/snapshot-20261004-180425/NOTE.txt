@@ -1,0 +1,7 @@
+Save phase PASSED (posts sent through Mix, snapshot on Logos Storage, announcement sent).
+Restore FAILED: storage_module.downloadToUrl timed out after 20000 ms (the default
+inter-module call timeout). Cause (read in logos-storage-module a9c14b8 source):
+downloadToUrl synchronously fetches the manifest (FETCH_MANIFEST_TIMEOUT_MS = 30000) and
+then starts the download (another 30000 ms) before returning, so a call can legitimately
+block longer than 20 s; Storage connect() only starts the dial. Fix: the app now waits
+2 s after connect() and calls downloadToUrlAsync with a 75 s timeout. Raw files unchanged.

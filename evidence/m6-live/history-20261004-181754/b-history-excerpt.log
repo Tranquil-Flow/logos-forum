@@ -1,0 +1,10 @@
+Logos Core started (modules dir: "/nix/store/4v2cj5cr5dlsjb9cl0blr0cds0qf07iv-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/hm2v6s8qm0jgxswq3kdn2jyyw3jnbjsz-logos-forum_module-plugin-dir/src/icons/icon.png"
+Loaded UI plugin: "/nix/store/hm2v6s8qm0jgxswq3kdn2jyyw3jnbjsz-logos-forum_module-plugin-dir"
+[2026-10-04 18:20:56.848] [out] [delivery_module] DBG 2026-10-04 18:20:56.848+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=6050483
+[2026-10-04 18:20:56.848] [out] [delivery_module] INF 2026-10-04 18:20:56.848+02:00 Configuration: Enabled protocols           topics="waku conf" tid=6050483 relay=true rlnRelay=false store=false filter=true lightPush=true peerExchange=true rendezvous=true
+[2026-10-04 18:20:56.850] [out] [delivery_module] INF 2026-10-04 18:20:56.850+02:00 mounting store client                      topics="waku node store api" tid=6050483
+[2026-10-04 18:21:10.875] [out] [delivery_module] DBG 2026-10-04 18:21:10.875+02:00 calculateConnectionState                   tid=6050483 relayCount=6 storeClientCount=5 lightpushCount=6 filterCount=6
+[2026-10-04 18:21:10.978] [out] [delivery_module] DBG 2026-10-04 18:21:10.978+02:00 calculateConnectionState                   tid=6050483 relayCount=6 storeClientCount=5 lightpushCount=6 filterCount=6
+[2026-10-04 18:21:19.024] [out] [delivery_module] INF 2026-10-04 18:21:19.024+02:00 Message received                           tid=6050483 msg_hash=0x3f38e2d219998cbe64ce98d89f60baf0b92e764cdb89231688681213bf9e8f61 contentTopic=/lp0026forum/1/general/text pubsubTopic=/waku/2/rs/3/7 source=history
+[2026-10-04 18:21:19.438] [info] [logos] [delivery_module] DeliveryModuleImpl::storeQuery called with peerAddr: /dns4/delivery-01.do-ams3.logos.dev.status.im/tcp/30303/p2p/16Uiu2HAmTUbnxLGT9JvV6mu9oPyDjqHK4Phs1VDJNUgESgNSkuby

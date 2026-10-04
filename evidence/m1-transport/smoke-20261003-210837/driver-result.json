@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "text": "TECHNICAL TEST DATA: M1 Required-send round trip",
+  "sender_port": 3768,
+  "receiver_port": 3769,
+  "error": "timeout waiting for sender propagation state: sender transport state: {\"id\":184,\"ok\":true,\"result\":\"Required send FAILED: Unable to send within retry time window — text retained; post stored for retry\",\"undefined\":false}"
+}

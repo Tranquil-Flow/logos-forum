@@ -1,0 +1,5 @@
+A: daemon+install+init (probe4 order)
+A init -> True
+B: daemon+install+watch+init (run order)
+B init -> False
+PROBE5_DONE
