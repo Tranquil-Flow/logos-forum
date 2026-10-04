@@ -17,7 +17,17 @@
 
 #include <algorithm>
 
+#ifdef _WIN32
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <windows.h>
+#else
 #include <dlfcn.h>
+#endif
 
 namespace {
 // "1 post", "3 posts": status lines are read by people, not parsed.
@@ -113,12 +123,29 @@ bool isConnected(const QString &status)
 // Returns "" when the plugin is not in that layout (e.g. read-only nix store).
 QString ForumModuleBackend::profileStorePath()
 {
+#ifdef _WIN32
+    HMODULE module = nullptr;
+    wchar_t file[MAX_PATH];
+    if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                                GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                            reinterpret_cast<LPCWSTR>(&ForumModuleBackend::profileStorePath),
+                            &module)) {
+        return QString();
+    }
+    const DWORD n = GetModuleFileNameW(module, file, MAX_PATH);
+    if (n == 0 || n >= MAX_PATH) {
+        return QString();
+    }
+    const QString pluginFile = QString::fromWCharArray(file, int(n));
+#else
     Dl_info info;
     if (dladdr(reinterpret_cast<const void *>(&ForumModuleBackend::profileStorePath),
                &info) == 0 || info.dli_fname == nullptr) {
         return QString();
     }
-    const QDir pluginDir = QFileInfo(QString::fromLocal8Bit(info.dli_fname)).absoluteDir();
+    const QString pluginFile = QString::fromLocal8Bit(info.dli_fname);
+#endif
+    const QDir pluginDir = QFileInfo(pluginFile).absoluteDir();
     QDir userDir = pluginDir;
     if (!userDir.cdUp() || userDir.dirName() != QStringLiteral("plugins") || !userDir.cdUp()) {
         return QString();
