@@ -1,0 +1,1 @@
+STOPPED by operator: started on the tree before the Windows dladdr fix (source copied at start); rerun on the fixed tree follows. Kept as a receipt.

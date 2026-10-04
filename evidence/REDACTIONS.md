@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 560
+Files normalised: 566
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -438,6 +438,12 @@ Files normalised: 560
 | evidence/m5-package/release-app-20261004/after-R3/R3.open.log | home-dir (4) | `5993ec49d012b482…` | `76846b5ca5de5ae6…` |
 | evidence/m5-package/release-app-20261004/after-R3/basecamp.log | home-dir (4) | `5993ec49d012b482…` | `76846b5ca5de5ae6…` |
 | evidence/m5-package/release-app-20261004/after-R3/basecamp_20261004_211210.log | home-dir (4) | `5993ec49d012b482…` | `76846b5ca5de5ae6…` |
+| evidence/m5-package/release-app-20261004/after-R4-final/R4.open.log | home-dir (4) | `40a14c0c1ac2dfad…` | `51dcdcf98901851e…` |
+| evidence/m5-package/release-app-20261004/after-R4-final/basecamp.log | home-dir (4) | `08a3f9e0520fe430…` | `7445c104d37dc312…` |
+| evidence/m5-package/release-app-20261004/after-R4-final/basecamp_20261004_214005.log | home-dir (4) | `08a3f9e0520fe430…` | `7445c104d37dc312…` |
+| evidence/m5-package/release-app-20261004/after-R5-win32fix/R5.open.log | home-dir (4) | `8197248dad9ae341…` | `8c9c2c1963334b40…` |
+| evidence/m5-package/release-app-20261004/after-R5-win32fix/basecamp.log | home-dir (4) | `38401b21e2606a62…` | `f9bd940f0cb8c7b7…` |
+| evidence/m5-package/release-app-20261004/after-R5-win32fix/basecamp_20261004_214725.log | home-dir (4) | `38401b21e2606a62…` | `f9bd940f0cb8c7b7…` |
 | evidence/m5-package/release-app-20261004/basecamp-bin-sha256.txt | home-dir (1) | `832803e43bfff759…` | `99eb190fbae32acd…` |
 | evidence/m5-package/release-app-20261004/before-R2/R2.open.log | home-dir (4) | `84cb26f35e2fa41a…` | `63fd2cbb9ea1b335…` |
 | evidence/m5-package/release-app-20261004/before-R2/basecamp.log | home-dir (4) | `5a7e3dc8474c49d8…` | `94625bd82b16af57…` |

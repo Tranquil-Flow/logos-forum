@@ -3517,6 +3517,54 @@
   }
  },
  {
+  "file": "evidence/m5-package/release-app-20261004/after-R4-final/R4.open.log",
+  "original_sha256": "40a14c0c1ac2dfadb3c4d511ddb2c2b954bac9326b6309dd7b35c5c7d42d8af4",
+  "published_sha256": "51dcdcf98901851e0526854e0eb0dc3bf37f6ae7c47c2a96bb26f9462cd35999",
+  "rules": {
+   "home-dir": 4
+  }
+ },
+ {
+  "file": "evidence/m5-package/release-app-20261004/after-R4-final/basecamp.log",
+  "original_sha256": "08a3f9e0520fe43008302532d81b9e7e95e4953413ca8d2551bd61675f3ce0fc",
+  "published_sha256": "7445c104d37dc312b5017ec5f5594e986a6ab20d815083af4f8536d924281c77",
+  "rules": {
+   "home-dir": 4
+  }
+ },
+ {
+  "file": "evidence/m5-package/release-app-20261004/after-R4-final/basecamp_20261004_214005.log",
+  "original_sha256": "08a3f9e0520fe43008302532d81b9e7e95e4953413ca8d2551bd61675f3ce0fc",
+  "published_sha256": "7445c104d37dc312b5017ec5f5594e986a6ab20d815083af4f8536d924281c77",
+  "rules": {
+   "home-dir": 4
+  }
+ },
+ {
+  "file": "evidence/m5-package/release-app-20261004/after-R5-win32fix/R5.open.log",
+  "original_sha256": "8197248dad9ae341efd12d64fb5f234d499295c3b860b5f8d3d7e2357f66992b",
+  "published_sha256": "8c9c2c1963334b40b2ce511cf7d8c24492c95c48eaf0cbd725e3f77732c1d8d0",
+  "rules": {
+   "home-dir": 4
+  }
+ },
+ {
+  "file": "evidence/m5-package/release-app-20261004/after-R5-win32fix/basecamp.log",
+  "original_sha256": "38401b21e2606a627c1db585a074bb6065d453fc7574c15c10e26e0c446bdb6f",
+  "published_sha256": "f9bd940f0cb8c7b70ae9f5cda53bb232d6885a8282bc76844917530d1f85ac27",
+  "rules": {
+   "home-dir": 4
+  }
+ },
+ {
+  "file": "evidence/m5-package/release-app-20261004/after-R5-win32fix/basecamp_20261004_214725.log",
+  "original_sha256": "38401b21e2606a627c1db585a074bb6065d453fc7574c15c10e26e0c446bdb6f",
+  "published_sha256": "f9bd940f0cb8c7b70ae9f5cda53bb232d6885a8282bc76844917530d1f85ac27",
+  "rules": {
+   "home-dir": 4
+  }
+ },
+ {
   "file": "evidence/m5-package/release-app-20261004/basecamp-bin-sha256.txt",
   "original_sha256": "832803e43bfff7596773da4ca90c29ec1fb48fba8f7fbf4bf0489a13287310c5",
   "published_sha256": "99eb190fbae32acdf604b65b3061b152bcacd6eaabc24dfcec97adf2fbd6c971",

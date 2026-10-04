@@ -542,7 +542,7 @@
         },
         {
           "artifact": "m5-package/release-app-20261004/NOTE.txt",
-          "sha256": "f078264bbf2e020d962e83e503d32e8a08e98fec76342936f339d9be14b45aa3",
+          "sha256": "fbb4c0a85f7fd287a3f04981f3de813dbc5a0124c54f58ed9c119ef56bae8dd4",
           "what": "release Basecamp 0.3.1 app, fresh profile: module loads, store opens on its own"
         },
         {

@@ -1,0 +1,5 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+/nix/store/6wghibgkllrhdcynlphqx6l67d8iv25y-forum-core-tests.drv

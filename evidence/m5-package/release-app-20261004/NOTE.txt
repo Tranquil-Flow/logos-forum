@@ -25,3 +25,11 @@ Not shown here (release app has no inspector; screen capture is not
 available from this shell): clicking through the UI. That path is covered by
 the UI suite and the real-host runs (m5b, m6, m7); the demo video covers it
 in the release app.
+
+after-R4-final/ (final package: metadata gains "author" and a plain
+description; sha256 in forum-lgx-sha256.txt, 7b82489d…): same result — the
+module loads, forum.db is created ~15 s after launch with no interaction and
+holds the General topic. UI suite on this tree: polish-20261004/
+integration-metadata-8.log, 13/13; core 177/0.
+
+after-R5-win32fix/ (package f73b7ced…, after the Windows module-path fix — the macOS branch is unchanged): same result; store opened on its own with the General topic. UI suite: polish-20261004/integration-win32fix-9.log 13/13.
