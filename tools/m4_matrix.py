@@ -341,8 +341,9 @@ def main():
                         "sha256": sha256(linux_ok / "build-integration-test.log")}]
                       if linux_ok else [])
 
-    ci_file = EVID / "m5-package" / "ci-windows-20261004" / "ci-run.json"
-    ci_run = json.loads(ci_file.read_text()) if ci_file.exists() else None
+    # Newest receipted remote CI run (by run id).
+    ci_runs = [json.loads(f.read_text()) for f in EVID.glob("**/ci-run.json")]
+    ci_run = max(ci_runs, key=lambda r: r.get("databaseId", 0)) if ci_runs else None
     if ci_run and ci_run.get("conclusion") != "success":
         ci_run = None
     row("R14", "PARTIAL",
@@ -361,7 +362,7 @@ def main():
           if linux_ok else "") if integ_final_ok else
          "local CI green; ") +
         (("remote default-branch CI green (" + ", ".join(j["name"] for j in ci_run["jobs"]) +
-          f"; run {ci_run['databaseId']}) in the still-private repo — public run pending")
+          f"; run {ci_run['databaseId']}, Tranquil-Flow/logos-forum)")
          if ci_run else "REMOTE default-branch CI: workflow prepared; green run not yet receipted"))
 
     demo = REPO / "tools" / "demo_walkthrough.sh"

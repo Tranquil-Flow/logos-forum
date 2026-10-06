@@ -147,12 +147,14 @@ slices — there is no always-green wrapper.
    *Logos Official* catalog (`logos-co/logos-modules-release`). Older
    catalogs carry other versions; install these exact ones.
 3. Install Forum, either:
-   - from our catalog: Package Manager → add repository
-     `https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/logos-repo.json` → install **Forum** (its dependencies
-     resolve to the pinned versions), or
+   - from our catalog: **Settings → Package Repositories** (or **Manage
+     Repositories** in Package Manager), paste
+     `https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/logos-repo.json`
+     into *Add a repository*, then install **Forum** in Package Manager (its
+     dependencies resolve to the pinned versions), or
    - from a local build: `nix build path:$PWD#lgx-portable` and install
-     `result/logos-forum_module-module.lgx` via Package Manager → install
-     local `.lgx`. (Nix-built dev hosts use `#lgx` instead — the wrong
+     `result/logos-forum_module-module.lgx` with Package Manager → **Install
+     Local Package**. (Nix-built dev hosts use `#lgx` instead — the wrong
      variant is refused, never half-loaded.)
 4. Open **Forum** from the sidebar. The header shows *Module ready* and the
    network chip *Offline — not connected*.

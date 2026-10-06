@@ -3,7 +3,7 @@ windows-latest runner (real desktop session, 1024x768), driven by
 tools/windows_smoke.sh. Package: CI artifact forum-lgx-windows of run
 37232663252 (sha256 88973648…, see inputs-sha256.txt), i.e. the code
 before the 2026-10-06 offline-wait fix; the post-fix package is checked by
-the main-branch CI run (ci-main-* below, added when it completes).
+the main-branch CI run ci-main-37446511273 (package sha256 b8fe2c06…).
 
 Trial runs on a scratch branch (harness development, in order):
   ci-37442253129-FAIL  artifact download refused (job lacked actions: read)
@@ -24,6 +24,14 @@ Trial runs on a scratch branch (harness development, in order):
                        This post was later received on macOS from the
                        network's store (m5-package/ui-tour-20261006/live/
                        04-history-loaded.png).
+
+Main branch, final code:
+  ci-main-37446511273  PASS on the fixed package: the offline post shows
+                       "waiting to send" with the composer empty and "Saved —
+                       it will be sent through Mix as soon as you are
+                       connected." (2-written-offline.png); after Connect it is
+                       sent through Mix in 6 s and the line reads "Connected —
+                       posts go out through Mix." (3-connected.png).
 
 Not covered here: a person using it on their own Windows machine, and
 receive / history / Storage snapshot driven on Windows.

@@ -879,5 +879,14 @@ assertion bug, kept), `store-probe-20261006-*` PASS, `cleaninstall-20261006-1154
 PASS, `ui-tour-20261006/` (offline + live tours; README images come from
 here; the live tour on macOS received the Windows CI test post).
 
-**Gate:** LOCAL_CANDIDATE_VERIFIED (nothing public yet).
+**CI (main, c6c04df): run 37446511273 green** — linux, macos, windows,
+windows-basecamp, all-platforms (`evidence/m8-windows/ci-main-37446511273/`:
+the fixed Windows package, sha256 `b8fe2c06…`, shows *waiting to send* with
+an empty composer, then *sent* through Mix 6 s after Connect).
 
+**Install wording corrected:** Basecamp 0.3.1 adds repositories under
+Settings → Package Repositories (*Add a repository*; Package Manager links
+there with **Manage Repositories**) and installs files with **Install Local
+Package** — checked against the app's own QML.
+
+**Gate:** LOCAL_CANDIDATE_VERIFIED (repos going public; no submission yet).
