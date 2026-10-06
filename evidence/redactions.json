@@ -2904,6 +2904,14 @@
   }
  },
  {
+  "file": "evidence/m5-package/bugfix2-20261006/m5_cleaninstall-run-legacy-alias.log",
+  "original_sha256": "6ab06cdc8f659b4258ea07bd05d5640882235f09d7f46c0f7f798d91a636a8c1",
+  "published_sha256": "04dfa4d5ccfbcbe7acf4f33b3ff3e80502279c0071ae68ebc7585a4c5da2e5fb",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m5-package/bugfix2-20261006/m5_cleaninstall-run.log",
   "original_sha256": "48d4a712879a0352f999810c4ac205e25e144f8c246b87a90fd9bf31fbe92fd0",
   "published_sha256": "7f2d9e4a29625cfce66f1962b9c69240a55c0c409571053bc2d3c5b5210000bb",
@@ -2920,6 +2928,14 @@
   }
  },
  {
+  "file": "evidence/m5-package/bugfix2-20261006/m6_history-run-legacy-alias.log",
+  "original_sha256": "13412fb9cb8d9d441741e911c8e708b17720a51af96e8ebf50aac9c368cf849a",
+  "published_sha256": "996cd256c87ec70e3961279d733be0658bf3078166da7bf231aadd63fd1eec1d",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m5-package/bugfix2-20261006/m6_history-run.log",
   "original_sha256": "b1ebc50434a3c91d4708a0362c4c8069c7401b69975246868d07b614f41d6310",
   "published_sha256": "9cb0f1b25e275dde0beb9c2e53b98ac5629647f6c710407a41452afb00611d7e",
@@ -2931,6 +2947,14 @@
   "file": "evidence/m5-package/bugfix2-20261006/m6_live-run-final.log",
   "original_sha256": "67cb13c45dc34f2f842605bea371179ddd8c925eb46cc75ff5233a078ac2aba4",
   "published_sha256": "66c7d24c6739e0c16407bfd7b0e5de01acd41a46d538d9c0460f43d9d65a1f3a",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/bugfix2-20261006/m6_live-run-legacy-alias.log",
+  "original_sha256": "e19debe0c05bdea0884e590c1b564b5cf4120a818a0af02a601bb9c0c438d3c7",
+  "published_sha256": "2b17903d5c1c53cef27caa255b4b775cd2718fb29d6e1af5103945fb49d2b0e6",
   "rules": {
    "repo-path": 1
   }
@@ -2960,6 +2984,14 @@
   }
  },
  {
+  "file": "evidence/m5-package/bugfix2-20261006/m7_storage-run-legacy-alias.log",
+  "original_sha256": "ab7b253f7df6760fec0e69a2610e1bbaa31bb8068306351aa34ffebdbc968ff5",
+  "published_sha256": "f045597f60d60074d5e6d8b67882686d448c491d4fd26dc9ab633ab0aa1f707d",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m5-package/bugfix2-20261006/m7_storage-run.log",
   "original_sha256": "a3ec15aa399073cfd418ba3ec0e09a70b471bb13f19913d482d03ce81a921246",
   "published_sha256": "94aa269033a93cb9c8a69233af1e8acab3f2881e47159ec902a197ee49e313eb",
@@ -2971,6 +3003,14 @@
   "file": "evidence/m5-package/bugfix2-20261006/store_probe-run-final.log",
   "original_sha256": "92d5ed405e689254940afa569de1c8a5373dd7db359806a21a2cbda7357e1f02",
   "published_sha256": "b3be56e8a9feebff91fa60de78219b99839047bdd3b1a7be20af62f51fe3541c",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/bugfix2-20261006/store_probe-run-legacy-alias.log",
+  "original_sha256": "edd0241bc5a0a0137977093375018659b8520e5ea8acc44eefa47fd2e86f7b6d",
+  "published_sha256": "15136e2c19d77ef4d3389bc2cd88812bc00863ddc055e4a63194c57ac3f4e047",
   "rules": {
    "repo-path": 1
   }
@@ -3513,6 +3553,38 @@
  },
  {
   "file": "evidence/m5-package/cleaninstall-20261006-152219/store-path.txt",
+  "original_sha256": "e92da2debad5399832b6bd5ddd8e23e257c744afd7a23debc35005b111f26e14",
+  "published_sha256": "56e04270e86124cdfdcbdc2c06a23f0acbd20f2dd5dfe3593bb58d2999cd921e",
+  "rules": {
+   "home-dir": 3
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-155252/basecamp.log",
+  "original_sha256": "a51858a8c5cc17b34d4061c89c5de208eca94855be8141cd67f79a55065d59ce",
+  "published_sha256": "18c0fccfac495b7872343069c7ebb360274ca839929e681713103318da05ed32",
+  "rules": {
+   "home-dir": 3
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-155252/profile-files.txt",
+  "original_sha256": "e3dda0c4d3c8d931fdc2e0e246146cbb7cb93a7d9574ac2010bded83e4504c0a",
+  "published_sha256": "3941ee1c7b51b5808bc17b8b12c38723c49f55763a78a1fc1776d370ddf1160b",
+  "rules": {
+   "home-dir": 29
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-155252/result.json",
+  "original_sha256": "3534a35d33be37711e1036e8e7433d1bff5f1dae239affb368922cef71b69c1f",
+  "published_sha256": "e8cab5282ac629e4098062541f588548da35cabd830c6f06710536c41fe9b7b2",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-155252/store-path.txt",
   "original_sha256": "e92da2debad5399832b6bd5ddd8e23e257c744afd7a23debc35005b111f26e14",
   "published_sha256": "56e04270e86124cdfdcbdc2c06a23f0acbd20f2dd5dfe3593bb58d2999cd921e",
   "rules": {
@@ -4360,6 +4432,23 @@
   }
  },
  {
+  "file": "evidence/m5-package/store-probe-20261006-155047/host.log",
+  "original_sha256": "5216714d0d26359c2ab6a52500fd657576bbe705b89f82e2d282b3fd736cb200",
+  "published_sha256": "e66bb9acf1b3d861168ff36b152e40cea3ef7abf014cfac774d5facb931d27d0",
+  "rules": {
+   "repo-path": 3,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/store-probe-20261006-155047/result.json",
+  "original_sha256": "5a1846238a6fd2a1ec164592f5ca0488ef3e995bd1e04eeb565c1495752117af",
+  "published_sha256": "a0572255f25cd20e9d0368a6a56706076db1b139f864027e58f588365e1b2e1b",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m5-package/ui-tour-20261004-190553/app.log",
   "original_sha256": "abcd0782a4526bff66810a883e4719d1bb23f3e07522954ae2eb64f99b795f20",
   "published_sha256": "5fe6150d7b2dd23170463fea3f992bed97ba4cfcee85b25a68c775591ded7490",
@@ -4648,6 +4737,32 @@
   }
  },
  {
+  "file": "evidence/m6-live/history-20261006-154418/a-app.log",
+  "original_sha256": "6d8cc975bb88fb6442cccaea994abce1efc2f26f5783d3efb9c72a7992f7d8d7",
+  "published_sha256": "67e90ffcb302eadaa48da6190681c9442691878b7edc58e7d981978e91c1a944",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m6-live/history-20261006-154418/b-app.log",
+  "original_sha256": "c391b19e93a4845384b0eb797edbe04349090e55628b5afce456ba70723981aa",
+  "published_sha256": "3ca81b40a951ef4718c065dd9ac567b42a6fff929f562532867f50b949a8347f",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m6-live/history-20261006-154418/result.json",
+  "original_sha256": "a660d1f950797ffe11d7d662f8895647d5104db2db87742c58e0f904fb6b9ac7",
+  "published_sha256": "c733f024dfeb8ea597fada92379abea93b53ba52508cffdf5ae1e496264844bd",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m6-live/live-20261004-122221/a-app.log",
   "original_sha256": "9c65662c9d282cca50e61d997abd37ff890c60b03654da4d5486d306548ec6fc",
   "published_sha256": "7c3cc1b095ac5698e3f7c0a1e34ea22337ed5679d6b8a66e46d4439739c7f288",
@@ -4899,8 +5014,8 @@
  },
  {
   "file": "evidence/m6-live/live-20261006-154234/a-app.log",
-  "original_sha256": "03ed53f834515676f285a0fc19161584f42ed5e490f238bc220d78d835ee6db9",
-  "published_sha256": "59b5dc9dfaf570131bdc2098b12bf2e7e3d211680fbce97bdd256a9ea58e74e6",
+  "original_sha256": "1312d4d4aec029a76cd4d5907209cabf24c905b52f47e5d5d2e26c0778ef92a5",
+  "published_sha256": "7291d35b42253db58484cc82738f94ef7b02fbba9e77052f68c9390e39176159",
   "rules": {
    "repo-path": 2,
    "home-dir": 1
@@ -4908,11 +5023,19 @@
  },
  {
   "file": "evidence/m6-live/live-20261006-154234/b-app.log",
-  "original_sha256": "275a6a4cfd1a279cf09c440279cdc96386634ab1ecfefc91ec76fd6d91b52af0",
-  "published_sha256": "6c4692d1ad9d18af1bfd8527d0bf2e5edf27f4181b5e4b19530a213526c6fdf6",
+  "original_sha256": "d34deab4b7f28b5a19711b8bab594b08d8c1e39895da2fe22cc38adcbc631408",
+  "published_sha256": "6d7ed38de0b1b57510cd9dc14425d0729c1d1c257761559691e21f22ef53126c",
   "rules": {
    "repo-path": 2,
    "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m6-live/live-20261006-154234/result.json",
+  "original_sha256": "63e5b0c0aaf868107cd54c183d1d3eb27461fe66ecf48f7d73606d31c4fb2fc5",
+  "published_sha256": "83d6290de36c33d8ff6ac74fe9f21e5eaa61073b7f74a84b8354006f2099eb82",
+  "rules": {
+   "repo-path": 1
   }
  },
  {
@@ -5563,6 +5686,72 @@
   "file": "evidence/m7-storage/snapshot-20261006-151833/snapshot-files.txt",
   "original_sha256": "73594b9e5b50c62bdd03b70bc6caca167b8435ac703288f6913310920cbe88dc",
   "published_sha256": "1227c5d308393efc4ce90cd3a6fef3b48bc4afaaf6329cf6d411ee9eae0d6e90",
+  "rules": {
+   "home-dir": 2
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/a-app.log",
+  "original_sha256": "fd8c92ee1875866871cbf802323869f83257738fac24f7f7eeddbc0b73ea0e05",
+  "published_sha256": "4d48233770dca8e9fe3619b5d21bacf3cd4e6920d676a1c3fbb358eb10b8e5c4",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 3
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/a-storage.json",
+  "original_sha256": "b7e7fa007f092f0af585a6ed6e47e5f7b7fc7c5dba284bb3747d96e1d5d90e73",
+  "published_sha256": "072774da3b5f62d5590278a7161644ed06885b8d5aeb350b5f298a07af830545",
+  "rules": {
+   "home-dir": 2
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/a-storage.log",
+  "original_sha256": "eb7b9465e0794b6d0c28f8e2a04ac3f0f32f71ef8d32d2ea2a111a8228d0bd2a",
+  "published_sha256": "dae14cbac44458ec457f6620e80f4002df87695bce877efe4ead413ad5fc1691",
+  "rules": {
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/b-app.log",
+  "original_sha256": "a915d046a5671969692c5c5c69464af34b0f0b82daaac47e99053044ffc436da",
+  "published_sha256": "7ea52c063adb8ec2b7fd81ede7d92f8f1def67f2bda87694f821e1f1185a6c72",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 2
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/b-storage.json",
+  "original_sha256": "39da6d3e8c4800fef90d4d264e2f41f48e6c90809c1d83eeff18c43cc4ef0658",
+  "published_sha256": "35ce0f8b36f0448791a6ecc084a5ac492665068c9b6b0109e4e88d5fbd694895",
+  "rules": {
+   "home-dir": 2
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/b-storage.log",
+  "original_sha256": "7943fa9c761d5d51a13ca5c798a81fe7ebc7b1ab289664222a13fa8ee8be3b00",
+  "published_sha256": "caff9dc32220b2a4ea8344ebab7c7fc6f8a529b5f3083b30cad4c000cd0efdcf",
+  "rules": {
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/result.json",
+  "original_sha256": "e02b298d100f8f1c646edbe65e4261a040e0b8d0baddd0e8fd422612b45e2d3e",
+  "published_sha256": "e90f68111c5a98b2a27f89ad251b8e057b23c522728e022c7151b211f89aa73b",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m7-storage/snapshot-20261006-154609/snapshot-files.txt",
+  "original_sha256": "920bda6b74146cc87edb9048a72d9b9de7cad8cca6d9233262f7981def18b21a",
+  "published_sha256": "49d5eedcdfd14442c0bc4c929ca66e8eb2c6a89b650ec69c0f19c2828eda5486",
   "rules": {
    "home-dir": 2
   }

@@ -1,0 +1,16 @@
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+warning: ignoring untrusted substituter 'https://cache.nix.logos.co/public', you are not a trusted user.
+Run `man nix.conf` for more information on the `substituters` configuration option.
+warning: ignoring the client-specified setting 'trusted-public-keys', because it is a restricted setting and you are not a trusted user
+these 3 derivations will be built:
+  /nix/store/r0kz1dmdn6jq5rh5kf3f7m6a40il0hhh-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/h3fg0z1b2nsrvfgzjja60ndzji2wnv4h-logos-forum_module-module.drv
+  /nix/store/b296kpafhmpzz82arb2gi2d28xkz5j01-logos-forum_module-module-lgx-0.1.0.drv
+building '/nix/store/r0kz1dmdn6jq5rh5kf3f7m6a40il0hhh-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/h3fg0z1b2nsrvfgzjja60ndzji2wnv4h-logos-forum_module-module.drv'...
+building '/nix/store/b296kpafhmpzz82arb2gi2d28xkz5j01-logos-forum_module-module-lgx-0.1.0.drv'...

@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "phase": "save",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 5,
+      "what": "transport ready"
+    },
+    {
+      "t_s": 25,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (1/2)"
+    },
+    {
+      "t_s": 28,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (2/2)"
+    },
+    {
+      "t_s": 201,
+      "what": "posts sent"
+    },
+    {
+      "t_s": 201,
+      "what": "save snapshot clicked"
+    },
+    {
+      "t_s": 202,
+      "what": "snapshot saved",
+      "state": "saved 4 posts on Logos Storage (zDvZRwzm83isrU9S…) and announced it in this topic; this device serves the snapshot while Basecamp runs"
+    },
+    {
+      "t_s": 206,
+      "what": "announcement sent"
+    }
+  ],
+  "archive_state": "saved 4 posts on Logos Storage (zDvZRwzm83isrU9S…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "announcement": "Snapshot of this topic on Logos Storage: 4 post(s).\ncid: zDvZRwzm83isrU9SHq7DTdpTmaStWwnNFLqjwMP2ipFzQ3V3kGpA\npeer: 16Uiu2HAmTxSyhkAmidKgFxYuS6PiwEzJypBeWX7LTCfTPf6dgrPU\naddrs: /ip4/127.0.0.1/tcp/8571",
+  "announcement_author": "id 82d7ad19535ce8a4",
+  "thread": [
+    "id 1e1cbdebd6bc0be9 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (1/2)",
+    "id a085dbbd28675fc1 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (2/2)",
+    "id 47c181540580168c [received]: TEST POST - automated Windows check, CI run 37473032689 - test data, please ignore",
+    "id d022a6dadf4ab981 [received]: Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzm4V1bmRVL9vJaig7QXRkrJ24TgRqpTwLLtwYyEpgFZVbL\npeer: 16Uiu2HAmT5FnDk6vxSnpdbEtTibc8QeR8dHVMe8Z5woSAv2YSGct\naddrs: /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit",
+    "id 82d7ad19535ce8a4 [sent]: Snapshot of this topic on Logos Storage: 4 post(s).\ncid: zDvZRwzm83isrU9SHq7DTdpTmaStWwnNFLqjwMP2ipFzQ3V3kGpA\npeer: 16Uiu2HAmTxSyhkAmidKgFxYuS6PiwEzJypBeWX7LTCfTPf6dgrPU\naddrs: /ip4/127.0.0.1/tcp/8571"
+  ]
+}

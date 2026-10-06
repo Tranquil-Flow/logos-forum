@@ -1,0 +1,11 @@
+~/.local/share/lp0026-forum-dev/m7-storage/a-forum-snapshots:
+total 8
+drwxr-xr-x   3 evinova-self  staff    96  6 Oct 15:49 .
+drwxr-xr-x  16 evinova-self  staff   512  6 Oct 15:49 ..
+-rw-r--r--   1 evinova-self  staff  3988  6 Oct 15:49 topic-6dd197737fd8-1791294579050.txt
+
+~/.local/share/lp0026-forum-dev/m7-storage/b-forum-snapshots:
+total 8
+drwxr-xr-x   3 evinova-self  staff    96  6 Oct 15:50 .
+drwxr-xr-x  16 evinova-self  staff   512  6 Oct 15:49 ..
+-rw-r--r--   1 evinova-self  staff  3988  6 Oct 15:50 restore-zDvZRwzm83isrU9S-1791294592148.txt

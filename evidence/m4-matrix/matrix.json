@@ -19,14 +19,14 @@
       },
       {
         "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-        "sha256": "09ce87242a5f67df6cab5409413dcc4a1e55b992caf46811be9a3ebf084b5868"
+        "sha256": "a0572255f25cd20e9d0368a6a56706076db1b139f864027e58f588365e1b2e1b"
       },
       {
         "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-        "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
+        "sha256": "e8cab5282ac629e4098062541f588548da35cabd830c6f06710536c41fe9b7b2"
       }
     ],
-    "store_probe_receipts": 27
+    "store_probe_receipts": 28
   },
   "rows": [
     {
@@ -103,11 +103,11 @@
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "09ce87242a5f67df6cab5409413dcc4a1e55b992caf46811be9a3ebf084b5868"
+          "sha256": "a0572255f25cd20e9d0368a6a56706076db1b139f864027e58f588365e1b2e1b"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
+          "sha256": "e8cab5282ac629e4098062541f588548da35cabd830c6f06710536c41fe9b7b2"
         }
       ],
       "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (15/15); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
@@ -132,11 +132,11 @@
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "09ce87242a5f67df6cab5409413dcc4a1e55b992caf46811be9a3ebf084b5868"
+          "sha256": "a0572255f25cd20e9d0368a6a56706076db1b139f864027e58f588365e1b2e1b"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
+          "sha256": "e8cab5282ac629e4098062541f588548da35cabd830c6f06710536c41fe9b7b2"
         }
       ],
       "notes": "topic create + list + switch (browse) in CI; posts are replies in a topic's thread (flat, no nested reply-to-reply UI); the shared deterministic General topic carries posts across instances \u2014 two-instance smoke shows the sender's post as [received] in the receiver's thread",
@@ -164,12 +164,12 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m6-live/live-20261006-151622/driver-result.json (public logos.dev)",
-          "sha256": "a1bc9aa2935e1607a17f5a174ef2dd36070bb46745397060b9253bf2e26d805b"
+          "artifact": "m6-live/live-20261006-154234/driver-result.json (public logos.dev)",
+          "sha256": "74acf6d8db04114a75d7aae5d5881d7500f04d3537ba1f8e332319805a30c034"
         },
         {
-          "artifact": "m6-live/live-20261006-140925/driver-result.json (public logos.dev)",
-          "sha256": "24674f08ab1827c395c45e85fef5e04380e4a7584fd3fa6abc5a83f1e5da6bef"
+          "artifact": "m6-live/live-20261006-151622/driver-result.json (public logos.dev)",
+          "sha256": "a1bc9aa2935e1607a17f5a174ef2dd36070bb46745397060b9253bf2e26d805b"
         },
         {
           "artifact": "m2b-cli Required receipts",
@@ -562,10 +562,10 @@
         {
           "claims": {
             "status": "PASS",
-            "lgx_sha256": "49574694f0f0ec2aed075ed8e183eaf9770dc2f400949b955fd73efcb0b2e840",
+            "lgx_sha256": "74d100f4c864bff502cb02ff6f8503b0a89ba65d6741be7ebae27b5a7c7615c7",
             "store_flow_in_real_host": true
           },
-          "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
+          "sha256": "e8cab5282ac629e4098062541f588548da35cabd830c6f06710536c41fe9b7b2"
         },
         {
           "artifact": "tools/demo_walkthrough.sh",
@@ -604,16 +604,16 @@
       "requirement": "In-app: a reader who was offline obtains past posts",
       "receipts": [
         {
+          "artifact": "m6-live/history-20261006-154418/b-driver.json (public logos.dev, author offline)",
+          "sha256": "a77ff5445fac7d368e01a789476df3400b020b719e2282831ea54ac2f702c4ab"
+        },
+        {
           "artifact": "m6-live/history-20261006-151646/b-driver.json (public logos.dev, author offline)",
           "sha256": "bd5e3fcb5f67c43790406392d5662b9a6a8dd88b018ef65a56fdcc337f039df2"
         },
         {
-          "artifact": "m6-live/history-20261006-140942/b-driver.json (public logos.dev, author offline)",
-          "sha256": "8bcd991e2efc45fd0b94af1a9aeeccd2a49ffac8b6f1b01e0354811097cc9b05"
-        },
-        {
-          "artifact": "m7-storage/snapshot-20261006-151833/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
-          "sha256": "aec7dee827ccdd99043d003e949aa5cdd67cf95644ac1f814548ece29552ae5e"
+          "artifact": "m7-storage/snapshot-20261006-154609/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "aac3f4373af0442bf69782c647cd7b6b9c3adf8e6e1796f5df34b0630c96d5cd"
         }
       ],
       "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",

@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-06T13:42:42Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 14,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 15,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 15,
+      "what": "A state",
+      "state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 76,
+      "what": "A state",
+      "state": "Required send failed: Unable to send within retry time window — the post is stored; automatic retry 1/3 in 15 s"
+    },
+    {
+      "t_s": 90,
+      "what": "A state",
+      "state": "sending via Required policy (request 8f42a0602dcc77aa3298) — awaiting propagation"
+    },
+    {
+      "t_s": 92,
+      "what": "A state",
+      "state": "Required send propagated (request 8f42a0602dcc77aa3298)"
+    },
+    {
+      "t_s": 92,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… posts you write now are saved and sent once connected.",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+    "Required send failed: Unable to send within retry time window — the post is stored; automatic retry 1/3 in 15 s",
+    "sending via Required policy (request 8f42a0602dcc77aa3298) — awaiting propagation",
+    "Required send propagated (request 8f42a0602dcc77aa3298)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id 5b03faf144021a68 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:18:33Z (1/2)\",\"id 70ab4b0cbc996555 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:18:33Z (2/2)\",\"id 0ccd59fc3c20209f [received]: Snapshot of this topic on Logos Storage: 2 post(s).\\ncid: zDvZRwzkxqLDognR8amhuz3iekZpB3saKM6Goh5vj1WQSQXRY7aq\\npeer: 16Uiu2HAmB8PphPqnaedJvwqfFNGsgoyYmM9czbzzPjHQoy2jMtFV\\naddrs: /ip4/127.0.0.1/tcp/8571\",\"id 460479d1225d003c [received]: TEST POST - automated Windows check, CI run 37470516598 - test data, please ignore\",\"id f0bcb9f0a66979ec [received]: Snapshot of this topic on Logos Storage: 1 post(s).\\ncid: zDvZRwzm5KC1k2iYiKUySVoVxfv6hQaMk4TVbY6AN4jVnHiTiaTc\\npeer: 16Uiu2HAmM4cpZ9u8PCBpbeD9rQq7d1L4KQ39FDHD2tWuTHMN5qkp\\naddrs: /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit\",\"id 1be48ed16784c37b [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-06T13:42:42Z\"]",
+  "b_thread": "[\"id 5b03faf144021a68 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:18:33Z (1/2)\",\"id 70ab4b0cbc996555 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:18:33Z (2/2)\",\"id 0ccd59fc3c20209f [received]: Snapshot of this topic on Logos Storage: 2 post(s).\\ncid: zDvZRwzkxqLDognR8amhuz3iekZpB3saKM6Goh5vj1WQSQXRY7aq\\npeer: 16Uiu2HAmB8PphPqnaedJvwqfFNGsgoyYmM9czbzzPjHQoy2jMtFV\\naddrs: /ip4/127.0.0.1/tcp/8571\",\"id 460479d1225d003c [received]: TEST POST - automated Windows check, CI run 37470516598 - test data, please ignore\",\"id f0bcb9f0a66979ec [received]: Snapshot of this topic on Logos Storage: 1 post(s).\\ncid: zDvZRwzm5KC1k2iYiKUySVoVxfv6hQaMk4TVbY6AN4jVnHiTiaTc\\npeer: 16Uiu2HAmM4cpZ9u8PCBpbeD9rQq7d1L4KQ39FDHD2tWuTHMN5qkp\\naddrs: /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit\",\"id 1be48ed16784c37b [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-06T13:42:42Z\"]"
+}

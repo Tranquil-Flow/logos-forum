@@ -73,3 +73,5 @@ as it shows them, so an older forum.db cannot display a look-alike " · id ".
   the rerun of the same derivation, so only these lines are kept here.
 - integration-8-legacy-alias-display.log: rerun, 15 passed, 0 failed.
 - core-tests.txt: 189 checks, 0 failures (rebuilt on this change).
+- *-run-legacy-alias.log: live round trip, history, Storage snapshot, store
+  probe and clean install, all PASS on this change.

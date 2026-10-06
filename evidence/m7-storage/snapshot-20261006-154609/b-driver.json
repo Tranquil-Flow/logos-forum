@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    },
+    {
+      "t_s": 52,
+      "what": "restored",
+      "state": "restored from Logos Storage (zDvZRwzm83isrU9S…): 4 new posts, 1 already here, 0 rejected by verification"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "archive_state": "restored from Logos Storage (zDvZRwzm83isrU9S…): 4 new posts, 1 already here, 0 rejected by verification",
+  "connection_after": "offline",
+  "thread": [
+    "id 1e1cbdebd6bc0be9 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (1/2)",
+    "id a085dbbd28675fc1 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (2/2)",
+    "id 47c181540580168c [received]: TEST POST - automated Windows check, CI run 37473032689 - test data, please ignore",
+    "id d022a6dadf4ab981 [received]: Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzm4V1bmRVL9vJaig7QXRkrJ24TgRqpTwLLtwYyEpgFZVbL\npeer: 16Uiu2HAmT5FnDk6vxSnpdbEtTibc8QeR8dHVMe8Z5woSAv2YSGct\naddrs: /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/34.123.182.254/tcp/8070/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit /ip4/34.123.182.254/tcp/8070/mix-transport/AlSbmSoZT3knJOqgs5Yj0sRMdqsKFXfQzCToeCy-lDFqbF-MKuV_t9DxFFCJOMz_jpm5K6GjhNNYQHblKnvOVQQ=/p2p/16Uiu2HAm17wqb6L3gNU1n2jNTbQGXXYS6wqm9QbHCtoWCypN9NEM/p2p-circuit"
+  ]
+}

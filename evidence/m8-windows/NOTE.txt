@@ -56,3 +56,8 @@ connect to peer: internalConnect can't dial self!" (restoring a snapshot this
 node serves). Fixed in the app; the run was cancelled before macOS finished.
 ci-37467422347: every stage PASS (snapshot saved on attempt 2, restored,
 history 55 received, restart shows the Forum view, 57 posts kept).
+ci-37470516598: cancelled by hand before it finished, to rerun on the alias
+display fix (no receipts kept).
+ci-37473032689: every job green (Linux, macOS, Windows, all-platforms); every
+Windows stage PASS (snapshot saved on attempt 2, restored, history 68
+received, restart shows the Forum view, 70 posts kept).

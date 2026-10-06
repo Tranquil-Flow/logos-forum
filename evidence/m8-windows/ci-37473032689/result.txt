@@ -1,0 +1,15 @@
+forum.db after 9s
+after Send, offline: pending required
+post sent required after connecting 6s
+click 'Save snapshot' at 845 257 (by name)
+snapshot saved and announced (attempt 1): not within 60s
+click 'Save snapshot' at 845 257 (by name)
+snapshot saved and announced (attempt 2) after 25s
+click 'Restore these posts' at 466 464 (by name)
+snapshot fetched from Logos Storage after 1s
+click 'Load older posts' at 952 257 (by name)
+history: received posts in the store after 1s
+received posts: 68
+after restart: the Forum view is open again after 3s
+after restart: post text not visible to UI Automation (see 7-restarted.png)
+posts before restart: 70, after: 70
