@@ -10,6 +10,18 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — Windows in CI, offline posts, 2026-10-06** (details in the last
+section): CI job `windows-basecamp` runs the Windows package in the official
+Basecamp 0.3.1 app on a Windows runner: it loads, opens its store, keeps a
+post written offline and sends it through Mix on logos.dev after Connect
+(screenshots uploaded); that post was then received on macOS from the
+network's store. The Windows run showed two UX faults, now fixed: an offline
+post was stored as *not sent* while its text also stayed in the composer
+(a second Send would duplicate it) — it is now *waiting to send* and the
+composer is cleared; and the "Connecting…" hint outlived the connection.
+**Retry stored** shows only when connected. Core 177/0, UI 13/13, store
+probe, clean install and both UI tours on the final tree.
+
 **Update — release app, Windows, polish, 2026-10-04 night** (details in the
 last section): the release package loads in the **release Basecamp 0.3.1
 app** on a fresh profile and now opens its store on its own, so saved topics
@@ -829,3 +841,43 @@ and all-platforms all green. The Windows package and the merged package
 (darwin-arm64 + linux-amd64 + windows-x86_64) verify with the lgx tool;
 the Windows plugin imports the same host runtime DLLs as the official
 delivery_module (`m5-package/ci-windows-20261004`). Not yet run on Windows.
+
+## 2026-10-06 — Windows in CI, offline posts wait, README images
+
+**Windows (CI job `windows-basecamp`, `tools/windows_smoke.sh`).** On a
+`windows-latest` runner (a real desktop session), the official Basecamp 0.3.1
+Windows installer (NSIS, sha256 `fd4488e8…`) is unpacked, a fresh
+`--user-dir` is seeded with the Forum package and the pinned
+delivery_module 0.3.0 / storage_module 3.0.0 packages, and Forum is opened
+with `--uri`. The script then drives the window with clicks and keystrokes:
+writes a labelled test post while offline, connects to logos.dev and waits
+for the store to mark the post sent (Mix only). Trial runs on a scratch
+branch: 37442253129 (artifact permission), 37442347321 (Git Bash hash
+prefix), 37442435495 (Windows path given to tar) failed on harness bugs;
+37442559967 PASS (store opens after 9 s; screenshot); 37442786178 the store
+check passed but the click on Send missed (the button moves when text is
+entered) — its screenshots showed the two UX faults below; 37443584000
+PASS: post written offline, sent through Mix 5 s after Connect. Receipts:
+`evidence/m8-windows/`.
+
+**Offline posts wait instead of failing** (`src/forum_module_backend.cpp`):
+before the user connects, a post is signed, stored as pending (*waiting to
+send*) and `postMessage` returns `queued`; the UI says "Saved — it will be
+sent through Mix as soon as you are connected." and clears the composer.
+Previously it was stored as failed and its text also kept in the composer,
+so a second Send would have posted it twice. A local store error still
+refuses and keeps the text. The "Connecting…" hint is replaced once
+connected, and **Retry stored** appears only when connected
+(`src/qml/Main.qml`). Tests and harnesses updated (`tests/ui-tests.mjs`,
+`tools/m5_cleaninstall.sh`, `store_probe.sh`, `m5b_realhost_gui.sh`).
+`store_probe.sh` now rebuilds `#ui-dev` first: one run used a launcher built
+on 2026-10-04 and probed old code (`store-probe-20261006-114102`, NOTE).
+
+**Receipts (final tree):** `m5-package/polish-20261006/` (core 177/0; UI
+13/13 in `integration-retry-visible-3.log`; an earlier 12/13 was a test
+assertion bug, kept), `store-probe-20261006-*` PASS, `cleaninstall-20261006-115418`
+PASS, `ui-tour-20261006/` (offline + live tours; README images come from
+here; the live tour on macOS received the Windows CI test post).
+
+**Gate:** LOCAL_CANDIDATE_VERIFIED (nothing public yet).
+

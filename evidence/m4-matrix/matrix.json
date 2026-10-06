@@ -19,14 +19,14 @@
       },
       {
         "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-        "sha256": "21e865b2a961bb7082b6fd6785cffa86a5e89b1dd3a48fb427c7985c67237063"
+        "sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed"
       },
       {
-        "artifact": "cleaninstall (real Basecamp: alias + refused post [failed] + text kept)",
-        "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+        "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
+        "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
       }
     ],
-    "store_probe_receipts": 21
+    "store_probe_receipts": 24
   },
   "rows": [
     {
@@ -58,6 +58,10 @@
       "requirement": "Persistent accounts/aliases; no stable identity in anonymous posts",
       "receipts": [
         {
+          "artifact": "m5-package/polish-20261006/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
+        {
           "artifact": "m5-package/polish-20261004/core-tests.txt",
           "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
         },
@@ -86,16 +90,16 @@
           "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
         },
         {
-          "artifact": "m5-package/linkfix/../polish-20261004/integration-win32fix-9.log (13/13, store-backed)",
-          "sha256": "6bfe7b7138bc644169ce83894178c407c69bc11efd16c273e0cc6a057315dd53"
+          "artifact": "m5-package/linkfix/../polish-20261006/integration-retry-visible-3.log (13/13, store-backed)",
+          "sha256": "224e53835a712810a31c8a9a86df05f83cd460840d5e575c049a928a437f62b2"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "21e865b2a961bb7082b6fd6785cffa86a5e89b1dd3a48fb427c7985c67237063"
+          "sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed"
         },
         {
-          "artifact": "cleaninstall (real Basecamp: alias + refused post [failed] + text kept)",
-          "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+          "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
+          "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
         }
       ],
       "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (13/13); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
@@ -115,16 +119,16 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m5-package/linkfix/../polish-20261004/integration-win32fix-9.log (13/13, store-backed)",
-          "sha256": "6bfe7b7138bc644169ce83894178c407c69bc11efd16c273e0cc6a057315dd53"
+          "artifact": "m5-package/linkfix/../polish-20261006/integration-retry-visible-3.log (13/13, store-backed)",
+          "sha256": "224e53835a712810a31c8a9a86df05f83cd460840d5e575c049a928a437f62b2"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "21e865b2a961bb7082b6fd6785cffa86a5e89b1dd3a48fb427c7985c67237063"
+          "sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed"
         },
         {
-          "artifact": "cleaninstall (real Basecamp: alias + refused post [failed] + text kept)",
-          "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+          "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
+          "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
         }
       ],
       "notes": "topic create + list + switch (browse) in CI; posts are replies in a topic's thread (flat, no nested reply-to-reply UI); the shared deterministic General topic carries posts across instances \u2014 two-instance smoke shows the sender's post as [received] in the receiver's thread",
@@ -192,6 +196,10 @@
             "status=PASS"
           ],
           "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        },
+        {
+          "artifact": "m5-package/polish-20261006/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
         },
         {
           "artifact": "m5-package/polish-20261004/core-tests.txt",
@@ -399,6 +407,10 @@
       "requirement": "Hostile/replayed inputs rejected; freshness/coverage honest",
       "receipts": [
         {
+          "artifact": "m5-package/polish-20261006/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
+        {
           "artifact": "m5-package/polish-20261004/core-tests.txt",
           "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
         },
@@ -471,8 +483,8 @@
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
-          "artifact": "m5-package/linkfix/../polish-20261004/integration-win32fix-9.log (13/13, store-backed)",
-          "sha256": "6bfe7b7138bc644169ce83894178c407c69bc11efd16c273e0cc6a057315dd53"
+          "artifact": "m5-package/linkfix/../polish-20261006/integration-retry-visible-3.log (13/13, store-backed)",
+          "sha256": "224e53835a712810a31c8a9a86df05f83cd460840d5e575c049a928a437f62b2"
         },
         {
           "artifact": "m2-core/integration-9.log",
@@ -492,7 +504,7 @@
         },
         {
           "artifact": "docs/CONTRACT.md",
-          "sha256": "bfe3e485890cc7d3c7485fab647e2d1b0d7bdd4c9b2ceeeb4445e32e8863be4d"
+          "sha256": "727debfb71f70a436e219b7ca5062ba0e2636189a072bbc49493b9c08704d8a1"
         },
         {
           "artifact": "docs/LICENSES.md",
@@ -500,15 +512,15 @@
         },
         {
           "artifact": "README.md",
-          "sha256": "7bae21349919c1a30db09040b42282f07727c49a84a668eb78b869e60d7b7821"
+          "sha256": "e54d1273a38c0c6b7aad1cbab47415a831d43b454c9d99012ab3d41b5706048b"
         },
         {
           "artifact": "docs/FURPS.md",
-          "sha256": "9ec6f2e947b5b959da0cc6769334ed3bb93f65c95ef9a58eebd041eae37a3cfc"
+          "sha256": "213d6ae6c92f995d6ed5a712ba7e4d9fa1428824fb07e07f5e02a865f4803401"
         },
         {
           "artifact": ".github/workflows/ci.yml (prepared, activates on push)",
-          "sha256": "99c9ce7e0765cc9fd28655ae1760780f350936f8eb1d1f1f2d4e70fdb57e6f0f"
+          "sha256": "f94bc74188c6fdedbf6193bc45e985bfb80d5a5dca3163658b84f0a2ed96f7c8"
         },
         {
           "artifact": "flake.nix",
@@ -526,10 +538,10 @@
         {
           "claims": {
             "status": "PASS",
-            "lgx_sha256": "e2b09afba835a3398dce69eef7107c4c5b493cf628c2a8df2e7c69f042946421",
+            "lgx_sha256": "eb6de18d3c02c185862641bdf8e5a96f20e2ea943b448853361a7f9cc3787a86",
             "store_flow_in_real_host": true
           },
-          "sha256": "a8cf86e9813226cee5ef6cf887224dc2d5b968f44cc044ad290b76fa2d4e4a96"
+          "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
         },
         {
           "artifact": "tools/demo_walkthrough.sh",
@@ -538,7 +550,7 @@
         },
         {
           "artifact": "tools/m5_cleaninstall.sh",
-          "sha256": "a5a4b8910311d7f93c84003a9c9d71447a76a561220bc0faa2fa1fab153586f0"
+          "sha256": "cdc74a4279ecaa1f18c7eac2f3f8a359e687ce91d27f6d1d44034c31234f0652"
         },
         {
           "artifact": "m5-package/release-app-20261004/NOTE.txt",

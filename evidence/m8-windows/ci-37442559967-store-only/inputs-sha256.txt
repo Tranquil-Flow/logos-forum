@@ -1,0 +1,2 @@
+889736488b51a4fee8036226b155ed657d9a60b9e31bce0bca57e1114cac9efc *win/logos-forum_module-module.lgx
+basecamp setup.exe fd4488e811bf64e9b10c89672bc64a05ec10588cbf1e651f20344f390a41eacd

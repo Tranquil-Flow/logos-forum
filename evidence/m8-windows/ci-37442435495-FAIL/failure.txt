@@ -1,0 +1,3 @@
+windows-basecamp	Run bash tools/windows_smoke.sh win/logos-forum_module-module.lgx	2026-10-06T09:22:20.4531682Z tar: D\:\a\\_temp/forum-smoke/unpack-forum_module: Cannot open: No such file or directory
+windows-basecamp	Run bash tools/windows_smoke.sh win/logos-forum_module-module.lgx	2026-10-06T09:22:20.4532603Z tar: Error is not recoverable: exiting now
+windows-basecamp	Run bash tools/windows_smoke.sh win/logos-forum_module-module.lgx	2026-10-06T09:22:20.4756208Z ##[error]Process completed with exit code 2.

@@ -1,0 +1,5 @@
+STALE LAUNCHER — not a verdict on the current tree. This probe ran
+result-ui-dev built 2026-10-04 19:12 (before the offline-wait change, so the
+old "Not sent (unavailable)" / [failed] behaviour shows), while its stage-3
+assertions were already updated to the new behaviour, hence "FAIL". The probe
+now rebuilds #ui-dev first (tools/store_probe.sh); see the next store-probe-*.

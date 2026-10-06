@@ -1,0 +1,1 @@
+windows-basecamp	Run actions/download-artifact@v4	2026-10-06T09:20:33.1854624Z ##[error]Unable to download artifact(s): Resource not accessible by integration

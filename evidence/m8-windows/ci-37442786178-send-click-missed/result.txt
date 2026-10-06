@@ -1,0 +1,3 @@
+forum.db after 8s
+after Send, offline: none
+post not sent within 240 s of connecting: none

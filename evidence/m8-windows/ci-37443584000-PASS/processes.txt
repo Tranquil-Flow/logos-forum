@@ -1,0 +1,17 @@
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+LogosBasecamp.exe             3228 Console                    2    243,636 K
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+logos_host.exe                6796 Console                    2     19,196 K
+logos_host.exe                5128 Console                    2     17,328 K
+logos_host.exe                7112 Console                    2     18,280 K
+logos_host.exe                7232 Console                    2     33,368 K
+logos_host.exe                5572 Console                    2     29,380 K
+logos_host.exe                6660 Console                    2     69,620 K
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+ui-host.exe                   3236 Console                    2     19,904 K

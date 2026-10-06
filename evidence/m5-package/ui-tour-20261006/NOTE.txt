@@ -1,0 +1,16 @@
+UI tour on the final 2026-10-06 tree (tools/ui_tour.mjs, freshly built
+#ui-dev launcher, macOS). README images are copied from here:
+  docs/img/forum-first-start.png     <- offline/01-first-start.png
+  docs/img/forum-identity-rotation.png <- offline/05-identity-rotation.png
+  docs/img/forum-connected.png       <- live/04-history-loaded.png
+
+offline/ (--features, local store only): a post written before connecting is
+shown "waiting to send", the composer is empty, the line reads "Saved — it
+will be sent through Mix as soon as you are connected."
+
+live/ (--live, public logos.dev): Connect -> "Connected to logos.dev · sending
+through Mix"; Load older posts -> "loaded 54 messages from the last 7 days on
+the network store; 38 posts recovered in total". The newest row is the test
+post sent by the Windows CI check (CI run 37443584000, Basecamp 0.3.1 on a
+Windows runner): received here on macOS from the network's store — Windows
+sent it through Mix, this Mac (another machine, another OS) read it back.

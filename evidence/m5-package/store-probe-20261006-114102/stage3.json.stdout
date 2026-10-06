@@ -1,0 +1,13 @@
+=== stage 3: topic create + post (no transport) ===
+{
+  "stage3": "PASS",
+  "topic_outcome": "Topic created",
+  "send_outcome": "Not sent (unavailable) — your text is kept here. Connect to the Logos network to send it.",
+  "threadPosts": [
+    "id e272cf44f6316f9e [failed]: TECHNICAL TEST DATA: store_probe stage3"
+  ],
+  "thread_has_pending": false,
+  "thread_has_body": true,
+  "composer_cleared": false
+}
+FAIL: stage 3 driver crashed

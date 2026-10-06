@@ -3240,6 +3240,70 @@
   }
  },
  {
+  "file": "evidence/m5-package/cleaninstall-20261006-114115/basecamp.log",
+  "original_sha256": "9beb13e222e447524eb89299aeef990c24f2c0b57b3ea4be2281e3073deeefd7",
+  "published_sha256": "78a4e7f9a08d6cb3cbef62bfe88f297f6891d30fe78c6b8b8b9ce76b0a0e5aa7",
+  "rules": {
+   "home-dir": 3
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-114115/profile-files.txt",
+  "original_sha256": "e3dda0c4d3c8d931fdc2e0e246146cbb7cb93a7d9574ac2010bded83e4504c0a",
+  "published_sha256": "3941ee1c7b51b5808bc17b8b12c38723c49f55763a78a1fc1776d370ddf1160b",
+  "rules": {
+   "home-dir": 29
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-114115/result.json",
+  "original_sha256": "78782affac13f4e3f49a8f1a8bdcf8bdf98a8fc28ea4b0568ea0c15dc17e6c96",
+  "published_sha256": "dd5fda18c9ed459702779e73dc4e2d199f4b37298f36691bffe02d7ad2bba84c",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-114115/store-path.txt",
+  "original_sha256": "e92da2debad5399832b6bd5ddd8e23e257c744afd7a23debc35005b111f26e14",
+  "published_sha256": "56e04270e86124cdfdcbdc2c06a23f0acbd20f2dd5dfe3593bb58d2999cd921e",
+  "rules": {
+   "home-dir": 3
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-115418/basecamp.log",
+  "original_sha256": "430512f7b784e5e8d520a18adf0219cb3af084ff4f88bd4bb86f8bf75bdd3e61",
+  "published_sha256": "c5eb42f3875c8df3777b2f1a48999d4751832d9500762f88c93e90f516f8b3c3",
+  "rules": {
+   "home-dir": 3
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-115418/profile-files.txt",
+  "original_sha256": "e3dda0c4d3c8d931fdc2e0e246146cbb7cb93a7d9574ac2010bded83e4504c0a",
+  "published_sha256": "3941ee1c7b51b5808bc17b8b12c38723c49f55763a78a1fc1776d370ddf1160b",
+  "rules": {
+   "home-dir": 29
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-115418/result.json",
+  "original_sha256": "f66b66f4162aa8cb79a968ddcc1925c305e6616c2d68e9f42ee1ca50f88267c4",
+  "published_sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/cleaninstall-20261006-115418/store-path.txt",
+  "original_sha256": "e92da2debad5399832b6bd5ddd8e23e257c744afd7a23debc35005b111f26e14",
+  "published_sha256": "56e04270e86124cdfdcbdc2c06a23f0acbd20f2dd5dfe3593bb58d2999cd921e",
+  "rules": {
+   "home-dir": 3
+  }
+ },
+ {
   "file": "evidence/m5-package/cleaninstall-run3.log",
   "original_sha256": "1e97efce53e05b85207ec67ec6241ca71d58a0ecb3e8b9ae6940edc5c74c0b6a",
   "published_sha256": "5ba0df3221018e896fa8714a1b3eab4c21326ea568dc9e0d967ad84baf2556a5",
@@ -3312,6 +3376,14 @@
   }
  },
  {
+  "file": "evidence/m5-package/polish-20261004/integration-connected-hint-10.log",
+  "original_sha256": "c3ea872423d2b033c2070f34bc606f8c846e7ed058846a8a00e68fca81a80dac",
+  "published_sha256": "70bd34f96ef42c4dd85cbf58a55a955174de9e3de88012d8e8dfe683b659f976",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m5-package/polish-20261004/integration-toggle-1-FAIL.log",
   "original_sha256": "591c16736d3a69cff8dadd15b7c641f6316ee9601aeb3e19ba333a35c8c8981b",
   "published_sha256": "47a60294e679aa429c41664cc87a0bb0ba078932df28105d0341b64b7da8d06c",
@@ -3347,6 +3419,14 @@
   "file": "evidence/m5-package/polish-20261004/integration-toggle-5-FAIL.log",
   "original_sha256": "2ee35200a04568261d9f4718cf150152f31b3f6c40e73f7ea1922b3bbf3d5089",
   "published_sha256": "c5be4df40f155f767abf095ca8e5c3323ca5afe4f23705e1e6c2046c97594b42",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/polish-20261006/integration-offline-wait-1.log",
+  "original_sha256": "286ead371a0c7a76dd27ba647e113dd11b70ccf0fccfab48c3bdd0ca467d66e4",
+  "published_sha256": "dfb140326eafc1b892ca6d78d9fde4c2c57e2bc121b9dab6f74b46f401df6403",
   "rules": {
    "repo-path": 1
   }
@@ -3962,6 +4042,57 @@
   }
  },
  {
+  "file": "evidence/m5-package/store-probe-20261006-114102/host.log",
+  "original_sha256": "5d08fe4b06b242cdac7de710fce397b55f1324172f772808a027bfb202455448",
+  "published_sha256": "eb0c7cf2894a5f87023c49d52bd99a3d3a1b7a30107b739bdd5c2fa2eb0958c4",
+  "rules": {
+   "repo-path": 3,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/store-probe-20261006-114102/result.json",
+  "original_sha256": "89106955e615fd7df84ebfef46af92b7f85373662bb8cf38a3cf5a9f4058c7ab",
+  "published_sha256": "0d9a059fcf7456a6ef21626d9867e151fc8ce8940dbe665daff060ca744b7345",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/store-probe-20261006-114313/host.log",
+  "original_sha256": "ed2a518dc0ea9ff3030ffad5336bba33b89eccb03aec3fcd68fb38198fb0213a",
+  "published_sha256": "35995a6a88ba159a7a0fe1d016bd7d0cc2198b1495091a96ddc82a563f12c5ac",
+  "rules": {
+   "repo-path": 3,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/store-probe-20261006-114313/result.json",
+  "original_sha256": "1e15b51ce299e31e38fec8c0284d3e7341a70359d80a830995aed9289cb4cc09",
+  "published_sha256": "a0ef70bc3203e4a2ff899d4144d96854309df05d74bc37bb80bfb6b2ed55c1d4",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/store-probe-20261006-115248/host.log",
+  "original_sha256": "1f78ccf651308d4e878f4c3fdca0779c5736153e3a100571149bda3426421859",
+  "published_sha256": "6f565444d2354deb2efd440b8854466f2b927fdc8ed83022d50164d7b20aa8ea",
+  "rules": {
+   "repo-path": 3,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/store-probe-20261006-115248/result.json",
+  "original_sha256": "26d7d1be8c63e806eb0b49bf4fd6684e8ab5da656009828e4d3650893dbdb464",
+  "published_sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed",
+  "rules": {
+   "repo-path": 1
+  }
+ },
+ {
   "file": "evidence/m5-package/ui-tour-20261004-190553/app.log",
   "original_sha256": "abcd0782a4526bff66810a883e4719d1bb23f3e07522954ae2eb64f99b795f20",
   "published_sha256": "5fe6150d7b2dd23170463fea3f992bed97ba4cfcee85b25a68c775591ded7490",
@@ -3983,6 +4114,24 @@
   "file": "evidence/m5-package/ui-tour-20261004-191248/app.log",
   "original_sha256": "b7d3786dfcf29ceb361529e0ab5fb87db78f2067e2e9c5408b6363e00b6e7530",
   "published_sha256": "e85667bc524a4fe0e9ef5914bca318c8af6952ddcc9ca1988717f3102f45dd62",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/ui-tour-20261006/live/app.log",
+  "original_sha256": "0418a8c474a495cf8b45518df23b9775ef1ed76a201ff991b0f94648196f36b3",
+  "published_sha256": "3e55b83cf4b7ae47a8d2af476963884f7e3021707afa4ae32c2daf6d979e4d1e",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/ui-tour-20261006/offline/app.log",
+  "original_sha256": "b6c0f7b6a76c981f324c21c5594cf23e7606c8f3a1916158a8f3dbd1fe20b1b2",
+  "published_sha256": "eccb269db1d8ff8312a0ef149f74591846a1387a182e4c885fc12da72f452a60",
   "rules": {
    "repo-path": 2,
    "home-dir": 1

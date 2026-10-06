@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "layer": "m5-clean-install",
+  "lgx_sha256": "5e8e33a006b70db1d1151faad221135a8b1cc4ea18f6e927a861a3b098fd875f",
+  "variant": "darwin-arm64-dev",
+  "fresh_profile": true,
+  "isolated_user_dir": true,
+  "ui_drive": {
+    "tile_clicked": true,
+    "module_view": true,
+    "details_opened": true,
+    "Module ready": true,
+    "Backend status: Ready": true,
+    "Transport: no transport configured \u2014 posting unavailable (Required policy)": true,
+    "alias_text_set": true,
+    "alias_click": "Add alias",
+    "alias_created": true,
+    "identity_hint": "Identity: m5-alice \u00b7 id 878c827b7bc4486e \u2014 your posts are linkable to each other",
+    "identity_shown": true,
+    "post_text_set": true,
+    "send_click": "Send",
+    "saved_shown": true,
+    "pending_row": "m5-alice \u00b7 id 878c827b7bc4486e [pending]: TECHNICAL TEST DATA: m5 clean-install post",
+    "pending_row_shown": true,
+    "composer_cleared": true
+  },
+  "store_flow_in_real_host": true,
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/cleaninstall-20261006-114115"
+}

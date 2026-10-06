@@ -1,0 +1,34 @@
+=== stage 1: 'Check transport' → store() opened? ===
+{
+  "stage1": "PASS",
+  "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+  "direct_has_outbox": false,
+  "outcome": "delivery: present (loaded; node not created yet); storage: present (v3.0.0); outbox: 28 posts waiting to send; privacy: unverified until a Required send completes",
+  "outcome_has_outbox": true,
+  "transportState_before": "no transport configured — posting unavailable (Required policy)",
+  "transportState_after": "no transport configured — posting unavailable (Required policy)",
+  "transportState_changed": false,
+  "accounts": [
+    "demo"
+  ],
+  "topics": [
+    "ab7f9e2c1dc288f547f11564303225ff3e87ab332f3de2f438343dd63297a6b0|Probe Topic (1)|0",
+    "7947b86778afc6752a15be2e09653acc3b00b61c4c8ffacef01006b991073f13|Probe Topic (1)|0",
+    "683c6cdf887c207a9500c7e87e83fc739e647c1e84865ae1b5c61731a0ce0e99|Probe Topic (1)|0",
+    "0f77347de9f47d770171c261e452f81b2d926d1ed99bb564085c34894664bfe7|Probe Topic (1)|0",
+    "8f0a388ea6d489389cb0d40ac46cabcdbc7c3654d35cf18d47d016c33f46d786|Probe Topic (1)|0",
+    "21c2aaf3c2c1b92af6a4dad69a51d28d090198c983f2110230997f1d8ab600ef|Probe Topic (1)|0",
+    "2f45d55a3d0e15f8d7be1454e024a3479b861077685e1246c145e8cfc4d1e84b|Probe Topic (1)|1",
+    "866d302ae597ac00abb0ef123a4a6b5cb22ad8cd644ca11f330685dea6ee0d82|Probe Topic (1)|1",
+    "6e6bdac5cc9af0b2a646d1be4d7f2c1d4e6d12fd4d0d070b440531bc7d2c15bf|Probe Topic (1)|1",
+    "30850bab21863f28916b7c3f238c846b767cd7ca273a90a879d1b6eaf170233b|Probe Topic (1)|1",
+    "d0c1800e3461ca16928e3396799e96a77da7e378fc68bc5ce1e5b47d0429156d|Probe Topic (1)|1",
+    "2c8b7639bd4a3ed30140f0d854354f53680fe5b6a4245cd2aa02ffdb4ea8bce3|Probe Topic (1)|1",
+    "0659db102e33bc8b71edcdbcbf946f124ee6248a203e491973e88fb718c08e5e|Probe Topic (1)|1",
+    "6b635c337b987a6c9383dee6bad13e9a30f0e9045a9a5acc075c8f0cab4603f1|Probe Topic (0)|0",
+    "c09f15320af5b70cb05faa91bd3022d1599ccfbe8f8769f5853ef7c9cbce5874|General (0)|0",
+    "6dd197737fd8823d246042887f3199242e632bb00c0ffefb3e5699520d052344|General (0)|0"
+  ],
+  "threadPosts_count": 0,
+  "diagnosis": "outbox observed via QML watch only; direct read did not expose slot result"
+}

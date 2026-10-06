@@ -7,3 +7,7 @@ integration-toggle-3-FAIL.log: exact matching did not change the result; the ret
 integration-toggle-4-FAIL.log: the click matched "Check transport" yet outcome.text still showed the recheck text; diagnostic run with geometry logging follows (integration-toggle-5.log).
 
 integration-toggle-5-FAIL.log (diagnostic): before the click, checkButton and recheckButton report the same scene position (20,708). The headless test window renders no frames, so the layout never re-positions buttons that become visible; the synthesised mouse click at that point reaches Re-check. A real window lays them out on the next frame. Fix (test only): open "Network details" by mouse, then emit checkButton.clicked() (integration-toggle-6.log).
+
+2026-10-06: integration-connected-hint-10.log is a run STOPPED by hand
+mid-build (incomplete, no verdict): the source changed under it (offline
+posts now wait instead of failing — see ../polish-20261006/NOTE.txt).

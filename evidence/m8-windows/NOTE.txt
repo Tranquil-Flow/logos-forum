@@ -1,0 +1,29 @@
+Forum on Windows — the official Basecamp 0.3.1 app on a GitHub-hosted
+windows-latest runner (real desktop session, 1024x768), driven by
+tools/windows_smoke.sh. Package: CI artifact forum-lgx-windows of run
+37232663252 (sha256 88973648…, see inputs-sha256.txt), i.e. the code
+before the 2026-10-06 offline-wait fix; the post-fix package is checked by
+the main-branch CI run (ci-main-* below, added when it completes).
+
+Trial runs on a scratch branch (harness development, in order):
+  ci-37442253129-FAIL  artifact download refused (job lacked actions: read)
+  ci-37442347321-FAIL  Git Bash sha256sum prefixes "\" for Windows paths
+  ci-37442435495-FAIL  tar read "D:\..." as a remote host (needs cygpath)
+  ci-37442559967-store-only  PASS: Forum loads, store opens after 9 s
+                       (screen.png: Forum, offline, Module ready).
+  ci-37442786178-send-click-missed  store PASS; the click aimed at Send
+                       landed in the text box (the button moves once text is
+                       entered), so no post was sent. Its screenshots showed
+                       Connect working ("Connected to logos.dev · sending
+                       through Mix") and a stale "Connecting…" line.
+  ci-37443584000-PASS  post written offline (Ctrl+Enter), then Connect: sent
+                       through Mix 5 s later (result.txt). 2-written-offline
+                       .png shows the old behaviour — stored as "not sent —
+                       kept for retry" while the text stayed in the composer —
+                       fixed the same day (m5-package/polish-20261006/NOTE.txt).
+                       This post was later received on macOS from the
+                       network's store (m5-package/ui-tour-20261006/live/
+                       04-history-loaded.png).
+
+Not covered here: a person using it on their own Windows machine, and
+receive / history / Storage snapshot driven on Windows.

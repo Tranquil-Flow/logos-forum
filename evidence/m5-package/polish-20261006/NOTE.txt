@@ -1,0 +1,31 @@
+2026-10-06 — offline posts wait instead of failing; "Connecting…" hint cleared.
+
+Found by the Windows CI check (CI runs 37442786178 / 37443584000, screenshots):
+1. A post written before connecting was stored as [failed] ("not sent — kept
+   for retry", red) AND its text stayed in the composer. It was sent on
+   connect, but pressing Send again would have posted it twice.
+   Fix (src/forum_module_backend.cpp, submitPost): not connected -> the
+   signed post is stored as pending ("waiting to send") and postMessage
+   returns "queued"; the UI says "Saved — it will be sent through Mix as soon
+   as you are connected." and clears the composer. Still Mix-only: it goes
+   out after the user connects. A local store error still refuses and keeps
+   the text ("unavailable").
+2. After connecting, the line under the composer still said "Connecting…"
+   while the header said Connected. Fix (src/qml/Main.qml): the hint is
+   replaced once the connection is reported.
+
+Tests updated to the new contract (tests/ui-tests.mjs; tools/m5_cleaninstall.sh,
+store_probe.sh, m5b_realhost_gui.sh); README/FURPS/CONTRACT wording updated.
+
+core-tests.txt: 177 checks, 0 failures.
+integration-offline-wait-1.log: 12/13 — the new first test compared the
+  inspector's whole reply with startsWith (test bug; the outcome text shown
+  in the failure is the correct one). Kept as a receipt.
+integration-offline-wait-2.log: 13/13 after the assertion fix.
+
+3. "Retry stored" was offered while offline, where it can only say the
+   transport is not ready. It now shows only when connected (offline, waiting
+   posts go out on Connect anyway). src/qml/Main.qml.
+integration-retry-visible-3.log: UI suite on the final tree, all passed.
+store-probe-20261006-114102: stale launcher (see its NOTE); 114313: PASS on
+  the offline-wait tree; a later store-probe-* runs the final tree.

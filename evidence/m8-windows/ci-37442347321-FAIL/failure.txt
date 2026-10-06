@@ -1,0 +1,2 @@
+windows-basecamp	Run bash tools/windows_smoke.sh win/logos-forum_module-module.lgx	2026-10-06T09:21:25.0817764Z sha256 mismatch for https://github.com/logos-co/logos-basecamp/releases/download/0.3.1/LogosBasecamp-Desktop-v0.3.1-aeb819-x86_64-windows-setup.exe: \fd4488e811bf64e9b10c89672bc64a05ec10588cbf1e651f20344f390a41eacd
+windows-basecamp	Run bash tools/windows_smoke.sh win/logos-forum_module-module.lgx	2026-10-06T09:21:25.0873589Z ##[error]Process completed with exit code 1.
