@@ -24,6 +24,10 @@ namespace forum {
 
 constexpr size_t kMaxBody = 4096;
 constexpr size_t kMaxAlias = 64;
+constexpr size_t kMaxTitle = 128;                 // topic titles
+// Received events dated further ahead than this are refused: one event could
+// otherwise pin its topic to the top of every reader's list.
+constexpr int64_t kMaxFutureSkewMs = 60LL * 60 * 1000;
 constexpr const char* kDomainPrefix = "forum-v1|";
 
 struct KeyPair {
@@ -60,7 +64,7 @@ struct Event {
     std::string signature; // hex
 };
 
-enum class MergeResult { Accepted, Duplicate, Invalid };
+enum class MergeResult { Accepted, Duplicate, Invalid, StoreError };
 
 struct PostRecord {
     std::string event_id, forum_id, type, topic_id, parent_id;
@@ -139,7 +143,9 @@ public:
     // Durable store-before-send. Returns false if the event id already exists.
     bool enqueue(const Event& e, const std::string& privacy);
     // Verify signature + id + bounds, then insert-or-ignore by event id.
+    // now_ms is the receiver's clock (the system clock when omitted).
     MergeResult merge_verified(const Event& e);
+    MergeResult merge_verified(const Event& e, int64_t now_ms);
     bool mark_state(const std::string& event_id, const std::string& state,
                     const std::string& err = "");
     // Reconstruct the ORIGINAL signed event for a stored row — retry resends

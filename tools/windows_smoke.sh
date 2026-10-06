@@ -62,8 +62,12 @@ seed "$WORK/delivery.lgx" modules delivery_module
 seed "$WORK/storage.lgx" modules storage_module
 { sha256sum "$LGX"; echo "basecamp setup.exe $SETUP_SHA"; } > "$OUT/inputs-sha256.txt"
 
-LOGOS_NO_SCHEME_REGISTER=1 "$BIN" --user-dir "$(cygpath -w "$PROFILE")" \
-  --uri=basecamp://app/forum_module > "$OUT/basecamp-stdout.log" 2>&1 &
+launch() {
+  LOGOS_NO_SCHEME_REGISTER=1 "$BIN" --user-dir "$(cygpath -w "$PROFILE")" \
+    --uri=basecamp://app/forum_module >> "$OUT/basecamp-stdout.log" 2>&1 &
+}
+: > "$OUT/basecamp-stdout.log"
+launch
 DB="$PROFILE/module_data/forum_module/forum.db"
 ok=0
 for i in $(seq 1 120); do
@@ -81,9 +85,19 @@ shot() { # name — the whole screen (the runner has a real desktop session)
 click() { # x y — screen coordinates of the 1024x768 runner desktop
   powershell -NoProfile -Command "
     Add-Type -MemberDefinition '[DllImport(\"user32.dll\")] public static extern bool SetCursorPos(int x, int y); [DllImport(\"user32.dll\")] public static extern void mouse_event(int f, int x, int y, int d, int e);' -Name U -Namespace W
-    [W.U]::SetCursorPos($1, $2); Start-Sleep -Milliseconds 200
+    [void][W.U]::SetCursorPos($1, $2); Start-Sleep -Milliseconds 200
     [W.U]::mouse_event(2,0,0,0,0); [W.U]::mouse_event(4,0,0,0,0)"
   sleep 1
+}
+on_screen() { # name — is a control with this accessible name visible?
+  powershell -NoProfile -Command "
+    Add-Type -AssemblyName UIAutomationClient, UIAutomationTypes
+    \$c = New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::NameProperty, '$1')
+    \$all = [System.Windows.Automation.AutomationElement]::RootElement.FindAll([System.Windows.Automation.TreeScope]::Descendants, \$c)
+    if (\$all | Where-Object { -not \$_.Current.IsOffscreen }) { exit 0 } else { exit 1 }" >/dev/null 2>&1
+}
+to_front() { # bring Basecamp's window forward (the runner's console may cover it)
+  powershell -NoProfile -Command "(New-Object -ComObject WScript.Shell).AppActivate('Logos Basecamp')" >/dev/null 2>&1 || true
 }
 click_named() { # name x y — a control found by its accessible name (UI
   # Automation), else the given coordinates; prints which one was used.
@@ -101,20 +115,16 @@ type_text() {
   powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('$1')"
   sleep 1
 }
-post_state() { # state of the newest post, read from the profile's store
+sql() { # query — the first row of a read-only query on the profile's store
   python -c "
 import sqlite3,sys
 c=sqlite3.connect('file:'+sys.argv[1]+'?mode=ro',uri=True)
-r=c.execute(\"select state,privacy from posts where type='post' order by rowid desc limit 1\").fetchone()
-print(' '.join(r) if r else 'none')" "$(cygpath -w "$DB")" 2>/dev/null || echo "unreadable"
+r=c.execute(sys.argv[2]).fetchone()
+print(' '.join(str(x) for x in r) if r else 'none')" "$(cygpath -w "$DB")" "$1" 2>/dev/null || echo "unreadable"
 }
+post_state() { sql "select state,privacy from posts where type='post' order by rowid desc limit 1"; }
 
-count() { # SQL count over the profile's store
-  python -c "
-import sqlite3,sys
-c=sqlite3.connect('file:'+sys.argv[1]+'?mode=ro',uri=True)
-print(c.execute(sys.argv[2]).fetchone()[0])" "$(cygpath -w "$DB")" "$1" 2>/dev/null || echo 0
-}
+count() { local n; n=$(sql "$1"); case "$n" in ''|*[!0-9]*) echo 0 ;; *) echo "$n" ;; esac; }
 wait_for() { # seconds label command... — poll until the command succeeds
   local n="$1" label="$2"; shift 2
   for i in $(seq 1 "$n"); do
@@ -124,14 +134,11 @@ wait_for() { # seconds label command... — poll until the command succeeds
   echo "$label: not within ${n}s" | tee -a "$OUT/result.txt"; return 1
 }
 SNAPS="$PROFILE/module_data/forum_module/forum-snapshots"
+# The announcement title is kSnapshotTitle in src/forum_module_backend.cpp.
 snapshot_saved() { ls "$SNAPS"/topic-*.txt >/dev/null 2>&1 \
   && [ "$(count "select count(*) from posts where body like 'Snapshot of this topic%' and state='sent'")" -gt 0 ]; }
 snapshot_restored() { for f in "$SNAPS"/restore-*.txt; do [ -s "$f" ] && return 0; done; return 1; }
 history_received() { [ "$(count "select count(*) from posts where state='received'")" -gt 0 ]; }
-launch() {
-  LOGOS_NO_SCHEME_REGISTER=1 "$BIN" --user-dir "$(cygpath -w "$PROFILE")" \
-    --uri=basecamp://app/forum_module >> "$OUT/basecamp-stdout.log" 2>&1 &
-}
 stop_app() {
   taskkill //F //T //IM LogosBasecamp.exe >/dev/null 2>&1 || true
   taskkill //F //IM ui-host.exe >/dev/null 2>&1 || true
@@ -139,13 +146,14 @@ stop_app() {
   sleep 3
 }
 
+POST="TEST POST - automated Windows check, CI run ${GITHUB_RUN_ID:-local} - test data, please ignore"
 sent=0 saved=0 restored=0 history=0 kept=0
 if [ "$ok" = 1 ]; then
   sleep 5 # let the window finish drawing
   shot 1-opened
   # Write a post while offline: it must be kept on the device, waiting.
   click 572 592
-  type_text "TEST POST - automated Windows check, CI run ${GITHUB_RUN_ID:-local} - test data, please ignore"
+  type_text "$POST"
   type_text "^{ENTER}"   # Ctrl+Enter: the composer's send shortcut
   sleep 2
   echo "after Send, offline: $(post_state)" | tee -a "$OUT/result.txt"
@@ -182,14 +190,16 @@ if [ "$sent" = 1 ]; then
   echo "received posts: $(count "select count(*) from posts where state='received'")" | tee -a "$OUT/result.txt"
   sleep 3
   shot 6-history
-  # Restart: the same profile opens with its posts and no network call.
+  # Restart: the same profile reopens and shows the post without connecting.
   before=$(count "select count(*) from posts")
   stop_app
   launch
-  sleep 20
+  post_shown() { to_front; on_screen "$POST"; }
+  wait_for 120 "after restart: the test post is shown again" post_shown && shown=1 || shown=0
   after=$(count "select count(*) from posts")
   echo "posts before restart: $before, after: $after" | tee -a "$OUT/result.txt"
-  [ "$after" -ge "$before" ] && [ "$before" -gt 0 ] && kept=1
+  [ "$shown" = 1 ] && [ "$after" -ge "$before" ] && [ "$before" -gt 0 ] && kept=1
+  sleep 2
   shot 7-restarted
 fi
 tasklist //FI "IMAGENAME eq LogosBasecamp.exe" > "$OUT/processes.txt" || true
@@ -213,6 +223,6 @@ fail=0
   || { echo "FAIL: snapshot not fetched back"; fail=1; }
 [ "$history" = 1 ] && echo "PASS: posts from the network's history received" \
   || { echo "FAIL: nothing received from the network's history"; fail=1; }
-[ "$kept" = 1 ] && echo "PASS: posts kept across a restart" \
+[ "$kept" = 1 ] && echo "PASS: posts kept and shown again after a restart" \
   || { echo "FAIL: posts not kept across a restart"; fail=1; }
 exit "$fail"

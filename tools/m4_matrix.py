@@ -136,7 +136,7 @@ def main():
     current_smoke_passes = [d.name for d in smoke_pass if d.name >= "smoke-20261003-2"]
 
     core_logs = []
-    for name in ("m5-package/bugfix-20261006/core-tests.txt", "m5-package/polish-20261006/core-tests.txt", "m5-package/polish-20261004/core-tests.txt", "m5-package/linkfix/core-tests-age-1.log", "m5-package/linkfix/core-tests-parse-1.log", "m5-package/linkfix/core-tests-tsfix.txt", "m5-package/linkfix/core-tests-final.txt",
+    for name in ("m5-package/bugfix2-20261006/core-tests.txt", "m5-package/bugfix-20261006/core-tests.txt", "m5-package/polish-20261006/core-tests.txt", "m5-package/polish-20261004/core-tests.txt", "m5-package/linkfix/core-tests-age-1.log", "m5-package/linkfix/core-tests-parse-1.log", "m5-package/linkfix/core-tests-tsfix.txt", "m5-package/linkfix/core-tests-final.txt",
                  "m2-core/core-tests-5.log", "m3-archive/core-tests-archive-3.log"):
         p = EVID / name
         if p.exists():
@@ -146,7 +146,7 @@ def main():
     # Newest store-backed suite receipt (identity-modes suite first, then the
     # first post-fix suite); "N passed, 0 failed" is parsed, never assumed.
     integ_final, integ_n = None, 0
-    for name in ("../bugfix-20261006/integration-1.log", "../polish-20261006/integration-retry-visible-3.log", "../polish-20261004/integration-win32fix-9.log", "../polish-20261004/integration-storeopen-7.log", "integration-final-tree-2.log", "integration-final-tree.log", "integration-age-1.log", "integration-features-3.log", "integration-tsfix.log", "integration-redesign.log", "integration-history.log", "integration-connect-2.log",
+    for name in ("../bugfix2-20261006/integration-2.log", "../bugfix-20261006/integration-1.log", "../polish-20261006/integration-retry-visible-3.log", "../polish-20261004/integration-win32fix-9.log", "../polish-20261004/integration-storeopen-7.log", "integration-final-tree-2.log", "integration-final-tree.log", "integration-age-1.log", "integration-features-3.log", "integration-tsfix.log", "integration-redesign.log", "integration-history.log", "integration-connect-2.log",
                  "integration-uid.log", "integration-final.log"):
         cand = (lf / name).resolve()
         m = re.search(r"(\d+) passed, 0 failed", cand.read_text(errors="replace")) if cand.exists() else None

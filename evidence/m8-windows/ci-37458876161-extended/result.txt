@@ -1,0 +1,14 @@
+forum.db after 17s
+after Send, offline: pending required
+post sent required after connecting 5s
+click 'Save snapshot' at 845 257 (by name)
+True
+snapshot saved and announced after 4s
+click 'Restore these posts' at 466 435 (by name)
+True
+snapshot fetched from Logos Storage after 1s
+click 'Load older posts' at 952 257 (by name)
+True
+history: received posts in the store after 1s
+received posts: 42
+posts before restart: 44, after: 44

@@ -1,6 +1,7 @@
 #include "forum_core.h"
 
 #include <algorithm>
+#include <chrono>
 #include <map>
 
 #include <sodium.h>
@@ -361,6 +362,12 @@ bool Store::enqueue(const Event& e, const std::string& privacy)
 
 MergeResult Store::merge_verified(const Event& e)
 {
+    const auto now = std::chrono::system_clock::now().time_since_epoch();
+    return merge_verified(e, std::chrono::duration_cast<std::chrono::milliseconds>(now).count());
+}
+
+MergeResult Store::merge_verified(const Event& e, int64_t now_ms)
+{
     if (!m_ok) return MergeResult::Invalid;
     if (e.id.size() != 64 || e.signature.size() != 128) return MergeResult::Invalid;
     if (e.canonical.rfind(kDomainPrefix, 0) != 0) return MergeResult::Invalid;
@@ -380,6 +387,15 @@ MergeResult Store::merge_verified(const Event& e)
     if (body.empty() || body.size() > kMaxBody) return MergeResult::Invalid;
     const std::string alias = field("alias");
     if (!valid_alias(alias)) return MergeResult::Invalid;
+    if (field("type") == "topic" && body.size() > kMaxTitle) return MergeResult::Invalid;
+    // The signed timestamp (authored time) — not 0, so received rows sort
+    // with local ones. Non-numeric/absent ts degrades to 0, never rejects;
+    // a time too far in the future is refused (see kMaxFutureSkewMs).
+    const std::string ts_field = field("ts");
+    char* ts_end = nullptr;
+    long long ts = std::strtoll(ts_field.c_str(), &ts_end, 10);
+    if (ts_field.empty() || ts_end == nullptr || *ts_end != '\0' || ts < 0) ts = 0;
+    if (ts > now_ms + kMaxFutureSkewMs) return MergeResult::Invalid;
     // Signature check (domain-separated canonical bytes).
     if (!verify(author, e.canonical, e.signature)) return MergeResult::Invalid;
 
@@ -394,12 +410,6 @@ MergeResult Store::merge_verified(const Event& e)
             "created_ms)"
             " VALUES(?,?,?,?,?,?,?,?,?,?,'received','required','',?,0)", -1, &st, nullptr)
         == SQLITE_OK) {
-        // The signed timestamp (authored time) — not 0, so received rows sort
-        // with local ones. Non-numeric/absent ts degrades to 0, never rejects.
-        const std::string ts_field = field("ts");
-        char* ts_end = nullptr;
-        long long ts = std::strtoll(ts_field.c_str(), &ts_end, 10);
-        if (ts_field.empty() || ts_end == nullptr || *ts_end != '\0' || ts < 0) ts = 0;
         const std::string forum = field("forum");
         const std::string type = field("type");
         const std::string topic = field("topic");
@@ -419,19 +429,18 @@ MergeResult Store::merge_verified(const Event& e)
         sqlite3_finalize(st);
     }
     exec_sql(db, accepted ? "COMMIT;" : "ROLLBACK;");
-    // Distinguish duplicate from invalid: if insert didn't change rows but the
-    // event verified, it already existed.
-    if (!accepted) {
-        sqlite3_stmt* q = nullptr;
-        if (sqlite3_prepare_v2(db, "SELECT 1 FROM posts WHERE event_id=?", -1, &q, nullptr)
-            == SQLITE_OK) {
-            sqlite3_bind_text(q, 1, e.id.c_str(), -1, SQLITE_TRANSIENT);
-            if (sqlite3_step(q) == SQLITE_ROW) accepted = false; // duplicate
-            sqlite3_finalize(q);
-        }
-        return MergeResult::Duplicate; // verified but already present
+    if (accepted) return MergeResult::Accepted;
+    // Verified but not inserted: a duplicate only if the row is really there
+    // (a busy or full database is an error, not "already here").
+    bool present = false;
+    sqlite3_stmt* q = nullptr;
+    if (sqlite3_prepare_v2(db, "SELECT 1 FROM posts WHERE event_id=?", -1, &q, nullptr)
+        == SQLITE_OK) {
+        sqlite3_bind_text(q, 1, e.id.c_str(), -1, SQLITE_TRANSIENT);
+        present = sqlite3_step(q) == SQLITE_ROW;
+        sqlite3_finalize(q);
     }
-    return MergeResult::Accepted;
+    return present ? MergeResult::Duplicate : MergeResult::StoreError;
 }
 
 bool Store::mark_state(const std::string& event_id, const std::string& state,
@@ -617,7 +626,7 @@ std::optional<std::string> Store::create_topic(const std::string& forum_id,
                                                 const KeyPair& signer,
                                                 int64_t ts_ms)
 {
-    if (title.empty() || title.size() > 128 || !valid_alias(alias)) return std::nullopt;
+    if (title.empty() || title.size() > kMaxTitle || !valid_alias(alias)) return std::nullopt;
     EventDraft d;
     d.forum_id = forum_id;
     d.type = "topic";

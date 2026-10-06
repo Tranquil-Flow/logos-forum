@@ -1,0 +1,30 @@
+2026-10-06 — second review of the source: fixes and cleanup, re-verified.
+
+Fixes:
+- Thread rows: brackets in an alias are shown as parentheses, so an alias
+  can no longer fake a post state or push the real key id into the body.
+- Topic rows: built with one .arg() call, so "%1" in a topic title is no
+  longer substituted (it corrupted the label and the unread count).
+- Received events dated more than an hour ahead of the reader's clock are
+  refused (one event could pin its topic to the top of every list);
+  received topic titles are bounded to 128 bytes like local ones.
+- A database error while merging is reported as an error, not as "already
+  here"; snapshot restores count such posts separately.
+- History paging that fails after the first page says so on the History
+  line instead of showing an earlier state.
+- A downloaded snapshot file is removed once read (they piled up).
+- tools/windows_smoke.sh: the restart check now requires the reopened window
+  to show the test post (UI Automation), not only the file on disk.
+Cleanup: shared helpers for key rotation and Delivery's two "sent" signals,
+one JSON reader, one launch and one SQL helper in the Windows smoke, clearer
+per-case messages when a post cannot be stored, comments brought up to date.
+
+Receipts in this folder:
+- core-tests.txt: 185 checks, 0 failures (new: future time and long topic
+  titles refused).
+- integration-1-missing-include.log: FAIL to build — an include removed in
+  cleanup was still needed (QThread); restored.
+- integration-2.log: hermetic UI suite 14 passed, 0 failed.
+- m6_live-run.log, m6_history-run.log, m7_storage-run.log: public logos.dev
+  round trip, history after offline, and in-app Storage snapshot — all PASS.
+- store_probe-run.log, m5_cleaninstall-run.log: PASS.

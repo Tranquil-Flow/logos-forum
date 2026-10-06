@@ -10,6 +10,14 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — second source review, 2026-10-06 late afternoon**
+(`evidence/m5-package/bugfix2-20261006/NOTE.txt`): aliases can no longer
+fake a post state or key id in the thread; topic titles with "%1" no longer
+corrupt the topic list; events dated over an hour ahead are refused and
+received titles are bounded; database errors in a merge are reported as
+such; snapshot files are removed once read. Core 185/0, UI 14/14, live round
+trip, history, Storage snapshot, store probe and clean install PASS.
+
 **Update — source review fixes, 2026-10-06 afternoon**
 (`evidence/m5-package/bugfix-20261006/NOTE.txt`): a send that fails while
 connected is kept and retried automatically, and the composer is cleared (no

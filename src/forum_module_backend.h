@@ -60,12 +60,14 @@ private:
     }
     void tryConfigureTransport();
     void refreshIdentityProps();
+    bool rotateSelectedKey(int64_t nowMs);   // a fresh key for the selected alias
     void rotateIfDueByAge();                 // before signing with an alias key
     void noteSigned();                       // after: counts toward rotate-every-N
     void refreshTopics();
     void refreshThread();
     bool ensureTopic();                      // auto "General"
     bool dispatchWire(const forum::Event &ev);  // send if transport ready
+    void markSent(const QString &requestId, const QString &what);  // Delivery confirmed
     // Connection lifecycle: a started node is "connecting" until Delivery
     // reports Connected/PartiallyConnected (for Required that includes a
     // ready Mix pool); only then are posts sent. Posts written meanwhile are
@@ -134,7 +136,6 @@ private:
     } m_restore;
     QString m_downloadSession;               // Storage download session (for cancel)
     QString m_currentTopicId;
-    QString m_lastSendRequest;
     QHash<QString, QString> m_requestToEvent; // requestId -> event id
     QStringList m_receivedPosts;
     std::unique_ptr<forum::Store> m_store;

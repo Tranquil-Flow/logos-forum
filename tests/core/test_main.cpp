@@ -165,6 +165,31 @@ static void test_dedup_idempotent_merge()
     CHECK(s.merge_verified(swapped) == MergeResult::Invalid);
 }
 
+// Received events: a time far in the future is refused (it would pin its
+// topic to the top of every list); received topic titles are bounded.
+static void test_merge_refuses_future_time_and_long_titles()
+{
+    const KeyPair kp = KeyPair::generate();
+    Store s(tmpdir() + "/future.db");
+    EventDraft d = sample_draft(kp.pub_hex);   // ts 1727800000000
+    auto e = s.make_event(d, kp);
+    CHECK(e.has_value());
+    CHECK(s.merge_verified(*e, d.ts_ms - kMaxFutureSkewMs - 1) == MergeResult::Invalid);
+    CHECK_EQ(s.count_posts(), 0);
+    CHECK(s.merge_verified(*e, d.ts_ms - kMaxFutureSkewMs) == MergeResult::Accepted);
+
+    EventDraft t = sample_draft(kp.pub_hex);
+    t.type = "topic"; t.topic_id = ""; t.parent_id = "";
+    t.body = std::string(kMaxTitle + 1, 't');
+    auto longTitle = s.make_event(t, kp);
+    CHECK(longTitle.has_value());
+    CHECK(s.merge_verified(*longTitle, t.ts_ms) == MergeResult::Invalid);
+    t.body = std::string(kMaxTitle, 't');
+    auto okTitle = s.make_event(t, kp);
+    CHECK(okTitle.has_value());
+    CHECK(s.merge_verified(*okTitle, t.ts_ms) == MergeResult::Accepted);
+}
+
 static void test_outbox_states()
 {
     const KeyPair kp = KeyPair::generate();
@@ -642,6 +667,7 @@ int main()
     test_anonymous_post_has_no_stable_identity();
     test_store_before_send_durability();
     test_dedup_idempotent_merge();
+    test_merge_refuses_future_time_and_long_titles();
     test_outbox_states();
     test_bounds_and_validation();
     test_accounts_and_aliasing();

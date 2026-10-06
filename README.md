@@ -300,7 +300,8 @@ starts the release app on a profile, `stop` quits everything it started.
    anonymous — see *Reading history*. Topic-level filtering is local: every
    reader receives the whole forum's content topic.
    Post times are author-asserted (signed, but not verified against a
-   clock), so a hostile author can misplace a post in the thread order.
+   clock): times more than an hour ahead of the reader's clock are refused,
+   but within that a hostile author can misplace a post in the thread order.
 6. logosctl 0.3.1 storage init is single-instance per user (upstream
    finding #3 family) — storage legs run on the qualified 0.3.0 CLI.
 7. Windows: CI runs the `windows-x86_64` package in Basecamp 0.3.1 on a
@@ -311,3 +312,6 @@ starts the release app on a profile, `stop` quits everything it started.
    — `evidence/m5-package/linux-amd64-*/NOTE.txt`; CI builds it.)
 8. Organic use (R16) and catalog/video (R15) are external gates — prepared
    for, never fabricated.
+9. Alias keys are stored unencrypted in `forum.db` inside the Basecamp
+   profile, protected only by the operating system's user account (anonymous
+   posts keep no key).

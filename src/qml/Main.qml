@@ -4,8 +4,9 @@ import QtQuick.Layouts
 
 // LP-0026 Forum — the forum view. Plain text only: no remote images,
 // avatars, previews, or automatic outbound requests from rendered content.
-// States shown are honest: pending/sent/failed per post; transport refusal
-// keeps the composer text; a dead backend is surfaced, never hidden.
+// States shown are honest: pending/sent/failed per post; a stored post clears
+// the composer, one that cannot be stored keeps its text; a dead backend is
+// surfaced, never hidden.
 Item {
     id: root
 
@@ -39,6 +40,7 @@ Item {
     readonly property int maxPostBytes: 4096   // the signed body's limit, in UTF-8 bytes
     // Narrow windows stack the topic list above the thread.
     readonly property bool compact: width < 760
+    // Must match kSnapshotTitle in forum_module_backend.cpp.
     readonly property string snapshotTitle: "Snapshot of this topic on Logos Storage"
 
     // Light palette: Basecamp hosts module views on a white panel.
@@ -63,7 +65,7 @@ Item {
             logos.watch(root.backend.echo("liveness"), function (v) {
                 root.lastBackendOk = Date.now()
             }, function (e) {
-                root.lastBackendOk = Date.now()
+                root.lastBackendOk = Date.now()  // an error reply still proves it answers
             })
         }
     }
@@ -105,7 +107,7 @@ Item {
         if (root.ready) root.lastBackendOk = Date.now()
     }
 
-    // Parse a thread row "<author> [state]: body" (backend contract).
+    // UTF-8 length: the signed body's limit is in bytes.
     function utf8Bytes(s) {
         var n = 0
         for (var i = 0; i < s.length; ++i) {
@@ -117,6 +119,8 @@ Item {
         }
         return n
     }
+    // Parse a thread row "<author> [state]: body" (backend contract; the
+    // backend shows brackets in aliases as parentheses).
     function rowParts(line) {
         var m = /^(.*?) \[(\w+)\]: ([\s\S]*)$/.exec(line)
         if (!m) return { author: "", state: "", body: line }
@@ -628,10 +632,12 @@ Item {
                                 enabled: root.usable && composer.text.trim().length > 0
                                          && root.utf8Bytes(composer.text) <= root.maxPostBytes
                                 onClicked: logos.watch(root.backend.postMessage(composer.text), function (value) {
-                                    if (value === "unavailable" || value === "failed" || value === "empty") {
-                                        outcome.text = "Not sent (" + value + ") — your text is kept here."
-                                            + (root.connection === "offline"
-                                               ? " Connect to the Logos network to send it." : "")
+                                    if (value === "empty") {
+                                        outcome.text = "Nothing to send."
+                                    } else if (value === "unavailable") {
+                                        outcome.text = "Not sent — the local store is unavailable; your text is kept here."
+                                    } else if (value === "failed") {
+                                        outcome.text = "Not sent — the post was rejected by local validation; your text is kept here."
                                     } else if (value === "too long") {
                                         outcome.text = "Not sent — the post is longer than " + root.maxPostBytes + " bytes."
                                     } else if (value === "queued") {

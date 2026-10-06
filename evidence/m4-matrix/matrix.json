@@ -19,14 +19,14 @@
       },
       {
         "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-        "sha256": "1cc6305b7fae93621250569d290103e5a3bc33a9d34ed851a8916198b63a6414"
+        "sha256": "dd02e0b73b0aa7b4798b49a692982dc223fa11c5add923ed3cfba3d1c2fa0df8"
       },
       {
         "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-        "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
+        "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
       }
     ],
-    "store_probe_receipts": 25
+    "store_probe_receipts": 26
   },
   "rows": [
     {
@@ -57,6 +57,10 @@
       "status": "PASS",
       "requirement": "Persistent accounts/aliases; no stable identity in anonymous posts",
       "receipts": [
+        {
+          "artifact": "m5-package/bugfix2-20261006/core-tests.txt",
+          "sha256": "4d3de4884256210282175eb9c75fa8a30f3c1de812b6eef489380a5c8669b651"
+        },
         {
           "artifact": "m5-package/bugfix-20261006/core-tests.txt",
           "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
@@ -94,16 +98,16 @@
           "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
         },
         {
-          "artifact": "m5-package/bugfix-20261006/integration-1.log (14/14, store-backed)",
-          "sha256": "90cf84aa8cfc69ad132136b46522174e29bfc95f3825a0f1820193c394579fb6"
+          "artifact": "m5-package/bugfix2-20261006/integration-2.log (14/14, store-backed)",
+          "sha256": "d21a85e7c58b5f6b74a55bbc0a506918a3b310990f6397dba0138c47346435b4"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "1cc6305b7fae93621250569d290103e5a3bc33a9d34ed851a8916198b63a6414"
+          "sha256": "dd02e0b73b0aa7b4798b49a692982dc223fa11c5add923ed3cfba3d1c2fa0df8"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
+          "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
         }
       ],
       "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (14/14); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
@@ -123,16 +127,16 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m5-package/bugfix-20261006/integration-1.log (14/14, store-backed)",
-          "sha256": "90cf84aa8cfc69ad132136b46522174e29bfc95f3825a0f1820193c394579fb6"
+          "artifact": "m5-package/bugfix2-20261006/integration-2.log (14/14, store-backed)",
+          "sha256": "d21a85e7c58b5f6b74a55bbc0a506918a3b310990f6397dba0138c47346435b4"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "1cc6305b7fae93621250569d290103e5a3bc33a9d34ed851a8916198b63a6414"
+          "sha256": "dd02e0b73b0aa7b4798b49a692982dc223fa11c5add923ed3cfba3d1c2fa0df8"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
+          "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
         }
       ],
       "notes": "topic create + list + switch (browse) in CI; posts are replies in a topic's thread (flat, no nested reply-to-reply UI); the shared deterministic General topic carries posts across instances \u2014 two-instance smoke shows the sender's post as [received] in the receiver's thread",
@@ -160,12 +164,12 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m6-live/live-20261006-133532/driver-result.json (public logos.dev)",
-          "sha256": "750f75fe65a7269cd383f912d9a19dc12e45b498356dbca78a743019921b467d"
+          "artifact": "m6-live/live-20261006-140925/driver-result.json (public logos.dev)",
+          "sha256": "24674f08ab1827c395c45e85fef5e04380e4a7584fd3fa6abc5a83f1e5da6bef"
         },
         {
-          "artifact": "m6-live/live-20261004-182756/driver-result.json (public logos.dev)",
-          "sha256": "91ad7aea91d327947b37142c3235cf8bb4760ecb7f180a4844e451cfa94f5d6a"
+          "artifact": "m6-live/live-20261006-133532/driver-result.json (public logos.dev)",
+          "sha256": "750f75fe65a7269cd383f912d9a19dc12e45b498356dbca78a743019921b467d"
         },
         {
           "artifact": "m2b-cli Required receipts",
@@ -200,6 +204,10 @@
             "status=PASS"
           ],
           "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        },
+        {
+          "artifact": "m5-package/bugfix2-20261006/core-tests.txt",
+          "sha256": "4d3de4884256210282175eb9c75fa8a30f3c1de812b6eef489380a5c8669b651"
         },
         {
           "artifact": "m5-package/bugfix-20261006/core-tests.txt",
@@ -415,6 +423,10 @@
       "requirement": "Hostile/replayed inputs rejected; freshness/coverage honest",
       "receipts": [
         {
+          "artifact": "m5-package/bugfix2-20261006/core-tests.txt",
+          "sha256": "4d3de4884256210282175eb9c75fa8a30f3c1de812b6eef489380a5c8669b651"
+        },
+        {
           "artifact": "m5-package/bugfix-20261006/core-tests.txt",
           "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
         },
@@ -495,8 +507,8 @@
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
-          "artifact": "m5-package/bugfix-20261006/integration-1.log (14/14, store-backed)",
-          "sha256": "90cf84aa8cfc69ad132136b46522174e29bfc95f3825a0f1820193c394579fb6"
+          "artifact": "m5-package/bugfix2-20261006/integration-2.log (14/14, store-backed)",
+          "sha256": "d21a85e7c58b5f6b74a55bbc0a506918a3b310990f6397dba0138c47346435b4"
         },
         {
           "artifact": "m2-core/integration-9.log",
@@ -524,7 +536,7 @@
         },
         {
           "artifact": "README.md",
-          "sha256": "e82ccc7355349031c51357ae7094e62c2c36b0ecbe89c6f5f56a079e8173e89b"
+          "sha256": "f19d62e4a7fd46da1f520c8f94bf2ca209823ac47dd6af9b5f1609a122114567"
         },
         {
           "artifact": "docs/FURPS.md",
@@ -532,7 +544,7 @@
         },
         {
           "artifact": ".github/workflows/ci.yml",
-          "sha256": "f94bc74188c6fdedbf6193bc45e985bfb80d5a5dca3163658b84f0a2ed96f7c8"
+          "sha256": "3a51985047743da989a2c96dd99a5e72d02ce7bc803847819d5b3acd6c5a1235"
         },
         {
           "artifact": "flake.nix",
@@ -550,10 +562,10 @@
         {
           "claims": {
             "status": "PASS",
-            "lgx_sha256": "c17cfdbe65d625a1739f3516f414ea1954a9c795b285510209e27350af63f9e2",
+            "lgx_sha256": "c884d439a46b750cec4e3d1491c9343bff8d4e706cd4bdea12557593eb2c6ae1",
             "store_flow_in_real_host": true
           },
-          "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
+          "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
         },
         {
           "artifact": "tools/demo_walkthrough.sh",
@@ -592,16 +604,16 @@
       "requirement": "In-app: a reader who was offline obtains past posts",
       "receipts": [
         {
+          "artifact": "m6-live/history-20261006-140942/b-driver.json (public logos.dev, author offline)",
+          "sha256": "8bcd991e2efc45fd0b94af1a9aeeccd2a49ffac8b6f1b01e0354811097cc9b05"
+        },
+        {
           "artifact": "m6-live/history-20261004-185910/b-driver.json (public logos.dev, author offline)",
           "sha256": "1c0c7dbef77f804ca4c76f776a66ab9393ce46db737adff3e63ae6fb477cf71d"
         },
         {
-          "artifact": "m6-live/history-20261004-181754/b-driver.json (public logos.dev, author offline)",
-          "sha256": "f95a75cb92336d9d0b9f54418dc2857c68c1038beaf2174c15991c2407dc2cc5"
-        },
-        {
-          "artifact": "m7-storage/snapshot-20261004-185554/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
-          "sha256": "17aa0c303c63e8df1202f590a17a4686fab099c6b8c0028792ea5215b2aef575"
+          "artifact": "m7-storage/snapshot-20261006-141136/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "62a7d882615fb3859c40b2297c42495a3b9980ddce14279f561f276d1e817f55"
         }
       ],
       "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",

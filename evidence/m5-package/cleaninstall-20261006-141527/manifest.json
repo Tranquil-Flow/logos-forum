@@ -1,0 +1,25 @@
+{
+  "author": "Tranquil-Flow",
+  "category": "communication",
+  "dependencies": [
+    "delivery_module",
+    "storage_module"
+  ],
+  "description": "A text-first forum: posts sent only through Mix, history after being offline, topic snapshots on Logos Storage",
+  "display_name": "Forum",
+  "hashes": {
+    "assets": "d1fbec8bf93996875c3c5834b762aec10858e2d7900616e27601543042a8f480",
+    "root": "a5b3e8dffc35b3c49a2e81dd11328f341c3e88dda4b52c5a1ed7215099ae04ba",
+    "variants": "4d461f922012a54a5b3f238b4f992709d855ec32390f49b48f290ddf8a82f81f",
+    "variants/darwin-arm64-dev": "b00359a18be82ffaadf5dd3915f6aa08e4b557a20f09161fb08a2e00356d836e"
+  },
+  "icon": "assets/icon.png",
+  "main": {
+    "darwin-arm64-dev": "forum_module_plugin.dylib"
+  },
+  "manifestVersion": "0.6.0",
+  "name": "forum_module",
+  "type": "ui_qml",
+  "version": "0.1.0",
+  "view": "qml/Main.qml"
+}

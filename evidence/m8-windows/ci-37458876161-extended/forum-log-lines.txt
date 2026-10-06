@@ -1,0 +1,40 @@
+App launcher clicked: "forum_module"
+Loading UI module: "forum_module"
+UI module "forum_module" deferred: dependency data not ready
+Loading UI module: "forum_module"
+Loading core dependencies for "forum_module" : QList("delivery_module", "storage_module")
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:1af84837…"
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+logos.basecamp.sandbox: Sandbox configured for plugin=forum_module: install="D:/a/_temp/forum-smoke/profile/plugins\forum_module" entry="D:/a/_temp/forum-smoke/profile/plugins/forum_module/qml" appLibDir=D:/a/_temp/forum-smoke/basecamp/lib untrustedRoots=2
+MainContainer: Added plugin dock to WorkspaceArea: "Forum" (module: "forum_module" )
+Successfully loaded UI module: "forum_module"
+logos.basecamp.sandbox: Blocked qmldir file import "./qmldir" [plugin=forum_module]: scheme "" is not allowed in the basecamp plugin sandbox (only qrc: and local files inside allowed roots are permitted).
+[2026-10-06 11:54:01.763] [info] [logos] [storage_module] StorageModuleImpl::uploadUrl called with path=D:/a/_temp/forum-smoke/profile/module_data/forum_module/forum-snapshots/topic-6dd197737fd8-1791287641760.txt
+App launcher clicked: "forum_module"
+Loading UI module: "forum_module"
+UI module "forum_module" deferred: dependency data not ready
+Loading UI module: "forum_module"
+Loading core dependencies for "forum_module" : QList("delivery_module", "storage_module")
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:5aa29944…"
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+logos.basecamp.sandbox: Sandbox configured for plugin=forum_module: install="D:/a/_temp/forum-smoke/profile/plugins\forum_module" entry="D:/a/_temp/forum-smoke/profile/plugins/forum_module/qml" appLibDir=D:/a/_temp/forum-smoke/basecamp/lib untrustedRoots=2
+MainContainer: Added plugin dock to WorkspaceArea: "Forum" (module: "forum_module" )
+Successfully loaded UI module: "forum_module"
+App launcher clicked: "forum_module"
+Loading UI module: "forum_module"
+UI module "forum_module" deferred: dependency data not ready
+Loading UI module: "forum_module"
+Loading core dependencies for "forum_module" : QList("delivery_module", "storage_module")
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:1af84837…"
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+logos.basecamp.sandbox: Sandbox configured for plugin=forum_module: install="D:/a/_temp/forum-smoke/profile/plugins\forum_module" entry="D:/a/_temp/forum-smoke/profile/plugins/forum_module/qml" appLibDir=D:/a/_temp/forum-smoke/basecamp/lib untrustedRoots=2
+MainContainer: Added plugin dock to WorkspaceArea: "Forum" (module: "forum_module" )
+Successfully loaded UI module: "forum_module"
+logos.basecamp.sandbox: Blocked qmldir file import "./qmldir" [plugin=forum_module]: scheme "" is not allowed in the basecamp plugin sandbox (only qrc: and local files inside allowed roots are permitted).
+[2026-10-06 11:54:01.763] [info] [logos] [storage_module] StorageModuleImpl::uploadUrl called with path=D:/a/_temp/forum-smoke/profile/module_data/forum_module/forum-snapshots/topic-6dd197737fd8-1791287641760.txt
+App launcher clicked: "forum_module"
+Loading UI module: "forum_module"
+UI module "forum_module" deferred: dependency data not ready
+Loading UI module: "forum_module"
+Loading core dependencies for "forum_module" : QList("delivery_module", "storage_module")
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:5aa29944…"
