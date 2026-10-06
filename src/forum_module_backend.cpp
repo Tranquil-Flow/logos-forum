@@ -951,7 +951,8 @@ bool rowMatches(const forum::PostRecord &r, const QString &q)
 
 // Author-chosen text as it may be shown: no line breaks, invisible or
 // direction-changing characters (they could hide or reorder what is shown).
-// Aliases are printable ASCII (forum::valid_alias); their brackets are shown
+// Aliases are held to printable ASCII here too (forum::valid_alias), so rows
+// stored before that rule can't imitate " · id "; their brackets are shown
 // as parentheses so "[state]" stays the row's only bracketed part.
 QString displaySafe(const QString &in, bool alias)
 {
@@ -959,7 +960,8 @@ QString displaySafe(const QString &in, bool alias)
     out.reserve(in.size());
     for (const QChar c : in) {
         const QChar::Category cat = c.category();
-        if (cat == QChar::Other_Control || cat == QChar::Other_Format
+        if ((alias && (c.unicode() < 0x20 || c.unicode() > 0x7e))
+            || cat == QChar::Other_Control || cat == QChar::Other_Format
             || cat == QChar::Separator_Line || cat == QChar::Separator_Paragraph) {
             out += QChar(0xFFFD);
         } else if (alias && c == QLatin1Char('[')) {

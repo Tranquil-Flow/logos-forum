@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 660
+Files normalised: 662
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -602,6 +602,8 @@ Files normalised: 660
 | evidence/m6-live/live-20261006-151622/a-app.log | repo-path (2), home-dir (1) | `852264316ef8af7b…` | `b785b26862acf784…` |
 | evidence/m6-live/live-20261006-151622/b-app.log | repo-path (2), home-dir (2) | `bf4fbf0deba69f0b…` | `0b3f7432ad1364c1…` |
 | evidence/m6-live/live-20261006-151622/result.json | repo-path (1) | `73798a9810af5d1d…` | `996854e90d08f937…` |
+| evidence/m6-live/live-20261006-154234/a-app.log | repo-path (2), home-dir (1) | `03ed53f834515676…` | `59b5dc9dfaf57013…` |
+| evidence/m6-live/live-20261006-154234/b-app.log | repo-path (2), home-dir (1) | `275a6a4cfd1a279c…` | `6c4692d1ad9d18af…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-app.log | repo-path (2), home-dir (3) | `d54a32ef9ca44e07…` | `3d73fbbc327dbd99…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.log | home-dir (1) | `61cc31b3d3eaaf9b…` | `4ff9918c92815762…` |

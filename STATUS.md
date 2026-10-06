@@ -17,7 +17,8 @@ corrupt the topic list; events dated over an hour ahead are refused and
 received titles are bounded; database errors in a merge are reported as
 such; only the newest downloaded snapshot file is kept; restoring a snapshot this
 node serves no longer fails trying to dial itself. After a security review:
-aliases are printable ASCII (as the contract says), author text is shown
+aliases are printable ASCII (as the contract says, and held to it when
+rows stored earlier are shown), author text is shown
 without control or direction characters, and the key id is drawn apart from
 the alias. Core 189/0, UI 15/15, live round trip, history, Storage snapshot,
 store probe and clean install PASS on the final tree.

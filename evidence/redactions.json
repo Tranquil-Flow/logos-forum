@@ -4898,6 +4898,24 @@
   }
  },
  {
+  "file": "evidence/m6-live/live-20261006-154234/a-app.log",
+  "original_sha256": "03ed53f834515676f285a0fc19161584f42ed5e490f238bc220d78d835ee6db9",
+  "published_sha256": "59b5dc9dfaf570131bdc2098b12bf2e7e3d211680fbce97bdd256a9ea58e74e6",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m6-live/live-20261006-154234/b-app.log",
+  "original_sha256": "275a6a4cfd1a279cf09c440279cdc96386634ab1ecfefc91ec76fd6d91b52af0",
+  "published_sha256": "6c4692d1ad9d18af1bfd8527d0bf2e5edf27f4181b5e4b19530a213526c6fdf6",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
   "file": "evidence/m7-storage/snapshot-20261004-174350/a-app.log",
   "original_sha256": "d54a32ef9ca44e075700d70ecc2010be5eb8ff4e571ad3b0a005948a6ff48b34",
   "published_sha256": "3d73fbbc327dbd99d9072791fb4a56ed0ae13ffcc0ff930592efe3d564f2e0b6",

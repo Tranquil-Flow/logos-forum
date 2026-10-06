@@ -98,8 +98,8 @@
           "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
         },
         {
-          "artifact": "m5-package/bugfix2-20261006/integration-6-ascii-alias.log (15/15, store-backed)",
-          "sha256": "4db689e19df7f61dda42a34849a74746d0862a6eb4f2ef913fb1273d6d1d115d"
+          "artifact": "m5-package/bugfix2-20261006/integration-8-legacy-alias-display.log (15/15, store-backed)",
+          "sha256": "15a87f1dfd9890d9570d15853f710b7ef9ba9688d34552c9c5d279f752ebe755"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
@@ -127,8 +127,8 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m5-package/bugfix2-20261006/integration-6-ascii-alias.log (15/15, store-backed)",
-          "sha256": "4db689e19df7f61dda42a34849a74746d0862a6eb4f2ef913fb1273d6d1d115d"
+          "artifact": "m5-package/bugfix2-20261006/integration-8-legacy-alias-display.log (15/15, store-backed)",
+          "sha256": "15a87f1dfd9890d9570d15853f710b7ef9ba9688d34552c9c5d279f752ebe755"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
@@ -507,8 +507,8 @@
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
-          "artifact": "m5-package/bugfix2-20261006/integration-6-ascii-alias.log (15/15, store-backed)",
-          "sha256": "4db689e19df7f61dda42a34849a74746d0862a6eb4f2ef913fb1273d6d1d115d"
+          "artifact": "m5-package/bugfix2-20261006/integration-8-legacy-alias-display.log (15/15, store-backed)",
+          "sha256": "15a87f1dfd9890d9570d15853f710b7ef9ba9688d34552c9c5d279f752ebe755"
         },
         {
           "artifact": "m2-core/integration-9.log",
