@@ -2,7 +2,9 @@
 #
 # The same targets ./tools/verify.sh runs locally, on Linux and macOS: domain
 # core, the hermetic Qt UI suite and the portable .lgx. tools/linux_build.sh
-# runs the Linux legs in a nixos/nix container.
+# runs the Linux legs in a nixos/nix container. The Windows package is cross
+# built, then run in the release Basecamp app on a Windows runner, where it
+# sends a test post through Mix on logos.dev (tools/windows_smoke.sh).
 name: ci
 
 on:
@@ -99,6 +101,30 @@ jobs:
         with:
           name: forum-lgx-windows
           path: result-win/logos-forum_module-module.lgx
+
+  windows-basecamp:
+    # The Windows package in the release Basecamp app on a Windows host: it
+    # loads, opens its store, keeps a post written offline and sends it
+    # through Mix after Connect (tools/windows_smoke.sh; screenshots uploaded).
+    needs: [windows]
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: forum-lgx-windows
+          path: win
+      - name: Forum in Basecamp 0.3.1 (Windows)
+        run: bash tools/windows_smoke.sh win/logos-forum_module-module.lgx
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-basecamp-receipts
+          path: windows-smoke
 
   all-platforms:
     # One .lgx carrying every variant, the form a catalog serves.

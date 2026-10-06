@@ -483,13 +483,17 @@ QString ForumModuleBackend::submitPost(const QString &bounded, const forum::KeyP
         return QStringLiteral("queued");
     }
     if (!m_transportReady) {
-        st->mark_state(eventId, "failed", "transport not ready (Required policy)");
+        // Not connected: the signed post is stored and waits; it goes out
+        // through Mix only after the user connects (Required, no fallback).
+        // The composer is cleared — the text lives in the store now, and
+        // keeping it there too would invite a duplicate post.
+        st->mark_state(eventId, "pending", "offline: waiting until you connect");
         setTransportStateFromEvent(
-            QStringLiteral("posting unavailable: transport not ready (Required "
-                           "policy — no fallback); post stored for retry"));
+            QStringLiteral("offline — post stored; it is sent through Mix after you "
+                           "connect (Required policy, no fallback)"));
         refreshTopics();
         refreshThread();
-        return QStringLiteral("unavailable");
+        return QStringLiteral("queued");
     }
     if (!sendPaced(*ev)) {
         refreshThread();

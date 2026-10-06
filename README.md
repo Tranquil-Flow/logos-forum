@@ -15,7 +15,7 @@ Works on the public **logos.dev** network (receipted live:
 posts are our own labelled test posts from the live receipts, recovered from
 the network's store by a fresh instance.*
 
-![Identity panel with key rotation (by posts and by age), topics and a post kept while offline](docs/img/forum-identity-rotation.png)
+![Identity panel with key rotation (by posts and by age), topics and a post written offline, waiting to send](docs/img/forum-identity-rotation.png)
 
 *An alias with automatic key rotation (every 10 posts or weekly; rotated once
 by hand). Offline, the post is kept on the device and marked for sending.*
@@ -85,7 +85,9 @@ nix build path:$PWD#harness-python  # python3 + cryptography for tools/*
 platform) or `windows-x86_64` (`packages.x86_64-windows.lgx-portable`, a
 mingw cross build that runs on x86_64 Linux — CI job `windows`). CI merges
 the macOS, Linux (amd64) and Windows packages into one multi-platform `.lgx`
-(job `all-platforms`) — the form a catalog serves. Nix dev hosts require the `-dev` variant (`#lgx`).
+(job `all-platforms`) — the form a catalog serves — and runs the Windows
+package in the release Basecamp app on a Windows runner (job
+`windows-basecamp`, `tools/windows_smoke.sh`, screenshots uploaded). Nix dev hosts require the `-dev` variant (`#lgx`).
 Install the one matching your host (the wrong one is *refused*, never
 half-loaded).
 
@@ -212,14 +214,17 @@ starts the release app on a profile, `stop` quits everything it started.
   nodes and needs no RLN membership; it is the bleeding-edge network and may
   be unavailable). Ports are chosen by the OS, so several instances can run
   on one machine. The node counts as *connected* only once Delivery reports
-  it (for Required that includes a usable Mix pool); until then new posts are
-  stored as *waiting to send* and go out automatically on connection. The
+  it (for Required that includes a usable Mix pool); until then — and before
+  you connect at all — new posts are stored as *waiting to send* and go out
+  automatically, through Mix only, once connected. The
   choice lasts for the session. Harnesses and private networks instead set
   `FORUM_TRANSPORT_CONFIG=<delivery config json>`, which takes precedence.
 - **Post states** come only from real module events: *waiting to send*,
   *sending…*, *sent* (Mix propagation reported), *not sent — kept for retry*
-  (with the module's error), *received*. Without a network the UI says so
-  and keeps your text; there is no plain fallback. A failed send is retried
+  (with the module's error), *received*. Without a network the UI says the
+  post is saved and will be sent through Mix once you connect; there is no
+  plain fallback. If the post cannot be stored, it is not sent and your text
+  stays in the box. A failed send is retried
   automatically up to 3 times (15/30/60 s), then stays for **Retry stored**.
 - **Reading history**: when the node connects, Delivery catches up from the
   network's store on its own — posts made while you were offline appear and
@@ -295,8 +300,11 @@ starts the release app on a profile, `stop` quits everything it started.
    clock), so a hostile author can misplace a post in the thread order.
 6. logosctl 0.3.1 storage init is single-instance per user (upstream
    finding #3 family) — storage legs run on the qualified 0.3.0 CLI.
-7. Windows: the `windows-x86_64` variant builds in CI; a run on a Windows
-   machine is not yet receipted (cross-building it under emulation on Apple
-   silicon fails in Qt's `repc` — `evidence/m5-package/linux-amd64-*/NOTE.txt`).
+7. Windows: CI runs the `windows-x86_64` package in Basecamp 0.3.1 on a
+   Windows runner — it loads, keeps a post written offline and sends it
+   through Mix after Connect (`evidence/m8-windows/`) — but receiving,
+   history and Storage snapshots have not been driven on Windows yet.
+   (Cross-building it under emulation on Apple silicon fails in Qt's `repc`
+   — `evidence/m5-package/linux-amd64-*/NOTE.txt`; CI builds it.)
 8. Organic use (R16) and catalog/video (R15) are external gates — prepared
    for, never fabricated.

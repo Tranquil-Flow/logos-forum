@@ -12,7 +12,7 @@
 #   4. create alias + select it
 #   5. create topic (appears in topics)
 #   6. post WITHOUT transport → honest refusal + composer retention
-#   7. thread view shows the [failed] post with alias
+#   7. thread view shows the offline post as [pending] with alias
 #   8. cleanup proof
 #
 # Usage: bash tools/m5b_realhost_gui.sh
@@ -117,13 +117,13 @@ out.post_result=await ev(`logos.watch(root.backend.postMessage("REALHOST TECHNIC
 await new Promise(x=>setTimeout(x,1500));
 out.transport_state=await ev("root.transportState");
 out.thread=await ev("JSON.stringify(root.threadPosts)");
-out.thread_has_failed=(out.thread||"").includes("[failed]");
+out.thread_has_pending=(out.thread||"").includes("[pending]");
 out.thread_has_body=(out.thread||"").includes("REALHOST TECHNICAL TEST DATA");
 
 console.log(JSON.stringify(out));
 const ok=out.module_view&&out.connected&&out.alias_listed&&out.topic_visible
-  &&String(out.post_result).includes("unavailable")
-  &&out.thread_has_failed&&out.thread_has_body;
+  &&String(out.post_result).includes("queued")
+  &&out.thread_has_pending&&out.thread_has_body;
 process.exit(ok?0:1);
 EOF
 cat "$EVID/ui-drive.json"
@@ -140,7 +140,7 @@ evid, remain, port_busy = sys.argv[1:4]
 ui = json.load(open(f"{evid}/ui-drive.json"))
 ok = (ui.get("module_view") and ui.get("connected")
       and ui.get("alias_listed") and ui.get("topic_visible")
-      and ui.get("thread_has_failed") and ui.get("thread_has_body")
+      and ui.get("thread_has_pending") and ui.get("thread_has_body")
       and remain.strip() == "" and port_busy == "0")
 result = {
     "status": "PASS" if ok else "FAIL",

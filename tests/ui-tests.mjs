@@ -91,9 +91,11 @@ test("forum_module: topic is created and listed", async (app) => {
   }, { timeout: 10000, interval: 300, description: "topic listed" });
 });
 
-// Post path with honest refusal: no transport in CI → visible refusal and the
-// composer text is kept (contract §0.2), never a silent success.
-test("forum_module: post path refuses honestly without transport", async (app) => {
+// Offline, a post is stored and waits for the user to connect; it is sent
+// through Mix only (Required, no fallback). The UI says so plainly, and the
+// composer is cleared because the text now lives in the store (keeping it in
+// both places would invite a duplicate) — never a silent success or loss.
+test("forum_module: offline post is saved and waits for the connection", async (app) => {
   await app.waitFor(
     async () => { await app.expectTexts(["Module ready"]); },
     { timeout: 20000, interval: 500, description: "backend ready" }
@@ -102,16 +104,20 @@ test("forum_module: post path refuses honestly without transport", async (app) =
   await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
   await app.waitFor(async () => {
     const s = await evaluateText(app, "outcome.text");
-    if (!s.includes("Not sent (unavailable)")) throw new Error("outcome: " + s.slice(0, 200));
-  }, { timeout: 15000, interval: 500, description: "honest refusal" });
+    if (!s.includes("Saved — it will be sent through Mix")) throw new Error("outcome: " + s.slice(0, 200));
+  }, { timeout: 15000, interval: 500, description: "saved, waiting" });
+  await app.waitFor(async () => {
+    const posts = JSON.stringify(await evalValue(app, "root.threadPosts"));
+    if (!posts.includes("[pending]: " + POST_TEXT)) throw new Error("threadPosts: " + posts.slice(0, 300));
+  }, { timeout: 10000, interval: 300, description: "post stored, waiting" });
   const found = await app.inspector.send("findByProperty", {
     property: "placeholderText",
     value: COMPOSER_PLACEHOLDER,
   });
   const props = await app.inspector.send("getProperties", { objectId: found.matches[0].id });
   const textProp = props.properties.find((p) => p.name === "text");
-  if (!textProp || textProp.value !== POST_TEXT) {
-    throw new Error("composer text was discarded on refusal — contract violation");
+  if (!textProp || textProp.value !== "") {
+    throw new Error("composer still holds the stored post's text: " + JSON.stringify(textProp && textProp.value));
   }
 });
 
@@ -126,7 +132,7 @@ test("forum_module: browsing topics switches the thread", async (app) => {
   await waitOutcome(app, (v) => v === "Topic created", "topic created");
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: in browse topic'" });
   await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
-  await waitOutcome(app, (v) => v.includes("Not sent (unavailable)"), "post stored");
+  await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "post stored");
   const browseId = await evalValue(app, "root.currentTopicId");
   // Topics are ordered by recent activity, so the new topic is listed first.
   const first = await evalValue(app, "root.topics[0].split('|')[0]");
@@ -149,22 +155,22 @@ test("forum_module: browsing topics switches the thread", async (app) => {
   }, { timeout: 10000, interval: 300, description: "thread switched back" });
 });
 
-// Per-post state is visible in the thread: the refused post is stored and
-// shown as [failed] (retryable), never silently dropped.
-test("forum_module: refused post is stored and shown as failed in the thread", async (app) => {
+// Per-post state is visible in the thread: the offline post is stored and
+// shown as [pending] (waiting to send), never silently dropped.
+test("forum_module: offline post is stored and shown as waiting in the thread", async (app) => {
   await app.waitFor(
     async () => { await app.expectTexts(["Module ready"]); },
     { timeout: 20000, interval: 500, description: "backend ready" }
   );
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: thread state'" });
   await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
-  await waitOutcome(app, (v) => v.includes("Not sent (unavailable)"), "honest refusal");
+  await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "saved, waiting");
   await app.waitFor(async () => {
     const posts = JSON.stringify(await evalValue(app, "root.threadPosts"));
-    if (!posts.includes("[failed]: TECHNICAL TEST DATA: thread state")) {
+    if (!posts.includes("[pending]: TECHNICAL TEST DATA: thread state")) {
       throw new Error("threadPosts: " + posts.slice(0, 300));
     }
-  }, { timeout: 10000, interval: 300, description: "failed post in thread" });
+  }, { timeout: 10000, interval: 300, description: "waiting post in thread" });
 });
 
 // The three identity options are distinct in the thread: alias + key id,
@@ -177,7 +183,7 @@ test("forum_module: identity modes — alias + id, id only, anonymous", async (a
   const post = async (text) => {
     await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = '" + text + "'" });
     await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
-    await waitOutcome(app, (v) => v.includes("Not sent (unavailable)"), "refusal for " + text);
+    await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "saved: " + text);
   };
   const rowFor = async (text) => {
     let row = "";
@@ -197,7 +203,7 @@ test("forum_module: identity modes — alias + id, id only, anonymous", async (a
 
   await post("TECHNICAL TEST DATA: alias mode");
   const aliasRow = await rowFor("TECHNICAL TEST DATA: alias mode");
-  if (!aliasRow.startsWith("ci-modes · id " + uid + " [failed]")) throw new Error("alias row: " + aliasRow);
+  if (!aliasRow.startsWith("ci-modes · id " + uid + " [pending]")) throw new Error("alias row: " + aliasRow);
 
   await app.inspector.send("evaluate", { expression: "hideAliasBox.toggle(); hideAliasBox.toggled()" });
   await app.waitFor(async () => {
@@ -206,7 +212,7 @@ test("forum_module: identity modes — alias + id, id only, anonymous", async (a
   }, { timeout: 10000, interval: 300, description: "alias hidden" });
   await post("TECHNICAL TEST DATA: id-only mode");
   const idRow = await rowFor("TECHNICAL TEST DATA: id-only mode");
-  if (!idRow.startsWith("id " + uid + " [failed]") || idRow.includes("ci-modes")) throw new Error("id-only row: " + idRow);
+  if (!idRow.startsWith("id " + uid + " [pending]") || idRow.includes("ci-modes")) throw new Error("id-only row: " + idRow);
 
   await app.inspector.send("evaluate", { expression: "hideAliasBox.toggle(); hideAliasBox.toggled(); root.backend.selectIdentity('')" });
   await app.waitFor(async () => {
@@ -215,7 +221,7 @@ test("forum_module: identity modes — alias + id, id only, anonymous", async (a
   }, { timeout: 10000, interval: 300, description: "anonymous selected" });
   await post("TECHNICAL TEST DATA: anonymous mode");
   const anonRow = await rowFor("TECHNICAL TEST DATA: anonymous mode");
-  if (!/^id [0-9a-f]{16} \[failed\]/.test(anonRow) || anonRow.includes(uid)) throw new Error("anonymous row: " + anonRow);
+  if (!/^id [0-9a-f]{16} \[pending\]/.test(anonRow) || anonRow.includes(uid)) throw new Error("anonymous row: " + anonRow);
 });
 
 // Key rotation: manual ("New key now") and automatic (every N posts). Earlier
@@ -249,7 +255,7 @@ test("forum_module: alias key rotation — manual, by posts and by age", async (
   for (let i = 1; i <= 5; i++) {
     await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: rotation " + i + "'" });
     await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
-    await waitOutcome(app, (v) => v.includes("Not sent (unavailable)"), "stored post " + i);
+    await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "stored post " + i);
   }
   await app.waitFor(async () => {
     const v = await evalValue(app, "root.selectedUid + '|' + root.rotationInfo");
@@ -285,10 +291,10 @@ test("forum_module: search filters topics and posts", async (app) => {
   await waitOutcome(app, (v) => v === "Topic created", "topic created");
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: needle-alpha'" });
   await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
-  await waitOutcome(app, (v) => v.includes("Not sent (unavailable)"), "post stored");
+  await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "post stored");
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: other words'" });
   await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
-  await waitOutcome(app, (v) => v.includes("Not sent (unavailable)"), "post stored");
+  await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "post stored");
   await app.inspector.send("evaluate", { expression: "searchInput.text = 'needle-alpha'" });
   await app.waitFor(async () => {
     const t = JSON.parse(await evalValue(app, "JSON.stringify(root.topics)"));

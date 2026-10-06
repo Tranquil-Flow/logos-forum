@@ -112,7 +112,7 @@ for (const t of ["Module ready","Backend status: Ready","Transport: no transport
 }
 // Store-backed flow through the REAL host (property/click only — Basecamp's
 // inspector context has no evaluate globals): create an alias, then post
-// without transport → honest refusal, text kept, row shown as [failed].
+// while offline → saved and waiting ([pending] row), composer cleared.
 const waitText = async (t, secs=15) => {
   for (let k=0;k<secs*2;k++){
     const r = await c.send("findByProperty",{property:"text",value:t}).catch(()=>({count:0}));
@@ -154,16 +154,16 @@ out.identity_shown = out.identity_hint !== null;
 const POST = "TECHNICAL TEST DATA: m5 clean-install post";
 out.post_text_set = await setByPlaceholder("Write a post (plain text)", POST);
 out.send_click = (await c.send("findAndClick",{text:"Send"})).matchedText || null;
-out.refusal_shown = await waitText("Not sent (unavailable) — your text is kept here. Connect to the Logos network to send it.");
-out.failed_row = await waitTextOf("threadRow", t => /^m5-alice · id [0-9a-f]{16} \[failed\]: /.test(t) && t.endsWith(POST));
-out.failed_row_shown = out.failed_row !== null;
+out.saved_shown = await waitText("Saved — it will be sent through Mix as soon as you are connected.");
+out.pending_row = await waitTextOf("threadRow", t => /^m5-alice · id [0-9a-f]{16} \[pending\]: /.test(t) && t.endsWith(POST));
+out.pending_row_shown = out.pending_row !== null;
 const comp = await c.send("findByProperty",{property:"placeholderText",value:"Write a post (plain text)"});
 const props = comp.matches && comp.matches.length
   ? await c.send("getProperties",{objectId:comp.matches[0].id}) : {properties:[]};
-out.composer_kept = (props.properties||[]).some(p => p.name === "text" && p.value === POST);
+out.composer_cleared = (props.properties||[]).some(p => p.name === "text" && p.value === "");
 console.log(JSON.stringify(out));
-const storeFlow = out.alias_created && out.identity_shown && out.refusal_shown
-  && out.failed_row_shown && out.composer_kept;
+const storeFlow = out.alias_created && out.identity_shown && out.saved_shown
+  && out.pending_row_shown && out.composer_cleared;
 process.exit(out.tile_clicked && out.module_view && storeFlow ? 0 : 1);
 EOF
 cat "$EVID/ui-drive.json"
@@ -186,7 +186,7 @@ import json, sys
 evid, sha, variant, remain, port_busy = sys.argv[1:6]
 ui = json.load(open(f"{evid}/ui-drive.json"))
 store_flow = all(ui.get(k) is True for k in (
-    "alias_created", "identity_shown", "refusal_shown", "failed_row_shown", "composer_kept"))
+    "alias_created", "identity_shown", "saved_shown", "pending_row_shown", "composer_cleared"))
 ok = (ui.get("tile_clicked") and ui.get("module_view")
       and ui.get("Backend status: Ready") is True and store_flow
       and remain.strip() == "" and port_busy == "0")

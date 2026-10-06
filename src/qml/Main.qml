@@ -16,6 +16,11 @@ Item {
     readonly property string status: backend ? backend.status : ""
     readonly property string transportState: backend ? backend.transportState : ""
     readonly property string connection: backend ? backend.connection : "offline"
+    // The "Connecting…" hint from the Connect button must not outlive it.
+    onConnectionChanged: {
+        if (connection === "connected" && outcome.text.startsWith("Connecting"))
+            outcome.text = "Connected — posts go out through Mix."
+    }
     readonly property string historyState: backend ? backend.historyState : ""
     readonly property var accounts: backend ? backend.accounts : []
     readonly property string selectedAlias: backend ? backend.selectedAlias : ""
@@ -631,8 +636,9 @@ Item {
                                 text: "Retry stored"
                                 flat: true
                                 Layout.fillWidth: true
-                                // Offered when something in this thread is waiting.
-                                visible: root.threadPosts.some(function (l) {
+                                // Offered when connected and something in this thread is
+                                // waiting (offline, waiting posts go out on Connect).
+                                visible: root.connection === "connected" && root.threadPosts.some(function (l) {
                                     return l.indexOf(" [failed]: ") >= 0 || l.indexOf(" [pending]: ") >= 0
                                 })
                                 enabled: root.usable

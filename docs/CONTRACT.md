@@ -41,7 +41,7 @@ no transport API is reachable from QML. Slots return plain strings.
 | `rotateKey()`, `setAutoRotate(n)`, `setAutoRotateDays(d)` | SLOT | move the selected alias to a fresh key now / every `n` stored posts (0–1000) / once its key is `d` days old (0–365, checked before each post); `ok` / `error: …` |
 | `createTopic(title)`, `openTopic(id)` | SLOT | topic id / `ok` / `error: …` |
 | `setSearch(text)` | SLOT | filters topics (title, post text, author) and the open thread; local only |
-| `postMessage(text)` | SLOT | event id; `queued` while connecting (stored, sent automatically once connected); or `unavailable` (no network chosen) / `failed` / `empty` — text kept |
+| `postMessage(text)` | SLOT | event id; `queued` while offline or connecting (stored as pending, sent through Mix automatically once connected; the composer is cleared); or `unavailable` (local store error) / `failed` / `empty` — text kept |
 | `retryPending()` | SLOT | resends stored rows' ORIGINAL signed bytes; count. Also automatic: on every transition to `connected`, and up to 3 times per post (15/30/60 s) after a send error |
 | `connectNetwork()` | SLOT | user-initiated join of logos.dev with anonymity `Required`; never automatic |
 | `loadHistory()` | SLOT | asks a logos.dev store node for this forum's last 7 days (≤ 10 pages × 50); results verified, merged, reported in `historyState` |

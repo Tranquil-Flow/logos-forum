@@ -58,6 +58,11 @@ EV="$REPO_ROOT/evidence/m5-package"
 STAMP="$(date +%Y%m%d-%H%M%S)"
 EVID="$EV/store-probe-$STAMP"
 BC="$REPO_ROOT/result-ui-dev/bin/run-logos-standalone-ui"
+# Always the current tree: a stale launcher would probe old code.
+mkdir -p "$EVID"
+nix build "path:$REPO_ROOT#ui-dev" --max-jobs 2 --cores 4 --accept-flake-config \
+  -o "$REPO_ROOT/result-ui-dev" >"$EVID/build-ui-dev.log" 2>&1 \
+  || { echo "FAIL: ui-dev build (see $EVID/build-ui-dev.log)"; exit 1; }
 PROFILE="$STATE/profile"
 PORT=3789
 DBPATH="$STATE/probe-forum.db"
@@ -407,13 +412,13 @@ await ins.send("setProperty", { objectId: cf.matches[0].id, property: "text", va
 await ins.send("evaluate", { expression: "outcome.text = ''" });
 await ins.send("evaluate", { expression: "sendButton.clicked()" });
 
-// Wait for outcome to show "Not sent (unavailable)"
+// Offline: the post is saved and waits ("Saved — it will be sent through Mix…")
 const sendDeadline = Date.now() + 25000;
 let sendOutcome = "";
 while (Date.now() < sendDeadline) {
   const o = await ins.send("evaluate", { expression: "outcome.text" });
   const v = (typeof o.result === "string") ? o.result : (o.result?.value ?? "");
-  if (v && (v.includes("Not sent") || v.startsWith("error"))) { sendOutcome = v; break; }
+  if (v && (v.startsWith("Saved") || v.includes("Not sent") || v.startsWith("error"))) { sendOutcome = v; break; }
   await new Promise(r => setTimeout(r, 400));
 }
 if (!sendOutcome) { console.log(JSON.stringify({stage3:"FAIL", reason:"send outcome never updated"})); process.exit(1); }
@@ -425,15 +430,15 @@ const result = {
   topic_outcome: topicOutcome,
   send_outcome: sendOutcome,
   threadPosts: thread.result ?? thread,
-  thread_has_failed: tp.includes("[failed]"),
+  thread_has_pending: tp.includes("[pending]"),
   thread_has_body: tp.includes("TECHNICAL TEST DATA: store_probe stage3"),
-  composer_kept: await (async () => {
+  composer_cleared: await (async () => {
     const p = await app.getProperties(cf.matches[0].id);
-    return p.properties?.find(pp => pp.name === "text")?.value === "TECHNICAL TEST DATA: store_probe stage3";
+    return p.properties?.find(pp => pp.name === "text")?.value === "";
   })(),
 };
 console.log(JSON.stringify(result, null, 2));
-process.exit(result.thread_has_failed && result.thread_has_body && result.composer_kept ? 0 : 1);
+process.exit(result.send_outcome.startsWith("Saved") && result.thread_has_pending && result.thread_has_body && result.composer_cleared ? 0 : 1);
 EOF
 }
 
