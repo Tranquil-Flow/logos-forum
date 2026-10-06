@@ -551,7 +551,7 @@
           "sha256": "d6aef4978aef1266907c9f0e2c056534e982a0111343126ed8c85bac6e282d3f"
         }
       ],
-      "notes": "local CI green (hermetic integration 15/15 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (windows, linux, macos, windows-basecamp, all-platforms; run 37450064810, Tranquil-Flow/logos-forum)",
+      "notes": "local CI green (hermetic integration 15/15 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (macos, linux, windows, windows-basecamp, all-platforms; run 37479924917, Tranquil-Flow/logos-forum)",
       "layer": "app+core"
     },
     {

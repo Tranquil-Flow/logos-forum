@@ -1,0 +1,401 @@
+LogosBasecamp version 0.3.1 (portable build)
+Build commits:
+  - logos-basecamp aeb819216c1a54563d758e82fb2264359987dd2c
+  - logos-nix 7c1eb8bc390546f32aaf134866a1c7db8e9311cc
+  - logos-cpp-sdk c24c4ab9ab35c34959238eb7968c0b4f87fae1a4
+  - logos-module f71d16ddc5779b50b188b3a3928a37c9ce90b2a1
+  - logos-liblogos db45024f5c45ce5fc00ab76a6921985839ad7355
+  - logos-package-manager 3133786ea86821e251fccc82a2eefbfc4db7605e
+  - logos-package-manager-module 41df424fe04155c243db090659cef619e070a60b
+  - logos-package-downloader-module d40d4ab906e4e093c43c69c374ca1b6ec9e85ab8
+  - logos-storage-module a9c14b8c977da51310361b03fe4d9efd763ae926
+  - logos-capability-module 1a1b8b5a1167931afbf41ebaafbe76034e6357a0
+  - logos-modules-state-module ed0f4ba534520542764775efc1d0ef705a02e616
+  - logos-package d759f34b095db14945ab0a38f6e1e924eafc3758
+  - logos-package-manager-ui 3174edd016f8464c6bbdb667db54d0f7b117a62c
+  - logos-design-system 88330d04968954be956311b0be429048a41da2ea
+  - logos-view-module-runtime 91dc59b32d4be9230bd8473719a26661867c682e
+  - logos-qt-mcp 1fea509485a48ab185fafae8dc21bdbcc808a07e
+  - nix-bundle-logos-module-install 19b27700762d37fd4011d7183efdd232f71646f8
+  - nix-bundle-dir ffc410b7f2bab32b1c2ceb347c56902e7321049c
+  - nix-bundle-appimage 04a3cf89f8ba3dc20f08a8e2b6c337a672bceda7
+  - nix-bundle-macos-app 140f4ec32ebfb9790c1e5b1f6e46dff3d2b20cfd
+Base data directory: D:/a/_temp/forum-smoke/profile
+[2026-10-06 14:39:25.081] [info] [logos] Granting host services to 'capability_module': token_registry,token_delivery
+[2026-10-06 14:39:25.124] [out] [capability_module] [2026-10-06 14:39:25.124] [info] Granting host services to capability_module: ["token_registry","token_delivery"]
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.128"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: Informing module token for module: "capability_module" with token: "redacted:9b4f22d0…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:25.130"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817872800288
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "capability_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-06 14:39:25.135] [info] [logos] Module loaded: capability_module
+LogosAPIConsumer: Informing module token for module: "modules_state" with token: "redacted:d8befbad…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:25.177"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817872600016
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "modules_state"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-06 14:39:25.180] [info] [logos] Module loaded: modules_state
+RemoteTransportConnection: Connecting to registry: "local:logos_modules_state_7df66cd7800c" at "14:39:25.179"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_modules_state_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.179"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: '"modules_state"::""' deferred pending the module becoming reachable
+Logos Core started successfully!
+LogosAPIConsumer: Informing module token for module: "package_manager" with token: "redacted:c422e636…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:25.223"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817872799520
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "package_manager"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817872882992
+LogosAPIClient: invoking remote method "modules_state" "apply_snapshot" args_count: 1
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+LogosAPIConsumer: Calling invokeRemoteMethod: "modules_state" "apply_snapshot" args_count: 1 timeout: 20000
+RemoteTransportConnection: Requesting object: "modules_state" at "14:39:25.227"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "modules_state"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817872598624
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "apply_snapshot"
+[LogosObject] RemoteLogosObject::callMethod "apply_snapshot" args: 1
+[2026-10-06 14:39:25.231] [info] [logos] Pushed module snapshot to modules_state
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-06 14:39:25.233] [info] [logos] Module loaded: package_manager
+RemoteTransportConnection: Connecting to registry: "local:logos_package_manager_7df66cd7800c" at "14:39:25.233"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_manager_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.233"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: '"package_manager"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+package_manager module loaded by default.
+[2026-10-06 14:39:25.273] [info] [logos] [storage_module] StorageModuleImpl: Initializing...
+LogosAPIConsumer: Informing module token for module: "storage_module" with token: "redacted:27cf4dd1…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:25.276"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817872882032
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "storage_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-06 14:39:25.278] [info] [logos] Module loaded: storage_module
+RemoteTransportConnection: Connecting to registry: "local:logos_storage_module_7df66cd7800c" at "14:39:25.278"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_storage_module_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.278"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: '"storage_module"::""' deferred pending the module becoming reachable
+LogosAPIConsumer: Informing module token for module: "package_downloader" with token: "redacted:6a6f1e31…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:25.323"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906083392
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "package_downloader"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906073968
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[2026-10-06 14:39:25.330] [info] [logos] Module loaded: package_downloader
+RemoteTransportConnection: Connecting to registry: "local:logos_package_downloader_7df66cd7800c" at "14:39:25.330"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_downloader_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.331"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: '"package_downloader"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+package_downloader module loaded by default.
+Currently loaded mod[2026-10-06 14:39:25.334] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+ules:
+  - "storage_module"
+  - "package_downloader"
+  - "modules_state"
+  - "package_manager"
+  - "capability_module"
+Total modules: 5
+RemoteTransportConnection: Connecting to registry: "local:logos_package_manager_7df66cd7800c" at "14:39:25.340"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_manager_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.341"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIClient: invoking remote method "package_manager" "setEmbeddedModulesDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setEmbeddedModulesDirectory" args_count: 1 timeout: 20000
+RemoteTransportConnection: Requesting object: "package_manager" at "14:39:25.343"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906086080
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "package_manager"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906444880
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setEmbeddedModulesDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setEmbeddedModulesDirectory" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906408256
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: invoking remote method "package_manager" "setUserModulesDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setUserModulesDirectory" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setUserModulesDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setUserModulesDirectory" args: 1
+LogosAPIClient: invoking remote method "package_manager" "setEmbeddedUiPluginsDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setEmbeddedUiPluginsDirectory" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setEmbeddedUiPluginsDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setEmbeddedUiPluginsDirectory" args: 1
+LogosAPIClient: invoking remote method "package_manager" "setUserUiPluginsDirectory" args_count: 1
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+LogosAPIConsumer: Calling invokeRemoteMethod: "package_manager" "setUserUiPluginsDirectory" args_count: 1 timeout: 20000
+[LogosObject] LogosAPIConsumer: calling via LogosObject::callMethod "setUserUiPluginsDirectory"
+[LogosObject] RemoteLogosObject::callMethod "setUserUiPluginsDirectory" args: 1
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906441904
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "corePluginFileInstalled"
+LogosAPIConsumer: '"package_manager"::"corePluginFileInstalled"' subscription armed after 0 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "uiPluginFileInstalled"
+LogosAPIConsumer: '"package_manager"::"uiPluginFileInstalled"' subscription armed after 0 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "corePluginUninstalled"
+LogosAPIConsumer: '"package_manager"::"corePluginUninstalled"' subscription armed after 0 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "uiPluginUninstalled"
+LogosAPIConsumer: '"package_manager"::"uiPluginUninstalled"' subscription armed after 0 ms
+RemoteTransportConnection: Connecting to registry: "local:logos_package_downloader_7df66cd7800c" at "14:39:25.356"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_downloader_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:25.357"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: '"package_downloader"::"catalogChanged"' deferred pending the module becoming reachable
+LogosAPIConsumer: '"package_downloader"::"downloadProgress"' deferred pending the module becoming reachable
+LogosAPIConsumer: '"package_downloader"::"downloadDone"' deferred pending the module becoming reachable
+MainUIBackend created
+[2026-10-06 14:39:25.361] [warning] [logos] [capability_module] Warning: QObject::connect: No such signal ::eventResponse(QString,QVariantList)
+[2026-10-06 14:39:25.373] [info] [logos] [storage_module] StorageModuleImpl::init called
+[2026-10-06 14:39:25.379] [out] [storage_module] INF 2026-10-06 14:39:25.379+00:00 Found a network private key                tid=1276
+[2026-10-06 14:39:25.380] [out] [storage_module] INF 2026-10-06 14:39:25.379+00:00 Bootstrapping node using a predefined network topics="libstorage libstoragelifecycle" tid=1276 network="[logos.test]: Logos testnet"
+[2026-10-06 14:39:25.381] [out] [storage_module] INF 2026-10-06 14:39:25.381+00:00 AutoNAT client enabled                     topics="libstorage libstoragelifecycle" tid=1276 scheduleInterval=1m numPeersToAsk=3 maxQueueSize=3 minConfidence=0.6
+[2026-10-06 14:39:25.382] [out] [storage_module] INF 2026-10-06 14:39:25.381+00:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=1276 numThreads=4
+[2026-10-06 14:39:25.430] [info] [logos] [storage_module] StorageModuleImpl::start called
+[2026-10-06 14:39:25.431] [out] [storage_module] WRN 2026-10-06 14:39:25.430+00:00 No key for a QueryResponse                 topics="storage repostore" tid=1276
+qrc:/qt/qml/Basecamp/AppManager/Basecamp/AppManager/AppManagerPanelHeader.qml:47:13: QML LogosTabBar: Binding loop detected for property "implicitWidth":
+qrc:/qt-project.org/imports/QtQuick/Controls/Basic/TabBar.qml:11:5
+MainContainer created
+SchemeRegistrar: LOGOS_NO_SCHEME_REGISTER= 1 — skipping registration; basecamp links will not open this build. Unset it, or set it to 0, to register normally.
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getInstalledUiPlugins"
+[LogosObject] RemoteLogosObject::callMethodAsync "getInstalledUiPlugins" args: 0
+RemoteTransportConnection: Connecting to registry: "local:logos_package_downloader_7df66cd7800c" at "14:39:26.373"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_package_downloader_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:26.375"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIClient: getToken for module: "package_downloader"
+LogosAPIClient: Found token for module: "package_downloader"
+RemoteTransportConnection: Requesting object: "package_downloader" at "14:39:26.378"
+ShortcutBridge: bound 1 QML shortcut(s) on pane QQuickWidget
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2817906405760
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "catalogChanged"
+LogosAPIConsumer: '"package_downloader"::"catalogChanged"' subscription armed after 1040 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "downloadProgress"
+LogosAPIConsumer: '"package_downloader"::"downloadProgress"' subscription armed after 1040 ms
+[LogosObject] RemoteLogosObject::onEvent subscribing to event: "downloadDone"
+LogosAPIConsumer: '"package_downloader"::"downloadDone"' subscription armed after 1040 ms
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "package_downloader"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2818443642672
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "listRepositories"
+[LogosObject] RemoteLogosObject::callMethodAsync "listRepositories" args: 0
+LinkRequestCoordinator: dispatching link request link-1 for intent basecamp.apps.launch
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getInstalledPackages"
+[LogosObject] RemoteLogosObject::callMethodAsync "getInstalledPackages" args: 0
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getValidVariants"
+[LogosObject] RemoteLogosObject::callMethodAsync "getValidVariants" args: 0
+LogosAPIClient: getToken for module: "package_downloader"
+LogosAPIClient: Found token for module: "package_d[2026-10-06 14:39:26.419] [warning] [logos] [package_downloader] Warning: QWindowsPipeWriter: write failed. (The pipe has been ended.)
+ownloader"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "getCatalog"
+[LogosObject] RemoteLogosObject::callMethodAsync "getCatalog" args: 0
+App launcher clicked: "forum_module"
+Loading UI module: "forum_module"
+UI module "forum_module" deferred: dependency data not ready
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependencies"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependencies" args: 2
+LogosAPIClient: getToken for module: "package_manager"
+LogosAPIClient: Found token for module: "package_manager"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "resolveFlatDependents"
+[LogosObject] RemoteLogosObject::callMethodAsync "resolveFlatDependents" args: 2
+Loading UI module: "forum_module"
+Loading core dependencies for "forum_module" : QList("delivery_module", "storage_module")
+[2026-10-06 14:39:26.630] [info] [logos] [delivery_module] DeliveryModuleImpl: Initializing...
+[2026-10-06 14:39:26.633] [info] [logos] Module loaded: delivery_module
+LogosAPIConsumer: Informing module token for module: "delivery_module" with token: "redacted:6fe57318…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:26.637"
+RemoteTransportConnection: Connecting to registry: "local:logos_delivery_module_7df66cd7800c" at "14:39:26.637"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_delivery_module_7df66cd7800c"
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:26.637"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: '"delivery_module"::""' deferred pending the module becoming reachable
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+RemoteTransportConnection: Connecting to registry: "local:logos_capability_module_7df66cd7800c" at "14:39:26.639"
+RemoteTransportConnection: Registry connect attempt started (no peer contact yet): "local:logos_capability_module_7df66cd7800c"
+LogosAPIConsumer: Informing module token for module: "forum_module" with token: "redacted:0ef3081f…"
+RemoteTransportConnection: Requesting object: "capability_module" at "14:39:26.642"
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2818453909328
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "forum_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2818453905296
+LogosAPIClient: getToken for module: "modules_state"
+LogosAPIClient: Found token for module: "modules_state"
+[LogosObject] LogosAPIConsumer: async calling via LogosObject::callMethodAsync "note_transition"
+[LogosObject] RemoteLogosObject::callMethodAsync "note_transition" args: 7
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+[LogosObject] RemoteTransportConnection: returning RemoteLogosObject for: "capability_module"
+[LogosObject] Created RemoteLogosObject wrapping QRemoteObjectReplica 2818453904576
+[LogosObject] LogosAPIConsumer: calling LogosObject::informModuleToken for "delivery_module"
+LogosAPIConsumer: informModuleToken completed with result: true
+[LogosObject] Destroying RemoteLogosObject 0
+logos.basecamp.sandbox: Sandbox configured for plugin=forum_module: install="D:/a/_temp/forum-smoke/profile/plugins\forum_module" entry="D:/a/_temp/forum-smoke/profile/plugins/forum_module/qml" appLibDir=D:/a/_temp/forum-smoke/basecamp/lib untrustedRoots=2
+MainContainer: Added plugin dock to WorkspaceArea: "Forum" (module: "forum_module" )
+Successfully loaded UI module: "forum_module"
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui
+IntentRegistry: installable providers = eth_rpc_ui, eth_wallet_ui, evm_keystore_ui, evm_signer_ui, monero_wallet_ui, monerod_ui, token_list_ui, verified_proxy_ui

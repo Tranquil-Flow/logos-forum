@@ -61,3 +61,5 @@ display fix (no receipts kept).
 ci-37473032689: every job green (Linux, macOS, Windows, all-platforms); every
 Windows stage PASS (snapshot saved on attempt 2, restored, history 68
 received, restart shows the Forum view, 70 posts kept).
+ci-main-37479924917: main after the merge; every job green, every Windows
+stage PASS (ci-run.json holds the job list).
