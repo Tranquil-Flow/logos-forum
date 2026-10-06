@@ -1,0 +1,3 @@
+forum.db after 10s
+after Send, offline: pending required
+post sent required after connecting 6s

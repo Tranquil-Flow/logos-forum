@@ -1,0 +1,28 @@
+2026-10-06 — fixes from a review of the source, re-verified.
+
+Changes (src/forum_module_backend.cpp, src/qml/Main.qml, src/core/forum_core.cpp):
+- A send that fails while connected is stored as failed with an automatic
+  retry; postMessage now returns "retrying" and the composer is cleared
+  (before, the text stayed in the box and sending it again signed a second,
+  different post alongside the automatic retry).
+- Reconnect restarts the paced send timer, so posts still waiting their
+  paced turn when the connection dropped are sent (before, they could stay
+  "sending…" until a restart).
+- Connection loss forgets in-flight send requests, so a reconnect resends
+  those posts (same event id; receivers dedup).
+- The post limit is counted in UTF-8 bytes (the signed body's limit) in the
+  composer and the backend; an over-long post returns "too long" instead of
+  being cut or failing without a reason.
+- Topics follow the alias's key rotation (by age and every N), like posts.
+- Snapshot downloads count as complete only after the file size has held
+  for 3 s (a short stall can no longer merge a partial file).
+- Alias rule text says bytes of printable text (UTF-8 is accepted).
+
+Receipts in this folder:
+- core-tests.txt: 177 checks, 0 failures.
+- integration-1.log: hermetic UI suite 14 passed, 0 failed (new test: the
+  post limit is counted in bytes).
+- m6-live-run.log -> evidence/m6-live/live-20261006-133532: public logos.dev
+  round trip through Mix, PASS (B received A's post 6 s after connecting).
+- store-probe-run.log -> evidence/m5-package/store-probe-20261006-133549: PASS.
+- cleaninstall-run.log -> evidence/m5-package/cleaninstall-20261006-133727: PASS.

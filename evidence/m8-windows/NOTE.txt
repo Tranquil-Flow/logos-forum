@@ -35,3 +35,6 @@ Main branch, final code:
 
 Not covered here: a person using it on their own Windows machine, and
 receive / history / Storage snapshot driven on Windows.
+
+ci-main-37450064810: the main-branch run on 006757a (all five jobs green);
+windows-basecamp receipts as uploaded by the run, plus ci-run.json.

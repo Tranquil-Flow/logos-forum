@@ -19,14 +19,14 @@
       },
       {
         "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-        "sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed"
+        "sha256": "1cc6305b7fae93621250569d290103e5a3bc33a9d34ed851a8916198b63a6414"
       },
       {
         "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-        "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
+        "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
       }
     ],
-    "store_probe_receipts": 24
+    "store_probe_receipts": 25
   },
   "rows": [
     {
@@ -57,6 +57,10 @@
       "status": "PASS",
       "requirement": "Persistent accounts/aliases; no stable identity in anonymous posts",
       "receipts": [
+        {
+          "artifact": "m5-package/bugfix-20261006/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
         {
           "artifact": "m5-package/polish-20261006/core-tests.txt",
           "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
@@ -90,19 +94,19 @@
           "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
         },
         {
-          "artifact": "m5-package/linkfix/../polish-20261006/integration-retry-visible-3.log (13/13, store-backed)",
-          "sha256": "224e53835a712810a31c8a9a86df05f83cd460840d5e575c049a928a437f62b2"
+          "artifact": "m5-package/bugfix-20261006/integration-1.log (14/14, store-backed)",
+          "sha256": "90cf84aa8cfc69ad132136b46522174e29bfc95f3825a0f1820193c394579fb6"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed"
+          "sha256": "1cc6305b7fae93621250569d290103e5a3bc33a9d34ed851a8916198b63a6414"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
+          "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
         }
       ],
-      "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (13/13); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
+      "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (14/14); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
       "layer": "app+core"
     },
     {
@@ -119,16 +123,16 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m5-package/linkfix/../polish-20261006/integration-retry-visible-3.log (13/13, store-backed)",
-          "sha256": "224e53835a712810a31c8a9a86df05f83cd460840d5e575c049a928a437f62b2"
+          "artifact": "m5-package/bugfix-20261006/integration-1.log (14/14, store-backed)",
+          "sha256": "90cf84aa8cfc69ad132136b46522174e29bfc95f3825a0f1820193c394579fb6"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "b3976b5d0b12de1c4a1b7e9fb4e8ce0d81fa9378d0280ad66a872f7726e13bed"
+          "sha256": "1cc6305b7fae93621250569d290103e5a3bc33a9d34ed851a8916198b63a6414"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
+          "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
         }
       ],
       "notes": "topic create + list + switch (browse) in CI; posts are replies in a topic's thread (flat, no nested reply-to-reply UI); the shared deterministic General topic carries posts across instances \u2014 two-instance smoke shows the sender's post as [received] in the receiver's thread",
@@ -156,12 +160,12 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m6-live/live-20261004-182756/driver-result.json (public logos.dev)",
-          "sha256": "91ad7aea91d327947b37142c3235cf8bb4760ecb7f180a4844e451cfa94f5d6a"
+          "artifact": "m6-live/live-20261006-133532/driver-result.json (public logos.dev)",
+          "sha256": "750f75fe65a7269cd383f912d9a19dc12e45b498356dbca78a743019921b467d"
         },
         {
-          "artifact": "m6-live/live-20261004-181711/driver-result.json (public logos.dev)",
-          "sha256": "653c6aaf61130a2fcf04877b014a8662a2e94ed288f665e1f5a2baa8c0f5be47"
+          "artifact": "m6-live/live-20261004-182756/driver-result.json (public logos.dev)",
+          "sha256": "91ad7aea91d327947b37142c3235cf8bb4760ecb7f180a4844e451cfa94f5d6a"
         },
         {
           "artifact": "m2b-cli Required receipts",
@@ -196,6 +200,10 @@
             "status=PASS"
           ],
           "sha256": "2d9865af7899ae09cd0e687f9cb471b3f4e7366316feb1ccf3cf61a32f6de500"
+        },
+        {
+          "artifact": "m5-package/bugfix-20261006/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
         },
         {
           "artifact": "m5-package/polish-20261006/core-tests.txt",
@@ -407,6 +415,10 @@
       "requirement": "Hostile/replayed inputs rejected; freshness/coverage honest",
       "receipts": [
         {
+          "artifact": "m5-package/bugfix-20261006/core-tests.txt",
+          "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
+        },
+        {
           "artifact": "m5-package/polish-20261006/core-tests.txt",
           "sha256": "be1bc8e0fc233e8b82ed145bda5744be225cf43358379b3ef68389ff51cd66a5"
         },
@@ -483,8 +495,8 @@
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
-          "artifact": "m5-package/linkfix/../polish-20261006/integration-retry-visible-3.log (13/13, store-backed)",
-          "sha256": "224e53835a712810a31c8a9a86df05f83cd460840d5e575c049a928a437f62b2"
+          "artifact": "m5-package/bugfix-20261006/integration-1.log (14/14, store-backed)",
+          "sha256": "90cf84aa8cfc69ad132136b46522174e29bfc95f3825a0f1820193c394579fb6"
         },
         {
           "artifact": "m2-core/integration-9.log",
@@ -504,7 +516,7 @@
         },
         {
           "artifact": "docs/CONTRACT.md",
-          "sha256": "727debfb71f70a436e219b7ca5062ba0e2636189a072bbc49493b9c08704d8a1"
+          "sha256": "ffae44f8862f4e46e5857849f4fb05dd92b17bd0ed8ebe603cbcb9abce68eef1"
         },
         {
           "artifact": "docs/LICENSES.md",
@@ -512,14 +524,14 @@
         },
         {
           "artifact": "README.md",
-          "sha256": "f6b5bfbaab8b029fc87c2eb5a12126847d3170ff02c7e74adf0e2024d4176ea1"
+          "sha256": "e82ccc7355349031c51357ae7094e62c2c36b0ecbe89c6f5f56a079e8173e89b"
         },
         {
           "artifact": "docs/FURPS.md",
           "sha256": "213d6ae6c92f995d6ed5a712ba7e4d9fa1428824fb07e07f5e02a865f4803401"
         },
         {
-          "artifact": ".github/workflows/ci.yml (prepared, activates on push)",
+          "artifact": ".github/workflows/ci.yml",
           "sha256": "f94bc74188c6fdedbf6193bc45e985bfb80d5a5dca3163658b84f0a2ed96f7c8"
         },
         {
@@ -527,7 +539,7 @@
           "sha256": "d6aef4978aef1266907c9f0e2c056534e982a0111343126ed8c85bac6e282d3f"
         }
       ],
-      "notes": "local CI green (hermetic integration 13/13 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (macos, windows, linux, windows-basecamp, all-platforms; run 37446511273, Tranquil-Flow/logos-forum)",
+      "notes": "local CI green (hermetic integration 14/14 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (windows, linux, macos, windows-basecamp, all-platforms; run 37450064810, Tranquil-Flow/logos-forum)",
       "layer": "app+core"
     },
     {
@@ -538,10 +550,10 @@
         {
           "claims": {
             "status": "PASS",
-            "lgx_sha256": "eb6de18d3c02c185862641bdf8e5a96f20e2ea943b448853361a7f9cc3787a86",
+            "lgx_sha256": "c17cfdbe65d625a1739f3516f414ea1954a9c795b285510209e27350af63f9e2",
             "store_flow_in_real_host": true
           },
-          "sha256": "86a4423eb7706691ecc44236022a7405c82c0fa5a6d8cd6e4134455e65242401"
+          "sha256": "d60ff5dff7f562b93923bdcb05a9899b1c056fceb333443cab12566432c3b744"
         },
         {
           "artifact": "tools/demo_walkthrough.sh",

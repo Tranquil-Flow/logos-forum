@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 584
+Files normalised: 597
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -357,6 +357,9 @@ Files normalised: 584
 | evidence/m4-matrix/negatives-20261003-214548/result.json | repo-path (1) | `4396812074eb5228…` | `da502b49f37aef25…` |
 | evidence/m4-matrix/negatives-run1.log | repo-path (1) | `6801ee3108d91273…` | `4d19c863f48dcb29…` |
 | evidence/m4-matrix/negatives-run2.log | repo-path (1) | `59712feba63ca63a…` | `da7f8d581db7b9e3…` |
+| evidence/m5-package/bugfix-20261006/cleaninstall-run.log | repo-path (1) | `fedb4c49bc6f0869…` | `55d8fa0da2d87048…` |
+| evidence/m5-package/bugfix-20261006/m6-live-run.log | repo-path (1) | `37080f0f4936bc37…` | `589201dc5889f388…` |
+| evidence/m5-package/bugfix-20261006/store-probe-run.log | repo-path (1) | `fdafccfa5370eb84…` | `1679be55af4af48e…` |
 | evidence/m5-package/cleaninstall-20261002-202527/basecamp.log | home-dir (1) | `6679a59c317b8d18…` | `350fd649e9f15a2a…` |
 | evidence/m5-package/cleaninstall-20261002-202527/profile-files.txt | home-dir (9) | `779b81255ab3361c…` | `144c94b181990389…` |
 | evidence/m5-package/cleaninstall-20261002-202527/result.json | repo-path (1) | `dee2652d6379644f…` | `616d83d80b300e77…` |
@@ -412,6 +415,10 @@ Files normalised: 584
 | evidence/m5-package/cleaninstall-20261006-115418/profile-files.txt | home-dir (29) | `e3dda0c4d3c8d931…` | `3941ee1c7b51b580…` |
 | evidence/m5-package/cleaninstall-20261006-115418/result.json | repo-path (1) | `f66b66f4162aa8cb…` | `86a4423eb7706691…` |
 | evidence/m5-package/cleaninstall-20261006-115418/store-path.txt | home-dir (3) | `e92da2debad53998…` | `56e04270e86124cd…` |
+| evidence/m5-package/cleaninstall-20261006-133727/basecamp.log | home-dir (3) | `d1126ebddbb431e5…` | `a72b16c9ab3c5682…` |
+| evidence/m5-package/cleaninstall-20261006-133727/profile-files.txt | home-dir (29) | `e3dda0c4d3c8d931…` | `3941ee1c7b51b580…` |
+| evidence/m5-package/cleaninstall-20261006-133727/result.json | repo-path (1) | `f74be9f23c57b46e…` | `d60ff5dff7f562b9…` |
+| evidence/m5-package/cleaninstall-20261006-133727/store-path.txt | home-dir (3) | `e92da2debad53998…` | `56e04270e86124cd…` |
 | evidence/m5-package/cleaninstall-run3.log | repo-path (1) | `1e97efce53e05b85…` | `5ba0df3221018e89…` |
 | evidence/m5-package/linkfix/core-tests-rotation-1-FAIL.log | repo-path (1) | `5f2c746fdaf7048f…` | `c1e61f050dfa1c40…` |
 | evidence/m5-package/linkfix/drive.mjs | repo-path (1) | `fe6e06ab9c2b13f5…` | `8131b2d024507c1b…` |
@@ -507,6 +514,8 @@ Files normalised: 584
 | evidence/m5-package/store-probe-20261006-114313/result.json | repo-path (1) | `1e15b51ce299e31e…` | `a0ef70bc3203e4a2…` |
 | evidence/m5-package/store-probe-20261006-115248/host.log | repo-path (3), home-dir (1) | `1f78ccf651308d4e…` | `6f565444d2354deb…` |
 | evidence/m5-package/store-probe-20261006-115248/result.json | repo-path (1) | `26d7d1be8c63e806…` | `b3976b5d0b12de1c…` |
+| evidence/m5-package/store-probe-20261006-133549/host.log | repo-path (3), home-dir (1) | `87817a83483ff334…` | `ef9ea472108b9780…` |
+| evidence/m5-package/store-probe-20261006-133549/result.json | repo-path (1) | `416deba50e3462d1…` | `1cc6305b7fae9362…` |
 | evidence/m5-package/ui-tour-20261004-190553/app.log | repo-path (2), home-dir (1) | `abcd0782a4526bff…` | `5fe6150d7b2dd231…` |
 | evidence/m5-package/ui-tour-20261004-190918/app.log | repo-path (2), home-dir (1) | `f05668b5b18e624b…` | `9adb70f80d0c0840…` |
 | evidence/m5-package/ui-tour-20261004-191248/app.log | repo-path (2), home-dir (1) | `b7d3786dfcf29ceb…` | `e85667bc524a4fe0…` |
@@ -550,6 +559,10 @@ Files normalised: 584
 | evidence/m6-live/live-20261004-182756/a-app.log | repo-path (2), home-dir (1) | `c6f8b169965ca219…` | `d915cf4e7825d454…` |
 | evidence/m6-live/live-20261004-182756/b-app.log | repo-path (2), home-dir (1) | `b258a6dda44e7fc8…` | `52a221b35067d818…` |
 | evidence/m6-live/live-20261004-182756/result.json | repo-path (1) | `548a7e14bac92b63…` | `b22f76bdcdbbd24e…` |
+| evidence/m6-live/live-20261006-133532/a-app.log | repo-path (2), home-dir (2) | `24e6384a6ce1d45b…` | `8b67cd1a2d5d8076…` |
+| evidence/m6-live/live-20261006-133532/a-transport-excerpt.log | home-dir (1) | `032d83dbddc73974…` | `b9c3d0e28e94672a…` |
+| evidence/m6-live/live-20261006-133532/b-app.log | repo-path (2), home-dir (1) | `b437a9119676c520…` | `385f499aad21e3b7…` |
+| evidence/m6-live/live-20261006-133532/result.json | repo-path (1) | `5e34f7cee9db6d24…` | `f3c1ffa7f3a2168d…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-app.log | repo-path (2), home-dir (3) | `d54a32ef9ca44e07…` | `3d73fbbc327dbd99…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.log | home-dir (1) | `61cc31b3d3eaaf9b…` | `4ff9918c92815762…` |

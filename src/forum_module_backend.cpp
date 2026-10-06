@@ -54,6 +54,7 @@ const int kMaxSnapshotEvents = 1000;
 const qint64 kMaxSnapshotBytes = 4 * 1024 * 1024;
 const int kUploadWaitS = 60;
 const int kDownloadWaitS = 90;
+const int kDownloadSettleS = 3;          // unchanged size for 3 s = complete
 const int kDialWaitMs = 15000;              // wait for Storage's connect outcome
 const int kDialRetryMs = 3000;
 const int kMaxDials = 3;                    // dials (and downloads) per restore
@@ -257,7 +258,7 @@ QString ForumModuleBackend::createAccount(QString alias)
 {
     const std::string a = alias.trimmed().toStdString();
     if (!forum::valid_alias(a) || a.empty()) {
-        return QStringLiteral("error: alias must be 1-64 printable characters");
+        return QStringLiteral("error: alias must be 1-64 bytes of printable text");
     }
     forum::Store *st = store();
     if (!st) return QStringLiteral("error: local store unavailable");
@@ -370,10 +371,12 @@ QString ForumModuleBackend::createTopic(QString title)
     }
     forum::Store *st = store();
     if (!st) return QStringLiteral("error: local store unavailable");
+    rotateIfDueByAge();
     forum::KeyPair k = m_hasSelectedKey ? m_selectedKey : forum::KeyPair::generate();
     auto tid = st->create_topic("general", t, currentSignerAlias().toStdString(), k,
                                 QDateTime::currentMSecsSinceEpoch());
     if (!tid.has_value()) return QStringLiteral("error: topic rejected by validation");
+    noteSigned();
     m_currentTopicId = QString::fromStdString(*tid);
     if (m_transportReady) {
         if (auto ev = st->stored_event(*tid)) {
@@ -402,39 +405,48 @@ QString ForumModuleBackend::openTopic(QString topicId)
 
 QString ForumModuleBackend::postMessage(QString text)
 {
-    const QString bounded = text.left(kMaxPostChars);
-    if (bounded.trimmed().isEmpty()) return QStringLiteral("empty");
-    // An alias key past its days-per-key never signs another post: rotate
-    // first, so this post already uses the fresh key.
-    if (m_hasSelectedKey && !m_selectedAlias.isEmpty()) {
-        forum::Store *st = store();
-        const std::string alias = m_selectedAlias.toStdString();
-        const int64_t now = QDateTime::currentMSecsSinceEpoch();
-        if (st && st->key_due_by_age(alias, now)) {
-            const forum::KeyPair fresh = forum::KeyPair::generate();
-            if (st->rotate_account(alias, fresh, now)) m_selectedKey = fresh;
-        }
-    }
+    if (text.trimmed().isEmpty()) return QStringLiteral("empty");
+    // The signed body is bounded in UTF-8 bytes; never cut a post silently.
+    if (text.toUtf8().size() > int(forum::kMaxBody)) return QStringLiteral("too long");
+    rotateIfDueByAge();
     // Anonymous: a fresh key per post. Alias (shown or hidden): its key.
     const forum::KeyPair signer = m_hasSelectedKey ? m_selectedKey : forum::KeyPair::generate();
     m_lastSigned = false;
-    const QString result = submitPost(bounded, signer, currentSignerAlias());
+    const QString result = submitPost(text, signer, currentSignerAlias());
     // Every stored post counts, sent or not: a stored post goes out later
     // with the same signature (and so the same key id).
-    if (m_hasSelectedKey && m_lastSigned) {
-        // Automatic rotation: the NEXT post uses a fresh key once the
-        // alias's threshold is reached.
-        forum::Store *st = store();
-        const std::string alias = m_selectedAlias.toStdString();
-        if (st && st->note_signed(alias)) {
-            const forum::KeyPair fresh = forum::KeyPair::generate();
-            if (st->rotate_account(alias, fresh, QDateTime::currentMSecsSinceEpoch())) {
-                m_selectedKey = fresh;
-            }
-        }
-        refreshIdentityProps();
-    }
+    if (m_lastSigned) noteSigned();
     return result;
+}
+
+void ForumModuleBackend::rotateIfDueByAge()
+{
+    // An alias key past its days-per-key never signs again: rotate first, so
+    // the next post or topic already uses the fresh key.
+    if (!m_hasSelectedKey || m_selectedAlias.isEmpty()) return;
+    forum::Store *st = store();
+    const std::string alias = m_selectedAlias.toStdString();
+    const int64_t now = QDateTime::currentMSecsSinceEpoch();
+    if (st && st->key_due_by_age(alias, now)) {
+        const forum::KeyPair fresh = forum::KeyPair::generate();
+        if (st->rotate_account(alias, fresh, now)) m_selectedKey = fresh;
+    }
+}
+
+void ForumModuleBackend::noteSigned()
+{
+    // Automatic rotation: the NEXT post uses a fresh key once the alias's
+    // threshold is reached.
+    if (!m_hasSelectedKey || m_selectedAlias.isEmpty()) return;
+    forum::Store *st = store();
+    const std::string alias = m_selectedAlias.toStdString();
+    if (st && st->note_signed(alias)) {
+        const forum::KeyPair fresh = forum::KeyPair::generate();
+        if (st->rotate_account(alias, fresh, QDateTime::currentMSecsSinceEpoch())) {
+            m_selectedKey = fresh;
+        }
+    }
+    refreshIdentityProps();
 }
 
 QString ForumModuleBackend::submitPost(const QString &bounded, const forum::KeyPair &signer,
@@ -496,8 +508,11 @@ QString ForumModuleBackend::submitPost(const QString &bounded, const forum::KeyP
         return QStringLiteral("queued");
     }
     if (!sendPaced(*ev)) {
+        // Stored as failed with an automatic retry scheduled: the post is not
+        // lost, and re-sending the text would sign a second, different post.
+        refreshTopics();
         refreshThread();
-        return QStringLiteral("failed");
+        return QStringLiteral("retrying");
     }
     refreshTopics();
     refreshThread();
@@ -630,6 +645,7 @@ void ForumModuleBackend::onConnectionStatus(const QString &status)
     if (m_transportReady) {
         // Lost the network: stop sending; new posts queue until it returns.
         m_transportReady = false;
+        m_requestToEvent.clear();
         setConnection(QStringLiteral("connecting"));
         setTransportStateFromEvent(
             QStringLiteral("connection lost (%1) — reconnecting; posts are stored and "
@@ -657,6 +673,8 @@ void ForumModuleBackend::becomeReady(const QString &status)
         }
     }
     if (any) flushStored(QStringLiteral("connected — sending"));
+    // Posts still waiting their paced turn when the connection dropped.
+    if (!m_sendQueue.isEmpty() && !m_paceTimer.isActive()) m_paceTimer.start();
 }
 
 int ForumModuleBackend::mergeWirePayload(const QByteArray &payload, bool fromHistory)
@@ -1436,14 +1454,14 @@ void ForumModuleBackend::startDownload(const QString &cid, const QString &file)
                     return;
                 }
                 m_downloadSession = d.getString();
-                QTimer::singleShot(1000, this, [this, cid, file]() { pollDownload(cid, file, -1, 0); });
+                QTimer::singleShot(1000, this, [this, cid, file]() { pollDownload(cid, file, -1, 0, 0); });
             }, Qt::QueuedConnection);
         },
         Timeout(kDownloadStartTimeoutMs));
 }
 
 void ForumModuleBackend::pollDownload(const QString &cid, const QString &file,
-                                      qint64 lastSize, int attempt)
+                                      qint64 lastSize, int attempt, int stable)
 {
     const qint64 size = QFileInfo(file).exists() ? QFileInfo(file).size() : -1;
     if (size > kMaxSnapshotBytes) {
@@ -1454,8 +1472,10 @@ void ForumModuleBackend::pollDownload(const QString &cid, const QString &file,
                             .arg(cid.left(16)).arg(kMaxSnapshotBytes / (1024 * 1024)));
         return;
     }
-    // Done when the file exists and stopped growing.
-    if (size > 0 && size == lastSize) {
+    // Done when the file exists and has not grown for kDownloadSettleS polls
+    // (a short stall mid-download must not merge a partial file).
+    const int settled = (size > 0 && size == lastSize) ? stable + 1 : 0;
+    if (settled >= kDownloadSettleS) {
         mergeSnapshotFile(cid, file);
         return;
     }
@@ -1466,8 +1486,8 @@ void ForumModuleBackend::pollDownload(const QString &cid, const QString &file,
                             .arg(cid.left(16)).arg(kDownloadWaitS));
         return;
     }
-    QTimer::singleShot(1000, this, [this, cid, file, size, attempt]() {
-        pollDownload(cid, file, size, attempt + 1);
+    QTimer::singleShot(1000, this, [this, cid, file, size, attempt, settled]() {
+        pollDownload(cid, file, size, attempt + 1, settled);
     });
 }
 

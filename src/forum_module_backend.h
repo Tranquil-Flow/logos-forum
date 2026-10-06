@@ -60,6 +60,8 @@ private:
     }
     void tryConfigureTransport();
     void refreshIdentityProps();
+    void rotateIfDueByAge();                 // before signing with an alias key
+    void noteSigned();                       // after: counts toward rotate-every-N
     void refreshTopics();
     void refreshThread();
     bool ensureTopic();                      // auto "General"
@@ -91,7 +93,8 @@ private:
     void dialSnapshotPeer();
     void onSnapshotPeerDialed(bool ok, const QString &message);
     void startDownload(const QString &cid, const QString &file);
-    void pollDownload(const QString &cid, const QString &file, qint64 lastSize, int attempt);
+    void pollDownload(const QString &cid, const QString &file, qint64 lastSize, int attempt,
+                      int stable);
     void mergeSnapshotFile(const QString &cid, const QString &file);
     QStringList storageCids();
     QString currentSignerAlias() const;      // selectedAlias, or "" (anonymous / alias hidden)

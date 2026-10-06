@@ -10,6 +10,17 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — source review fixes, 2026-10-06 afternoon**
+(`evidence/m5-package/bugfix-20261006/NOTE.txt`): a send that fails while
+connected is kept and retried automatically, and the composer is cleared (no
+duplicate post); posts waiting their paced turn are sent after a reconnect;
+the post limit is counted in UTF-8 bytes; topics follow alias key rotation;
+snapshot downloads must hold their size for 3 s before they are merged.
+Core 177/0, UI 14/14, live logos.dev round trip, store probe and clean
+install PASS on this tree. `tools/windows_smoke.sh` now also saves and
+restores a snapshot, loads history and restarts the app on Windows — not
+yet run in CI (no receipt; README limitation 7 unchanged until it is).
+
 **Update — Windows in CI, offline posts, 2026-10-06** (details in the last
 section): CI job `windows-basecamp` runs the Windows package in the official
 Basecamp 0.3.1 app on a Windows runner: it loads, opens its store, keeps a

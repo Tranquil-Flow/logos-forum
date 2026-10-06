@@ -136,7 +136,7 @@ def main():
     current_smoke_passes = [d.name for d in smoke_pass if d.name >= "smoke-20261003-2"]
 
     core_logs = []
-    for name in ("m5-package/polish-20261006/core-tests.txt", "m5-package/polish-20261004/core-tests.txt", "m5-package/linkfix/core-tests-age-1.log", "m5-package/linkfix/core-tests-parse-1.log", "m5-package/linkfix/core-tests-tsfix.txt", "m5-package/linkfix/core-tests-final.txt",
+    for name in ("m5-package/bugfix-20261006/core-tests.txt", "m5-package/polish-20261006/core-tests.txt", "m5-package/polish-20261004/core-tests.txt", "m5-package/linkfix/core-tests-age-1.log", "m5-package/linkfix/core-tests-parse-1.log", "m5-package/linkfix/core-tests-tsfix.txt", "m5-package/linkfix/core-tests-final.txt",
                  "m2-core/core-tests-5.log", "m3-archive/core-tests-archive-3.log"):
         p = EVID / name
         if p.exists():
@@ -146,9 +146,9 @@ def main():
     # Newest store-backed suite receipt (identity-modes suite first, then the
     # first post-fix suite); "N passed, 0 failed" is parsed, never assumed.
     integ_final, integ_n = None, 0
-    for name in ("../polish-20261006/integration-retry-visible-3.log", "../polish-20261004/integration-win32fix-9.log", "../polish-20261004/integration-storeopen-7.log", "integration-final-tree-2.log", "integration-final-tree.log", "integration-age-1.log", "integration-features-3.log", "integration-tsfix.log", "integration-redesign.log", "integration-history.log", "integration-connect-2.log",
+    for name in ("../bugfix-20261006/integration-1.log", "../polish-20261006/integration-retry-visible-3.log", "../polish-20261004/integration-win32fix-9.log", "../polish-20261004/integration-storeopen-7.log", "integration-final-tree-2.log", "integration-final-tree.log", "integration-age-1.log", "integration-features-3.log", "integration-tsfix.log", "integration-redesign.log", "integration-history.log", "integration-connect-2.log",
                  "integration-uid.log", "integration-final.log"):
-        cand = lf / name
+        cand = (lf / name).resolve()
         m = re.search(r"(\d+) passed, 0 failed", cand.read_text(errors="replace")) if cand.exists() else None
         if m:
             integ_final, integ_n = cand, int(m.group(1))
@@ -156,7 +156,7 @@ def main():
     integ_final_ok = integ_final is not None and integ_n >= 8
     integ_label = f"{integ_n}/{integ_n}"
     if integ_final_ok:
-        integ_hashes.insert(0, {"artifact": f"m5-package/{integ_final.relative_to(lf.parent).as_posix()} ({integ_label}, store-backed)",
+        integ_hashes.insert(0, {"artifact": f"m5-package/{integ_final.relative_to(lf.parent.resolve()).as_posix()} ({integ_label}, store-backed)",
                                 "sha256": sha256(integ_final)})
     negctl = lf / "integration-negative-control-no-link.log"
     gui_root_cause = lf / "lldb-uihost-root-cause.txt"
@@ -353,7 +353,7 @@ def main():
             {"artifact": "docs/LICENSES.md", "sha256": sha256(REPO / "docs" / "LICENSES.md")},
             {"artifact": "README.md", "sha256": sha256(REPO / "README.md")},
             {"artifact": "docs/FURPS.md", "sha256": sha256(REPO / "docs" / "FURPS.md")},
-            {"artifact": ".github/workflows/ci.yml (prepared, activates on push)",
+            {"artifact": ".github/workflows/ci.yml",
              "sha256": sha256(REPO / ".github" / "workflows" / "ci.yml")},
             {"artifact": "flake.nix", "sha256": sha256(REPO / "flake.nix")}],
         (f"local CI green (hermetic integration {integ_label} incl. store-backed flows; "

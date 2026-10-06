@@ -1,0 +1,96 @@
+=== 1/6 install layout ===
+  seeded forum_module (plugins, darwin-arm64-dev)
+  seeded delivery_module (modules, darwin-arm64-dev)
+  seeded storage_module (modules, darwin-arm64-dev)
+=== 2/6 bisect toggle (FORUM_BISECT=open) ===
+=== 3/6 launch host (offscreen) ===
+=== 4/6 stage 1 (Check transport → outbox) ===
+{
+  "stage1": "PASS",
+  "direct_slot_return": "<QRemoteObjectPendingReply<QString>>",
+  "direct_has_outbox": false,
+  "outcome": "delivery: present (loaded; node not created yet); storage: present (v3.0.0); outbox: 30 posts waiting to send; privacy: unverified until a Required send completes",
+  "outcome_has_outbox": true,
+  "transportState_before": "no transport configured — posting unavailable (Required policy)",
+  "transportState_after": "no transport configured — posting unavailable (Required policy)",
+  "transportState_changed": false,
+  "accounts": [
+    "demo"
+  ],
+  "topics": [
+    "7814ee8c989c9db8ae009b870e055d470a7b56b58167fc95e16f5db1b9105523|Probe Topic (1)|0",
+    "ab7f9e2c1dc288f547f11564303225ff3e87ab332f3de2f438343dd63297a6b0|Probe Topic (1)|0",
+    "7947b86778afc6752a15be2e09653acc3b00b61c4c8ffacef01006b991073f13|Probe Topic (1)|0",
+    "683c6cdf887c207a9500c7e87e83fc739e647c1e84865ae1b5c61731a0ce0e99|Probe Topic (1)|0",
+    "0f77347de9f47d770171c261e452f81b2d926d1ed99bb564085c34894664bfe7|Probe Topic (1)|0",
+    "8f0a388ea6d489389cb0d40ac46cabcdbc7c3654d35cf18d47d016c33f46d786|Probe Topic (1)|0",
+    "21c2aaf3c2c1b92af6a4dad69a51d28d090198c983f2110230997f1d8ab600ef|Probe Topic (1)|0",
+    "2f45d55a3d0e15f8d7be1454e024a3479b861077685e1246c145e8cfc4d1e84b|Probe Topic (1)|1",
+    "866d302ae597ac00abb0ef123a4a6b5cb22ad8cd644ca11f330685dea6ee0d82|Probe Topic (1)|1",
+    "6e6bdac5cc9af0b2a646d1be4d7f2c1d4e6d12fd4d0d070b440531bc7d2c15bf|Probe Topic (1)|1",
+    "30850bab21863f28916b7c3f238c846b767cd7ca273a90a879d1b6eaf170233b|Probe Topic (1)|1",
+    "d0c1800e3461ca16928e3396799e96a77da7e378fc68bc5ce1e5b47d0429156d|Probe Topic (1)|1",
+    "2c8b7639bd4a3ed30140f0d854354f53680fe5b6a4245cd2aa02ffdb4ea8bce3|Probe Topic (1)|1",
+    "0659db102e33bc8b71edcdbcbf946f124ee6248a203e491973e88fb718c08e5e|Probe Topic (1)|1",
+    "6b635c337b987a6c9383dee6bad13e9a30f0e9045a9a5acc075c8f0cab4603f1|Probe Topic (0)|0",
+    "c09f15320af5b70cb05faa91bd3022d1599ccfbe8f8769f5853ef7c9cbce5874|General (0)|0",
+    "6dd197737fd8823d246042887f3199242e632bb00c0ffefb3e5699520d052344|General (0)|0"
+  ],
+  "threadPosts_count": 0,
+  "diagnosis": "outbox observed via QML watch only; direct read did not expose slot result"
+}=== 5/6 stage 2 (Add alias → PROP sync test) — runs even if stage 1 wedged ===
+{
+  "stage2": "PASS",
+  "backend_alive_after_stage1": true,
+  "textfield_found": true,
+  "textfield_text_before_set": "",
+  "textfield_text_after_set": "demo",
+  "button_enabled_before_click": true,
+  "click_result": {
+    "clicked": true,
+    "id": 2009,
+    "matchedId": "6",
+    "matchedText": "Add alias",
+    "matchedType": "Button_QMLTYPE_4",
+    "ok": true,
+    "widget": "QQuickWidget",
+    "x": 522.75,
+    "y": 103
+  },
+  "direct_slot_return": "{\"id\":2010,\"ok\":true,\"result\":null,\"undefined\":true}",
+  "echo_slot_return": "{\"id\":2011,\"ok\":true,\"result\":null,\"undefined\":true}",
+  "accounts_before": [
+    "demo"
+  ],
+  "accounts_after": [
+    "demo"
+  ],
+  "accounts_prop_has_demo": true,
+  "prop_sync_works": true,
+  "outcome": "error: alias already exists",
+  "channel": "PROP-sync",
+  "interpretation_hint": "PROP-sync works → just need to refactor slot-return buttons to read PROPs only"
+}=== 6/6 stage 3 (topic + post) — runs even if earlier stages wedged ===
+{
+  "stage3": "PASS",
+  "topic_outcome": "Topic created",
+  "send_outcome": "Saved — it will be sent through Mix as soon as you are connected.",
+  "threadPosts": [
+    "id 693c4e0aba652500 [pending]: TECHNICAL TEST DATA: store_probe stage3"
+  ],
+  "thread_has_pending": true,
+  "thread_has_body": true,
+  "composer_cleared": true
+}tools/store_probe.sh: line 445: 94052 Terminated: 15          LOGOS_NO_SCHEME_REGISTER=1 QML_INSPECTOR_PORT=$PORT FORUM_DB_PATH="$DBPATH" "$BC" -platform offscreen > "$EVID/host.log" 2>&1
+{
+  "status": "PASS",
+  "s1": "0",
+  "s2": "0",
+  "s3": "0",
+  "s1_slot_return": "WORKS",
+  "s2_prop_sync": "WORKS",
+  "s3_post_path": "WORKS",
+  "eventResponse_warnings": 2,
+  "evidence": "<repo>/evidence/m5-package/store-probe-20261006-133549",
+  "gate_label": "M2-GUI PASS (dev launcher: slot return + PROP sync + post path)"
+}

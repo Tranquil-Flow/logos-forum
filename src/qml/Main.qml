@@ -36,7 +36,7 @@ Item {
     readonly property string currentTopicTitle: backend ? backend.currentTopicTitle : ""
     readonly property var threadPosts: backend ? backend.threadPosts : []
     readonly property var threadTimes: backend ? backend.threadTimes : []
-    readonly property int maxPostChars: 4096
+    readonly property int maxPostBytes: 4096   // the signed body's limit, in UTF-8 bytes
     // Narrow windows stack the topic list above the thread.
     readonly property bool compact: width < 760
     readonly property string snapshotTitle: "Snapshot of this topic on Logos Storage"
@@ -106,6 +106,17 @@ Item {
     }
 
     // Parse a thread row "<author> [state]: body" (backend contract).
+    function utf8Bytes(s) {
+        var n = 0
+        for (var i = 0; i < s.length; ++i) {
+            var c = s.charCodeAt(i)
+            if (c < 0x80) n += 1
+            else if (c < 0x800) n += 2
+            else if (c >= 0xD800 && c < 0xDC00) { n += 4; ++i }  // surrogate pair
+            else n += 3
+        }
+        return n
+    }
     function rowParts(line) {
         var m = /^(.*?) \[(\w+)\]: ([\s\S]*)$/.exec(line)
         if (!m) return { author: "", state: "", body: line }
@@ -615,14 +626,19 @@ Item {
                                 text: "Send"
                                 Layout.fillWidth: true
                                 enabled: root.usable && composer.text.trim().length > 0
-                                         && composer.text.length <= root.maxPostChars
+                                         && root.utf8Bytes(composer.text) <= root.maxPostBytes
                                 onClicked: logos.watch(root.backend.postMessage(composer.text), function (value) {
                                     if (value === "unavailable" || value === "failed" || value === "empty") {
                                         outcome.text = "Not sent (" + value + ") — your text is kept here."
                                             + (root.connection === "offline"
                                                ? " Connect to the Logos network to send it." : "")
+                                    } else if (value === "too long") {
+                                        outcome.text = "Not sent — the post is longer than " + root.maxPostBytes + " bytes."
                                     } else if (value === "queued") {
                                         outcome.text = "Saved — it will be sent through Mix as soon as you are connected."
+                                        composer.text = ""
+                                    } else if (value === "retrying") {
+                                        outcome.text = "Saved, not sent yet — it is retried through Mix automatically."
                                         composer.text = ""
                                     } else {
                                         outcome.text = "Sending through Mix…"
@@ -649,9 +665,10 @@ Item {
                         }
                     }
                     Text {
-                        text: composer.text.length + " / " + root.maxPostChars
-                        visible: composer.text.length > root.maxPostChars * 0.8
-                        color: composer.text.length > root.maxPostChars ? root.cBad : root.cMuted
+                        readonly property int bytes: root.utf8Bytes(composer.text)
+                        text: bytes + " / " + root.maxPostBytes + " bytes"
+                        visible: bytes > root.maxPostBytes * 0.8
+                        color: bytes > root.maxPostBytes ? root.cBad : root.cMuted
                         font.pixelSize: 11
                     }
                 }

@@ -1,0 +1,12 @@
+=== stage 3: topic create + post (no transport) ===
+{
+  "stage3": "PASS",
+  "topic_outcome": "Topic created",
+  "send_outcome": "Saved — it will be sent through Mix as soon as you are connected.",
+  "threadPosts": [
+    "id 693c4e0aba652500 [pending]: TECHNICAL TEST DATA: store_probe stage3"
+  ],
+  "thread_has_pending": true,
+  "thread_has_body": true,
+  "composer_cleared": true
+}

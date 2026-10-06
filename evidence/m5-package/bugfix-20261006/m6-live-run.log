@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-06T11:35:40Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 4,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 4,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 4,
+      "what": "A state",
+      "state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 6,
+      "what": "A state",
+      "state": "Required send propagated (request 1a230642174c03b0924c)"
+    },
+    {
+      "t_s": 6,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… posts you write now are saved and sent once connected.",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+    "Required send propagated (request 1a230642174c03b0924c)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id fc5ff978956c6012 [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-06T11:35:40Z\"]",
+  "b_thread": "[\"id fc5ff978956c6012 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-06T11:35:40Z\"]"
+}
+{"status":"PASS","layer":"public-logos.dev-mix-required","evidence":"<repo>/evidence/m6-live/live-20261006-133532"}
+tools/m6_live.sh: line 23: 92513 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/a-app.log" 2>&1
+tools/m6_live.sh: line 23: 92514 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/b-app.log" 2>&1
+cleanup verified: no live-run processes remain

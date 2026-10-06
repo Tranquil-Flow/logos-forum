@@ -168,7 +168,7 @@ bool valid_alias(const std::string& alias)
 {
     if (alias.size() > kMaxAlias) return false;
     for (unsigned char c : alias) {
-        if (c < 0x20 || c == 0x7f) return false; // printable ASCII only
+        if (c < 0x20 || c == 0x7f) return false; // no control characters (UTF-8 ok)
     }
     return true;
 }

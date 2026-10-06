@@ -206,7 +206,7 @@ starts the release app on a profile, `stop` quits everything it started.
 - **Store location**: `<user-dir>/module_data/forum_module/forum.db` under the
   Basecamp profile the plugin was loaded from (falls back to the platform
   AppData location; `FORUM_DB_PATH` overrides for tests/harnesses).
-- **Compose a post** (plain text, bounded 4 KiB) → the backend canonicalises,
+- **Writing a post** (plain text, at most 4096 bytes) → the backend canonicalises,
   signs (fresh anonymous Ed25519 identity per post unless an alias account is
   selected), and **durably stores the row with its Required privacy
   requirement BEFORE any network send**.
@@ -225,8 +225,9 @@ starts the release app on a profile, `stop` quits everything it started.
   *sending…*, *sent* (Mix propagation reported), *not sent — kept for retry*
   (with the module's error), *received*. Without a network the UI says the
   post is saved and will be sent through Mix once you connect; there is no
-  plain fallback. If the post cannot be stored, it is not sent and your text
-  stays in the box. A failed send is retried
+  plain fallback. Once a post is stored the box is cleared (sending the text
+  again would sign a second post); if it cannot be stored, it is not sent and
+  your text stays in the box. A failed send is retried
   automatically up to 3 times (15/30/60 s), then stays for **Retry stored**.
 - **Reading history**: when the node connects, Delivery catches up from the
   network's store on its own — posts made while you were offline appear and
@@ -285,7 +286,7 @@ starts the release app on a profile, `stop` quits everything it started.
    `evidence/m5-package/linkfix/`).
 2. Delivery 0.3.0 with Required Mix does not auto-redial: if relays restart on
    new ports the node reports "Unable to send within retry time window"; posts
-   stay stored and shown as failed (text retained). Recovery after a relay
+   stay stored, shown as *not sent — kept for retry*. Recovery after a relay
    restart without restarting the app is not measured.
 3. Replies are flat within a topic thread; there is no nested reply UI.
 4. Public-network receipts are on logos.dev, which is the bleeding-edge

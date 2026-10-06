@@ -14,9 +14,9 @@ inventory and §4 transport policy describe the shipped code.
 3. **Plain text rendering.** Posts/aliases render as plain text. No automatic
    remote images, avatars, previews or resource loads. External links require
    explicit user action.
-4. **Honest states.** pending / propagated / queued / failed derive from real
-   module events, never from the caller's expectation or the test runner's
-   knowledge.
+4. **Honest states.** The stored states pending / sent / failed / received
+   derive from real module events, never from the caller's expectation or the
+   test runner's knowledge.
 5. **No central authority.** No mandatory server/index/founder signer. Any
    archive role can issue signed inventories from verified posts.
 6. **Finite retention.** Storage retention is finite + refreshed + readback-
@@ -41,7 +41,7 @@ no transport API is reachable from QML. Slots return plain strings.
 | `rotateKey()`, `setAutoRotate(n)`, `setAutoRotateDays(d)` | SLOT | move the selected alias to a fresh key now / every `n` stored posts (0–1000) / once its key is `d` days old (0–365, checked before each post); `ok` / `error: …` |
 | `createTopic(title)`, `openTopic(id)` | SLOT | topic id / `ok` / `error: …` |
 | `setSearch(text)` | SLOT | filters topics (title, post text, author) and the open thread; local only |
-| `postMessage(text)` | SLOT | event id; `queued` while offline or connecting (stored as pending, sent through Mix automatically once connected; the composer is cleared); or `unavailable` (local store error) / `failed` / `empty` — text kept |
+| `postMessage(text)` | SLOT | event id; `queued` while offline or connecting (stored as pending, sent through Mix automatically once connected); `retrying` when connected but the send failed (stored as failed, retried automatically) — in both cases the composer is cleared; or `unavailable` (local store error) / `failed` (local validation) / `empty` / `too long` (over 4096 UTF-8 bytes) — text kept |
 | `retryPending()` | SLOT | resends stored rows' ORIGINAL signed bytes; count. Also automatic: on every transition to `connected`, and up to 3 times per post (15/30/60 s) after a send error |
 | `connectNetwork()` | SLOT | user-initiated join of logos.dev with anonymity `Required`; never automatic |
 | `loadHistory()` | SLOT | asks a logos.dev store node for this forum's last 7 days (≤ 10 pages × 50); results verified, merged, reported in `historyState` |

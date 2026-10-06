@@ -121,6 +121,21 @@ test("forum_module: offline post is saved and waits for the connection", async (
   }
 });
 
+// The signed body is limited in UTF-8 bytes, so the composer counts bytes:
+// 2100 Cyrillic letters are 4200 bytes, over the limit even though they are
+// fewer than 4096 characters. Send is disabled and nothing is stored.
+test("forum_module: post limit is counted in bytes", async (app) => {
+  await setProp(app, COMPOSER_PLACEHOLDER, "ж".repeat(2100));
+  await app.waitFor(async () => {
+    const v = await evalValue(app, "sendButton.enabled + '|' + root.utf8Bytes(composer.text)");
+    if (v !== "false|4200") throw new Error("send/bytes: " + v);
+  }, { timeout: 5000, interval: 200, description: "send disabled over the byte limit" });
+  await app.expectTexts(["4200 / 4096 bytes"]);
+  const r = await evalValue(app, "root.utf8Bytes('a\u00e9\u20ac\ud83d\ude00')");
+  if (String(r) !== "10") throw new Error("utf8Bytes: " + r);
+  await setProp(app, COMPOSER_PLACEHOLDER, "");
+});
+
 test("forum_module: browsing topics switches the thread", async (app) => {
   await app.waitFor(
     async () => { await app.expectTexts(["Module ready"]); },

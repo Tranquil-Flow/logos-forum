@@ -10,7 +10,11 @@
 # window like a user (clicks + keystrokes at the coordinates of the runner's
 # 1024x768 desktop): writes a labelled test post while offline (kept,
 # waiting), connects to logos.dev and checks the store marks the post sent —
-# a send that only succeeds through Mix. Screenshots and logs go to $OUT.
+# a send that only succeeds through Mix. Then, still in the window: saves a
+# snapshot of the topic on Logos Storage and restores it (fetched and every
+# post verified again), loads the network's history (posts from other runs
+# and devices arrive as received), and restarts Basecamp to check the posts
+# are still there. Screenshots and logs go to $OUT.
 #
 # Usage: bash tools/windows_smoke.sh <forum .lgx with a windows-x86_64 variant>
 set -euo pipefail
@@ -81,6 +85,18 @@ click() { # x y — screen coordinates of the 1024x768 runner desktop
     [W.U]::mouse_event(2,0,0,0,0); [W.U]::mouse_event(4,0,0,0,0)"
   sleep 1
 }
+click_named() { # name x y — a control found by its accessible name (UI
+  # Automation), else the given coordinates; prints which one was used.
+  local at
+  at=$(powershell -NoProfile -Command "
+    Add-Type -AssemblyName UIAutomationClient, UIAutomationTypes
+    \$c = New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::NameProperty, '$1')
+    \$all = [System.Windows.Automation.AutomationElement]::RootElement.FindAll([System.Windows.Automation.TreeScope]::Descendants, \$c)
+    \$e = \$all | Where-Object { -not \$_.Current.IsOffscreen } | Select-Object -Last 1
+    if (\$e) { \$r = \$e.Current.BoundingRectangle; '{0} {1}' -f [int](\$r.X + \$r.Width / 2), [int](\$r.Y + \$r.Height / 2) }" 2>/dev/null | tr -d '\r')
+  if [ -n "$at" ]; then echo "click '$1' at $at (by name)"; click $at
+  else echo "click '$1' at $2 $3 (fixed)"; click "$2" "$3"; fi
+}
 type_text() {
   powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('$1')"
   sleep 1
@@ -93,7 +109,37 @@ r=c.execute(\"select state,privacy from posts where type='post' order by rowid d
 print(' '.join(r) if r else 'none')" "$(cygpath -w "$DB")" 2>/dev/null || echo "unreadable"
 }
 
-sent=0
+count() { # SQL count over the profile's store
+  python -c "
+import sqlite3,sys
+c=sqlite3.connect('file:'+sys.argv[1]+'?mode=ro',uri=True)
+print(c.execute(sys.argv[2]).fetchone()[0])" "$(cygpath -w "$DB")" "$1" 2>/dev/null || echo 0
+}
+wait_for() { # seconds label command... — poll until the command succeeds
+  local n="$1" label="$2"; shift 2
+  for i in $(seq 1 "$n"); do
+    if "$@"; then echo "$label after ${i}s" | tee -a "$OUT/result.txt"; return 0; fi
+    sleep 1
+  done
+  echo "$label: not within ${n}s" | tee -a "$OUT/result.txt"; return 1
+}
+SNAPS="$PROFILE/module_data/forum_module/forum-snapshots"
+snapshot_saved() { ls "$SNAPS"/topic-*.txt >/dev/null 2>&1 \
+  && [ "$(count "select count(*) from posts where body like 'Snapshot of this topic%' and state='sent'")" -gt 0 ]; }
+snapshot_restored() { for f in "$SNAPS"/restore-*.txt; do [ -s "$f" ] && return 0; done; return 1; }
+history_received() { [ "$(count "select count(*) from posts where state='received'")" -gt 0 ]; }
+launch() {
+  LOGOS_NO_SCHEME_REGISTER=1 "$BIN" --user-dir "$(cygpath -w "$PROFILE")" \
+    --uri=basecamp://app/forum_module >> "$OUT/basecamp-stdout.log" 2>&1 &
+}
+stop_app() {
+  taskkill //F //T //IM LogosBasecamp.exe >/dev/null 2>&1 || true
+  taskkill //F //IM ui-host.exe >/dev/null 2>&1 || true
+  taskkill //F //IM logos_host.exe >/dev/null 2>&1 || true
+  sleep 3
+}
+
+sent=0 saved=0 restored=0 history=0 kept=0
 if [ "$ok" = 1 ]; then
   sleep 5 # let the window finish drawing
   shot 1-opened
@@ -115,13 +161,41 @@ if [ "$ok" = 1 ]; then
   sleep 3
   shot 3-connected
 fi
+if [ "$sent" = 1 ]; then
+  # Snapshot: the topic's published posts go to Logos Storage; the signed
+  # announcement is sent through Mix like any post.
+  click_named "Save snapshot" 845 258 | tee -a "$OUT/result.txt"
+  wait_for 180 "snapshot saved and announced" snapshot_saved && saved=1
+  sleep 3
+  shot 4-snapshot-saved
+  if [ "$saved" = 1 ]; then
+    # Restore it: fetched back from Logos Storage, every post verified again.
+    click_named "Restore these posts" 470 430 | tee -a "$OUT/result.txt"
+    wait_for 180 "snapshot fetched from Logos Storage" snapshot_restored && restored=1
+    sleep 5
+    shot 5-snapshot-restored
+  fi
+  # History: earlier runs' posts (and other devices') come back from a
+  # logos.dev store node and are verified before they are stored as received.
+  click_named "Load older posts" 951 258 | tee -a "$OUT/result.txt"
+  wait_for 90 "history: received posts in the store" history_received && history=1
+  echo "received posts: $(count "select count(*) from posts where state='received'")" | tee -a "$OUT/result.txt"
+  sleep 3
+  shot 6-history
+  # Restart: the same profile opens with its posts and no network call.
+  before=$(count "select count(*) from posts")
+  stop_app
+  launch
+  sleep 20
+  after=$(count "select count(*) from posts")
+  echo "posts before restart: $before, after: $after" | tee -a "$OUT/result.txt"
+  [ "$after" -ge "$before" ] && [ "$before" -gt 0 ] && kept=1
+  shot 7-restarted
+fi
 tasklist //FI "IMAGENAME eq LogosBasecamp.exe" > "$OUT/processes.txt" || true
 tasklist //FI "IMAGENAME eq logos_host.exe" >> "$OUT/processes.txt" || true
 tasklist //FI "IMAGENAME eq ui-host.exe" >> "$OUT/processes.txt" || true
-taskkill //F //T //IM LogosBasecamp.exe >/dev/null 2>&1 || true
-taskkill //F //IM ui-host.exe >/dev/null 2>&1 || true
-taskkill //F //IM logos_host.exe >/dev/null 2>&1 || true
-sleep 3
+stop_app
 
 (cd "$PROFILE" && find . -path ./plugins -prune -o -path ./modules -prune -o -print | sort) > "$OUT/tree.txt"
 (cd "$PROFILE" && find plugins/forum_module | sort) > "$OUT/forum-plugin-files.txt"
@@ -132,3 +206,13 @@ grep -hiE "forum_module" "$OUT"/*.log | head -40 > "$OUT/forum-log-lines.txt" ||
 echo "PASS: Forum loaded in Basecamp 0.3.1 on Windows and opened its store"
 [ "$sent" = 1 ] || { echo "FAIL: the post was not sent through Mix"; exit 1; }
 echo "PASS: a post written offline was sent through Mix after connecting"
+fail=0
+[ "$saved" = 1 ] && echo "PASS: snapshot saved on Logos Storage and announced" \
+  || { echo "FAIL: no snapshot saved and announced"; fail=1; }
+[ "$restored" = 1 ] && echo "PASS: snapshot fetched back from Logos Storage" \
+  || { echo "FAIL: snapshot not fetched back"; fail=1; }
+[ "$history" = 1 ] && echo "PASS: posts from the network's history received" \
+  || { echo "FAIL: nothing received from the network's history"; fail=1; }
+[ "$kept" = 1 ] && echo "PASS: posts kept across a restart" \
+  || { echo "FAIL: posts not kept across a restart"; fail=1; }
+exit "$fail"
