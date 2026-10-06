@@ -4308,6 +4308,24 @@
   }
  },
  {
+  "file": "evidence/m5-package/ui-tour-20261006-b/live/app.log",
+  "original_sha256": "60ced9506bc7d690cf253257406272dca7368d70727a223efc6fdee1632e15ca",
+  "published_sha256": "f114081a0f1f2134edd06c0ce8bed43e8f7813c4e7841b35316878da7226504b",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
+  "file": "evidence/m5-package/ui-tour-20261006-b/offline/app.log",
+  "original_sha256": "7efea2baff92963ed9175e9d5518bfae561c543cf1aecae528b80cedb5e359ca",
+  "published_sha256": "2fdd1dc1a174a98122666eec3b23cb0f39efd2754371eedbce86fa8dfe2e0704",
+  "rules": {
+   "repo-path": 2,
+   "home-dir": 1
+  }
+ },
+ {
   "file": "evidence/m6-live/history-20261004-122454/a-app.log",
   "original_sha256": "72994328fbb4c8c0ab9583192715fea41471e321f14f916bf5dd964b305b64e8",
   "published_sha256": "f49f1eaaea5f65a38e24965d9a54aeae021dd78b63b3c913682e2a68accf55a2",

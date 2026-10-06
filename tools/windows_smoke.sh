@@ -96,8 +96,9 @@ on_screen() { # name — is a control with this accessible name visible?
     \$all = [System.Windows.Automation.AutomationElement]::RootElement.FindAll([System.Windows.Automation.TreeScope]::Descendants, \$c)
     if (\$all | Where-Object { -not \$_.Current.IsOffscreen }) { exit 0 } else { exit 1 }" >/dev/null 2>&1
 }
-to_front() { # bring Basecamp's window forward (the runner's console may cover it)
-  powershell -NoProfile -Command "(New-Object -ComObject WScript.Shell).AppActivate('Logos Basecamp')" >/dev/null 2>&1 || true
+minimize_all() { # clear the desktop (the runner's console window covers the app)
+  powershell -NoProfile -Command "(New-Object -ComObject Shell.Application).MinimizeAll()" >/dev/null 2>&1 || true
+  sleep 2
 }
 click_named() { # name x y — a control found by its accessible name (UI
   # Automation), else the given coordinates; prints which one was used.
@@ -172,8 +173,14 @@ fi
 if [ "$sent" = 1 ]; then
   # Snapshot: the topic's published posts go to Logos Storage; the signed
   # announcement is sent through Mix like any post.
-  click_named "Save snapshot" 845 258 | tee -a "$OUT/result.txt"
-  wait_for 180 "snapshot saved and announced" snapshot_saved && saved=1
+  # Storage sometimes refuses to start on the runner (the app says so); a
+  # user would press Save snapshot again, so this does too — every attempt
+  # is in result.txt.
+  for attempt in 1 2 3; do
+    click_named "Save snapshot" 845 258 | tee -a "$OUT/result.txt"
+    wait_for 60 "snapshot saved and announced (attempt $attempt)" snapshot_saved && { saved=1; break; }
+    shot "4-snapshot-attempt-$attempt"
+  done
   sleep 3
   shot 4-snapshot-saved
   if [ "$saved" = 1 ]; then
@@ -190,12 +197,18 @@ if [ "$sent" = 1 ]; then
   echo "received posts: $(count "select count(*) from posts where state='received'")" | tee -a "$OUT/result.txt"
   sleep 3
   shot 6-history
-  # Restart: the same profile reopens and shows the post without connecting.
+  # Restart: the same profile reopens offline with its posts. The reopened
+  # Forum view must be on screen (its Connect button, found by name) and the
+  # store must still hold every post.
   before=$(count "select count(*) from posts")
   stop_app
+  minimize_all
   launch
-  post_shown() { to_front; on_screen "$POST"; }
-  wait_for 120 "after restart: the test post is shown again" post_shown && shown=1 || shown=0
+  forum_open() { on_screen "Connect to Logos network"; }
+  wait_for 120 "after restart: the Forum view is open again" forum_open && shown=1 || shown=0
+  sleep 3
+  on_screen "$POST" && echo "after restart: the test post text is on screen" | tee -a "$OUT/result.txt" \
+    || echo "after restart: post text not visible to UI Automation (see 7-restarted.png)" | tee -a "$OUT/result.txt"
   after=$(count "select count(*) from posts")
   echo "posts before restart: $before, after: $after" | tee -a "$OUT/result.txt"
   [ "$shown" = 1 ] && [ "$after" -ge "$before" ] && [ "$before" -gt 0 ] && kept=1

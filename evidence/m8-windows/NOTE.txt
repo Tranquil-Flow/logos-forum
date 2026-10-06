@@ -38,3 +38,16 @@ receive / history / Storage snapshot driven on Windows.
 
 ci-main-37450064810: the main-branch run on 006757a (all five jobs green);
 windows-basecamp receipts as uploaded by the run, plus ci-run.json.
+
+ci-37458876161-extended: branch run of the extended smoke — offline post sent
+through Mix, snapshot saved and restored ("0 new posts, 2 already here, 0
+rejected by verification"), history (42 received), restart; all PASS. The
+restart screenshot is covered by the runner's console window, and the check
+then only read the store on disk — hardened in the next run.
+ci-37462255837-restart-check: FAIL, kept as is. (1) Logos Storage refused to
+start ("init refused, start refused", shown in the app; no Storage lines in
+Basecamp's logs) — the smoke now presses Save snapshot again, as a user
+would, up to 3 times, logging each attempt. (2) The new restart check looked
+for the post text through UI Automation while the console window covered the
+app; it now minimises other windows first and requires the Forum's Connect
+button on screen plus every post still in the store.

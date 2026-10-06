@@ -28,3 +28,13 @@ Receipts in this folder:
 - m6_live-run.log, m6_history-run.log, m7_storage-run.log: public logos.dev
   round trip, history after offline, and in-app Storage snapshot — all PASS.
 - store_probe-run.log, m5_cleaninstall-run.log: PASS.
+
+Follow-up (same day, from a security review of the pushed branch): the post
+header showed "alias · id <key>" as one elided text, so a long alias could
+imitate a key id and push the real one out of view, and the author, topic
+and status texts did not force plain text. Now the key id is drawn as its
+own text (never elided), middle dots in an alias are shown as hyphens, and
+every text showing network data is plain text.
+- integration-3-alias-display.log: UI suite 15 passed, 0 failed (new test:
+  an alias cannot fake a key id or a state).
+- evidence/m5-package/ui-tour-20261006-b/: the new header, by eye.

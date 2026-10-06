@@ -1006,11 +1006,12 @@ void ForumModuleBackend::refreshThread()
             // Aliases are self-asserted; the key id is what tells two "alice"s
             // apart. No alias = id only (an anonymous post's key is one-time).
             const QString id = QStringLiteral("id ") + shortId(r.author_pub_hex);
-            // Brackets in an alias are shown as parentheses: "[state]" must be
-            // the row's only bracketed part, or an alias could fake a state
-            // and push the real key id into the body.
+            // Brackets in an alias are shown as parentheses and its middle dots
+            // as hyphens: "[state]" and " · id " must be the row's only ones,
+            // or an alias could fake a state or a key id.
             QString alias = QString::fromStdString(r.alias);
             alias.replace(QLatin1Char('['), QLatin1Char('(')).replace(QLatin1Char(']'), QLatin1Char(')'));
+            alias.replace(QChar(0x00B7), QLatin1Char('-'));
             const QString author = alias.isEmpty() ? id : alias + QStringLiteral(" · ") + id;
             lines << QStringLiteral("%1 [%2]: %3")
                           .arg(author, QString::fromStdString(r.state),

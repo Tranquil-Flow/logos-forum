@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 624
+Files normalised: 626
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -533,6 +533,8 @@ Files normalised: 624
 | evidence/m5-package/ui-tour-20261004-191248/app.log | repo-path (2), home-dir (1) | `b7d3786dfcf29ceb…` | `e85667bc524a4fe0…` |
 | evidence/m5-package/ui-tour-20261006/live/app.log | repo-path (2), home-dir (1) | `0418a8c474a495cf…` | `3e55b83cf4b7ae47…` |
 | evidence/m5-package/ui-tour-20261006/offline/app.log | repo-path (2), home-dir (1) | `b6c0f7b6a76c981f…` | `eccb269db1d8ff83…` |
+| evidence/m5-package/ui-tour-20261006-b/live/app.log | repo-path (2), home-dir (1) | `60ced9506bc7d690…` | `f114081a0f1f2134…` |
+| evidence/m5-package/ui-tour-20261006-b/offline/app.log | repo-path (2), home-dir (1) | `7efea2baff92963e…` | `2fdd1dc1a174a981…` |
 | evidence/m6-live/history-20261004-122454/a-app.log | repo-path (2), home-dir (1) | `72994328fbb4c8c0…` | `f49f1eaaea5f65a3…` |
 | evidence/m6-live/history-20261004-122454/b-app.log | repo-path (2), home-dir (1) | `9bba8ccf4dd80db1…` | `8ee96a1a395f4ced…` |
 | evidence/m6-live/history-20261004-122454/result.json | repo-path (1) | `0ea61518b87f053e…` | `75cc54c083601a2f…` |

@@ -1,0 +1,13 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+these 4 derivations will be built:
+  /nix/store/wmncbxbd6hn9gg6i9gxhqmh6n90lf6zn-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/2ps46xw0gk6ppv8gxb36jaqcib63hpx2-logos-forum_module-module.drv
+  /nix/store/c2pynzdgmlik3klhmlh4qn8x9962mc1r-logos-forum_module-plugin-dir.drv
+  /nix/store/qa6abjqc7rxh5dwbqdrypyza5zh3g8wg-run-logos-standalone-ui.drv
+building '/nix/store/wmncbxbd6hn9gg6i9gxhqmh6n90lf6zn-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/2ps46xw0gk6ppv8gxb36jaqcib63hpx2-logos-forum_module-module.drv'...
+building '/nix/store/c2pynzdgmlik3klhmlh4qn8x9962mc1r-logos-forum_module-plugin-dir.drv'...
+building '/nix/store/qa6abjqc7rxh5dwbqdrypyza5zh3g8wg-run-logos-standalone-ui.drv'...

@@ -1,0 +1,10 @@
+UI tour after the second review (tools/ui_tour.mjs, freshly built #ui-dev
+launcher, macOS). Post headers now show the alias and the key id as two
+separate texts; the key id is never elided. README images copied from here:
+  docs/img/forum-first-start.png       <- offline/01-first-start.png
+  docs/img/forum-identity-rotation.png <- offline/05-identity-rotation.png
+  docs/img/forum-connected.png         <- live/04-history-loaded.png
+live/: "loaded 65 messages from the last 7 days on the network store; 49
+posts recovered in total". The newest row is the test post from the Windows
+CI check in run 37462255837 (Basecamp 0.3.1 on a Windows runner), received
+here on macOS.

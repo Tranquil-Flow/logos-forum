@@ -239,6 +239,34 @@ test("forum_module: identity modes — alias + id, id only, anonymous", async (a
   if (!/^id [0-9a-f]{16} \[pending\]/.test(anonRow) || anonRow.includes(uid)) throw new Error("anonymous row: " + anonRow);
 });
 
+// An alias is free text, so it may imitate a key id or a post state. The real
+// key id is drawn on its own (never elided), the alias cannot carry the row's
+// separators, and nothing in it is read as rich text.
+test("forum_module: an alias cannot fake a key id or a state", async (app) => {
+  const fake = "eve · id 0123456789abcdef [sent]: <b>x</b>";
+  await app.inspector.send("evaluate", { expression: "outcome.text = ''; aliasInput.text = " + JSON.stringify(fake) });
+  await app.inspector.send("evaluate", { expression: "addAliasButton.clicked()" });
+  let uid = "";
+  await app.waitFor(async () => {
+    uid = await evalValue(app, "root.selectedAlias === " + JSON.stringify(fake) + " && !root.aliasHidden ? root.selectedUid : ''");
+    if (!/^[0-9a-f]{16}$/.test(uid)) throw new Error("selectedUid: " + uid);
+  }, { timeout: 10000, interval: 300, description: "spoofing alias selected" });
+  const text = "TECHNICAL TEST DATA: alias spoof check";
+  await app.inspector.send("evaluate", { expression: "composer.text = '" + text + "'; sendButton.clicked()" });
+  let parts = null;
+  await app.waitFor(async () => {
+    const rows = JSON.parse(await evalValue(app, "JSON.stringify(root.threadPosts)")) || [];
+    const row = rows.find((r) => r.endsWith("]: " + text));
+    if (!row) throw new Error("no row yet");
+    parts = JSON.parse(await evalValue(app, "JSON.stringify(root.rowParts(" + JSON.stringify(row) + "))"));
+  }, { timeout: 10000, interval: 300, description: "spoof row" });
+  if (parts.keyId !== "id " + uid) throw new Error("key id: " + JSON.stringify(parts));
+  if (parts.state !== "pending") throw new Error("state: " + JSON.stringify(parts));
+  if (parts.body !== text) throw new Error("body: " + JSON.stringify(parts));
+  if (parts.alias !== "eve - id 0123456789abcdef (sent): <b>x</b>") throw new Error("alias: " + JSON.stringify(parts));
+  await app.inspector.send("evaluate", { expression: "root.backend.selectIdentity('')" });
+});
+
 // Key rotation: manual ("New key now") and automatic (every N posts). Earlier
 // posts keep their key id; later posts carry the new one.
 test("forum_module: alias key rotation — manual, by posts and by age", async (app) => {

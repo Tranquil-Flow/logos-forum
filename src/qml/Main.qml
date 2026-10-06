@@ -121,10 +121,15 @@ Item {
     }
     // Parse a thread row "<author> [state]: body" (backend contract; the
     // backend shows brackets in aliases as parentheses).
+    // The key id is split off the alias and drawn on its own, never elided:
+    // a long alias must not push the real key id out of view.
     function rowParts(line) {
         var m = /^(.*?) \[(\w+)\]: ([\s\S]*)$/.exec(line)
-        if (!m) return { author: "", state: "", body: line }
-        return { author: m[1], state: m[2], body: m[3] }
+        if (!m) return { alias: "", keyId: "", state: "", body: line }
+        var k = m[1].lastIndexOf(" · id ")
+        return { alias: k >= 0 ? m[1].slice(0, k) : "",
+                 keyId: k >= 0 ? m[1].slice(k + 3) : m[1],
+                 state: m[2], body: m[3] }
     }
     // Parse a topic row "<id>|<title (N)>|<unread>" (backend contract).
     function topicParts(line) {
@@ -344,6 +349,7 @@ Item {
                     id: identityHint
                     objectName: "identityHint"  // stable handle for property-only drivers
                     // Privacy implications stated where the choice is made.
+                    textFormat: Text.PlainText
                     text: root.selectedAlias === ""
                           ? "Identity: anonymous — a new one-time key per post; your posts cannot be linked to each other"
                           : root.aliasHidden
@@ -407,6 +413,7 @@ Item {
                             spacing: 6
                             Text {
                                 text: topicRow.parts.label
+                                textFormat: Text.PlainText
                                 color: root.cText; font.pixelSize: 13
                                 font.bold: topicRow.parts.unread > 0
                                 elide: Text.ElideRight
@@ -478,6 +485,7 @@ Item {
                         text: root.currentTopicId === "" ? "Thread"
                               : (root.currentTopicTitle !== "" ? root.currentTopicTitle
                                                                : root.currentTopicId.slice(0, 12) + "…")
+                        textFormat: Text.PlainText
                         color: root.cText; font.bold: true; font.pixelSize: 15
                         elide: Text.ElideRight
                         Layout.fillWidth: true
@@ -541,11 +549,23 @@ Item {
                                 Layout.fillWidth: true
                                 spacing: 8
                                 Text {
-                                    text: parts.author
+                                    objectName: "postAlias"
+                                    visible: parts.alias !== ""
+                                    text: parts.alias
+                                    textFormat: Text.PlainText
                                     color: root.cText; font.pixelSize: 12; font.bold: true
                                     elide: Text.ElideRight
-                                    Layout.fillWidth: true
+                                    Layout.maximumWidth: 220
                                 }
+                                Text {
+                                    objectName: "postKeyId"
+                                    text: parts.keyId
+                                    textFormat: Text.PlainText
+                                    color: parts.alias !== "" ? root.cMuted : root.cText
+                                    font.pixelSize: 12; font.bold: parts.alias === ""
+                                    font.family: "monospace"
+                                }
+                                Item { Layout.fillWidth: true }
                                 Text {
                                     text: root.stateLabel(parts.state)
                                     color: root.stateColor(parts.state); font.pixelSize: 11
@@ -683,6 +703,7 @@ Item {
 
         Text {
             id: outcome
+            textFormat: Text.PlainText
             text: ""
             color: root.cText
             font.pixelSize: 13
@@ -698,6 +719,7 @@ Item {
             objectName: "historyLine"
             visible: root.historyState.length > 0
             text: "History: " + root.historyState
+            textFormat: Text.PlainText
             // A finished history request replaces the "asking…" note.
             onTextChanged: if (outcome.text === "Asking the network for older posts…"
                                && !root.historyState.startsWith("loading")) outcome.text = ""
@@ -711,6 +733,7 @@ Item {
             objectName: "archiveLine"
             visible: root.archiveState.length > 0
             text: "Storage: " + root.archiveState
+            textFormat: Text.PlainText
             onTextChanged: if ((outcome.text.indexOf("Saving a snapshot") === 0
                                 || outcome.text.indexOf("Fetching the snapshot") === 0)
                                && root.archiveState.indexOf("saving") !== 0
@@ -723,6 +746,7 @@ Item {
         Text {
             visible: root.showDetails
             text: "Transport: " + (root.transportState || "-")
+            textFormat: Text.PlainText
             color: root.cMuted
             font.pixelSize: 12
             Layout.fillWidth: true
@@ -763,6 +787,7 @@ Item {
             }
             Text {
                 text: "Backend status: " + root.status
+                textFormat: Text.PlainText
                 color: root.cMuted; font.pixelSize: 11
             }
         }
