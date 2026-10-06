@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "phase": "save",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 5,
+      "what": "transport ready"
+    },
+    {
+      "t_s": 25,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z (1/2)"
+    },
+    {
+      "t_s": 28,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z (2/2)"
+    },
+    {
+      "t_s": 31,
+      "what": "posts sent"
+    },
+    {
+      "t_s": 31,
+      "what": "save snapshot clicked"
+    },
+    {
+      "t_s": 32,
+      "what": "snapshot saved",
+      "state": "saved 4 posts on Logos Storage (zDvZRwzm3AT7zDcD…) and announced it in this topic; this device serves the snapshot while Basecamp runs"
+    },
+    {
+      "t_s": 33,
+      "what": "announcement sent"
+    }
+  ],
+  "archive_state": "saved 4 posts on Logos Storage (zDvZRwzm3AT7zDcD…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "announcement": "Snapshot of this topic on Logos Storage: 4 post(s).\ncid: zDvZRwzm3AT7zDcD1iugxZ6K8HsJoBY2AmYF2N2eFdwYvbSUE8N3\npeer: 16Uiu2HAm4W131ZnaXYKr2Mon3dMaCj695znwQ2QqExnvdQJADnz9\naddrs: /ip4/127.0.0.1/tcp/8571",
+  "announcement_author": "id c84b349f54b77975",
+  "thread": [
+    "id ccde7f21659b4935 [received]: TEST POST - automated Windows check, CI run 37464920456 - test data, please ignore",
+    "id 4882a0820f4a3991 [received]: Snapshot of this topic on Logos Storage: 1 post(s).\ncid: zDvZRwzkyhRqZeUdH7pZ2Po5pkd4skoFLEugjUFy1APDgUP19Q3S\npeer: 16Uiu2HAm52fYF1TXCHcF8A67jqAo3ZWBwrrt5be5kNEFGxoP9FMF\naddrs: /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit",
+    "id 0222106c7aeb8966 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z (1/2)",
+    "id 457aa835a01d3b49 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z (2/2)",
+    "id c84b349f54b77975 [sent]: Snapshot of this topic on Logos Storage: 4 post(s).\ncid: zDvZRwzm3AT7zDcD1iugxZ6K8HsJoBY2AmYF2N2eFdwYvbSUE8N3\npeer: 16Uiu2HAm4W131ZnaXYKr2Mon3dMaCj695znwQ2QqExnvdQJADnz9\naddrs: /ip4/127.0.0.1/tcp/8571"
+  ]
+}
+{
+  "status": "PASS",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    },
+    {
+      "t_s": 56,
+      "what": "restored",
+      "state": "restored from Logos Storage (zDvZRwzm3AT7zDcD…): 4 new posts, 1 already here, 0 rejected by verification"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "archive_state": "restored from Logos Storage (zDvZRwzm3AT7zDcD…): 4 new posts, 1 already here, 0 rejected by verification",
+  "connection_after": "offline",
+  "thread": [
+    "id ccde7f21659b4935 [received]: TEST POST - automated Windows check, CI run 37464920456 - test data, please ignore",
+    "id 4882a0820f4a3991 [received]: Snapshot of this topic on Logos Storage: 1 post(s).\ncid: zDvZRwzkyhRqZeUdH7pZ2Po5pkd4skoFLEugjUFy1APDgUP19Q3S\npeer: 16Uiu2HAm52fYF1TXCHcF8A67jqAo3ZWBwrrt5be5kNEFGxoP9FMF\naddrs: /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit",
+    "id 0222106c7aeb8966 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z (1/2)",
+    "id 457aa835a01d3b49 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T12:58:06Z (2/2)"
+  ]
+}
+{"status":"PASS","layer":"in-app-storage-loopback+delivery-logos.dev","evidence":"<repo>/evidence/m7-storage/snapshot-20261006-145806"}
+tools/m7_storage.sh: line 22: 69576 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" FORUM_STORAGE_CONFIG="$STATE/a-storage.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/a-app.log" 2>&1
+tools/m7_storage.sh: line 22: 69686 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" FORUM_STORAGE_CONFIG="$STATE/b-storage.json" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/b-app.log" 2>&1
+cleanup verified: no storage-run processes remain

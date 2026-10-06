@@ -124,7 +124,7 @@ Item {
     // The key id is split off the alias and drawn on its own, never elided:
     // a long alias must not push the real key id out of view.
     function rowParts(line) {
-        var m = /^(.*?) \[(\w+)\]: ([\s\S]*)$/.exec(line)
+        var m = /^([\s\S]*?) \[(\w+)\]: ([\s\S]*)$/.exec(line)
         if (!m) return { alias: "", keyId: "", state: "", body: line }
         var k = m[1].lastIndexOf(" · id ")
         return { alias: k >= 0 ? m[1].slice(0, k) : "",

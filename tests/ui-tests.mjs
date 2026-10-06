@@ -264,6 +264,28 @@ test("forum_module: an alias cannot fake a key id or a state", async (app) => {
   if (parts.state !== "pending") throw new Error("state: " + JSON.stringify(parts));
   if (parts.body !== text) throw new Error("body: " + JSON.stringify(parts));
   if (parts.alias !== "eve - id 0123456789abcdef (sent): <b>x</b>") throw new Error("alias: " + JSON.stringify(parts));
+
+  // A line separator (would break the row parser), a right-to-left override
+  // (would reorder what is shown) and a look-alike dot.
+  const sneaky = "mal\u2028lory\u202e \u22c5 id 0123456789abcdef";
+  await app.inspector.send("evaluate", { expression: "aliasInput.text = " + JSON.stringify(sneaky) + "; addAliasButton.clicked()" });
+  let uid2 = "";
+  await app.waitFor(async () => {
+    uid2 = await evalValue(app, "root.selectedAlias === " + JSON.stringify(sneaky) + " ? root.selectedUid : ''");
+    if (!/^[0-9a-f]{16}$/.test(uid2)) throw new Error("selectedUid: " + uid2);
+  }, { timeout: 10000, interval: 300, description: "second spoofing alias selected" });
+  const text2 = "TECHNICAL TEST DATA: alias spoof check 2";
+  await app.inspector.send("evaluate", { expression: "composer.text = '" + text2 + "'; sendButton.clicked()" });
+  await app.waitFor(async () => {
+    const rows = JSON.parse(await evalValue(app, "JSON.stringify(root.threadPosts)")) || [];
+    const row = rows.find((r) => r.endsWith("]: " + text2));
+    if (!row) throw new Error("no row yet");
+    parts = JSON.parse(await evalValue(app, "JSON.stringify(root.rowParts(" + JSON.stringify(row) + "))"));
+  }, { timeout: 10000, interval: 300, description: "spoof row 2" });
+  if (parts.keyId !== "id " + uid2 || parts.state !== "pending" || parts.body !== text2
+      || parts.alias !== "mal\ufffdlory\ufffd - id 0123456789abcdef") {
+    throw new Error("parts 2: " + JSON.stringify(parts));
+  }
   await app.inspector.send("evaluate", { expression: "root.backend.selectIdentity('')" });
 });
 

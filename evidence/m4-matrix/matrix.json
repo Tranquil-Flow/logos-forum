@@ -612,8 +612,8 @@
           "sha256": "1c0c7dbef77f804ca4c76f776a66ab9393ce46db737adff3e63ae6fb477cf71d"
         },
         {
-          "artifact": "m7-storage/snapshot-20261006-141136/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
-          "sha256": "62a7d882615fb3859c40b2297c42495a3b9980ddce14279f561f276d1e817f55"
+          "artifact": "m7-storage/snapshot-20261006-145806/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "376412b9877740f935b2ff7cfb01ee8a4bcb3fe54a1c02895c6945516e640ee8"
         }
       ],
       "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",

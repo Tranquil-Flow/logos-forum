@@ -948,6 +948,34 @@ bool rowMatches(const forum::PostRecord &r, const QString &q)
            QString::fromStdString(r.alias).toLower().contains(q) ||
            QString::fromStdString(r.author_pub_hex).left(16).contains(q);
 }
+
+// Author-chosen text (aliases, topic titles) as it may be shown: no line
+// breaks, invisible or direction-changing characters (they could hide or
+// reorder what is shown), and — in aliases — none of the row's separators
+// or dots that imitate them, so an alias cannot fake a state or a key id.
+QString displaySafe(const QString &in, bool alias)
+{
+    QString out;
+    out.reserve(in.size());
+    for (const QChar c : in) {
+        const QChar::Category cat = c.category();
+        if (cat == QChar::Other_Control || cat == QChar::Other_Format
+            || cat == QChar::Separator_Line || cat == QChar::Separator_Paragraph) {
+            out += QChar(0xFFFD);
+        } else if (alias && c == QLatin1Char('[')) {
+            out += QLatin1Char('(');
+        } else if (alias && c == QLatin1Char(']')) {
+            out += QLatin1Char(')');
+        } else if (alias && (c == QChar(0x00B7) || c == QChar(0x0387) || c == QChar(0x2022)
+                             || c == QChar(0x2219) || c == QChar(0x22C5) || c == QChar(0x30FB)
+                             || c == QChar(0xFF65))) {
+            out += QLatin1Char('-');
+        } else {
+            out += c;
+        }
+    }
+    return out;
+}
 } // namespace
 
 void ForumModuleBackend::refreshTopics()
@@ -959,7 +987,7 @@ void ForumModuleBackend::refreshTopics()
         if (!m_search.isEmpty()) all = st->posts();
         for (const auto &t : st->topics()) {
             const QString id = QString::fromStdString(t.topic_id);
-            const QString title = QString::fromStdString(t.title);
+            const QString title = displaySafe(QString::fromStdString(t.title), false);
             if (!m_search.isEmpty() && !title.toLower().contains(m_search)) {
                 const bool hit = std::any_of(all.begin(), all.end(), [&](const forum::PostRecord &r) {
                     return r.type == "post" &&
@@ -995,7 +1023,7 @@ void ForumModuleBackend::refreshThread()
     if (st && !m_currentTopicId.isEmpty()) {
         for (const auto &t : st->topics()) {
             if (QString::fromStdString(t.topic_id) == m_currentTopicId) {
-                title = QString::fromStdString(t.title);
+                title = displaySafe(QString::fromStdString(t.title), false);
             }
         }
         const auto thread = st->thread(m_currentTopicId.toStdString());
@@ -1006,12 +1034,8 @@ void ForumModuleBackend::refreshThread()
             // Aliases are self-asserted; the key id is what tells two "alice"s
             // apart. No alias = id only (an anonymous post's key is one-time).
             const QString id = QStringLiteral("id ") + shortId(r.author_pub_hex);
-            // Brackets in an alias are shown as parentheses and its middle dots
-            // as hyphens: "[state]" and " · id " must be the row's only ones,
-            // or an alias could fake a state or a key id.
-            QString alias = QString::fromStdString(r.alias);
-            alias.replace(QLatin1Char('['), QLatin1Char('(')).replace(QLatin1Char(']'), QLatin1Char(')'));
-            alias.replace(QChar(0x00B7), QLatin1Char('-'));
+            // "[state]" and " · id " must be the row's only ones (displaySafe).
+            const QString alias = displaySafe(QString::fromStdString(r.alias), true);
             const QString author = alias.isEmpty() ? id : alias + QStringLiteral(" · ") + id;
             lines << QStringLiteral("%1 [%2]: %3")
                           .arg(author, QString::fromStdString(r.state),
@@ -1315,18 +1339,20 @@ void ForumModuleBackend::pollUploadedCid(const QString &file, const QStringList 
     announceSnapshot(cid, posts);
 }
 
+QString ForumModuleBackend::storagePeerId()
+{
+    const LogosResult pid = modules().storage_module.peerId();
+    if (!pid.success) return QString();
+    const QJsonValue v = resultJson(pid.value);
+    return v.isObject() ? v.toObject().value(QStringLiteral("peerId")).toString() : v.toString();
+}
+
 void ForumModuleBackend::announceSnapshot(const QString &cid, int posts)
 {
     // Where to fetch it from: this node's Storage peer id and addresses, so a
     // reader can connect directly even when the content DHT cannot find it.
-    QString peer;
+    const QString peer = storagePeerId();
     QStringList addrs;
-    const LogosResult pid = modules().storage_module.peerId();
-    if (pid.success) {
-        const QJsonValue v = resultJson(pid.value);
-        peer = v.isObject() ? v.toObject().value(QStringLiteral("peerId")).toString()
-                            : v.toString();
-    }
     const LogosResult dbg = modules().storage_module.debug();
     if (dbg.success) {
         const QJsonObject o = resultJson(dbg.value).toObject();
@@ -1373,10 +1399,15 @@ QString ForumModuleBackend::restoreSnapshot(QString announcement)
     m_restore = Restore();
     m_restore.gen = gen;
     m_restore.cid = cid;
+    // Only the newest download is kept: earlier ones are removed here.
+    QDir dir(snapshotDir());
+    for (const QString &old : dir.entryList({QStringLiteral("restore-*.txt")}, QDir::Files)) {
+        dir.remove(old);
+    }
     m_restore.file = snapshotDir() + QStringLiteral("/restore-%1-%2.txt")
                                          .arg(cid.left(16))
                                          .arg(QDateTime::currentMSecsSinceEpoch());
-    if (pm.hasMatch() && am.hasMatch()) {
+    if (pm.hasMatch() && am.hasMatch() && pm.captured(1) != storagePeerId()) {
         m_restore.peer = pm.captured(1).left(128);
         m_restore.addrs = am.captured(1).split(QLatin1Char(' '), Qt::SkipEmptyParts).mid(0, 4);
     }
@@ -1494,7 +1525,6 @@ void ForumModuleBackend::mergeSnapshotFile(const QString &cid, const QString &fi
     }
     const QList<QByteArray> lines = f.read(kMaxSnapshotBytes).split('\n');
     f.close();
-    QFile::remove(file);  // read in full; what verifies now lives in the store
     if (lines.isEmpty() || !lines.first().startsWith(kSnapshotMagic.toLatin1())) {
         setArchiveState(QStringLiteral("%1… is not a forum snapshot — ignored").arg(cid.left(16)));
         return;

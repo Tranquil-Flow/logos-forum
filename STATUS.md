@@ -15,7 +15,8 @@ publication/CI/video, R16 the external organic-use gate).
 fake a post state or key id in the thread; topic titles with "%1" no longer
 corrupt the topic list; events dated over an hour ahead are refused and
 received titles are bounded; database errors in a merge are reported as
-such; snapshot files are removed once read. Core 185/0, UI 14/14, live round
+such; only the newest downloaded snapshot file is kept; restoring a snapshot this
+node serves no longer fails trying to dial itself. Core 185/0, UI 14/14, live round
 trip, history, Storage snapshot, store probe and clean install PASS.
 
 **Update — source review fixes, 2026-10-06 afternoon**

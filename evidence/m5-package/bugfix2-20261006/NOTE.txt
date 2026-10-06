@@ -12,7 +12,8 @@ Fixes:
   here"; snapshot restores count such posts separately.
 - History paging that fails after the first page says so on the History
   line instead of showing an earlier state.
-- A downloaded snapshot file is removed once read (they piled up).
+- Downloaded snapshot files no longer pile up: a new restore removes the
+  earlier downloads, so only the newest is kept.
 - tools/windows_smoke.sh: the restart check now requires the reopened window
   to show the test post (UI Automation), not only the file on disk.
 Cleanup: shared helpers for key rotation and Delivery's two "sent" signals,
@@ -38,3 +39,16 @@ every text showing network data is plain text.
 - integration-3-alias-display.log: UI suite 15 passed, 0 failed (new test:
   an alias cannot fake a key id or a state).
 - evidence/m5-package/ui-tour-20261006-b/: the new header, by eye.
+
+Follow-up 2 (security review of the pushed branch): the row parser in the
+view used "." (no line terminators), and aliases/titles could carry line or
+paragraph separators, bidi overrides, zero-width characters and look-alike
+dots. Author-chosen text is now cleaned for display (displaySafe in the
+backend: such characters become U+FFFD, look-alike dots become hyphens) and
+the parser accepts any character.
+- integration-4-display-safe.log: UI suite 15 passed, 0 failed (the spoof
+  test now also uses U+2028, U+202E and U+22C5).
+Follow-up 3 (Windows CI run 37464920456): restoring a snapshot served by
+this same node failed — Storage refused to dial itself ("internalConnect
+can't dial self!"). The app now downloads directly when the announced peer
+is its own.

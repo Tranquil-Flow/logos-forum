@@ -90,6 +90,7 @@ private:
     bool ensureStorage(QString *why);
     QString snapshotDir();
     void pollUploadedCid(const QString &file, const QStringList &before, int posts, int attempt);
+    QString storagePeerId();                 // this node's Storage peer id, or ""
     void announceSnapshot(const QString &cid, int posts);
     void wireStorageEvents();
     void dialSnapshotPeer();
