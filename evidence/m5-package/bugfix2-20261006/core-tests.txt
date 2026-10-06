@@ -1,1 +1,1 @@
-core tests: 185 checks, 0 failures
+core tests: 189 checks, 0 failures

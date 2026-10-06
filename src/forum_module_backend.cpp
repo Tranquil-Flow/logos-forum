@@ -253,7 +253,7 @@ QString ForumModuleBackend::createAccount(QString alias)
 {
     const std::string a = alias.trimmed().toStdString();
     if (!forum::valid_alias(a) || a.empty()) {
-        return QStringLiteral("error: alias must be 1-64 bytes of printable text");
+        return QStringLiteral("error: alias must be 1-64 printable ASCII characters");
     }
     forum::Store *st = store();
     if (!st) return QStringLiteral("error: local store unavailable");
@@ -949,10 +949,10 @@ bool rowMatches(const forum::PostRecord &r, const QString &q)
            QString::fromStdString(r.author_pub_hex).left(16).contains(q);
 }
 
-// Author-chosen text (aliases, topic titles) as it may be shown: no line
-// breaks, invisible or direction-changing characters (they could hide or
-// reorder what is shown), and — in aliases — none of the row's separators
-// or dots that imitate them, so an alias cannot fake a state or a key id.
+// Author-chosen text as it may be shown: no line breaks, invisible or
+// direction-changing characters (they could hide or reorder what is shown).
+// Aliases are printable ASCII (forum::valid_alias); their brackets are shown
+// as parentheses so "[state]" stays the row's only bracketed part.
 QString displaySafe(const QString &in, bool alias)
 {
     QString out;
@@ -966,10 +966,6 @@ QString displaySafe(const QString &in, bool alias)
             out += QLatin1Char('(');
         } else if (alias && c == QLatin1Char(']')) {
             out += QLatin1Char(')');
-        } else if (alias && (c == QChar(0x00B7) || c == QChar(0x0387) || c == QChar(0x2022)
-                             || c == QChar(0x2219) || c == QChar(0x22C5) || c == QChar(0x30FB)
-                             || c == QChar(0xFF65))) {
-            out += QLatin1Char('-');
         } else {
             out += c;
         }
@@ -1216,9 +1212,15 @@ bool ForumModuleBackend::ensureStorage(QString *why)
     // init() refuses when the host already initialised Storage; start() is
     // still worth trying in that case.
     const bool inited = modules().storage_module.init(cfg);
-    const bool started = modules().storage_module.start();
-    for (int i = 0; i < 20 && !modules().storage_module.isRunning(); ++i) {
-        QThread::msleep(250);
+    bool started = false;
+    // On Windows the first start() right after init() is often refused while
+    // a second one succeeds (CI runs 37462255837, 37464920456, 37467422347):
+    // try twice before reporting.
+    for (int attempt = 0; attempt < 2 && !modules().storage_module.isRunning(); ++attempt) {
+        started = modules().storage_module.start();
+        for (int i = 0; i < 20 && !modules().storage_module.isRunning(); ++i) {
+            QThread::msleep(250);
+        }
     }
     if (!modules().storage_module.isRunning()) {
         *why = QStringLiteral("Logos Storage did not start (init %1, start %2)")

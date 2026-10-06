@@ -19,14 +19,14 @@
       },
       {
         "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-        "sha256": "dd02e0b73b0aa7b4798b49a692982dc223fa11c5add923ed3cfba3d1c2fa0df8"
+        "sha256": "09ce87242a5f67df6cab5409413dcc4a1e55b992caf46811be9a3ebf084b5868"
       },
       {
         "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-        "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
+        "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
       }
     ],
-    "store_probe_receipts": 26
+    "store_probe_receipts": 27
   },
   "rows": [
     {
@@ -59,7 +59,7 @@
       "receipts": [
         {
           "artifact": "m5-package/bugfix2-20261006/core-tests.txt",
-          "sha256": "4d3de4884256210282175eb9c75fa8a30f3c1de812b6eef489380a5c8669b651"
+          "sha256": "419c511992f4e4348730e4400f9bcc24f3a7f2358203a9d7c400db1c46951c46"
         },
         {
           "artifact": "m5-package/bugfix-20261006/core-tests.txt",
@@ -98,19 +98,19 @@
           "sha256": "de0a46750b77f2536b8a7fdc47a42cfbf90f1edc636b470d346d5cd998db1e5b"
         },
         {
-          "artifact": "m5-package/bugfix2-20261006/integration-2.log (14/14, store-backed)",
-          "sha256": "d21a85e7c58b5f6b74a55bbc0a506918a3b310990f6397dba0138c47346435b4"
+          "artifact": "m5-package/bugfix2-20261006/integration-6-ascii-alias.log (15/15, store-backed)",
+          "sha256": "4db689e19df7f61dda42a34849a74746d0862a6eb4f2ef913fb1273d6d1d115d"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "dd02e0b73b0aa7b4798b49a692982dc223fa11c5add923ed3cfba3d1c2fa0df8"
+          "sha256": "09ce87242a5f67df6cab5409413dcc4a1e55b992caf46811be9a3ebf084b5868"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
+          "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
         }
       ],
-      "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (14/14); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
+      "notes": "accounts persist in the per-profile store; three identity options \u2014 alias + key id, key id only (alias hidden), anonymous (one-time key) \u2014 exercised in CI (15/15); alias flow also in the dev launcher (store_probe) and real Basecamp (cleaninstall); anonymous posts use a fresh key per post (core-tests); an alias's key rotates on demand or every N posts or N days (core-tests + CI 'alias key rotation')",
       "layer": "app+core"
     },
     {
@@ -127,16 +127,16 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m5-package/bugfix2-20261006/integration-2.log (14/14, store-backed)",
-          "sha256": "d21a85e7c58b5f6b74a55bbc0a506918a3b310990f6397dba0138c47346435b4"
+          "artifact": "m5-package/bugfix2-20261006/integration-6-ascii-alias.log (15/15, store-backed)",
+          "sha256": "4db689e19df7f61dda42a34849a74746d0862a6eb4f2ef913fb1273d6d1d115d"
         },
         {
           "artifact": "store_probe (dev launcher: slot return + PROP sync + post path)",
-          "sha256": "dd02e0b73b0aa7b4798b49a692982dc223fa11c5add923ed3cfba3d1c2fa0df8"
+          "sha256": "09ce87242a5f67df6cab5409413dcc4a1e55b992caf46811be9a3ebf084b5868"
         },
         {
           "artifact": "cleaninstall (real Basecamp: alias + offline post saved as [pending], composer cleared)",
-          "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
+          "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
         }
       ],
       "notes": "topic create + list + switch (browse) in CI; posts are replies in a topic's thread (flat, no nested reply-to-reply UI); the shared deterministic General topic carries posts across instances \u2014 two-instance smoke shows the sender's post as [received] in the receiver's thread",
@@ -164,12 +164,12 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m6-live/live-20261006-140925/driver-result.json (public logos.dev)",
-          "sha256": "24674f08ab1827c395c45e85fef5e04380e4a7584fd3fa6abc5a83f1e5da6bef"
+          "artifact": "m6-live/live-20261006-151622/driver-result.json (public logos.dev)",
+          "sha256": "a1bc9aa2935e1607a17f5a174ef2dd36070bb46745397060b9253bf2e26d805b"
         },
         {
-          "artifact": "m6-live/live-20261006-133532/driver-result.json (public logos.dev)",
-          "sha256": "750f75fe65a7269cd383f912d9a19dc12e45b498356dbca78a743019921b467d"
+          "artifact": "m6-live/live-20261006-140925/driver-result.json (public logos.dev)",
+          "sha256": "24674f08ab1827c395c45e85fef5e04380e4a7584fd3fa6abc5a83f1e5da6bef"
         },
         {
           "artifact": "m2b-cli Required receipts",
@@ -207,7 +207,7 @@
         },
         {
           "artifact": "m5-package/bugfix2-20261006/core-tests.txt",
-          "sha256": "4d3de4884256210282175eb9c75fa8a30f3c1de812b6eef489380a5c8669b651"
+          "sha256": "419c511992f4e4348730e4400f9bcc24f3a7f2358203a9d7c400db1c46951c46"
         },
         {
           "artifact": "m5-package/bugfix-20261006/core-tests.txt",
@@ -424,7 +424,7 @@
       "receipts": [
         {
           "artifact": "m5-package/bugfix2-20261006/core-tests.txt",
-          "sha256": "4d3de4884256210282175eb9c75fa8a30f3c1de812b6eef489380a5c8669b651"
+          "sha256": "419c511992f4e4348730e4400f9bcc24f3a7f2358203a9d7c400db1c46951c46"
         },
         {
           "artifact": "m5-package/bugfix-20261006/core-tests.txt",
@@ -507,8 +507,8 @@
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
-          "artifact": "m5-package/bugfix2-20261006/integration-2.log (14/14, store-backed)",
-          "sha256": "d21a85e7c58b5f6b74a55bbc0a506918a3b310990f6397dba0138c47346435b4"
+          "artifact": "m5-package/bugfix2-20261006/integration-6-ascii-alias.log (15/15, store-backed)",
+          "sha256": "4db689e19df7f61dda42a34849a74746d0862a6eb4f2ef913fb1273d6d1d115d"
         },
         {
           "artifact": "m2-core/integration-9.log",
@@ -528,7 +528,7 @@
         },
         {
           "artifact": "docs/CONTRACT.md",
-          "sha256": "ffae44f8862f4e46e5857849f4fb05dd92b17bd0ed8ebe603cbcb9abce68eef1"
+          "sha256": "89d7568558f1c4d7df247ca76ce585440c87eef6072c5db2bde9640a99a97dbd"
         },
         {
           "artifact": "docs/LICENSES.md",
@@ -536,11 +536,11 @@
         },
         {
           "artifact": "README.md",
-          "sha256": "f19d62e4a7fd46da1f520c8f94bf2ca209823ac47dd6af9b5f1609a122114567"
+          "sha256": "07a3c65dbbcbadfd12cc14e0eeb3ef215127aab345906a01da895ecc6cf64658"
         },
         {
           "artifact": "docs/FURPS.md",
-          "sha256": "213d6ae6c92f995d6ed5a712ba7e4d9fa1428824fb07e07f5e02a865f4803401"
+          "sha256": "088687148bb32ce9068c31409eb6d6c6adc7b3b8249f68a762ed6d1b5f312bf9"
         },
         {
           "artifact": ".github/workflows/ci.yml",
@@ -551,7 +551,7 @@
           "sha256": "d6aef4978aef1266907c9f0e2c056534e982a0111343126ed8c85bac6e282d3f"
         }
       ],
-      "notes": "local CI green (hermetic integration 14/14 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (windows, linux, macos, windows-basecamp, all-platforms; run 37450064810, Tranquil-Flow/logos-forum)",
+      "notes": "local CI green (hermetic integration 15/15 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (windows, linux, macos, windows-basecamp, all-platforms; run 37450064810, Tranquil-Flow/logos-forum)",
       "layer": "app+core"
     },
     {
@@ -562,10 +562,10 @@
         {
           "claims": {
             "status": "PASS",
-            "lgx_sha256": "c884d439a46b750cec4e3d1491c9343bff8d4e706cd4bdea12557593eb2c6ae1",
+            "lgx_sha256": "49574694f0f0ec2aed075ed8e183eaf9770dc2f400949b955fd73efcb0b2e840",
             "store_flow_in_real_host": true
           },
-          "sha256": "4101f50622ae6056f0ec24d47bc11a38f1b6bca32f999af4223d243ae38efa2a"
+          "sha256": "12fb3524e3d04218b5172670b67ee9c1e4742e86516f7bc0dd589022418bd21b"
         },
         {
           "artifact": "tools/demo_walkthrough.sh",
@@ -604,16 +604,16 @@
       "requirement": "In-app: a reader who was offline obtains past posts",
       "receipts": [
         {
+          "artifact": "m6-live/history-20261006-151646/b-driver.json (public logos.dev, author offline)",
+          "sha256": "bd5e3fcb5f67c43790406392d5662b9a6a8dd88b018ef65a56fdcc337f039df2"
+        },
+        {
           "artifact": "m6-live/history-20261006-140942/b-driver.json (public logos.dev, author offline)",
           "sha256": "8bcd991e2efc45fd0b94af1a9aeeccd2a49ffac8b6f1b01e0354811097cc9b05"
         },
         {
-          "artifact": "m6-live/history-20261004-185910/b-driver.json (public logos.dev, author offline)",
-          "sha256": "1c0c7dbef77f804ca4c76f776a66ab9393ce46db737adff3e63ae6fb477cf71d"
-        },
-        {
-          "artifact": "m7-storage/snapshot-20261006-145806/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
-          "sha256": "376412b9877740f935b2ff7cfb01ee8a4bcb3fe54a1c02895c6945516e640ee8"
+          "artifact": "m7-storage/snapshot-20261006-151833/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "aec7dee827ccdd99043d003e949aa5cdd67cf95644ac1f814548ece29552ae5e"
         }
       ],
       "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",

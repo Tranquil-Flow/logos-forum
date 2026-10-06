@@ -70,7 +70,8 @@ forum-v1|forum=<f>|type=<topic|post>|topic=<t>|parent=<p>|author=<pub hex>|alias
 - Wire payload on content topic `/lp0026forum/1/general/text`:
   `<canonical>\n<signature hex>`.
 - Bounds, checked before verification work: body 1–4096 bytes, alias ≤ 64
-  printable ASCII, canonical ≤ 8192 bytes. Invalid events are never
+  printable ASCII, topic title ≤ 128 bytes, canonical ≤ 8192 bytes, signed
+  time at most one hour ahead of the receiver's clock. Invalid events are never
   partially accepted; duplicates (same ID) are no-ops.
 - Identity: an account is a persistent key + alias in the local store.
   Posting modes: alias + key; key only (alias field empty); anonymous (fresh

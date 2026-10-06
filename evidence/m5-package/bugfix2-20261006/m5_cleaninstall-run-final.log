@@ -1,0 +1,42 @@
+=== 1/5 fresh .lgx build
+lgx sha256: 49574694f0f0ec2aed075ed8e183eaf9770dc2f400949b955fd73efcb0b2e840
+=== 2/5 fresh isolated profile
+=== 3/5 seed install layout (module + its declared dependencies)
+seeded forum_module (plugins, darwin-arm64-dev)
+seeded delivery_module (modules, darwin-arm64-dev)
+seeded storage_module (modules, darwin-arm64-dev)
+=== 4/5 launch isolated Basecamp host (inspector :3771)
+=== 5/5 drive the real UI (tile → module view → honest states)
+{"tile_clicked":true,"module_view":true,"details_opened":true,"Module ready":true,"Backend status: Ready":true,"Transport: no transport configured — posting unavailable (Required policy)":true,"alias_text_set":true,"alias_click":"Add alias","alias_created":true,"identity_hint":"Identity: m5-alice · id 686fae75c9342be6 — your posts are linkable to each other","identity_shown":true,"post_text_set":true,"send_click":"Send","saved_shown":true,"pending_row":"m5-alice · id 686fae75c9342be6 [pending]: TECHNICAL TEST DATA: m5 clean-install post","pending_row_shown":true,"composer_cleared":true}
+=== 6/5 cleanup proof
+{
+  "status": "PASS",
+  "layer": "m5-clean-install",
+  "lgx_sha256": "49574694f0f0ec2aed075ed8e183eaf9770dc2f400949b955fd73efcb0b2e840",
+  "variant": "darwin-arm64-dev",
+  "fresh_profile": true,
+  "isolated_user_dir": true,
+  "ui_drive": {
+    "tile_clicked": true,
+    "module_view": true,
+    "details_opened": true,
+    "Module ready": true,
+    "Backend status: Ready": true,
+    "Transport: no transport configured \u2014 posting unavailable (Required policy)": true,
+    "alias_text_set": true,
+    "alias_click": "Add alias",
+    "alias_created": true,
+    "identity_hint": "Identity: m5-alice \u00b7 id 686fae75c9342be6 \u2014 your posts are linkable to each other",
+    "identity_shown": true,
+    "post_text_set": true,
+    "send_click": "Send",
+    "saved_shown": true,
+    "pending_row": "m5-alice \u00b7 id 686fae75c9342be6 [pending]: TECHNICAL TEST DATA: m5 clean-install post",
+    "pending_row_shown": true,
+    "composer_cleared": true
+  },
+  "store_flow_in_real_host": true,
+  "processes_remaining": "none",
+  "port_freed": true,
+  "evidence": "<repo>/evidence/m5-package/cleaninstall-20261006-152219"
+}

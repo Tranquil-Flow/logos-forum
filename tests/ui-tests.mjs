@@ -239,11 +239,12 @@ test("forum_module: identity modes — alias + id, id only, anonymous", async (a
   if (!/^id [0-9a-f]{16} \[pending\]/.test(anonRow) || anonRow.includes(uid)) throw new Error("anonymous row: " + anonRow);
 });
 
-// An alias is free text, so it may imitate a key id or a post state. The real
-// key id is drawn on its own (never elided), the alias cannot carry the row's
-// separators, and nothing in it is read as rich text.
+// An alias may try to imitate a key id or a post state. Aliases are printable
+// ASCII (no look-alike or invisible characters), their brackets are shown as
+// parentheses, the real key id is drawn on its own (never elided), and
+// nothing is read as rich text.
 test("forum_module: an alias cannot fake a key id or a state", async (app) => {
-  const fake = "eve · id 0123456789abcdef [sent]: <b>x</b>";
+  const fake = "eve - id 0123456789abcdef [sent]: <b>x</b>";
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; aliasInput.text = " + JSON.stringify(fake) });
   await app.inspector.send("evaluate", { expression: "addAliasButton.clicked()" });
   let uid = "";
@@ -266,26 +267,12 @@ test("forum_module: an alias cannot fake a key id or a state", async (app) => {
   if (parts.alias !== "eve - id 0123456789abcdef (sent): <b>x</b>") throw new Error("alias: " + JSON.stringify(parts));
 
   // A line separator (would break the row parser), a right-to-left override
-  // (would reorder what is shown) and a look-alike dot.
+  // (would reorder what is shown) and a look-alike dot: refused.
   const sneaky = "mal\u2028lory\u202e \u22c5 id 0123456789abcdef";
-  await app.inspector.send("evaluate", { expression: "aliasInput.text = " + JSON.stringify(sneaky) + "; addAliasButton.clicked()" });
-  let uid2 = "";
-  await app.waitFor(async () => {
-    uid2 = await evalValue(app, "root.selectedAlias === " + JSON.stringify(sneaky) + " ? root.selectedUid : ''");
-    if (!/^[0-9a-f]{16}$/.test(uid2)) throw new Error("selectedUid: " + uid2);
-  }, { timeout: 10000, interval: 300, description: "second spoofing alias selected" });
-  const text2 = "TECHNICAL TEST DATA: alias spoof check 2";
-  await app.inspector.send("evaluate", { expression: "composer.text = '" + text2 + "'; sendButton.clicked()" });
-  await app.waitFor(async () => {
-    const rows = JSON.parse(await evalValue(app, "JSON.stringify(root.threadPosts)")) || [];
-    const row = rows.find((r) => r.endsWith("]: " + text2));
-    if (!row) throw new Error("no row yet");
-    parts = JSON.parse(await evalValue(app, "JSON.stringify(root.rowParts(" + JSON.stringify(row) + "))"));
-  }, { timeout: 10000, interval: 300, description: "spoof row 2" });
-  if (parts.keyId !== "id " + uid2 || parts.state !== "pending" || parts.body !== text2
-      || parts.alias !== "mal\ufffdlory\ufffd - id 0123456789abcdef") {
-    throw new Error("parts 2: " + JSON.stringify(parts));
-  }
+  await app.inspector.send("evaluate", { expression: "outcome.text = ''; aliasInput.text = " + JSON.stringify(sneaky) + "; addAliasButton.clicked()" });
+  await waitOutcome(app, (v) => v.includes("printable ASCII"), "non-ASCII alias refused");
+  const accounts = await evalValue(app, "JSON.stringify(root.accounts)");
+  if (accounts.includes("lory")) throw new Error("accounts: " + accounts);
   await app.inspector.send("evaluate", { expression: "root.backend.selectIdentity('')" });
 });
 

@@ -168,8 +168,11 @@ bool verify(const std::string& pub_hex, const std::string& msg, const std::strin
 bool valid_alias(const std::string& alias)
 {
     if (alias.size() > kMaxAlias) return false;
+    // Printable ASCII only: an alias sits next to the key id that tells
+    // authors apart, and Unicode look-alikes (dots, brackets, direction
+    // overrides, invisible characters) could imitate one.
     for (unsigned char c : alias) {
-        if (c < 0x20 || c == 0x7f) return false; // no control characters (UTF-8 ok)
+        if (c < 0x20 || c > 0x7e) return false;
     }
     return true;
 }

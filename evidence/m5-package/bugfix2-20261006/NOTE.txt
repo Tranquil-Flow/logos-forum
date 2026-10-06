@@ -21,8 +21,9 @@ one JSON reader, one launch and one SQL helper in the Windows smoke, clearer
 per-case messages when a post cannot be stored, comments brought up to date.
 
 Receipts in this folder:
-- core-tests.txt: 185 checks, 0 failures (new: future time and long topic
-  titles refused).
+- core-tests.txt: 189 checks, 0 failures — from the final tree (aliases
+  printable ASCII, see follow-up 4). It replaced this folder's first copy,
+  185 checks, 0 failures (future time and long topic titles refused).
 - integration-1-missing-include.log: FAIL to build — an include removed in
   cleanup was still needed (QThread); restored.
 - integration-2.log: hermetic UI suite 14 passed, 0 failed.
@@ -52,3 +53,13 @@ Follow-up 3 (Windows CI run 37464920456): restoring a snapshot served by
 this same node failed — Storage refused to dial itself ("internalConnect
 can't dial self!"). The app now downloads directly when the announced peer
 is its own.
+
+Follow-up 4 (security review: a list of look-alike characters is never
+complete): aliases are now printable ASCII, as docs/CONTRACT.md already
+stated and the old comment intended; non-ASCII aliases are refused locally
+and on receipt. Topic titles stay Unicode, shown without control, format or
+line-separator characters. Storage: start() is tried twice — on Windows the
+first start right after init() was refused in 3 CI runs, the second worked.
+- integration-6-ascii-alias.log: UI suite 15 passed, 0 failed.
+- *-run-final.log: live round trip, history, Storage snapshot, store probe
+  and clean install on the final tree.

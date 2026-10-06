@@ -86,7 +86,8 @@ platform) or `windows-x86_64` (`packages.x86_64-windows.lgx-portable`, a
 mingw cross build that runs on x86_64 Linux — CI job `windows`). CI merges
 the macOS, Linux (amd64) and Windows packages into one multi-platform `.lgx`
 (job `all-platforms`) — the form a catalog serves — and runs the Windows
-package in the release Basecamp app on a Windows runner (job
+package in the release Basecamp app on a Windows runner: offline post sent
+through Mix, Storage snapshot saved and restored, history, restart (job
 `windows-basecamp`, `tools/windows_smoke.sh`, screenshots uploaded). Nix dev hosts require the `-dev` variant (`#lgx`).
 Install the one matching your host (the wrong one is *refused*, never
 half-loaded).
@@ -305,9 +306,12 @@ starts the release app on a profile, `stop` quits everything it started.
 6. logosctl 0.3.1 storage init is single-instance per user (upstream
    finding #3 family) — storage legs run on the qualified 0.3.0 CLI.
 7. Windows: CI runs the `windows-x86_64` package in Basecamp 0.3.1 on a
-   Windows runner — it loads, keeps a post written offline and sends it
-   through Mix after Connect (`evidence/m8-windows/`) — but receiving,
-   history and Storage snapshots have not been driven on Windows yet.
+   Windows runner (`evidence/m8-windows/`): a post written offline goes out
+   through Mix after Connect, a snapshot is saved to Logos Storage and
+   restored, the network's history is loaded (posts from other runs and
+   from macOS arrive as received) and the app restarts with its posts. Not
+   covered on Windows: live receive from a second instance at the same
+   time, and use by a person on a real Windows machine.
    (Cross-building it under emulation on Apple silicon fails in Qt's `repc`
    — `evidence/m5-package/linux-amd64-*/NOTE.txt`; CI builds it.)
 8. Organic use (R16) and catalog/video (R15) are external gates — prepared

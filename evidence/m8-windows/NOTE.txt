@@ -51,3 +51,8 @@ would, up to 3 times, logging each attempt. (2) The new restart check looked
 for the post text through UI Automation while the console window covered the
 app; it now minimises other windows first and requires the Forum's Connect
 button on screen plus every post still in the store.
+ci-37464920456: snapshot saved on the 2nd attempt; restore FAIL — "Failed to
+connect to peer: internalConnect can't dial self!" (restoring a snapshot this
+node serves). Fixed in the app; the run was cancelled before macOS finished.
+ci-37467422347: every stage PASS (snapshot saved on attempt 2, restored,
+history 55 received, restart shows the Forum view, 57 posts kept).

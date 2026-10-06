@@ -456,6 +456,10 @@ static void test_accounts_and_aliasing()
     CHECK(valid_alias("alice"));
     CHECK(valid_alias(""));
     CHECK(!valid_alias(std::string(kMaxAlias + 1, 'a')));
+    CHECK(valid_alias("eve [x] - id 0123"));        // printable ASCII
+    CHECK(!valid_alias("eve \xc2\xb7 id 0123"));     // U+00B7, a look-alike separator
+    CHECK(!valid_alias("mal\xe2\x80\xaelory"));     // U+202E, a direction override
+    CHECK(!valid_alias("del\x7f"));
 }
 
 

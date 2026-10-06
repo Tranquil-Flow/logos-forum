@@ -1,0 +1,8 @@
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+this derivation will be built:
+  /nix/store/s2sp1yvy4kwbs7kvz0bh5vr5934igc8i-forum-core-tests.drv
+building '/nix/store/s2sp1yvy4kwbs7kvz0bh5vr5934igc8i-forum-core-tests.drv'...
+forum-core-tests> core tests: 189 checks, 0 failures

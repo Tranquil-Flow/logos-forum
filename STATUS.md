@@ -16,8 +16,11 @@ fake a post state or key id in the thread; topic titles with "%1" no longer
 corrupt the topic list; events dated over an hour ahead are refused and
 received titles are bounded; database errors in a merge are reported as
 such; only the newest downloaded snapshot file is kept; restoring a snapshot this
-node serves no longer fails trying to dial itself. Core 185/0, UI 14/14, live round
-trip, history, Storage snapshot, store probe and clean install PASS.
+node serves no longer fails trying to dial itself. After a security review:
+aliases are printable ASCII (as the contract says), author text is shown
+without control or direction characters, and the key id is drawn apart from
+the alias. Core 189/0, UI 15/15, live round trip, history, Storage snapshot,
+store probe and clean install PASS on the final tree.
 
 **Update — source review fixes, 2026-10-06 afternoon**
 (`evidence/m5-package/bugfix-20261006/NOTE.txt`): a send that fails while
@@ -27,8 +30,10 @@ the post limit is counted in UTF-8 bytes; topics follow alias key rotation;
 snapshot downloads must hold their size for 3 s before they are merged.
 Core 177/0, UI 14/14, live logos.dev round trip, store probe and clean
 install PASS on this tree. `tools/windows_smoke.sh` now also saves and
-restores a snapshot, loads history and restarts the app on Windows — not
-yet run in CI (no receipt; README limitation 7 unchanged until it is).
+restores a snapshot, loads history and restarts the app on Windows: PASS in
+CI run 37467422347 after two failing runs that found real problems (Storage's
+first start refused; restoring this node's own snapshot tried to dial
+itself) — `evidence/m8-windows/NOTE.txt`.
 
 **Update — Windows in CI, offline posts, 2026-10-06** (details in the last
 section): CI job `windows-basecamp` runs the Windows package in the official
