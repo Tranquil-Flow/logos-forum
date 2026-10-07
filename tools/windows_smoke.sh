@@ -8,7 +8,8 @@
 # (module_data/forum_module/forum.db) — the same check as
 # evidence/m5-package/release-app-20261004 on macOS. Then it drives the
 # window like a user (clicks + keystrokes at the coordinates of the runner's
-# 1024x768 desktop): writes a labelled test post while offline (kept,
+# 1024x768 desktop; controls are found by accessible name, with fixed
+# coordinates only as a fallback): writes a labelled test post while offline (kept,
 # waiting), connects to logos.dev and checks the store marks the post sent —
 # a send that only succeeds through Mix. Then, still in the window: saves a
 # snapshot of the topic on Logos Storage and restores it (fetched and every
@@ -123,7 +124,9 @@ c=sqlite3.connect('file:'+sys.argv[1]+'?mode=ro',uri=True)
 r=c.execute(sys.argv[2]).fetchone()
 print(' '.join(str(x) for x in r) if r else 'none')" "$(cygpath -w "$DB")" "$1" 2>/dev/null || echo "unreadable"
 }
-post_state() { sql "select state,privacy from posts where type='post' order by rowid desc limit 1"; }
+# Our test post, found by its text: history arriving on connect adds newer
+# rows (received), so "the latest row" is not necessarily ours.
+post_state() { sql "select state,privacy from posts where type='post' and body='$POST' order by rowid desc limit 1"; }
 
 count() { local n; n=$(sql "$1"); case "$n" in ''|*[!0-9]*) echo 0 ;; *) echo "$n" ;; esac; }
 wait_for() { # seconds label command... — poll until the command succeeds
@@ -153,14 +156,14 @@ if [ "$ok" = 1 ]; then
   sleep 5 # let the window finish drawing
   shot 1-opened
   # Write a post while offline: it must be kept on the device, waiting.
-  click 572 592
+  click_named "Post text" 700 640 | tee -a "$OUT/result.txt"
   type_text "$POST"
-  type_text "^{ENTER}"   # Ctrl+Enter: the composer's send shortcut
+  type_text "{ENTER}"   # Enter sends (Shift+Enter is a new line)
   sleep 2
   echo "after Send, offline: $(post_state)" | tee -a "$OUT/result.txt"
   shot 2-written-offline
   # Connect; the waiting post must go out through Mix.
-  click 925 108
+  click_named "Connect to Logos network" 620 104 | tee -a "$OUT/result.txt"
   for i in $(seq 1 240); do
     st=$(post_state)
     case "$st" in sent*) sent=1; echo "post $st after connecting ${i}s" | tee -a "$OUT/result.txt"; break ;; esac
@@ -177,7 +180,7 @@ if [ "$sent" = 1 ]; then
   # user would press Save snapshot again, so this does too — every attempt
   # is in result.txt.
   for attempt in 1 2 3; do
-    click_named "Save snapshot" 845 258 | tee -a "$OUT/result.txt"
+    click_named "Save snapshot" 960 160 | tee -a "$OUT/result.txt"
     wait_for 60 "snapshot saved and announced (attempt $attempt)" snapshot_saved && { saved=1; break; }
     shot "4-snapshot-attempt-$attempt"
   done
@@ -192,7 +195,7 @@ if [ "$sent" = 1 ]; then
   fi
   # History: earlier runs' posts (and other devices') come back from a
   # logos.dev store node and are verified before they are stored as received.
-  click_named "Load older posts" 951 258 | tee -a "$OUT/result.txt"
+  click_named "Load older posts" 850 160 | tee -a "$OUT/result.txt"
   wait_for 90 "history: received posts in the store" history_received && history=1
   echo "received posts: $(count "select count(*) from posts where state='received'")" | tee -a "$OUT/result.txt"
   sleep 3
