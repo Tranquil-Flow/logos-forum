@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "includes": [
+    {
+      "repo": "https://raw.githubusercontent.com/logos-co/logos-modules-release/refs/heads/main/logos-repo.json",
+      "packages": [
+        {
+          "name": "delivery_module",
+          "version": "0.3.0",
+          "rootHash": "31583b977f7370c8fc7ed70351daef1069f718c0a005e74306921da2b8aee76f"
+        },
+        {
+          "name": "storage_module",
+          "version": "3.0.0",
+          "rootHash": "167ad21b8f3cc1b43f64df0ac5970c4583ad5e7efc3266eb6323415d32d318b4"
+        }
+      ]
+    }
+  ]
+}

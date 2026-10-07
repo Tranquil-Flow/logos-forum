@@ -32,8 +32,10 @@ by hand). Offline, the post is kept on the device and marked for sending.*
    [Basecamp releases](https://github.com/logos-co/logos-basecamp/releases/tag/0.3.1)).
 2. In Basecamp open **Package Manager** → add the repository
    `https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/logos-repo.json`
-   → install **Forum**. Its two dependencies,
-   `delivery_module` 0.3.0 and `storage_module` 3.0.0, install with it.
+   → install **Forum**. Its dependencies come with it: `delivery_module`
+   from the official catalog (Basecamp picks the newest — 0.3.2 as of
+   2026-10-07, which we test) and `storage_module` 3.0.0, which ships inside
+   Basecamp 0.3.1.
 3. Open **Forum** in the sidebar. To post under a name, type it in the
    *new alias* box under *Posting as* → **Add alias**; or keep *Anonymous*.
 4. Press **Connect to Logos network**. Within seconds the chip reads
@@ -52,7 +54,7 @@ harnesses — is below.
 | logos-module-builder | 0.3.2 (`4b799827…`) |
 | Logos Basecamp | 0.3.1 (`aeb8192…`) |
 | logosctl | 0.3.1 (digest-verified); storage legs run on qualified 0.3.0 |
-| Delivery module | v0.3.0 (`bec85943…`, lgx `f744f0f9…`) |
+| Delivery module | v0.3.2 (`c25b7868…`, lgx `9b856418…`); earlier receipts on v0.3.0 (`bec85943…`) |
 | Storage module | v3.0.0 (lgx `2af8cad7…`) |
 
 ## Build
@@ -107,9 +109,9 @@ catalog builds, sha256-pinned in `docs/PINS.json`:
 ```bash
 D=~/.local/share/lp0026-forum-dev/downloads; mkdir -p "$D"
 base=https://github.com/logos-co/logos-modules-release/releases/download
-curl -fL -o "$D/delivery_module-0.3.0.lgx" "$base/delivery_module-v0.3.0/delivery_module-0.3.0.lgx"
+curl -fL -o "$D/delivery_module-0.3.2.lgx" "$base/delivery_module-v0.3.2/delivery_module-0.3.2.lgx"
 curl -fL -o "$D/storage_module-3.0.0.lgx"  "$base/storage_module-v3.0.0/storage_module-3.0.0.lgx"
-shasum -a 256 "$D"/*.lgx   # must match docs/PINS.json (f744f0f9…, 2af8cad7…)
+shasum -a 256 "$D"/*.lgx   # must match docs/PINS.json (9b856418…, 2af8cad7…)
 export PY="$(nix build path:$PWD#harness-python --no-link --print-out-paths)/bin/python3"
 ```
 
@@ -143,16 +145,18 @@ slices — there is no always-green wrapper.
 
 1. Install **Logos Basecamp 0.3.1** (release `.dmg` / AppImage / Windows
    installer).
-2. Open **Package Manager**. Forum depends on `delivery_module` **0.3.0** and
-   `storage_module` **3.0.0** — the builds published in the official
-   *Logos Official* catalog (`logos-co/logos-modules-release`). Older
-   catalogs carry other versions; install these exact ones.
+2. Forum depends on `delivery_module` and `storage_module`. Basecamp 0.3.1
+   ships `storage_module` 3.0.0 and installs the newest `delivery_module`
+   from the official *Logos Official* catalog
+   (`logos-co/logos-modules-release`) — 0.3.2 as of 2026-10-07, the version
+   our tests run on. It does this whatever version a catalog pins, so the
+   version you get is the catalog's newest.
 3. Install Forum, either:
    - from our catalog: **Settings → Package Repositories** (or **Manage
      Repositories** in Package Manager), paste
      `https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/logos-repo.json`
      into *Add a repository*, then install **Forum** in Package Manager (its
-     dependencies resolve to the pinned versions), or
+     dependencies install with it), or
    - from a local build: `nix build path:$PWD#lgx-portable` and install
      `result/logos-forum_module-module.lgx` with Package Manager → **Install
      Local Package**. (Nix-built dev hosts use `#lgx` instead — the wrong
@@ -285,7 +289,7 @@ starts the release app on a profile, `stop` quits everything it started.
    `LINK_LIBRARIES sqlite3 sodium`. Without it the plugin still links but the
    ui-host crashes on the first store/crypto call (the former "M2-GUI wedge";
    `evidence/m5-package/linkfix/`).
-2. Delivery 0.3.0 with Required Mix does not auto-redial: if relays restart on
+2. Delivery with Required Mix does not auto-redial (seen on 0.3.0): if relays restart on
    new ports the node reports "Unable to send within retry time window"; posts
    stay stored, shown as *not sent — kept for retry*. Recovery after a relay
    restart without restarting the app is not measured.

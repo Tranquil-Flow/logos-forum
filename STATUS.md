@@ -10,6 +10,20 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — catalog install and Delivery 0.3.2, 2026-10-07**
+(`evidence/m9-catalog/catalog-install-20261007/NOTE.txt`,
+`evidence/m6-live/DELIVERY-0.3.2-NOTE.txt`): a fresh release Basecamp 0.3.1
+added our catalog and installed Forum from its release; Forum opened its
+store, and a post and a new topic were sent through Mix on logos.dev. Basecamp
+installed delivery_module **0.3.2** (newest in the official catalog), not the
+0.3.0 that includes.json pinned, and used its bundled storage_module 3.0.0.
+The stack now builds and tests on Delivery v0.3.2 (API unchanged upstream):
+core 189/0, UI 15/15, package, live, history, Storage snapshot and protocol
+PASS. includes.json, PINS.json, the demo/Windows scripts and the docs name
+0.3.2 and say plainly that Basecamp takes the newest Delivery.
+`tools/m7_storage.sh` was not executable, so `verify.sh storage` failed with
+"Permission denied" — fixed.
+
 **Update — second source review, 2026-10-06 late afternoon**
 (`evidence/m5-package/bugfix2-20261006/NOTE.txt`): aliases can no longer
 fake a post state or key id in the thread; topic titles with "%1" no longer

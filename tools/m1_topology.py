@@ -37,7 +37,7 @@ B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 RELAY_NAMES = ["core1", "core2", "core3", "core4"]
 DELIVERY_LGX = os.environ.get(
     "FORUM_DELIVERY_LGX",
-    str(Path.home() / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx"),
+    str(Path.home() / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.2.lgx"),
 )
 DEFAULT_RUNTIME = str(Path.home() / ".local/share/lp0026-forum-dev/runtime/logosctl-aarch64-macos")
 

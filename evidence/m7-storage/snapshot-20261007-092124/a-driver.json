@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "phase": "save",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 5,
+      "what": "transport ready"
+    },
+    {
+      "t_s": 25,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (1/2)"
+    },
+    {
+      "t_s": 28,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (2/2)"
+    },
+    {
+      "t_s": 31,
+      "what": "posts sent"
+    },
+    {
+      "t_s": 31,
+      "what": "save snapshot clicked"
+    },
+    {
+      "t_s": 33,
+      "what": "snapshot saved",
+      "state": "saved 2 posts on Logos Storage (zDvZRwzkvrAoA5bH…) and announced it in this topic; this device serves the snapshot while Basecamp runs"
+    },
+    {
+      "t_s": 34,
+      "what": "announcement sent"
+    }
+  ],
+  "archive_state": "saved 2 posts on Logos Storage (zDvZRwzkvrAoA5bH…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "announcement": "Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzkvrAoA5bH2pvw6dv81hvLwYAHv5JGnD43ZbF1Lsn54FcS\npeer: 16Uiu2HAmCBiiHUZGG2zi7chz9dsChPR815Fd2mULZswCjbXEKu7m\naddrs: /ip4/127.0.0.1/tcp/8571",
+  "announcement_author": "id f072dba863c046da",
+  "thread": [
+    "id ed12b1b044d033d3 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (1/2)",
+    "id 6e541ed45513ea35 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (2/2)",
+    "id f072dba863c046da [sent]: Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzkvrAoA5bH2pvw6dv81hvLwYAHv5JGnD43ZbF1Lsn54FcS\npeer: 16Uiu2HAmCBiiHUZGG2zi7chz9dsChPR815Fd2mULZswCjbXEKu7m\naddrs: /ip4/127.0.0.1/tcp/8571"
+  ]
+}

@@ -1,0 +1,34 @@
+Catalog install in a fresh release Basecamp, 2026-10-07
+
+Basecamp: release 0.3.1 (aeb819) for macOS arm64, started on an empty
+--user-dir. The only repository configured is this project's catalog
+(repositories.json): https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/logos-repo.json
+
+Package Manager -> install Forum, then open it (by hand, in the window).
+install-lines.log has the log lines, versions.txt the versions found on disk.
+
+- forum_module 0.1.0 came from the catalog release forum_module-v0.1.0
+  (sha256 7ed2fec8..., all four variants built). It is unsigned, which
+  Basecamp warns about and installs.
+- delivery_module 0.3.2 came from logos-co/logos-modules-release, with
+  libp2p_module 1.1.0, liblogos_rln_module 0.10.0 and
+  liblogos_lez_rln_module 4.2.1.
+- storage_module was not downloaded: Basecamp 0.3.1 ships storage_module
+  3.0.0 in the app bundle and loaded that one.
+- Forum loaded and opened its store (module_data/forum_module/forum.db).
+
+includes.json pinned delivery_module 0.3.0 at the time. Basecamp installed
+0.3.2 anyway: it takes the newest version, not the pinned one (an earlier
+attempt on 2026-10-06, interrupted by DNS failures, was fetching 0.3.1).
+So the stack moved to Delivery 0.3.2 and includes.json now names it.
+
+Live check in that window: Connect -> "Connected to logos.dev · sending
+through Mix"; a post ("Test Test 123 Catstyle") in General and a new topic
+("Cat Test") are both stored as sent with privacy "required", and the
+Delivery log has one "Message successfully sent over mix" line for each
+(09:10:44 and 09:10:50 local). 34 posts were recovered from the network's
+store.
+
+The "Failed to MANIFEST" line at 08:59:44 is Basecamp's own downloader
+trying a Storage CID before Forum was installed (09:00:21); it is not
+from Forum.

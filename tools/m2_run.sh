@@ -31,7 +31,7 @@ PY="${PY:-python3}"
 RUNTIME="$HOME/.local/share/lp0026-forum-dev/runtime/logosctl-aarch64-macos"
 LOGOSCTL="$RUNTIME/bin/logosctl"
 UI_DEV="$REPO_ROOT/result-ui-dev/bin/run-logos-standalone-ui"
-DELIVERY_LGX="${FORUM_DELIVERY_LGX:-$HOME/.local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx}"
+DELIVERY_LGX="${FORUM_DELIVERY_LGX:-$HOME/.local/share/lp0026-forum-dev/downloads/delivery_module-0.3.2.lgx}"
 P1="TECHNICAL TEST DATA: M2b post one"
 P2="TECHNICAL TEST DATA: M2b post two survives crash"
 

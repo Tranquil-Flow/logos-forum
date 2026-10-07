@@ -21,7 +21,7 @@
     # generates typed modules().<name> wrappers from the dep's published LIDL,
     # derived at build time from the dep's impl header). Pins match the
     # qualified release tuple (docs/PINS.json).
-    delivery_module.url = "github:logos-co/logos-delivery-module/v0.3.0";
+    delivery_module.url = "github:logos-co/logos-delivery-module/v0.3.2";
     storage_module.url = "github:logos-co/logos-storage-module/v3.0.0";
   };
 

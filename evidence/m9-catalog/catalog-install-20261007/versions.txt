@@ -1,0 +1,5 @@
+Basecamp: release 0.3.1 (aeb819), fresh --user-dir ~/lp0026-demo/catalog-fresh
+delivery_module (fetched): 0.3.2
+storage_module (bundled in Basecamp): 3.0.0
+forum_module: 0.1.0
+forum store opened: True

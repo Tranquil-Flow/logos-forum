@@ -1,0 +1,13 @@
+{
+  "defaultDisabled": false,
+  "defaultRemoved": false,
+  "downloadSource": "any",
+  "followIncludes": true,
+  "repositories": [
+    {
+      "enabled": true,
+      "url": "https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/logos-repo.json"
+    }
+  ],
+  "schemaVersion": 1
+}

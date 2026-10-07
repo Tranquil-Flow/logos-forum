@@ -4778,16 +4778,16 @@
         "nix-bundle-lgx": "nix-bundle-lgx_345"
       },
       "locked": {
-        "lastModified": 1790800576,
-        "narHash": "sha256-7+0roT4u587WO5TisNWlgb9uG1sDDYEfUsKAuIZW3rg=",
+        "lastModified": 1791311902,
+        "narHash": "sha256-GSSDGBNBAifZWZVg/b1SFoKfigrQSWoekXWgqbsV5A4=",
         "owner": "logos-co",
         "repo": "logos-delivery-module",
-        "rev": "bec859430d963d5c0775af85456eff80d9d1c456",
+        "rev": "c25b7868099949c375e7affdeb1502b354fd92e3",
         "type": "github"
       },
       "original": {
         "owner": "logos-co",
-        "ref": "v0.3.0",
+        "ref": "v0.3.2",
         "repo": "logos-delivery-module",
         "type": "github"
       }
@@ -44490,17 +44490,17 @@
         "zerokit": "zerokit"
       },
       "locked": {
-        "lastModified": 1790537358,
-        "narHash": "sha256-erJVYA5G7wrhV/tOojfaTZpuMaTyXXJwYs6P6d5Za2s=",
-        "ref": "refs/tags/v0.39.0",
-        "rev": "ca28145fdc5e9858595126a3d6b01ec19882e31c",
-        "revCount": 2572,
+        "lastModified": 1791304460,
+        "narHash": "sha256-f/+BKuzrMjUUO1DeJCbLpyBnRMD4D+orcIoolrjGYdM=",
+        "ref": "refs/tags/v0.39.1",
+        "rev": "3a478e90a4813685af47b4f77e1f6232ac5b50bb",
+        "revCount": 2626,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/logos-messaging/logos-delivery"
       },
       "original": {
-        "ref": "refs/tags/v0.39.0",
+        "ref": "refs/tags/v0.39.1",
         "submodules": true,
         "type": "git",
         "url": "https://github.com/logos-messaging/logos-delivery"

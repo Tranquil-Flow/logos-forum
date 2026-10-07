@@ -1,0 +1,30 @@
+Delivery 0.3.2 qualification, 2026-10-07
+
+Why: a fresh release Basecamp 0.3.1 installs the newest delivery_module
+from the official catalog (0.3.2, released 2026-10-06 21:06Z), whatever
+includes.json pins (evidence/m9-catalog/catalog-install-20261007). The stack
+moved from Delivery v0.3.0 (bec85943) to v0.3.2 (c25b7868, logos-delivery
+v0.39.1). Upstream v0.3.0..v0.3.2 does not change the module's API
+(metadata.json only bumps the version); it updates logos-delivery and
+nim-libp2p and hands discovery every bootstrap peer. Storage stays at
+v3.0.0, the version Basecamp 0.3.1 ships.
+
+These runs used a copy of the tree (~/Projects/lp0026-forum-depbump, hence
+that path in the logs). Its code, flake.nix, flake.lock and tools/ are
+identical to this tree; only docs differed.
+
+  core      189 checks, 0 failures      verify-runs/verify-core-20261007-090256.log
+  ui        15 passed, 0 failed         verify-runs/verify-ui-20261007-090340.log
+  package   dev + portable .lgx built   verify-runs/verify-package-20261007-091345.log
+  live      PASS (logos.dev round trip) m6-live/live-20261007-091839
+  history   PASS (reader after offline) m6-live/history-20261007-091857
+  storage   PASS (snapshot save/restore) m7-storage/snapshot-20261007-092124
+  protocol  PASS (local Mix relays)     m1-transport/smoke-20261007-092314
+
+verify-storage-20261007-092044.log is a failed first attempt: m7_storage.sh
+was not executable ("Permission denied", exit 126), so `verify.sh storage`
+could not run it. Fixed (mode 755, as was windows_smoke.sh); the rerun
+passed.
+
+Also by hand in the catalog-installed release app: a post and a new topic
+sent through Mix on logos.dev (evidence/m9-catalog/catalog-install-20261007).

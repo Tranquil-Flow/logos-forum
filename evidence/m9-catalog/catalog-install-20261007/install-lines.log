@@ -1,0 +1,20 @@
+[2026-10-07 08:48:51.823] [info] [logos] Module loaded: storage_module
+Loading UI module: "package_manager_ui"
+Loading core dependencies for "package_manager_ui" : QList("package_manager", "package_downloader")
+Successfully loaded UI module: "package_manager_ui"
+[2026-10-07 08:59:44.940] [out] [storage_module] ERR 2026-10-07 08:59:44.940+02:00 Failed to MANIFEST.                        topics="libstorage libstoragedownload" tid=223499 error="Failed to fetch manifest: Failed to fetch manifest zDvZRwzm6NN93AUxCUKWyNS3vgTFFxuLsvWkto5jkes8oQxC8FD3 after 10 attempts: Key doesn't exist"
+Downloaded "delivery_module" from "https://github.com/logos-co/logos-modules-release/releases/download/delivery_module-v0.3.2/delivery_module-0.3.2.lgx"
+Downloaded "forum_module" from "https://github.com/Tranquil-Flow/logos-forum-catalog/releases/download/forum_module-v0.1.0/forum_module-0.1.0.lgx"
+Downloaded "liblogos_lez_rln_module" from "https://github.com/logos-co/logos-modules-release/releases/download/liblogos_lez_rln_module-v4.2.1/liblogos_lez_rln_module-4.2.1.lgx"
+Downloaded "liblogos_rln_module" from "https://github.com/logos-co/logos-modules-release/releases/download/liblogos_rln_module-v0.10.0/liblogos_rln_module-0.10.0.lgx"
+Downloaded "libp2p_module" from "https://github.com/logos-co/logos-modules-release/releases/download/libp2p_module-v1.1.0/libp2p_module-1.1.0.lgx"
+[2026-10-07 09:00:17.403] [warning] [logos] [package_manager] Warning: Package is unsigned: $TMPDIR/lgpd-501/delivery_module-0.3.2.lgx
+[2026-10-07 09:00:21.309] [warning] [logos] [package_manager] Warning: Package is unsigned: $TMPDIR/lgpd-501/forum_module-0.1.0.lgx
+UI plugin file installed: "~/lp0026-demo/catalog-fresh/plugins/forum_module/forum_module_plugin.dylib"
+[2026-10-07 09:00:25.777] [warning] [logos] [package_manager] Warning: Package is unsigned: $TMPDIR/lgpd-501/liblogos_lez_rln_module-4.2.1.lgx
+[2026-10-07 09:00:32.234] [warning] [logos] [package_manager] Warning: Package is unsigned: $TMPDIR/lgpd-501/liblogos_rln_module-0.10.0.lgx
+[2026-10-07 09:00:34.463] [warning] [logos] [package_manager] Warning: Package is unsigned: $TMPDIR/lgpd-501/libp2p_module-1.1.0.lgx
+App launcher clicked: "forum_module"
+Loading UI module: "forum_module"
+Loading core dependencies for "forum_module" : QList("delivery_module", "storage_module")
+Successfully loaded UI module: "forum_module"

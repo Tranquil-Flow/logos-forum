@@ -3,7 +3,7 @@
 #
 # Unpacks the official Basecamp 0.3.1 Windows installer (sha256-pinned), seeds
 # a fresh --user-dir with the Forum package and the official delivery_module
-# 0.3.0 / storage_module 3.0.0 packages the way Package Manager lays them out,
+# 0.3.2 / storage_module 3.0.0 packages the way Package Manager lays them out,
 # opens Forum with --uri and waits for its store to open on its own
 # (module_data/forum_module/forum.db) — the same check as
 # evidence/m5-package/release-app-20261004 on macOS. Then it drives the
@@ -26,7 +26,7 @@ command -v cygpath >/dev/null && WORK=$(cygpath -u "$WORK") && OUT=$(cygpath -u 
 SETUP_URL=https://github.com/logos-co/logos-basecamp/releases/download/0.3.1/LogosBasecamp-Desktop-v0.3.1-aeb819-x86_64-windows-setup.exe
 SETUP_SHA=fd4488e811bf64e9b10c89672bc64a05ec10588cbf1e651f20344f390a41eacd
 BASE=https://github.com/logos-co/logos-modules-release/releases/download
-DELIVERY_SHA=f744f0f9ef84438b6da3985561cb8d2eedf36c9340d29d839353cf8d728aa088
+DELIVERY_SHA=9b856418fcf816961f1118f34b395bb6a399e5523166be51f4eca6a7aaf76867
 STORAGE_SHA=2af8cad7c5f39658a1e571d1e307baf7cc4cd9a76f5da535c73685c7675424b0
 VARIANT=windows-x86_64
 rm -rf "$WORK"; mkdir -p "$WORK" "$OUT"
@@ -49,7 +49,7 @@ seed() { # lgx bucket name
 }
 
 fetch "$SETUP_URL" "$SETUP_SHA" "$WORK/setup.exe"
-fetch "$BASE/delivery_module-v0.3.0/delivery_module-0.3.0.lgx" "$DELIVERY_SHA" "$WORK/delivery.lgx"
+fetch "$BASE/delivery_module-v0.3.2/delivery_module-0.3.2.lgx" "$DELIVERY_SHA" "$WORK/delivery.lgx"
 fetch "$BASE/storage_module-v3.0.0/storage_module-3.0.0.lgx" "$STORAGE_SHA" "$WORK/storage.lgx"
 # The installer is NSIS; unpacking it gives the same files a silent install does.
 7z x -y -o"$WORK/basecamp" "$WORK/setup.exe" >/dev/null

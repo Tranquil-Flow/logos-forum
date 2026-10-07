@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 2,
+  "repositoryName": "lp0026-forum-modules",
+  "generatedAt": "2026-10-06T15:05:02Z",
+  "packages": [
+    {
+      "name": "forum_module",
+      "versions": [
+        {
+          "releasedAt": "2026-10-06T15:04:12Z",
+          "publisherRef": "forum_module-v0.1.0",
+          "url": "https://github.com/Tranquil-Flow/logos-forum-catalog/releases/download/forum_module-v0.1.0/forum_module-0.1.0.lgx",
+          "size": 23040810,
+          "sha256": "7ed2fec824232f35a32abcf13d8000e58e90c657e1e081d801d67dad46edbb28",
+          "rootHash": "cc257651742d53100ed2d01cf6c831f00314ce367767646bca35fbafa85db5be",
+          "manifest": {
+            "author": "Tranquil-Flow",
+            "category": "communication",
+            "dependencies": [
+              "delivery_module",
+              "storage_module"
+            ],
+            "description": "A text-first forum: posts sent only through Mix, history after being offline, topic snapshots on Logos Storage",
+            "display_name": "Forum",
+            "hashes": {
+              "assets": "d1fbec8bf93996875c3c5834b762aec10858e2d7900616e27601543042a8f480",
+              "root": "cc257651742d53100ed2d01cf6c831f00314ce367767646bca35fbafa85db5be",
+              "variants": "7e7e36fd925cb2d7453b658732c41f9f26070aa161a3c38a462b8d2d2075dd6b",
+              "variants/darwin-arm64": "ebba608815ba64eff146229213a3f4fea13870fe3c143da7bc3a2555e4c7f188",
+              "variants/linux-amd64": "e2aad4013db0d4a0e04c42d58ad03bbdb6d8f290e37d38f31a0311d26d52d18d",
+              "variants/linux-arm64": "d543bfc09989290e1633b78853866a4ab8dd14180bc161d4ed0580fd03b590cf",
+              "variants/windows-x86_64": "0eae7dd80473a793b725868f95ffdc981c6899ee79566eeeccb6e48f5eaabc4a"
+            },
+            "icon": "assets/icon.png",
+            "main": {
+              "darwin-arm64": "forum_module_plugin.dylib",
+              "linux-amd64": "forum_module_plugin.so",
+              "linux-arm64": "forum_module_plugin.so",
+              "windows-x86_64": "forum_module_plugin.dll"
+            },
+            "manifestVersion": "0.6.0",
+            "name": "forum_module",
+            "type": "ui_qml",
+            "version": "0.1.0",
+            "view": "qml/Main.qml"
+          },
+          "icon": {
+            "path": "48ce9e4163f803e9de8b81e884969ff72d9d506982a558316c4455368ce467f3.png",
+            "sha256": "48ce9e4163f803e9de8b81e884969ff72d9d506982a558316c4455368ce467f3",
+            "size": 1132
+          },
+          "urls": [
+            "https://github.com/Tranquil-Flow/logos-forum-catalog/releases/download/forum_module-v0.1.0/forum_module-0.1.0.lgx"
+          ]
+        }
+      ]
+    }
+  ]
+}

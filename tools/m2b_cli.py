@@ -53,7 +53,7 @@ RUNTIME = Path.home() / ".local/share/lp0026-forum-dev/runtime/logosctl-aarch64-
 LOGOSCTL = RUNTIME / "bin" / "logosctl"
 DELIVERY_LGX = Path(os.environ.get(
     "FORUM_DELIVERY_LGX",
-    str(Path.home() / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx")))
+    str(Path.home() / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.2.lgx")))
 TOPIC = "/lp0026forum/1/general/text"
 P1 = b"TECHNICAL TEST DATA: M2b-cli post one"
 P2 = b"TECHNICAL TEST DATA: M2b-cli post two survives outage"

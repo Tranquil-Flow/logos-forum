@@ -3,7 +3,7 @@
 # what an evaluator runs. Used to record the demo and for cross-machine tests.
 #
 # Each profile gets the release-variant Forum package (#lgx-portable) and
-# the official delivery_module 0.3.0 / storage_module 3.0.0 packages
+# the official delivery_module 0.3.2 / storage_module 3.0.0 packages
 # (sha256-pinned in docs/PINS.json), laid out exactly as Package Manager
 # installs them. Nothing else is carried over.
 #
@@ -21,7 +21,7 @@ APP="${BASECAMP_APP:-$DEMO_ROOT/LogosBasecamp-0.3.1.app}"
 BIN="$APP/Contents/MacOS/LogosBasecamp"
 DL="${FORUM_DOWNLOADS:-$HOME/.local/share/lp0026-forum-dev/downloads}"
 BASE=https://github.com/logos-co/logos-modules-release/releases/download
-DELIVERY_SHA=f744f0f9ef84438b6da3985561cb8d2eedf36c9340d29d839353cf8d728aa088
+DELIVERY_SHA=9b856418fcf816961f1118f34b395bb6a399e5523166be51f4eca6a7aaf76867
 STORAGE_SHA=2af8cad7c5f39658a1e571d1e307baf7cc4cd9a76f5da535c73685c7675424b0
 DMG_SHA=115102ed5bd17faa62d0a7f21faa73cd510c7610a9d344b2f81e1090f686c565
 DMG_URL=https://github.com/logos-co/logos-basecamp/releases/download/0.3.1/LogosBasecamp-Desktop-v0.3.1-aeb819-aarch64.dmg
@@ -65,7 +65,7 @@ case "$cmd" in
         --accept-flake-config -o "$REPO_ROOT/result-lgx-portable" >&2
       FORUM_LGX="$REPO_ROOT/result-lgx-portable/logos-forum_module-module.lgx"
     fi
-    D=$(fetch_dep delivery_module 0.3.0 "$DELIVERY_SHA")
+    D=$(fetch_dep delivery_module 0.3.2 "$DELIVERY_SHA")
     S=$(fetch_dep storage_module 3.0.0 "$STORAGE_SHA")
     for p in "$@"; do
       dir="$DEMO_ROOT/$p"

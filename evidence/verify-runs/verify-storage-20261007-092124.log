@@ -1,0 +1,80 @@
+== verify: storage
+{
+  "status": "PASS",
+  "phase": "save",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 5,
+      "what": "transport ready"
+    },
+    {
+      "t_s": 25,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (1/2)"
+    },
+    {
+      "t_s": 28,
+      "what": "posted",
+      "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (2/2)"
+    },
+    {
+      "t_s": 31,
+      "what": "posts sent"
+    },
+    {
+      "t_s": 31,
+      "what": "save snapshot clicked"
+    },
+    {
+      "t_s": 33,
+      "what": "snapshot saved",
+      "state": "saved 2 posts on Logos Storage (zDvZRwzkvrAoA5bH…) and announced it in this topic; this device serves the snapshot while Basecamp runs"
+    },
+    {
+      "t_s": 34,
+      "what": "announcement sent"
+    }
+  ],
+  "archive_state": "saved 2 posts on Logos Storage (zDvZRwzkvrAoA5bH…) and announced it in this topic; this device serves the snapshot while Basecamp runs",
+  "announcement": "Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzkvrAoA5bH2pvw6dv81hvLwYAHv5JGnD43ZbF1Lsn54FcS\npeer: 16Uiu2HAmCBiiHUZGG2zi7chz9dsChPR815Fd2mULZswCjbXEKu7m\naddrs: /ip4/127.0.0.1/tcp/8571",
+  "announcement_author": "id f072dba863c046da",
+  "thread": [
+    "id ed12b1b044d033d3 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (1/2)",
+    "id 6e541ed45513ea35 [sent]: TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (2/2)",
+    "id f072dba863c046da [sent]: Snapshot of this topic on Logos Storage: 2 post(s).\ncid: zDvZRwzkvrAoA5bH2pvw6dv81hvLwYAHv5JGnD43ZbF1Lsn54FcS\npeer: 16Uiu2HAmCBiiHUZGG2zi7chz9dsChPR815Fd2mULZswCjbXEKu7m\naddrs: /ip4/127.0.0.1/tcp/8571"
+  ]
+}
+{
+  "status": "PASS",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "restore requested"
+    },
+    {
+      "t_s": 56,
+      "what": "restored",
+      "state": "restored from Logos Storage (zDvZRwzkvrAoA5bH…): 2 new posts, 1 already here, 0 rejected by verification"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "archive_state": "restored from Logos Storage (zDvZRwzkvrAoA5bH…): 2 new posts, 1 already here, 0 rejected by verification",
+  "connection_after": "offline",
+  "thread": [
+    "id ed12b1b044d033d3 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (1/2)",
+    "id 6e541ed45513ea35 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-07T07:21:25Z (2/2)"
+  ]
+}
+{"status":"PASS","layer":"in-app-storage-loopback+delivery-logos.dev","evidence":"<repo>-depbump/evidence/m7-storage/snapshot-20261007-092124"}
+<repo>-depbump/tools/m7_storage.sh: line 22: 81769 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" FORUM_STORAGE_CONFIG="$STATE/a-storage.json" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/a-app.log" 2>&1
+<repo>-depbump/tools/m7_storage.sh: line 22: 84757 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" FORUM_STORAGE_CONFIG="$STATE/b-storage.json" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/b-app.log" 2>&1
+cleanup verified: no storage-run processes remain
+PASS storage

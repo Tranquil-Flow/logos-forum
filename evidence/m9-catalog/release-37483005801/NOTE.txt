@@ -1,0 +1,17 @@
+Catalog release, 2026-10-06. "Release all modules" run 37483005801 on
+Tranquil-Flow/logos-forum-catalog (catalog commit 23278e1, Forum submodule at
+d56e530): setup, build darwin-arm64 / linux-amd64 / linux-arm64 /
+windows-x86_64 and release all succeeded (status as shown by
+`gh run view 37483005801`, run by the owner).
+
+Fetched afterwards from the public URLs (files here):
+- logos-repo.json: the URL Basecamp is given; points at the index below.
+- index.json: forum_module 0.1.0, released 2026-10-06T15:04:12Z,
+  sha256 7ed2fec824232f35a32abcf13d8000e58e90c657e1e081d801d67dad46edbb28.
+- includes.json: delivery_module 0.3.0 and storage_module 3.0.0 from
+  logos-co/logos-modules-release, pinned by root hash.
+The released forum_module-0.1.0.lgx was downloaded: its sha256 matches the
+index, and it holds the variants darwin-arm64, linux-amd64, linux-arm64 and
+windows-x86_64. (The package itself is kept outside the repo.)
+Not yet done here: installing from this catalog in the Basecamp app's own
+window (Settings → Package Repositories → Add a repository).

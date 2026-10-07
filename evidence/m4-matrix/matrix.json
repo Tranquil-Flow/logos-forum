@@ -119,11 +119,11 @@
       "requirement": "Create/browse topics and replies",
       "receipts": [
         {
-          "artifact": "m1-transport/smoke-20261004-212552/driver-result.json",
+          "artifact": "m1-transport/smoke-20261007-092314/driver-result.json",
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m1-transport/smoke-20261004-190445/driver-result.json",
+          "artifact": "m1-transport/smoke-20261004-212552/driver-result.json",
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
@@ -148,11 +148,11 @@
       "requirement": "Required Mix succeeds; unavailable/shared node never silently downgrades",
       "receipts": [
         {
-          "artifact": "m1-transport/smoke-20261004-212552/driver-result.json",
+          "artifact": "m1-transport/smoke-20261007-092314/driver-result.json",
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m1-transport/smoke-20261004-190445/driver-result.json",
+          "artifact": "m1-transport/smoke-20261004-212552/driver-result.json",
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
@@ -164,12 +164,12 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m6-live/live-20261006-154234/driver-result.json (public logos.dev)",
-          "sha256": "74acf6d8db04114a75d7aae5d5881d7500f04d3537ba1f8e332319805a30c034"
+          "artifact": "m6-live/live-20261007-091839/driver-result.json (public logos.dev)",
+          "sha256": "dcb6ab56bdd3ca4a87933aeaf3a22faeb57c2317609899afddd00d7aafaf434c"
         },
         {
-          "artifact": "m6-live/live-20261006-151622/driver-result.json (public logos.dev)",
-          "sha256": "a1bc9aa2935e1607a17f5a174ef2dd36070bb46745397060b9253bf2e26d805b"
+          "artifact": "m6-live/live-20261006-154234/driver-result.json (public logos.dev)",
+          "sha256": "74acf6d8db04114a75d7aae5d5881d7500f04d3537ba1f8e332319805a30c034"
         },
         {
           "artifact": "m2b-cli Required receipts",
@@ -532,11 +532,11 @@
         },
         {
           "artifact": "docs/LICENSES.md",
-          "sha256": "eba3b3a6d55f32439c74b439a1df835341244e8cfbee478accf9359e53b8d86d"
+          "sha256": "c3d8709746123b4864f2124c353601d3807b648adf8207de66c256f068d5d3d2"
         },
         {
           "artifact": "README.md",
-          "sha256": "07a3c65dbbcbadfd12cc14e0eeb3ef215127aab345906a01da895ecc6cf64658"
+          "sha256": "5261565f28985be313b0e92a6b6b7d80b16190a50031a954e1d99282b9ec9484"
         },
         {
           "artifact": "docs/FURPS.md",
@@ -548,7 +548,7 @@
         },
         {
           "artifact": "flake.nix",
-          "sha256": "d6aef4978aef1266907c9f0e2c056534e982a0111343126ed8c85bac6e282d3f"
+          "sha256": "c4d5404b70ee5791da0880f93afb3d01d6406014e30695314fbd849ea18f7710"
         }
       ],
       "notes": "local CI green (hermetic integration 15/15 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (macos, linux, windows, windows-basecamp, all-platforms; run 37479924917, Tranquil-Flow/logos-forum)",
@@ -604,16 +604,16 @@
       "requirement": "In-app: a reader who was offline obtains past posts",
       "receipts": [
         {
+          "artifact": "m6-live/history-20261007-091857/b-driver.json (public logos.dev, author offline)",
+          "sha256": "48aeb6d2183f1a6ef0e34281dad71911971dd3b7088a0e8d619a387dab1586cc"
+        },
+        {
           "artifact": "m6-live/history-20261006-154418/b-driver.json (public logos.dev, author offline)",
           "sha256": "a77ff5445fac7d368e01a789476df3400b020b719e2282831ea54ac2f702c4ab"
         },
         {
-          "artifact": "m6-live/history-20261006-151646/b-driver.json (public logos.dev, author offline)",
-          "sha256": "bd5e3fcb5f67c43790406392d5662b9a6a8dd88b018ef65a56fdcc337f039df2"
-        },
-        {
-          "artifact": "m7-storage/snapshot-20261006-154609/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
-          "sha256": "aac3f4373af0442bf69782c647cd7b6b9c3adf8e6e1796f5df34b0630c96d5cd"
+          "artifact": "m7-storage/snapshot-20261007-092124/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "0676ff1878fe7a60c8b527d2012ed607e2deb376d54fd74d1c5b16f03ef9770f"
         }
       ],
       "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",

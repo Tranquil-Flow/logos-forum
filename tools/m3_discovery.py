@@ -59,7 +59,7 @@ STORAGE_LGX = Path(os.environ.get(
     str(Path.home() / ".local/share/lp0026-forum-dev/downloads/storage_module-3.0.0.lgx")))
 DELIVERY_LGX = Path(os.environ.get(
     "FORUM_DELIVERY_LGX",
-    str(Path(home := Path.home()) / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx")))
+    str(Path(home := Path.home()) / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.2.lgx")))
 TOPIC = "/lp0026forum/1/general/text"
 PY = os.environ.get("PY", sys.executable)  # child tools need the same `cryptography`
 

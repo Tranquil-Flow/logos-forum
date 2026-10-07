@@ -45,7 +45,7 @@ EVID = REPO / "evidence" / "m4-matrix" / (
 LOGOSCTL = Path(os.environ.get(
     "FORUM_LOGOSCTL",
     str(Path.home() / ".local/share/lp0026-forum-dev/runtime-030/logosctl-aarch64-macos/bin/logosctl")))
-DELIVERY_LGX = Path.home() / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.0.lgx"
+DELIVERY_LGX = Path.home() / ".local/share/lp0026-forum-dev/downloads/delivery_module-0.3.2.lgx"
 STORAGE_LGX = Path.home() / ".local/share/lp0026-forum-dev/downloads/storage_module-3.0.0.lgx"
 TOPIC = "/lp0026forum/1/general/text"
 PY = os.environ.get("PY", sys.executable)  # child tools need the same `cryptography`

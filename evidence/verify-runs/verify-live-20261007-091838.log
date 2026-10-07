@@ -1,0 +1,65 @@
+== verify: live
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-07T07:18:47Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 5,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 5,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 5,
+      "what": "A state",
+      "state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 7,
+      "what": "A state",
+      "state": "Required send propagated (request d9a47553d875eabafc51)"
+    },
+    {
+      "t_s": 7,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… posts you write now are saved and sent once connected.",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+    "Required send propagated (request d9a47553d875eabafc51)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id 8d658a2543ab5347 [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-07T07:18:47Z\"]",
+  "b_thread": "[\"id a085dbbd28675fc1 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-06T13:46:09Z (2/2)\",\"id 82d7ad19535ce8a4 [received]: Snapshot of this topic on Logos Storage: 4 post(s).\\ncid: zDvZRwzm83isrU9SHq7DTdpTmaStWwnNFLqjwMP2ipFzQ3V3kGpA\\npeer: 16Uiu2HAmTxSyhkAmidKgFxYuS6PiwEzJypBeWX7LTCfTPf6dgrPU\\naddrs: /ip4/127.0.0.1/tcp/8571\",\"id f405707287761004 [received]: TEST POST - automated Windows check, CI run 37479924917 - test data, please ignore\",\"id 7ca61c150b1dc3bb [received]: Snapshot of this topic on Logos Storage: 1 post(s).\\ncid: zDvZRwzm3KiobEeqrUBWYyiW4KFLLjBaQPZ52KWhmPZGmCZhVpEz\\npeer: 16Uiu2HAmEdJMXbf8VqKBuYgcG8VgjG5s6gcCwcyzNq6XXXyEwkbU\\naddrs: /ip4/47.76.168.186/tcp/8070/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit /ip4/47.76.168.186/tcp/8070/mix-transport/Ar0XuiYSeu54D9yrXkzAhdOMfB8HB7ym0kzrGxL7-8fQdS5frXlbh5XV2xRCFIpk_iHH_7VAF-42Vq5CtPEC8hc=/p2p/16Uiu2HAm89p258CC7dWuHBvhK7oXK7d37oCsVH8kFsa2nxH6rT9Z/p2p-circuit /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit\",\"id 9f50db7573fc8e52 [received]: Test Test 123 Catstyle\",\"id 8d658a2543ab5347 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-07T07:18:47Z\"]"
+}
+{"status":"PASS","layer":"public-logos.dev-mix-required","evidence":"<repo>-depbump/evidence/m6-live/live-20261007-091839"}
+<repo>-depbump/tools/m6_live.sh: line 23: 70867 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/a-app.log" 2>&1
+<repo>-depbump/tools/m6_live.sh: line 23: 70868 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/b-app.log" 2>&1
+cleanup verified: no live-run processes remain
+PASS live

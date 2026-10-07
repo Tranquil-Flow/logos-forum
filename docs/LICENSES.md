@@ -8,7 +8,7 @@ Original code in this repository is dual-licensed **MIT + Apache-2.0**
 | Component | Version pin | Licence | Notes |
 |---|---|---|---|
 | logos-module-builder | 0.3.2 (`4b799827…`) | MIT + Apache-2.0 | verified `LICENSE-MIT`/`LICENSE-APACHE-v2` in pinned source |
-| logos-delivery-module | v0.3.0 (`bec85943…`) | MIT + Apache-2.0 | verified licence files in pinned source |
+| logos-delivery-module | v0.3.2 (`c25b7868…`; earlier v0.3.0 `bec85943…`, licence files unchanged) | MIT + Apache-2.0 | verified licence files in pinned source |
 | logos-storage-module | v3.0.0 (`a9c14b8c…`) | MIT + Apache-2.0 | verified licence files in pinned source |
 | logos-basecamp (host) | 0.3.1 (`aeb8192…`) | MIT + Apache-2.0 | verified licence files in pinned source |
 | logos-logoscore-cli | 0.3.1 | MIT + Apache-2.0 (Logos stack convention) | verify at release repo before publication |

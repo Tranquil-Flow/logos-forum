@@ -1,0 +1,3 @@
+== verify: storage
+./tools/verify.sh: line 32: <repo>-depbump/tools/m7_storage.sh: Permission denied
+FAIL storage (exit 126) — see <repo>-depbump/evidence/verify-runs/verify-storage-20261007-092044.log

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "lp0026-forum-modules",
+  "displayName": "LP-0026 Forum",
+  "description": "Logos Forum (LP-0026) and the exact Delivery/Storage builds it is tested against.",
+  "homepage": "https://github.com/Tranquil-Flow/logos-forum-catalog",
+  "indexUrl": "https://github.com/Tranquil-Flow/logos-forum-catalog/releases/download/index/index.json",
+  "includesUrl": "https://raw.githubusercontent.com/Tranquil-Flow/logos-forum-catalog/refs/heads/main/includes.json",
+  "trustedSigners": []
+}

@@ -6,7 +6,7 @@
     "master_sha": "7a52d8f011c28858bdedc6eaa9be0250cdcfc033",
     "lp0026_status": "OPEN",
     "amount_usd": 5500,
-    "live_recheck": "2026-10-01 — master SHA unchanged vs intake pin; PR #173 merged at that SHA; PR #168 open head 6c0e9eccb1fec37033bc68ed65772b1db8b76629, unmerged, not awarded; evaluator jzaki 2026-10-01T15:08Z reiterates meaningful/impactful ecosystem use (no outside-user quota)."
+    "live_recheck": "2026-10-01 \u2014 master SHA unchanged vs intake pin; PR #173 merged at that SHA; PR #168 open head 6c0e9eccb1fec37033bc68ed65772b1db8b76629, unmerged, not awarded; evaluator jzaki 2026-10-01T15:08Z reiterates meaningful/impactful ecosystem use (no outside-user quota)."
   },
   "build_tuple": {
     "status": "qualified locally; see docs/MATRIX.md receipts",
@@ -27,10 +27,18 @@
       "note": "binary-reported commit 4d47b0ee (kept distinct from tag target); storage legs run on qualified 0.3.0 (commit d9eb3ba)"
     },
     "delivery_module": {
-      "tag": "v0.3.0",
-      "rev": "bec859430d963d5c0775af85456eff80d9d1c456",
-      "lgx_bytes": 96294941,
-      "lgx_sha256": "f744f0f9ef84438b6da3985561cb8d2eedf36c9340d29d839353cf8d728aa088"
+      "tag": "v0.3.2",
+      "rev": "c25b7868099949c375e7affdeb1502b354fd92e3",
+      "lgx_bytes": 97014249,
+      "lgx_sha256": "9b856418fcf816961f1118f34b395bb6a399e5523166be51f4eca6a7aaf76867",
+      "root_hash": "824ccb2cd21b54f196dd3d32659df7f67e6df4298b1ab8cab60b48f704e2feac",
+      "note": "Basecamp 0.3.1 installs the newest delivery_module from the official catalog whatever includes.json pins; 0.3.2 is what an evaluator gets as of 2026-10-07 (API unchanged from 0.3.0, logos-delivery v0.39.1).",
+      "previously_tested": {
+        "tag": "v0.3.0",
+        "rev": "bec859430d963d5c0775af85456eff80d9d1c456",
+        "lgx_bytes": 96294941,
+        "lgx_sha256": "f744f0f9ef84438b6da3985561cb8d2eedf36c9340d29d839353cf8d728aa088"
+      }
     },
     "storage_module": {
       "tag": "v3.0.0",
@@ -43,7 +51,7 @@
     "pr168_head": "6c0e9eccb1fec37033bc68ed65772b1db8b76629",
     "source": "edenbd1/lp-0026-forum@aa7a16024322cba405bc80336e5c32e6a5ed30d4",
     "catalog": "v0.3.2",
-    "policy": "informational only — no fork, no code reuse, no instruction execution"
+    "policy": "informational only \u2014 no fork, no code reuse, no instruction execution"
   },
   "host": {
     "os": "macOS 26.5.1 arm64",
