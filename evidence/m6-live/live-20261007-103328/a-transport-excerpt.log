@@ -1,0 +1,60 @@
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*T3UNSE
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*P1S397
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*VpJprH
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*jqCixh
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*TwqBiH
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*NSkuby
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Added service to discover                  topics="waku service discovery" tid=1144363 service=/mix/1.0.0
+[2026-10-07 10:33:40.259] [out] [delivery_module] DBG 2026-10-07 10:33:40.259+02:00 Added provided service                     topics="service-disco advertiser" tid=1144363 service=/mix/1.0.0 serviceId=key:913B5C5DBE691438693215140388EC0C7DE80DE328BDE5BD7FC06F90568CEA40
+[2026-10-07 10:33:40.260] [out] [delivery_module] DBG 2026-10-07 10:33:40.260+02:00 Added service to advertise                 topics="waku service discovery" tid=1144363 service=/mix/1.0.0
+[2026-10-07 10:33:40.260] [out] [delivery_module] INF 2026-10-07 10:33:40.260+02:00 advertising this node as a mix node        topics="waku discovery advertise" tid=1144363 backend=service
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:40.261] [out] [delivery_module] INF 2026-10-07 10:33:40.261+02:00 starting keepalive                         tid=1144363 randomPeersKeepalive=10s allPeersKeepalive=2m
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.261] [out] [delivery_module] DBG 2026-10-07 10:33:40.261+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Trying message delivery via Mix            topics="send service mix processor" tid=1144363 requestId=268b07c47df6f2d8964d msgHash=0xdfa66567828c5fbb4e9f4efcbd2a69df10446e9bbc1c734b072f480f82e6cd2f tryCount=1
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Publishing message with lightpush          topics="waku node lightpush api" tid=1144363 pubsubTopic=/waku/2/rs/3/7 contentTopic=/lp0026forum/1/general/text target_peer_id=16U*VpJprH msg_hash=0xdfa66567828c5fbb4e9f4efcbd2a69df10446e9bbc1c734b072f480f82e6cd2f mixify=true
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Publish                                    topics="waku lightpush client" tid=1144363 myPeerId=16U*JuCbPs peerId= msgHash=0xdfa66567828c5fbb4e9f4efcbd2a69df10446e9bbc1c734b072f480f82e6cd2f sentTime=1791362020271532032
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Destination data                           tid=1144363 destination=MixDestination[MixNode](16Uiu2HAmMK7PYygBtKUQ8EHp7EfaD3bCEsJrkFooK8RQ2PVpJprH)
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Selected mix node:                         tid=1144363 indexInPath=0 peerId=16U*TwqBiH
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Selected mix node:                         tid=1144363 indexInPath=1 peerId=16U*T3UNSE
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Selected mix node:                         tid=1144363 indexInPath=2 peerId=16U*VpJprH
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Selected mix node for surbs:               tid=1144363 indexInPath=0 peerId=16U*P1S397
+[2026-10-07 10:33:40.271] [out] [delivery_module] DBG 2026-10-07 10:33:40.271+02:00 Selected mix node for surbs:               tid=1144363 indexInPath=1 peerId=16U*kGyuEP
+[2026-10-07 10:33:40.275] [out] [delivery_module] DBG 2026-10-07 10:33:40.275+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*TwqBiH
+[2026-10-07 10:33:40.280] [out] [delivery_module] DBG 2026-10-07 10:33:40.280+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*jqCixh
+[2026-10-07 10:33:40.281] [out] [delivery_module] DBG 2026-10-07 10:33:40.281+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*jQfE1X
+[2026-10-07 10:33:40.292] [out] [delivery_module] DBG 2026-10-07 10:33:40.292+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*7ZEp3L
+[2026-10-07 10:33:40.309] [out] [delivery_module] DBG 2026-10-07 10:33:40.309+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*k3v1b3
+[2026-10-07 10:33:40.352] [out] [delivery_module] DBG 2026-10-07 10:33:40.352+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*7ZEp3L
+[2026-10-07 10:33:40.363] [out] [delivery_module] DBG 2026-10-07 10:33:40.363+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:40.380] [out] [delivery_module] DBG 2026-10-07 10:33:40.380+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*oJnadu
+[2026-10-07 10:33:40.384] [out] [delivery_module] DBG 2026-10-07 10:33:40.384+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*k3v1b3
+[2026-10-07 10:33:40.386] [out] [delivery_module] DBG 2026-10-07 10:33:40.386+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*oJnadu
+[2026-10-07 10:33:40.401] [out] [delivery_module] DBG 2026-10-07 10:33:40.401+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*k3v1b3
+[2026-10-07 10:33:40.408] [out] [delivery_module] DBG 2026-10-07 10:33:40.408+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*oJnadu
+[2026-10-07 10:33:40.465] [out] [delivery_module] DBG 2026-10-07 10:33:40.464+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:40.465] [out] [delivery_module] DBG 2026-10-07 10:33:40.465+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.465] [out] [delivery_module] DBG 2026-10-07 10:33:40.465+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.465] [out] [delivery_module] DBG 2026-10-07 10:33:40.465+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.465] [out] [delivery_module] DBG 2026-10-07 10:33:40.465+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.465] [out] [delivery_module] DBG 2026-10-07 10:33:40.465+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:40.502] [out] [delivery_module] DBG 2026-10-07 10:33:40.502+02:00 Lookup query                               topics="kad-dht find" tid=1144363 peer=16U*7ZEp3L
+[2026-10-07 10:33:40.567] [out] [delivery_module] DBG 2026-10-07 10:33:40.567+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:40.619] [out] [delivery_module] DBG 2026-10-07 10:33:40.619+02:00 Dialing failed                             topics="libp2p dialer" tid=1144363 description="quic dial timed out after 3s" peerId=16U*7ZEp3L address=/ip4/192.168.1.3/udp/56395/quic-v1 hostname=192.168.1.3
+[2026-10-07 10:33:40.619] [out] [delivery_module] DBG 2026-10-07 10:33:40.619+02:00 Dialing failed                             topics="libp2p dialer" tid=1144363 description="quic dial timed out after 3s" peerId=16U*k3v1b3 address=/ip4/10.16.8.125/udp/55890/quic-v1 hostname=10.16.8.125
+[2026-10-07 10:33:40.620] [out] [delivery_module] DBG 2026-10-07 10:33:40.620+02:00 Dialing failed                             topics="libp2p dialer" tid=1144363 description="quic dial timed out after 3s" peerId=16U*oJnadu address=/ip4/10.1.0.169/udp/53213/quic-v1 hostname=10.1.0.169
+[2026-10-07 10:33:41.300] [out] [delivery_module] DBG 2026-10-07 10:33:41.300+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:41.301] [out] [delivery_module] DBG 2026-10-07 10:33:41.301+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:41.403] [out] [delivery_module] DBG 2026-10-07 10:33:41.403+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:41.503] [out] [delivery_module] DBG 2026-10-07 10:33:41.503+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:41.504] [out] [delivery_module] DBG 2026-10-07 10:33:41.504+02:00 no listener registered                     tid=1144365 event=onTopicHealthChange
+[2026-10-07 10:33:41.505] [out] [delivery_module] DBG 2026-10-07 10:33:41.505+02:00 calculateConnectionState                   tid=1144363 relayCount=11 storeClientCount=6 lightpushCount=11 filterCount=11
+[2026-10-07 10:33:42.086] [out] [delivery_module] DBG 2026-10-07 10:33:42.086+02:00 Message propagated via Mix                 topics="send service mix processor" tid=1144363 requestId=268b07c47df6f2d8964d msgHash=0xdfa66567828c5fbb4e9f4efcbd2a69df10446e9bbc1c734b072f480f82e6cd2f
+[2026-10-07 10:33:42.086] [out] [delivery_module] INF 2026-10-07 10:33:42.086+02:00 Message successfully propagated            topics="send service" tid=1144363 requestId=268b07c47df6f2d8964d msgHash=withheld
+[2026-10-07 10:33:42.086] [out] [delivery_module] INF 2026-10-07 10:33:42.086+02:00 Message successfully sent over mix         topics="send service" tid=1144363 requestId=268b07c47df6f2d8964d

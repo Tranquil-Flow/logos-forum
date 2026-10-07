@@ -10,6 +10,16 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — visual pass, 2026-10-07** (`evidence/m5-package/visual-20261007/NOTE.txt`):
+the Forum view now uses the Logos dark theme (design-system tokens, Public
+Sans), with key avatars, state chips, snapshot cards, a "Posting as" identity
+panel and Enter-to-send. Logic, backend calls and control ids are unchanged.
+Checked in the release Basecamp 0.3.1 on a fresh profile (offline → alias →
+connected → post sent through Mix → Save snapshot of 45 posts); the arrow
+glyphs missing from Basecamp's fonts were replaced with drawn chevrons. UI
+15/15, core 189/0, live, history and Storage PASS. README screenshots
+replaced with these release-app captures.
+
 **Update — catalog install and Delivery 0.3.2, 2026-10-07**
 (`evidence/m9-catalog/catalog-install-20261007/NOTE.txt`,
 `evidence/m6-live/DELIVERY-0.3.2-NOTE.txt`): a fresh release Basecamp 0.3.1

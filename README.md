@@ -9,16 +9,19 @@ and **topic snapshots on Logos Storage** that anyone can restore and verify
 Works on the public **logos.dev** network (receipted live:
 `evidence/m6-live/`, `evidence/m7-storage/`). Dual-licensed **MIT + Apache-2.0**.
 
-![Forum view in the standalone Basecamp host, connected to logos.dev](docs/img/forum-connected.png)
+![Forum in the release Basecamp 0.3.1 app, connected to logos.dev, with a post sent through Mix and a Storage snapshot card](docs/img/forum-connected.png)
 
-*Connected to the public logos.dev network after "Load older posts": the
-posts are our own labelled test posts from the live receipts, recovered from
-the network's store by a fresh instance.*
+*Release Basecamp 0.3.1, fresh profile, connected to the public logos.dev
+network. The "received" posts are our own labelled test posts, recovered from
+the network's history; the alias post went out through Mix, and **Save
+snapshot** stored the topic's 45 posts on Logos Storage and announced the CID
+as a card anyone can restore from.*
 
-![Identity panel with key rotation (by posts and by age), topics and a post written offline, waiting to send](docs/img/forum-identity-rotation.png)
+![Identity panel opened from "Posting as": alias picker, hide-alias option and key rotation controls](docs/img/forum-identity-rotation.png)
 
-*An alias with automatic key rotation (every 10 posts or weekly; rotated once
-by hand). Offline, the post is kept on the device and marked for sending.*
+*The identity panel, opened from **Posting as**: an alias with its key id, the
+option to hide the alias, and key rotation (now, by posts, by age). The line
+under the controls states how linkable your posts are before you send.*
 
 > Every claim in this README links to a receipt: `docs/MATRIX.md` maps each
 > prize requirement to the logs under `evidence/` (sha256-bound). Current
@@ -36,11 +39,13 @@ by hand). Offline, the post is kept on the device and marked for sending.*
    from the official catalog (Basecamp picks the newest — 0.3.2 as of
    2026-10-07, which we test) and `storage_module` 3.0.0, which ships inside
    Basecamp 0.3.1.
-3. Open **Forum** in the sidebar. To post under a name, type it in the
-   *new alias* box under *Posting as* → **Add alias**; or keep *Anonymous*.
+3. Open **Forum** in the sidebar. To post under a name, click **Posting as**
+   under the composer, type it in the *new alias* box → **Add alias**; or keep
+   *Anonymous*.
 4. Press **Connect to Logos network**. Within seconds the chip reads
    *Connected to logos.dev · sending through Mix*.
-5. Pick a topic (or create one), write, **Send**. Your post shows
+5. Pick a topic (or create one with **+ New topic**), write, press **Enter**
+   or **Send** (Shift+Enter for a new line). Your post shows
    *sending…* then *sent*; posts from others appear as *received*.
    **Load older posts** fetches the last 7 days from the network.
 
@@ -181,7 +186,8 @@ starts the release app on a profile, `stop` quits everything it started.
 
 ## Use
 
-- **Identity — three options, chosen in the "Posting as" row:**
+- **Identity — three options, chosen in the identity panel** (click **Posting
+  as** under the composer):
   - *alias + id*: an account (persistent Ed25519 key in the local store) posts
     as `alice · id 3f9a2c1b5e6d7f80`. Aliases are self-asserted; the 16-hex
     key id is what tells two "alice"s apart.
@@ -262,7 +268,7 @@ starts the release app on a profile, `stop` quits everything it started.
 - **Narrow windows**: below 760 px the topic list stacks above the thread.
 - **Received posts** render as plain text — no remote images, avatars, or
   link previews; external links require explicit user action.
-- **Network details** (footer) shows the transport line with **Check
+- **Network details** (top right) shows the transport line with **Check
   transport** / **Re-check transport**: the safety probe (app-owned node vs
   foreign node in a shared host — a foreign node is reported, never
   reconfigured). Hidden by default; nothing there is needed to post.

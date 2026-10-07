@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-07T08:33:37Z",
+  "timeline": [
+    {
+      "t_s": 0,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 0,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 4,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 5,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 5,
+      "what": "A state",
+      "state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)"
+    },
+    {
+      "t_s": 5,
+      "what": "A state",
+      "state": "Required send propagated (request 268b07c47df6f2d8964d)"
+    },
+    {
+      "t_s": 5,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… posts you write now are saved and sent once connected.",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "connected — sending 1 stored post with original signed bytes (same event IDs — receivers dedup)",
+    "Required send propagated (request 268b07c47df6f2d8964d)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id 38a1c9c99aae4140 [received]: TEST POST - automated Windows check, CI run 37587422693 - test data, please ignore\",\"id bf815caa76894738 [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-07T08:33:37Z\"]",
+  "b_thread": "[\"id bf815caa76894738 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-07T08:33:37Z\"]"
+}

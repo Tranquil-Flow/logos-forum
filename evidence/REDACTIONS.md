@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 710
+Files normalised: 729
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -593,6 +593,9 @@ Files normalised: 710
 | evidence/m6-live/history-20261007-091857/a-app.log | repo-path (2), home-dir (1) | `8fd45146637fc51b…` | `9b36cce1f9fd010c…` |
 | evidence/m6-live/history-20261007-091857/b-app.log | repo-path (2), home-dir (1) | `9cb59585afa728db…` | `4a2e05c7510fd4d7…` |
 | evidence/m6-live/history-20261007-091857/result.json | repo-path (1) | `a99625d9607fa35a…` | `2d9053eec53ae7dd…` |
+| evidence/m6-live/history-20261007-103345/a-app.log | repo-path (2), home-dir (1) | `fb881969db089e92…` | `7468c833958128bc…` |
+| evidence/m6-live/history-20261007-103345/b-app.log | repo-path (2), home-dir (1) | `05121b042ba2b67c…` | `a1beaa3a77a9b2e2…` |
+| evidence/m6-live/history-20261007-103345/result.json | repo-path (1) | `29886664c6dc6fbb…` | `0b24edbdc3a49b57…` |
 | evidence/m6-live/live-20261004-122221/a-app.log | repo-path (2), home-dir (1) | `9c65662c9d282cca…` | `7c3cc1b095ac5698…` |
 | evidence/m6-live/live-20261004-122221/b-app.log | repo-path (2), home-dir (1) | `87495c5975c883d5…` | `ca4540e4b36c1ccb…` |
 | evidence/m6-live/live-20261004-122221/result.json | repo-path (1) | `739aab4faccecafd…` | `b8fd95afb5dfa663…` |
@@ -629,6 +632,9 @@ Files normalised: 710
 | evidence/m6-live/live-20261007-091839/a-transport-excerpt.log | home-dir (1) | `6ba4a0b3fe73ded2…` | `893ff7cb4017ed3e…` |
 | evidence/m6-live/live-20261007-091839/b-app.log | repo-path (2), home-dir (1) | `724026b8130517c5…` | `f7084cdc9ff09cb9…` |
 | evidence/m6-live/live-20261007-091839/result.json | repo-path (1) | `5a2bdf938c5f0bb1…` | `86a2cfd087e5e6c8…` |
+| evidence/m6-live/live-20261007-103328/a-app.log | repo-path (2), home-dir (1) | `e24c3e07b5ddfbe2…` | `a5af928156e569e0…` |
+| evidence/m6-live/live-20261007-103328/b-app.log | repo-path (2), home-dir (1) | `0a602fc42a9d933e…` | `097689500fd94b06…` |
+| evidence/m6-live/live-20261007-103328/result.json | repo-path (1) | `016f8266de205369…` | `fb2d1de2eb3c9211…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-app.log | repo-path (2), home-dir (3) | `d54a32ef9ca44e07…` | `3d73fbbc327dbd99…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.log | home-dir (1) | `61cc31b3d3eaaf9b…` | `4ff9918c92815762…` |
@@ -724,12 +730,25 @@ Files normalised: 710
 | evidence/m7-storage/snapshot-20261007-092124/b-storage.log | home-dir (1) | `0bb3534f5eab7641…` | `c85fe2ed4ee03231…` |
 | evidence/m7-storage/snapshot-20261007-092124/result.json | repo-path (1) | `721e00ccda2cf7b0…` | `9a666cf4dc62f39d…` |
 | evidence/m7-storage/snapshot-20261007-092124/snapshot-files.txt | home-dir (2) | `c6483138c6a9b82f…` | `52a0e0fe9b8b0cb3…` |
+| evidence/m7-storage/snapshot-20261007-103528/a-app.log | repo-path (2), home-dir (3) | `3c2e0af1e18a78cb…` | `34a5b9766c18a3d5…` |
+| evidence/m7-storage/snapshot-20261007-103528/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
+| evidence/m7-storage/snapshot-20261007-103528/a-storage.log | home-dir (1) | `fcad8fba86ba8463…` | `0b460a19726909d8…` |
+| evidence/m7-storage/snapshot-20261007-103528/b-app.log | repo-path (2), home-dir (2) | `1eb6bd9e12a0b2b3…` | `f92ee33c6e074f71…` |
+| evidence/m7-storage/snapshot-20261007-103528/b-storage.json | home-dir (2) | `39da6d3e8c4800fe…` | `35ce0f8b36f04487…` |
+| evidence/m7-storage/snapshot-20261007-103528/b-storage.log | home-dir (1) | `1700c72acf90916f…` | `95cdb35a1f74efb7…` |
+| evidence/m7-storage/snapshot-20261007-103528/result.json | repo-path (1) | `f3184a467cdc00f0…` | `5351b6cfad0c5688…` |
+| evidence/m7-storage/snapshot-20261007-103528/snapshot-files.txt | home-dir (2) | `2d715a667c471545…` | `798b03b3c1d30632…` |
 | evidence/m9-catalog/catalog-install-20261007/install-lines.log | macos-temp-dir (5), home-dir (1) | `bcb8b92b9fe26111…` | `8452d9f28f17321d…` |
 | evidence/m9-catalog/catalog-install-20261007/versions.txt | home-dir (1) | `f9d5921f7bb1527a…` | `c1227648b52542d2…` |
 | evidence/verify-runs/verify-history-20261007-091857.log | repo-path (3) | `276784ed83f745d8…` | `f5ed25f68ce1be4c…` |
+| evidence/verify-runs/verify-history-20261007-103345.log | repo-path (3) | `c7b231277b57caca…` | `b23a553203095c07…` |
 | evidence/verify-runs/verify-live-20261007-091838.log | repo-path (3) | `b7237e71d9425e72…` | `242c391c6a288a1f…` |
+| evidence/verify-runs/verify-live-20261007-103328.log | repo-path (3) | `6ad6011ae978eca2…` | `5c5a3707b589108d…` |
 | evidence/verify-runs/verify-protocol-20261007-092313.log | repo-path (4), home-dir (2) | `10a4f80aff68ae51…` | `7912259387afed68…` |
 | evidence/verify-runs/verify-storage-20261007-092044.log | repo-path (2) | `72dd033289a9e8a0…` | `7d922b907f0b4c91…` |
 | evidence/verify-runs/verify-storage-20261007-092124.log | repo-path (3) | `d8657afbd2a2f0e1…` | `b1f01c61f51b0b2f…` |
+| evidence/verify-runs/verify-storage-20261007-103528.log | repo-path (3) | `31d619e5947164ae…` | `395d56e22ac2fdb8…` |
 | evidence/verify-runs/verify-store-probe-20261003-202243.log | repo-path (2) | `b214c44610456eec…` | `5dfad80cf93a43ca…` |
 | evidence/verify-runs/verify-store-probe-20261004-212309.log | repo-path (2) | `a1b9d3f489c39381…` | `86f472c623a7f81b…` |
+| evidence/verify-runs/verify-ui-20261007-100639.log | repo-path (2) | `1a86a2685811a9bf…` | `5a0193fe52d059e0…` |
+| evidence/verify-runs/verify-ui-20261007-101457.log | repo-path (2) | `e6730f0e213eee39…` | `f581789cf798e6c4…` |

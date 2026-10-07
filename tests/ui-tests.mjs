@@ -283,6 +283,8 @@ test("forum_module: alias key rotation — manual, by posts and by age", async (
     async () => { await app.expectTexts(["Module ready"]); },
     { timeout: 20000, interval: 500, description: "backend ready" }
   );
+  // Rotation lives in the identity panel, opened from "Posting as".
+  await app.inspector.send("evaluate", { expression: "if (!root.identityOpen) postingAs.clicked()" });
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; aliasInput.text = 'ci-rotate'; addAliasButton.clicked()" });
   let uid1 = "";
   await app.waitFor(async () => {

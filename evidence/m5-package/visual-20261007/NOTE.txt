@@ -1,0 +1,30 @@
+Visual pass (dark theme from the Logos design system), 2026-10-07.
+
+Main.qml restyled: design tokens (bg #171717, panels #262626, accent #ED7B58,
+Public Sans), key avatars drawn from the key id, state chips, snapshot posts
+shown as cards with "Restore these posts", identity settings folded into a
+panel opened from "Posting as", transport diagnostics behind "Network details",
+Enter sends (Shift+Enter new line). Backend calls, outcome strings and control
+ids unchanged.
+
+Release-app check: pinned Basecamp 0.3.1, fresh profile W from
+tools/demo_profiles.sh (Forum lgx-portable sha256 07195278ceb7417e965766d6608ea3ab5afb845fa36ad2ab6d390db1fe688f1e,
+delivery_module 0.3.2, storage_module 3.0.0). Clicked through by hand on
+macOS arm64; screenshots taken by the owner:
+  1-offline-fresh.png            fresh profile, offline, empty thread
+  2-identity-panel.png           alias "cat" created offline, panel open
+  3-connected-sent-snapshot.png  connected to logos.dev; 45 posts recovered
+                                 from history; alias post "sent" via Mix;
+                                 Save snapshot stored 45 posts on Logos
+                                 Storage and announced the CID
+
+Found and fixed during this check: the dropdown arrow glyphs (U+25BE/U+25B4)
+are missing from Basecamp's fonts and rendered as dots; replaced with drawn
+chevrons. "Posting as" had no inner padding; added.
+
+One UI test changed: key rotation now lives in the identity panel, so the
+rotation test opens it via "Posting as" first (as a user would).
+
+Verify runs on the final tree (evidence/verify-runs/): UI 15/15
+(verify-ui-20261007-120304, after the chevron fix), core 189/0,
+live, history and storage PASS (verify-*-20261007-103*, before the QML-only chevron fix).

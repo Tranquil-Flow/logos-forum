@@ -3,10 +3,10 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 // LP-0026 Forum — the forum view. Plain text only: no remote images,
-// avatars, previews, or automatic outbound requests from rendered content.
-// States shown are honest: pending/sent/failed per post; a stored post clears
-// the composer, one that cannot be stored keeps its text; a dead backend is
-// surfaced, never hidden.
+// previews, or automatic outbound requests from rendered content (the key
+// avatars are drawn locally from the key id). States shown are honest:
+// pending/sent/failed per post; a stored post clears the composer, one that
+// cannot be stored keeps its text; a dead backend is surfaced, never hidden.
 Item {
     id: root
 
@@ -14,6 +14,9 @@ Item {
     property bool ready: false
     // Transport diagnostics are for troubleshooting; folded away by default.
     property bool showDetails: false
+    // The identity settings fold out above the composer.
+    property bool identityOpen: false
+    property bool newTopicOpen: false
     readonly property string status: backend ? backend.status : ""
     readonly property string transportState: backend ? backend.transportState : ""
     readonly property string connection: backend ? backend.connection : "offline"
@@ -43,15 +46,202 @@ Item {
     // Must match kSnapshotTitle in forum_module_backend.cpp.
     readonly property string snapshotTitle: "Snapshot of this topic on Logos Storage"
 
-    // Light palette: Basecamp hosts module views on a white panel.
-    readonly property color cText: "#1f2328"
-    readonly property color cMuted: "#59636e"
-    readonly property color cBorder: "#d1d9e0"
-    readonly property color cSurface: "#f6f8fa"
-    readonly property color cAccent: "#6639ba"
-    readonly property color cGood: "#1a7f37"
-    readonly property color cWarn: "#9a6700"
-    readonly property color cBad: "#cf222e"
+    // Basecamp's dark theme: values from logos-design-system (the revision
+    // Basecamp 0.3.1 ships), kept here so the view also renders in hosts
+    // without the Logos.Theme module (the test host, CI).
+    QtObject {
+        id: t
+        readonly property color bg: "#171717"            // background
+        readonly property color panel: "#262626"         // backgroundSecondary
+        readonly property color inset: "#141414"         // backgroundInset
+        readonly property color surface: "#343434"       // surface
+        readonly property color raised: "#232323"        // surfaceRaised
+        readonly property color hover: "#434343"         // surfaceInteractiveHover
+        readonly property color line: "#333333"          // borderSubtle
+        readonly property color text: "#FFFFFF"
+        readonly property color body: "#E6E6E6"
+        readonly property color text2: "#A4A4A4"         // textSecondary
+        readonly property color text3: "#969696"         // textTertiary
+        readonly property color placeholder: "#717784"   // textPlaceholder
+        readonly property color accent: "#ED7B58"        // primary
+        readonly property color accentHover: "#F55702"   // primaryHover
+        readonly property color accentInk: "#1A0D07"
+        readonly property color accentSoft: Qt.rgba(0.929, 0.482, 0.345, 0.14)
+        readonly property color accentLine: Qt.rgba(0.929, 0.482, 0.345, 0.35)
+        readonly property color good: "#49F563"          // success
+        readonly property color goodText: "#9FEFAE"
+        readonly property color goodSoft: Qt.rgba(0.286, 0.961, 0.388, 0.12)
+        readonly property color warn: "#FEBC2E"          // warning
+        readonly property color warnText: "#FFD98A"
+        readonly property color warnSoft: Qt.rgba(0.996, 0.737, 0.180, 0.12)
+        readonly property color bad: "#FB3748"           // error
+        readonly property color badText: "#FFA4AC"
+        readonly property color badSoft: Qt.rgba(0.984, 0.216, 0.282, 0.12)
+        readonly property string sans: "Public Sans"     // loaded by Basecamp; system font otherwise
+        readonly property string mono: "monospace"
+        readonly property int radiusS: 4
+        readonly property int radiusM: 6
+        readonly property int radiusL: 8
+    }
+
+    // ---- Small themed controls ----
+    component FButton: Button {
+        id: fb
+        property string kind: "secondary"   // primary | secondary | ghost
+        font.family: t.sans
+        font.pixelSize: 13
+        font.weight: Font.Medium
+        padding: 8
+        leftPadding: 12
+        rightPadding: 12
+        hoverEnabled: true
+        contentItem: Text {
+            text: fb.text
+            font: fb.font
+            color: !fb.enabled ? t.placeholder
+                 : fb.kind === "primary" ? t.accentInk
+                 : fb.kind === "ghost" && !fb.hovered ? t.text2 : t.text
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+        background: Rectangle {
+            implicitHeight: 32
+            radius: t.radiusM
+            color: fb.kind === "primary"
+                   ? (!fb.enabled ? t.raised : fb.down || fb.hovered ? t.accentHover : t.accent)
+                   : fb.kind === "ghost"
+                     ? (fb.hovered ? t.raised : "transparent")
+                     : (fb.hovered ? t.hover : t.surface)
+            border.width: fb.kind === "ghost" ? 0 : 1
+            border.color: fb.kind === "primary" && fb.enabled ? t.accent : t.line
+            Rectangle {   // keyboard focus ring
+                anchors.fill: parent; anchors.margins: -3
+                radius: t.radiusM + 2; color: "transparent"
+                border.width: 2; border.color: t.accent
+                visible: fb.visualFocus
+            }
+        }
+    }
+    component FField: TextField {
+        id: ff
+        font.family: t.sans
+        font.pixelSize: 13
+        color: t.text
+        placeholderTextColor: t.placeholder
+        selectionColor: t.accentLine
+        selectedTextColor: t.text
+        leftPadding: 10
+        rightPadding: 10
+        background: Rectangle {
+            implicitHeight: 34
+            radius: t.radiusM
+            color: t.inset
+            border.color: ff.activeFocus ? t.accent : t.line
+        }
+    }
+    // Drawn chevron (the ▾ glyph is missing from Basecamp's fonts).
+    component Chevron: Canvas {
+        property bool up: false
+        property color tint: t.text3
+        implicitWidth: 10; implicitHeight: 6
+        onUpChanged: requestPaint()
+        onTintChanged: requestPaint()
+        onPaint: {
+            const c = getContext("2d")
+            c.reset()
+            c.strokeStyle = tint; c.lineWidth = 1.5; c.lineCap = "round"; c.lineJoin = "round"
+            c.beginPath()
+            if (up) { c.moveTo(1, 5); c.lineTo(5, 1); c.lineTo(9, 5) }
+            else { c.moveTo(1, 1); c.lineTo(5, 5); c.lineTo(9, 1) }
+            c.stroke()
+        }
+    }
+    component FCombo: ComboBox {
+        id: fc
+        font.family: t.sans
+        font.pixelSize: 13
+        contentItem: Text {
+            leftPadding: 10
+            text: fc.displayText
+            font: fc.font
+            color: fc.enabled ? t.text : t.placeholder
+            verticalAlignment: Text.AlignVCenter
+            elide: Text.ElideRight
+        }
+        indicator: Chevron {
+            x: fc.width - width - 12
+            y: (fc.height - height) / 2
+        }
+        background: Rectangle {
+            implicitHeight: 32
+            radius: t.radiusM
+            color: fc.hovered ? t.hover : t.raised
+            border.color: fc.activeFocus ? t.accent : t.line
+        }
+    }
+    component FCheck: CheckBox {
+        id: fk
+        font.family: t.sans
+        font.pixelSize: 13
+        indicator: Rectangle {
+            x: fk.leftPadding; y: (fk.height - height) / 2
+            implicitWidth: 16; implicitHeight: 16; radius: t.radiusS
+            color: fk.checked ? t.accent : t.inset
+            border.color: fk.checked ? t.accent : t.hover
+            Text {
+                anchors.centerIn: parent; visible: fk.checked
+                text: "✓"; color: t.accentInk; font.pixelSize: 11; font.bold: true
+            }
+        }
+        contentItem: Text {
+            leftPadding: fk.indicator.width + 8
+            text: fk.text; font: fk.font; color: t.text2
+            verticalAlignment: Text.AlignVCenter
+        }
+    }
+    component Chip: Rectangle {
+        property alias label: chipText.text
+        property color fg: t.text3
+        radius: height / 2
+        implicitHeight: 20
+        implicitWidth: chipText.implicitWidth + 16
+        Text {
+            id: chipText
+            anchors.centerIn: parent
+            color: parent.fg
+            font.family: t.sans; font.pixelSize: 11; font.weight: Font.Medium
+        }
+    }
+    // A 5x5 mirrored pattern drawn from a key id's hex digits, so the same
+    // key always looks the same. Local drawing only; nothing is fetched.
+    component KeyAvatar: Rectangle {
+        id: av
+        property string keyId: ""
+        readonly property string hex: keyId.replace(/[^0-9a-f]/gi, "").toLowerCase()
+        readonly property var digits: {
+            var d = []
+            for (var i = 0; i < av.hex.length; ++i) d.push(parseInt(av.hex[i], 16))
+            return d.length > 0 ? d : [0]
+        }
+        readonly property color ink: Qt.hsla(((digits[0] * 16 + (digits[1] || 0)) % 360) / 360, 0.7, 0.64, 1)
+        implicitWidth: 30; implicitHeight: 30
+        radius: t.radiusM
+        color: t.raised
+        Grid {
+            anchors.fill: parent; anchors.margins: 5
+            columns: 5; spacing: 1
+            Repeater {
+                model: 25
+                Rectangle {
+                    readonly property int r: Math.floor(index / 5)
+                    readonly property int c: index % 5 < 3 ? index % 5 : 4 - index % 5
+                    width: (av.width - 14) / 5; height: width; radius: 1
+                    color: av.digits[(r * 3 + c) % av.digits.length] % 2 === 0 ? av.ink : "transparent"
+                }
+            }
+        }
+    }
 
     // Honest liveness (ping after handshake; a dead backend disables actions).
     property double lastBackendOk: Date.now()
@@ -134,252 +324,184 @@ Item {
     // Parse a topic row "<id>|<title (N)>|<unread>" (backend contract).
     function topicParts(line) {
         var p = line.split("|")
-        return { id: p[0], label: p.slice(1, p.length - 1).join("|"), unread: parseInt(p[p.length - 1]) || 0 }
+        var label = p.slice(1, p.length - 1).join("|")
+        var m = /^([\s\S]*) \((\d+)\)$/.exec(label)
+        return { id: p[0], label: label,
+                 title: m ? m[1] : label, count: m ? m[2] : "",
+                 unread: parseInt(p[p.length - 1]) || 0 }
+    }
+    // Snapshot announcement body: "<title>: N post(s).\ncid: <cid>".
+    function snapshotParts(body) {
+        var n = /: (\d+) post/.exec(body)
+        var c = /(?:^|\n)cid: (\S+)/.exec(body)
+        return { posts: n ? parseInt(n[1]) : 0, cid: c ? c[1] : "" }
     }
     function stateLabel(s) {
         if (s === "pending") return root.connection === "connected" ? "sending…" : "waiting to send"
         if (s === "failed") return "not sent — kept for retry"
         return s
     }
-    function stateColor(s) {
-        if (s === "sent") return root.cGood
-        if (s === "failed") return root.cBad
-        if (s === "pending") return root.cWarn
-        return root.cMuted
+    function stateFg(s) {
+        if (s === "sent") return t.goodText
+        if (s === "failed") return t.badText
+        if (s === "pending") return t.warnText
+        return t.text3
+    }
+    function stateBg(s) {
+        if (s === "sent") return t.goodSoft
+        if (s === "failed") return t.badSoft
+        if (s === "pending") return t.warnSoft
+        return t.raised
     }
 
-    Rectangle { anchors.fill: parent; color: "#ffffff" }
+    Rectangle { anchors.fill: parent; color: t.bg }
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 20
-        spacing: 12
+        spacing: 0
 
-        // ---- Header: title + network status ----
-        RowLayout {
-            Layout.fillWidth: true
-            spacing: 12
-            ColumnLayout {
-                spacing: 2
-                Text {
-                    text: "Logos Forum"
-                    font.pixelSize: 22
-                    font.bold: true
-                    color: root.cText
-                }
-                Text {
-                    text: !root.backendAlive ? "Backend unresponsive — restart the app"
-                         : (root.ready ? "Module ready" : "Starting…")
-                    color: !root.backendAlive ? root.cBad : root.cMuted
-                    font.pixelSize: 11
-                }
-            }
-            Item { Layout.fillWidth: true }
-            Rectangle {
-                id: networkChip
-                objectName: "networkChip"
-                radius: 14
-                color: root.cSurface
-                border.color: root.cBorder
-                implicitHeight: 30
-                implicitWidth: chipRow.implicitWidth + 24
-                RowLayout {
-                    id: chipRow
-                    anchors.centerIn: parent
-                    spacing: 8
-                    Rectangle {
-                        width: 9; height: 9; radius: 5
-                        color: root.connection === "connected" ? root.cGood
-                             : root.connection === "connecting" ? root.cWarn : "#8c959f"
-                    }
-                    Text {
-                        id: networkLabel
-                        objectName: "networkLabel"
-                        text: root.connection === "connected" ? "Connected to logos.dev · sending through Mix"
-                            : root.connection === "connecting" ? "Connecting to logos.dev…"
-                            : "Offline — not connected"
-                        color: root.cText
-                        font.pixelSize: 13
-                    }
-                }
-            }
-            Button {
-                id: connectButton
-                // Joining a public network is the user's explicit choice.
-                text: "Connect to Logos network"
-                visible: root.connection === "offline"
-                enabled: root.usable
-                ToolTip.visible: hovered
-                ToolTip.text: "Joins the public logos.dev network. Posts are only ever sent through the Mix anonymity network — never as plain messages."
-                onClicked: {
-                    outcome.text = "Connecting… posts you write now are saved and sent once connected."
-                    logos.watch(root.backend.connectNetwork(), function (v) {
-                    }, function (e) { outcome.text = "Error: " + e })
-                }
-            }
-        }
-
-        // ---- Identity ----
+        // ---- Header: title, network status, details ----
         Rectangle {
             Layout.fillWidth: true
-            color: root.cSurface
-            border.color: root.cBorder
-            radius: 8
-            implicitHeight: identityCol.implicitHeight + 20
-            ColumnLayout {
-                id: identityCol
+            implicitHeight: headerRow.implicitHeight + 28
+            color: t.bg
+            RowLayout {
+                id: headerRow
                 anchors.fill: parent
-                anchors.margins: 10
-                spacing: 6
-                Flow {
-                    Layout.fillWidth: true
-                    spacing: 8
-                    Text {
-                        text: "Posting as"; color: root.cText; font.pixelSize: 13; font.bold: true
-                        height: identityBox.height; verticalAlignment: Text.AlignVCenter
-                    }
-                    ComboBox {
-                        id: identityBox
-                        model: ["Anonymous"].concat(root.accounts)
-                        enabled: root.usable
-                        width: 210
-                        Accessible.name: "Posting identity"
-                        // Follow the backend's selection (createAccount auto-selects the
-                        // new alias); a model reset would otherwise snap back to index 0.
-                        function syncToBackend() {
-                            currentIndex = root.selectedAlias === ""
-                                ? 0 : root.accounts.indexOf(root.selectedAlias) + 1
-                        }
-                        onModelChanged: syncToBackend()
-                        Connections {
-                            target: root
-                            function onSelectedAliasChanged() { identityBox.syncToBackend() }
-                        }
-                        onActivated: {
-                            var name = currentIndex === 0 ? "" : model[currentIndex]
-                            logos.watch(root.backend.selectIdentity(name), function (v) {
-                                outcome.text = v === "ok" ? ("Now posting as " + (name || "anonymous")) : v
-                            }, function (e) { outcome.text = "Error: " + e })
-                        }
-                    }
-                    CheckBox {
-                        id: hideAliasBox
-                        text: "Hide my alias (show key id only)"
-                        visible: root.selectedAlias !== ""
-                        enabled: root.usable && root.selectedAlias !== ""
-                        checked: root.aliasHidden
-                        onToggled: logos.watch(root.backend.hideAlias(checked), function (v) {
-                            outcome.text = checked ? "Posting with key id only" : "Posting with alias + key id"
-                        }, function (e) { outcome.text = "Error: " + e })
-                    }
-                    TextField {
-                        id: aliasInput
-                        placeholderText: "new alias"
-                        enabled: root.usable
-                        width: 140
-                        Accessible.name: "New alias"
-                        onAccepted: if (addAliasButton.enabled) addAliasButton.clicked()
-                    }
-                    Button {
-                        id: addAliasButton
-                        text: "Add alias"
-                        enabled: root.usable && aliasInput.text.length > 0
-                        onClicked: logos.watch(root.backend.createAccount(aliasInput.text), function (v) {
-                            outcome.text = v === "ok" ? "Alias created" : v
-                            if (v === "ok") aliasInput.text = ""
-                        }, function (e) { outcome.text = "Error: " + e })
-                    }
-                }
-                // Key rotation: unlinks later posts from earlier ones.
-                Flow {
-                    Layout.fillWidth: true
-                    spacing: 8
-                    visible: root.selectedAlias !== ""
-                    Button {
-                        id: rotateButton
-                        objectName: "rotateButton"
-                        text: "New key now"
-                        flat: true
-                        enabled: root.usable
-                        ToolTip.visible: hovered
-                        ToolTip.text: "Switch this alias to a fresh key. Earlier posts stay valid, but later posts no longer share their key id. Readers still see the alias name unless you hide it."
-                        onClicked: logos.watch(root.backend.rotateKey(), function (v) {
-                            outcome.text = v === "ok" ? ("New key: id " + root.selectedUid) : v
-                        }, function (e) { outcome.text = "Error: " + e })
-                    }
-                    ComboBox {
-                        id: autoRotateBox
-                        objectName: "autoRotateBox"
-                        readonly property var steps: [0, 5, 10, 25, 100]
-                        model: ["By posts: off", "Rotate every 5 posts", "Rotate every 10 posts",
-                                "Rotate every 25 posts", "Rotate every 100 posts"]
-                        width: 200
-                        enabled: root.usable
-                        Accessible.name: "Automatic key rotation by posts"
-                        currentIndex: Math.max(0, steps.indexOf(root.rotateEvery))
-                        onActivated: logos.watch(root.backend.setAutoRotate(steps[currentIndex]), function (v) {
-                            outcome.text = v === "ok" ? (steps[currentIndex] === 0
-                                ? "Automatic rotation off" : ("A new key every " + steps[currentIndex] + " posts"))
-                                : v
-                        }, function (e) { outcome.text = "Error: " + e })
-                    }
-                    ComboBox {
-                        id: autoRotateDaysBox
-                        objectName: "autoRotateDaysBox"
-                        readonly property var steps: [0, 1, 7, 30]
-                        model: ["By age: off", "Rotate daily", "Rotate weekly", "Rotate monthly"]
-                        width: 170
-                        enabled: root.usable
-                        Accessible.name: "Automatic key rotation by age"
-                        currentIndex: Math.max(0, steps.indexOf(root.rotateDays))
-                        onActivated: logos.watch(root.backend.setAutoRotateDays(steps[currentIndex]), function (v) {
-                            outcome.text = v === "ok" ? (steps[currentIndex] === 0
-                                ? "Rotation by age off" : ("A new key once the current one is " + steps[currentIndex] + (steps[currentIndex] === 1 ? " day" : " days") + " old"))
-                                : v
-                        }, function (e) { outcome.text = "Error: " + e })
-                    }
-                    Text {
-                        objectName: "rotationInfo"
-                        text: root.rotationInfo
-                        color: root.cMuted; font.pixelSize: 12
-                        height: rotateButton.height; verticalAlignment: Text.AlignVCenter
-                    }
-                }
+                anchors.leftMargin: 20; anchors.rightMargin: 16
+                spacing: 12
                 Text {
-                    id: identityHint
-                    objectName: "identityHint"  // stable handle for property-only drivers
-                    // Privacy implications stated where the choice is made.
-                    textFormat: Text.PlainText
-                    text: root.selectedAlias === ""
-                          ? "Identity: anonymous — a new one-time key per post; your posts cannot be linked to each other"
-                          : root.aliasHidden
-                            ? ("Identity: id " + root.selectedUid + " (alias hidden) — your posts are linkable to each other")
-                            : ("Identity: " + root.selectedAlias + " · id " + root.selectedUid
-                               + " — your posts are linkable to each other")
-                    color: root.cMuted; font.pixelSize: 12
-                    wrapMode: Text.Wrap
-                    Layout.fillWidth: true
+                    text: "Logos Forum"
+                    font.family: t.sans; font.pixelSize: 18; font.weight: Font.Bold
+                    color: t.text
+                }
+                Rectangle {
+                    id: networkChip
+                    objectName: "networkChip"
+                    radius: height / 2
+                    color: root.connection === "connected" ? t.goodSoft
+                         : root.connection === "connecting" ? t.warnSoft : t.raised
+                    implicitHeight: 26
+                    implicitWidth: chipRow.implicitWidth + 22
+                    Layout.maximumWidth: headerRow.width * 0.55
+                    RowLayout {
+                        id: chipRow
+                        anchors.centerIn: parent
+                        width: Math.min(implicitWidth, networkChip.width - 22)
+                        spacing: 7
+                        Rectangle {
+                            width: 7; height: 7; radius: 4
+                            color: root.connection === "connected" ? t.good
+                                 : root.connection === "connecting" ? t.warn : t.text3
+                        }
+                        Text {
+                            id: networkLabel
+                            objectName: "networkLabel"
+                            text: root.connection === "connected" ? "Connected to logos.dev · sending through Mix"
+                                : root.connection === "connecting" ? "Connecting to logos.dev…"
+                                : "Offline — not connected"
+                            color: root.connection === "connected" ? "#BDF7C6"
+                                 : root.connection === "connecting" ? t.warnText : t.text2
+                            font.family: t.sans; font.pixelSize: 12
+                            elide: Text.ElideRight
+                            Layout.fillWidth: true
+                        }
+                    }
+                }
+                FButton {
+                    id: connectButton
+                    // Joining a public network is the user's explicit choice.
+                    kind: "primary"
+                    text: "Connect to Logos network"
+                    visible: root.connection === "offline"
+                    enabled: root.usable
+                    ToolTip.visible: hovered
+                    ToolTip.text: "Joins the public logos.dev network. Posts are only ever sent through the Mix anonymity network — never as plain messages."
+                    onClicked: {
+                        outcome.text = "Connecting… posts you write now are saved and sent once connected."
+                        logos.watch(root.backend.connectNetwork(), function (v) {
+                        }, function (e) { outcome.text = "Error: " + e })
+                    }
+                }
+                Item { Layout.fillWidth: true }
+                FButton {
+                    id: detailsButton
+                    kind: "ghost"
+                    text: root.showDetails ? "Hide network details" : "Network details"
+                    Accessible.name: "Show or hide network details"
+                    onClicked: root.showDetails = !root.showDetails
                 }
             }
+            Rectangle { anchors.bottom: parent.bottom; width: parent.width; height: 1; color: t.line }
+        }
+
+        // ---- Network details (diagnostics, folded away by default) ----
+        Rectangle {
+            Layout.fillWidth: true
+            visible: root.showDetails
+            color: t.inset
+            implicitHeight: detailsCol.implicitHeight + 20
+            ColumnLayout {
+                id: detailsCol
+                anchors.fill: parent
+                anchors.margins: 10; anchors.leftMargin: 20; anchors.rightMargin: 16
+                spacing: 6
+                Text {
+                    text: "Transport: " + (root.transportState || "-")
+                    textFormat: Text.PlainText
+                    color: t.text2; font.family: t.sans; font.pixelSize: 12
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                }
+                RowLayout {
+                    spacing: 8
+                    FButton {
+                        id: checkButton
+                        visible: root.showDetails
+                        text: "Check transport"
+                        enabled: root.usable
+                        onClicked: logos.watch(root.backend.transportStatus(), function (v) {
+                            outcome.text = v
+                        }, function (e) { outcome.text = "Error: " + e })
+                    }
+                    FButton {
+                        id: recheckButton
+                        visible: root.showDetails
+                        text: "Re-check transport"
+                        enabled: root.usable
+                        onClicked: logos.watch(root.backend.recheckTransport(), function (v) {
+                            outcome.text = v
+                        }, function (e) { outcome.text = "Error: " + e })
+                    }
+                    Item { Layout.fillWidth: true }
+                    Text {
+                        text: "Backend status: " + root.status
+                        textFormat: Text.PlainText
+                        color: t.text3; font.family: t.sans; font.pixelSize: 11
+                    }
+                }
+            }
+            Rectangle { anchors.bottom: parent.bottom; width: parent.width; height: 1; color: t.line }
         }
 
         // ---- Topics + thread ----
         GridLayout {
             columns: root.compact ? 1 : 3
-            columnSpacing: 16
-            rowSpacing: 12
+            columnSpacing: 0
+            rowSpacing: 0
             Layout.fillWidth: true
             Layout.fillHeight: true
 
+            // Topic list
             ColumnLayout {
-                spacing: 8
-                Layout.preferredWidth: root.compact ? -1 : 250
-                Layout.maximumWidth: root.compact ? Number.POSITIVE_INFINITY : 250
+                spacing: 10
+                Layout.preferredWidth: root.compact ? -1 : 270
+                Layout.maximumWidth: root.compact ? Number.POSITIVE_INFINITY : 270
                 Layout.fillWidth: root.compact
                 Layout.fillHeight: !root.compact
-                Layout.preferredHeight: root.compact ? 170 : -1
-                Text { text: "Topics"; color: root.cText; font.bold: true; font.pixelSize: 15 }
-                TextField {
+                Layout.preferredHeight: root.compact ? 210 : -1
+                Layout.margins: 14
+                FField {
                     id: searchInput
                     objectName: "searchInput"
                     placeholderText: "Search titles, posts, authors"
@@ -395,6 +517,48 @@ Item {
                                                  function (v) {}, function (e) { outcome.text = "Error: " + e })
                     }
                 }
+                RowLayout {
+                    Layout.fillWidth: true
+                    Text {
+                        text: "TOPICS"
+                        color: t.text3; font.family: t.sans; font.pixelSize: 11
+                        font.weight: Font.Medium; font.letterSpacing: 0.8
+                        Layout.fillWidth: true
+                    }
+                    FButton {
+                        kind: "ghost"
+                        text: root.newTopicOpen ? "Cancel" : "+ New topic"
+                        padding: 4; leftPadding: 8; rightPadding: 8
+                        enabled: root.usable
+                        onClicked: {
+                            root.newTopicOpen = !root.newTopicOpen
+                            if (root.newTopicOpen) topicInput.forceActiveFocus()
+                        }
+                    }
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: root.newTopicOpen
+                    spacing: 6
+                    FField {
+                        id: topicInput
+                        placeholderText: "new topic title"
+                        Layout.fillWidth: true
+                        enabled: root.usable
+                        maximumLength: 128
+                        onAccepted: if (createTopicButton.enabled) createTopicButton.clicked()
+                    }
+                    FButton {
+                        id: createTopicButton
+                        kind: "primary"
+                        text: "Create"
+                        enabled: root.usable && topicInput.text.length > 0
+                        onClicked: logos.watch(root.backend.createTopic(topicInput.text), function (v) {
+                            outcome.text = v.startsWith("error") ? v : "Topic created"
+                            if (!v.startsWith("error")) { topicInput.text = ""; root.newTopicOpen = false }
+                        }, function (e) { outcome.text = "Error: " + e })
+                    }
+                }
                 ListView {
                     id: topicsList
                     Layout.fillWidth: true
@@ -402,34 +566,48 @@ Item {
                     model: root.topics
                     clip: true
                     spacing: 2
+                    ScrollBar.vertical: ScrollBar { }
                     delegate: ItemDelegate {
                         id: topicRow
                         objectName: "topicRow"
                         readonly property var parts: root.topicParts(modelData)
+                        readonly property bool current: parts.id === root.currentTopicId
                         width: ListView.view.width
-                        highlighted: parts.id === root.currentTopicId
+                        highlighted: current
+                        hoverEnabled: true
+                        padding: 10
                         Accessible.name: parts.label + (parts.unread > 0 ? (", " + parts.unread + " new") : "")
+                        background: Rectangle {
+                            radius: t.radiusM
+                            color: topicRow.current ? t.surface : topicRow.hovered ? t.raised : "transparent"
+                        }
                         contentItem: RowLayout {
-                            spacing: 6
+                            spacing: 8
                             Text {
-                                text: topicRow.parts.label
+                                text: topicRow.parts.title
                                 textFormat: Text.PlainText
-                                color: root.cText; font.pixelSize: 13
-                                font.bold: topicRow.parts.unread > 0
+                                color: topicRow.current || topicRow.parts.unread > 0 ? t.text : t.body
+                                font.family: t.sans; font.pixelSize: 14
+                                font.weight: topicRow.parts.unread > 0 ? Font.Bold : Font.Medium
                                 elide: Text.ElideRight
                                 Layout.fillWidth: true
+                            }
+                            Text {
+                                visible: topicRow.parts.unread === 0 && topicRow.parts.count !== ""
+                                text: topicRow.parts.count
+                                color: t.text3; font.family: t.sans; font.pixelSize: 12
                             }
                             Rectangle {
                                 objectName: "unreadBadge"
                                 visible: topicRow.parts.unread > 0
-                                radius: 9; color: root.cAccent
+                                radius: 9; color: t.accent
                                 implicitHeight: 18
                                 implicitWidth: Math.max(18, unreadText.implicitWidth + 10)
                                 Text {
                                     id: unreadText
                                     anchors.centerIn: parent
                                     text: topicRow.parts.unread
-                                    color: "#ffffff"; font.pixelSize: 11; font.bold: true
+                                    color: t.accentInk; font.family: t.sans; font.pixelSize: 11; font.bold: true
                                 }
                             }
                         }
@@ -441,73 +619,44 @@ Item {
                     }
                     Text {
                         anchors.fill: parent
+                        anchors.margins: 6
                         visible: topicsList.count === 0
                         text: root.searchText !== ""
                               ? "Nothing matches “" + root.searchText + "”."
-                              : "No topics yet. “General” appears with the first post, or start your own below."
-                        color: root.cMuted; font.pixelSize: 12
+                              : "No topics yet. “General” appears with the first post, or start your own with + New topic."
+                        color: t.text3; font.family: t.sans; font.pixelSize: 12
                         wrapMode: Text.Wrap
-                    }
-                }
-                RowLayout {
-                    TextField {
-                        id: topicInput
-                        placeholderText: "new topic title"
-                        Layout.fillWidth: true
-                        enabled: root.usable
-                        maximumLength: 128
-                        onAccepted: if (createTopicButton.enabled) createTopicButton.clicked()
-                    }
-                    Button {
-                        id: createTopicButton
-                        text: "Create"
-                        enabled: root.usable && topicInput.text.length > 0
-                        onClicked: logos.watch(root.backend.createTopic(topicInput.text), function (v) {
-                            outcome.text = v.startsWith("error") ? v : "Topic created"
-                            if (!v.startsWith("error")) topicInput.text = ""
-                        }, function (e) { outcome.text = "Error: " + e })
                     }
                 }
             }
 
             Rectangle {
                 visible: !root.compact
-                width: 1; Layout.fillHeight: true; color: root.cBorder
+                width: 1; Layout.fillHeight: true; color: t.line
             }
 
+            // Thread
             ColumnLayout {
-                spacing: 8
+                spacing: 0
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 RowLayout {
                     Layout.fillWidth: true
+                    Layout.margins: 14; Layout.leftMargin: 20; Layout.rightMargin: 16
+                    spacing: 8
                     Text {
                         text: root.currentTopicId === "" ? "Thread"
                               : (root.currentTopicTitle !== "" ? root.currentTopicTitle
                                                                : root.currentTopicId.slice(0, 12) + "…")
                         textFormat: Text.PlainText
-                        color: root.cText; font.bold: true; font.pixelSize: 15
+                        color: t.text; font.family: t.sans; font.pixelSize: 16; font.weight: Font.Bold
                         elide: Text.ElideRight
                         Layout.fillWidth: true
                     }
-                    Button {
-                        id: archiveButton
-                        objectName: "archiveButton"
-                        text: "Save snapshot"
-                        flat: true
-                        visible: root.connection === "connected" && root.currentTopicId !== ""
-                        enabled: root.usable
-                        ToolTip.visible: hovered
-                        ToolTip.text: "Save this topic's published posts on Logos Storage so people can read them after the network's own history has expired. This device serves the snapshot while Basecamp runs, and the announcement includes its Storage address (not anonymous). The announcement is signed with a one-time key, never your alias."
-                        onClicked: logos.watch(root.backend.archiveTopic(), function (v) {
-                            outcome.text = v === "saving" ? "Saving a snapshot to Logos Storage…" : v
-                        }, function (e) { outcome.text = "Error: " + e })
-                    }
-                    Button {
+                    FButton {
                         id: historyButton
                         objectName: "historyButton"
                         text: "Load older posts"
-                        flat: true
                         visible: root.connection === "connected"
                         enabled: root.usable
                         ToolTip.visible: hovered
@@ -516,86 +665,145 @@ Item {
                             outcome.text = v === "loading" ? "Asking the network for older posts…" : v
                         }, function (e) { outcome.text = "Error: " + e })
                     }
+                    FButton {
+                        id: archiveButton
+                        objectName: "archiveButton"
+                        text: "Save snapshot"
+                        visible: root.connection === "connected" && root.currentTopicId !== ""
+                        enabled: root.usable
+                        ToolTip.visible: hovered
+                        ToolTip.text: "Save this topic's published posts on Logos Storage so people can read them after the network's own history has expired. This device serves the snapshot while Basecamp runs, and the announcement includes its Storage address (not anonymous). The announcement is signed with a one-time key, never your alias."
+                        onClicked: logos.watch(root.backend.archiveTopic(), function (v) {
+                            outcome.text = v === "saving" ? "Saving a snapshot to Logos Storage…" : v
+                        }, function (e) { outcome.text = "Error: " + e })
+                    }
                 }
                 ListView {
                     id: threadList
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     Layout.minimumHeight: 160  // stays readable when stacked
+                    Layout.leftMargin: 12; Layout.rightMargin: 8
                     model: root.threadPosts
                     clip: true
-                    spacing: 8
+                    spacing: 2
                     // Newest at the bottom, like a conversation.
                     onCountChanged: Qt.callLater(function () { threadList.positionViewAtEnd() })
                     ScrollBar.vertical: ScrollBar { }
                     delegate: Rectangle {
+                        id: postRow
                         objectName: "threadRow"
                         // Full row text kept as a property for drivers/tests.
                         property string text: modelData
                         readonly property var parts: root.rowParts(modelData)
+                        readonly property bool snapshot: parts.body.indexOf(root.snapshotTitle) === 0
+                        readonly property var snap: snapshot ? root.snapshotParts(parts.body) : ({ posts: 0, cid: "" })
                         width: ListView.view.width - 12
-                        implicitHeight: postCol.implicitHeight + 18
-                        radius: 8
-                        color: parts.state === "failed" ? "#fff5f5" : "#ffffff"
-                        border.color: parts.state === "failed" ? "#ffcecb" : root.cBorder
-                        ColumnLayout {
-                            id: postCol
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.margins: 9
-                            spacing: 4
-                            RowLayout {
-                                Layout.fillWidth: true
-                                spacing: 8
-                                Text {
-                                    objectName: "postAlias"
-                                    visible: parts.alias !== ""
-                                    text: parts.alias
-                                    textFormat: Text.PlainText
-                                    color: root.cText; font.pixelSize: 12; font.bold: true
-                                    elide: Text.ElideRight
-                                    Layout.maximumWidth: 220
-                                }
-                                Text {
-                                    objectName: "postKeyId"
-                                    text: parts.keyId
-                                    textFormat: Text.PlainText
-                                    color: parts.alias !== "" ? root.cMuted : root.cText
-                                    font.pixelSize: 12; font.bold: parts.alias === ""
-                                    font.family: "monospace"
-                                }
-                                Item { Layout.fillWidth: true }
-                                Text {
-                                    text: root.stateLabel(parts.state)
-                                    color: root.stateColor(parts.state); font.pixelSize: 11
-                                }
-                                Text {
-                                    text: root.threadTimes[index] || ""
-                                    color: root.cMuted; font.pixelSize: 11
-                                }
+                        implicitHeight: postLayout.implicitHeight + 20
+                        radius: t.radiusM
+                        color: parts.state === "failed" ? t.badSoft : rowHover.hovered ? t.raised : "transparent"
+                        HoverHandler { id: rowHover }
+                        RowLayout {
+                            id: postLayout
+                            anchors.left: parent.left; anchors.right: parent.right; anchors.top: parent.top
+                            anchors.margins: 10
+                            spacing: 12
+                            KeyAvatar {
+                                keyId: parts.keyId
+                                Layout.alignment: Qt.AlignTop
                             }
-                            Text {
-                                readonly property bool snapshot: parts.body.indexOf(root.snapshotTitle) === 0
-                                // Snapshot announcements: show the summary line and the CID only.
-                                text: snapshot ? parts.body.split("\n").slice(0, 2).join("\n") : parts.body
-                                textFormat: Text.PlainText
-                                color: snapshot ? root.cMuted : root.cText
-                                font.pixelSize: snapshot ? 12 : 14
-                                wrapMode: Text.WrapAnywhere
+                            ColumnLayout {
                                 Layout.fillWidth: true
-                            }
-                            Button {
-                                objectName: "restoreButton"
-                                visible: parts.body.indexOf(root.snapshotTitle) === 0
-                                text: "Restore these posts"
-                                flat: true
-                                enabled: root.usable
-                                ToolTip.visible: hovered
-                                ToolTip.text: "Fetch this snapshot from Logos Storage. Every post in it is verified before it is shown. Fetching is a direct connection to the node that serves it (not anonymous)."
-                                onClicked: logos.watch(root.backend.restoreSnapshot(parts.body), function (v) {
-                                    outcome.text = v === "restoring" ? "Fetching the snapshot from Logos Storage…" : v
-                                }, function (e) { outcome.text = "Error: " + e })
+                                spacing: 4
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 8
+                                    Text {
+                                        objectName: "postAlias"
+                                        visible: parts.alias !== ""
+                                        text: parts.alias
+                                        textFormat: Text.PlainText
+                                        color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
+                                        elide: Text.ElideRight
+                                        Layout.maximumWidth: 220
+                                    }
+                                    Text {
+                                        objectName: "postKeyId"
+                                        text: parts.keyId
+                                        textFormat: Text.PlainText
+                                        color: parts.alias !== "" ? t.text3 : t.text
+                                        font.pixelSize: 12; font.family: t.mono
+                                        font.weight: parts.alias === "" ? Font.Medium : Font.Normal
+                                    }
+                                    Chip {
+                                        visible: parts.state !== ""
+                                        label: root.stateLabel(parts.state)
+                                        fg: root.stateFg(parts.state)
+                                        color: root.stateBg(parts.state)
+                                    }
+                                    Item { Layout.fillWidth: true }
+                                    Text {
+                                        text: root.threadTimes[index] || ""
+                                        color: t.text3; font.family: t.sans; font.pixelSize: 12
+                                    }
+                                }
+                                Text {
+                                    visible: !postRow.snapshot
+                                    text: parts.body
+                                    textFormat: Text.PlainText
+                                    color: t.body
+                                    font.family: t.sans; font.pixelSize: 14
+                                    lineHeight: 1.15
+                                    wrapMode: Text.WrapAnywhere
+                                    Layout.fillWidth: true
+                                }
+                                // Snapshot announcements: a card with the CID and Restore.
+                                Rectangle {
+                                    visible: postRow.snapshot
+                                    Layout.fillWidth: true
+                                    Layout.topMargin: 4
+                                    implicitHeight: snapRow.implicitHeight + 20
+                                    radius: t.radiusL
+                                    color: t.panel
+                                    border.color: t.accentLine
+                                    Rectangle { anchors.fill: parent; radius: parent.radius; color: t.accentSoft }
+                                    RowLayout {
+                                        id: snapRow
+                                        anchors.left: parent.left; anchors.right: parent.right
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        anchors.margins: 12
+                                        spacing: 12
+                                        ColumnLayout {
+                                            Layout.fillWidth: true
+                                            spacing: 2
+                                            Text {
+                                                text: "Snapshot on Logos Storage · " + postRow.snap.posts
+                                                      + (postRow.snap.posts === 1 ? " post" : " posts")
+                                                color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
+                                                Layout.fillWidth: true
+                                                elide: Text.ElideRight
+                                            }
+                                            Text {
+                                                text: postRow.snap.cid
+                                                textFormat: Text.PlainText
+                                                color: t.text3; font.family: t.mono; font.pixelSize: 11
+                                                elide: Text.ElideMiddle
+                                                Layout.fillWidth: true
+                                            }
+                                        }
+                                        FButton {
+                                            objectName: "restoreButton"
+                                            visible: postRow.snapshot
+                                            text: "Restore these posts"
+                                            enabled: root.usable
+                                            ToolTip.visible: hovered
+                                            ToolTip.text: "Fetch this snapshot from Logos Storage. Every post in it is verified before it is shown. Fetching is a direct connection to the node that serves it (not anonymous)."
+                                            onClicked: logos.watch(root.backend.restoreSnapshot(parts.body), function (v) {
+                                                outcome.text = v === "restoring" ? "Fetching the snapshot from Logos Storage…" : v
+                                            }, function (e) { outcome.text = "Error: " + e })
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -605,9 +813,9 @@ Item {
                         visible: threadList.count === 0
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        color: root.cMuted; font.pixelSize: 13
+                        color: t.text3; font.family: t.sans; font.pixelSize: 13
                         text: root.searchText !== ""
-                              ? "No posts in this topic match \u201c" + root.searchText + "\u201d."
+                              ? "No posts in this topic match “" + root.searchText + "”."
                               : root.connection === "offline"
                               ? "No posts here yet.\nConnect to the Logos network to read what others have written, or write the first post — it is saved on this device and sent when you connect."
                               : root.connection === "connecting"
@@ -615,40 +823,256 @@ Item {
                                 : "No posts in this topic yet — write the first one."
                     }
                 }
-                ColumnLayout {
+
+                // ---- Composer: identity, text, send ----
+                Rectangle {
                     Layout.fillWidth: true
-                    spacing: 4
-                    RowLayout {
-                        Layout.fillWidth: true
+                    Layout.margins: 12; Layout.leftMargin: 20; Layout.rightMargin: 16
+                    implicitHeight: composerCol.implicitHeight + 20
+                    radius: t.radiusL
+                    color: t.panel
+                    border.color: composer.activeFocus ? t.accentLine : t.line
+                    ColumnLayout {
+                        id: composerCol
+                        anchors.left: parent.left; anchors.right: parent.right; anchors.top: parent.top
+                        anchors.margins: 10
+                        spacing: 8
+
+                        // Identity settings, folded out from "Posting as".
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            visible: root.identityOpen
+                            spacing: 8
+                            Flow {
+                                Layout.fillWidth: true
+                                spacing: 8
+                                FCombo {
+                                    id: identityBox
+                                    model: ["Anonymous"].concat(root.accounts)
+                                    enabled: root.usable
+                                    width: 200
+                                    Accessible.name: "Posting identity"
+                                    // Follow the backend's selection (createAccount auto-selects the
+                                    // new alias); a model reset would otherwise snap back to index 0.
+                                    function syncToBackend() {
+                                        currentIndex = root.selectedAlias === ""
+                                            ? 0 : root.accounts.indexOf(root.selectedAlias) + 1
+                                    }
+                                    onModelChanged: syncToBackend()
+                                    Connections {
+                                        target: root
+                                        function onSelectedAliasChanged() { identityBox.syncToBackend() }
+                                    }
+                                    onActivated: {
+                                        var name = currentIndex === 0 ? "" : model[currentIndex]
+                                        logos.watch(root.backend.selectIdentity(name), function (v) {
+                                            outcome.text = v === "ok" ? ("Now posting as " + (name || "anonymous")) : v
+                                        }, function (e) { outcome.text = "Error: " + e })
+                                    }
+                                }
+                                FField {
+                                    id: aliasInput
+                                    placeholderText: "new alias"
+                                    enabled: root.usable
+                                    width: 150
+                                    Accessible.name: "New alias"
+                                    onAccepted: if (addAliasButton.enabled) addAliasButton.clicked()
+                                }
+                                FButton {
+                                    id: addAliasButton
+                                    text: "Add alias"
+                                    enabled: root.usable && aliasInput.text.length > 0
+                                    onClicked: logos.watch(root.backend.createAccount(aliasInput.text), function (v) {
+                                        outcome.text = v === "ok" ? "Alias created" : v
+                                        if (v === "ok") aliasInput.text = ""
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                FCheck {
+                                    id: hideAliasBox
+                                    text: "Hide my alias (show key id only)"
+                                    visible: root.selectedAlias !== ""
+                                    enabled: root.usable && root.selectedAlias !== ""
+                                    checked: root.aliasHidden
+                                    height: addAliasButton.height
+                                    onToggled: logos.watch(root.backend.hideAlias(checked), function (v) {
+                                        outcome.text = checked ? "Posting with key id only" : "Posting with alias + key id"
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                            }
+                            // Key rotation: unlinks later posts from earlier ones.
+                            Flow {
+                                Layout.fillWidth: true
+                                spacing: 8
+                                visible: root.selectedAlias !== ""
+                                FButton {
+                                    id: rotateButton
+                                    objectName: "rotateButton"
+                                    text: "New key now"
+                                    enabled: root.usable
+                                    ToolTip.visible: hovered
+                                    ToolTip.text: "Switch this alias to a fresh key. Earlier posts stay valid, but later posts no longer share their key id. Readers still see the alias name unless you hide it."
+                                    onClicked: logos.watch(root.backend.rotateKey(), function (v) {
+                                        outcome.text = v === "ok" ? ("New key: id " + root.selectedUid) : v
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                FCombo {
+                                    id: autoRotateBox
+                                    objectName: "autoRotateBox"
+                                    readonly property var steps: [0, 5, 10, 25, 100]
+                                    model: ["By posts: off", "Rotate every 5 posts", "Rotate every 10 posts",
+                                            "Rotate every 25 posts", "Rotate every 100 posts"]
+                                    width: 200
+                                    enabled: root.usable
+                                    Accessible.name: "Automatic key rotation by posts"
+                                    currentIndex: Math.max(0, steps.indexOf(root.rotateEvery))
+                                    onActivated: logos.watch(root.backend.setAutoRotate(steps[currentIndex]), function (v) {
+                                        outcome.text = v === "ok" ? (steps[currentIndex] === 0
+                                            ? "Automatic rotation off" : ("A new key every " + steps[currentIndex] + " posts"))
+                                            : v
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                FCombo {
+                                    id: autoRotateDaysBox
+                                    objectName: "autoRotateDaysBox"
+                                    readonly property var steps: [0, 1, 7, 30]
+                                    model: ["By age: off", "Rotate daily", "Rotate weekly", "Rotate monthly"]
+                                    width: 170
+                                    enabled: root.usable
+                                    Accessible.name: "Automatic key rotation by age"
+                                    currentIndex: Math.max(0, steps.indexOf(root.rotateDays))
+                                    onActivated: logos.watch(root.backend.setAutoRotateDays(steps[currentIndex]), function (v) {
+                                        outcome.text = v === "ok" ? (steps[currentIndex] === 0
+                                            ? "Rotation by age off" : ("A new key once the current one is " + steps[currentIndex] + (steps[currentIndex] === 1 ? " day" : " days") + " old"))
+                                            : v
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                Text {
+                                    objectName: "rotationInfo"
+                                    text: root.rotationInfo
+                                    color: t.text3; font.family: t.sans; font.pixelSize: 12
+                                    height: rotateButton.height; verticalAlignment: Text.AlignVCenter
+                                }
+                            }
+                            Text {
+                                id: identityHint
+                                objectName: "identityHint"  // stable handle for property-only drivers
+                                // Privacy implications stated where the choice is made.
+                                textFormat: Text.PlainText
+                                text: root.selectedAlias === ""
+                                      ? "Identity: anonymous — a new one-time key per post; your posts cannot be linked to each other"
+                                      : root.aliasHidden
+                                        ? ("Identity: id " + root.selectedUid + " (alias hidden) — your posts are linkable to each other")
+                                        : ("Identity: " + root.selectedAlias + " · id " + root.selectedUid
+                                           + " — your posts are linkable to each other")
+                                color: t.text2; font.family: t.sans; font.pixelSize: 12
+                                wrapMode: Text.Wrap
+                                Layout.fillWidth: true
+                            }
+                            Rectangle { Layout.fillWidth: true; height: 1; color: t.line }
+                        }
+
                         ScrollView {
                             Layout.fillWidth: true
-                            Layout.preferredHeight: 72
+                            Layout.preferredHeight: 56
                             TextArea {
                                 id: composer
                                 placeholderText: "Write a post (plain text)"
+                                placeholderTextColor: t.placeholder
+                                color: t.text
+                                selectionColor: t.accentLine
+                                selectedTextColor: t.text
+                                font.family: t.sans; font.pixelSize: 14
                                 Accessible.name: "Post text"
                                 wrapMode: TextArea.Wrap
                                 enabled: root.usable
-                                // Cmd/Ctrl+Enter sends; Enter alone starts a new line.
+                                padding: 2
+                                background: Item { }
+                                // Enter sends; Shift+Enter starts a new line.
                                 Keys.onPressed: function (event) {
                                     if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
-                                            && (event.modifiers & Qt.ControlModifier)) {
+                                            && !(event.modifiers & Qt.ShiftModifier)
+                                            && !composer.inputMethodComposing) {
                                         if (sendButton.enabled) sendButton.clicked()
                                         event.accepted = true
                                     }
                                 }
-                                background: Rectangle {
-                                    color: "#ffffff"; radius: 6
-                                    border.color: composer.activeFocus ? root.cAccent : root.cBorder
-                                }
                             }
                         }
-                        ColumnLayout {
-                            spacing: 4
-                            Button {
-                                id: sendButton
-                                text: "Send"
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 10
+                            // "Posting as": the current identity; opens its settings.
+                            AbstractButton {
+                                id: postingAs
+                                hoverEnabled: true
+                                Accessible.name: "Posting identity settings"
+                                Layout.maximumWidth: composerCol.width * 0.6
+                                implicitHeight: 30
+                                leftPadding: 10; rightPadding: 10
+                                implicitWidth: postingRow.implicitWidth + leftPadding + rightPadding
+                                onClicked: root.identityOpen = !root.identityOpen
+                                background: Rectangle {
+                                    radius: t.radiusM
+                                    color: postingAs.hovered || root.identityOpen ? t.hover : t.raised
+                                    border.color: root.identityOpen ? t.accentLine : t.line
+                                }
+                                contentItem: RowLayout {
+                                    id: postingRow
+                                    spacing: 6
+                                    Text {
+                                        text: "Posting as"
+                                        color: t.text3; font.family: t.sans; font.pixelSize: 12
+                                    }
+                                    Text {
+                                        text: root.selectedAlias === "" ? "Anonymous"
+                                             : root.aliasHidden ? "key id only" : root.selectedAlias
+                                        textFormat: Text.PlainText
+                                        color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
+                                        elide: Text.ElideRight
+                                        Layout.maximumWidth: 160
+                                    }
+                                    Text {
+                                        visible: root.selectedAlias !== ""
+                                        text: root.selectedUid.slice(0, 8)
+                                        color: t.text3; font.family: t.mono; font.pixelSize: 11
+                                    }
+                                    Chevron { up: root.identityOpen; Layout.alignment: Qt.AlignVCenter }
+                                }
+                            }
+                            Text {
+                                visible: !root.compact
+                                text: root.selectedAlias === "" ? "one-time key per post" : "posts linkable"
+                                color: t.text3; font.family: t.sans; font.pixelSize: 12
+                                elide: Text.ElideRight
                                 Layout.fillWidth: true
+                            }
+                            Item { visible: root.compact; Layout.fillWidth: true }
+                            Text {
+                                readonly property int bytes: root.utf8Bytes(composer.text)
+                                text: bytes + " / " + root.maxPostBytes + " bytes"
+                                visible: bytes > 0
+                                color: bytes > root.maxPostBytes ? t.badText : t.text3
+                                font.family: t.sans; font.pixelSize: 11
+                            }
+                            FButton {
+                                id: retryButton
+                                objectName: "retryButton"
+                                text: "Retry stored"
+                                // Offered when connected and something in this thread is
+                                // waiting (offline, waiting posts go out on Connect).
+                                visible: root.connection === "connected" && root.threadPosts.some(function (l) {
+                                    return l.indexOf(" [failed]: ") >= 0 || l.indexOf(" [pending]: ") >= 0
+                                })
+                                enabled: root.usable
+                                onClicked: logos.watch(root.backend.retryPending(), function (v) {
+                                    outcome.text = "Retried " + v + (Number(v) === 1 ? " stored post" : " stored posts")
+                                }, function (e) { outcome.text = "Error: " + e })
+                            }
+                            FButton {
+                                id: sendButton
+                                kind: "primary"
+                                text: "Send"
+                                leftPadding: 18; rightPadding: 18
                                 enabled: root.usable && composer.text.trim().length > 0
                                          && root.utf8Bytes(composer.text) <= root.maxPostBytes
                                 onClicked: logos.watch(root.backend.postMessage(composer.text), function (value) {
@@ -672,123 +1096,74 @@ Item {
                                     }
                                 }, function (e) { outcome.text = "Error: " + e })
                             }
-                            Button {
-                                id: retryButton
-                                objectName: "retryButton"
-                                text: "Retry stored"
-                                flat: true
-                                Layout.fillWidth: true
-                                // Offered when connected and something in this thread is
-                                // waiting (offline, waiting posts go out on Connect).
-                                visible: root.connection === "connected" && root.threadPosts.some(function (l) {
-                                    return l.indexOf(" [failed]: ") >= 0 || l.indexOf(" [pending]: ") >= 0
-                                })
-                                enabled: root.usable
-                                onClicked: logos.watch(root.backend.retryPending(), function (v) {
-                                    outcome.text = "Retried " + v + (Number(v) === 1 ? " stored post" : " stored posts")
-                                }, function (e) { outcome.text = "Error: " + e })
-                            }
                         }
-                    }
-                    Text {
-                        readonly property int bytes: root.utf8Bytes(composer.text)
-                        text: bytes + " / " + root.maxPostBytes + " bytes"
-                        visible: bytes > root.maxPostBytes * 0.8
-                        color: bytes > root.maxPostBytes ? root.cBad : root.cMuted
-                        font.pixelSize: 11
                     }
                 }
             }
         }
 
-        Text {
-            id: outcome
-            textFormat: Text.PlainText
-            text: ""
-            color: root.cText
-            font.pixelSize: 13
+        // ---- Status bar: outcome of the last action, history, storage ----
+        Rectangle {
             Layout.fillWidth: true
-            wrapMode: Text.Wrap
-            visible: text.length > 0
-        }
-
-        // ---- Details (honest network state, diagnostics) ----
-        Rectangle { Layout.fillWidth: true; height: 1; color: root.cBorder }
-        Text {
-            id: historyLine
-            objectName: "historyLine"
-            visible: root.historyState.length > 0
-            text: "History: " + root.historyState
-            textFormat: Text.PlainText
-            // A finished history request replaces the "asking…" note.
-            onTextChanged: if (outcome.text === "Asking the network for older posts…"
-                               && !root.historyState.startsWith("loading")) outcome.text = ""
-            color: root.cMuted
-            font.pixelSize: 12
-            Layout.fillWidth: true
-            wrapMode: Text.Wrap
-        }
-        Text {
-            id: archiveLine
-            objectName: "archiveLine"
-            visible: root.archiveState.length > 0
-            text: "Storage: " + root.archiveState
-            textFormat: Text.PlainText
-            onTextChanged: if ((outcome.text.indexOf("Saving a snapshot") === 0
-                                || outcome.text.indexOf("Fetching the snapshot") === 0)
-                               && root.archiveState.indexOf("saving") !== 0
-                               && root.archiveState.indexOf("fetching") !== 0) outcome.text = ""
-            color: root.cMuted
-            font.pixelSize: 12
-            Layout.fillWidth: true
-            wrapMode: Text.Wrap
-        }
-        Text {
-            visible: root.showDetails
-            text: "Transport: " + (root.transportState || "-")
-            textFormat: Text.PlainText
-            color: root.cMuted
-            font.pixelSize: 12
-            Layout.fillWidth: true
-            wrapMode: Text.Wrap
-        }
-        RowLayout {
-            Layout.fillWidth: true
-            Button {
-                id: checkButton
-                visible: root.showDetails
-                text: "Check transport"
-                flat: true
-                font.pixelSize: 12
-                enabled: root.usable
-                onClicked: logos.watch(root.backend.transportStatus(), function (v) {
-                    outcome.text = v
-                }, function (e) { outcome.text = "Error: " + e })
-            }
-            Button {
-                id: recheckButton
-                visible: root.showDetails
-                text: "Re-check transport"
-                flat: true
-                font.pixelSize: 12
-                enabled: root.usable
-                onClicked: logos.watch(root.backend.recheckTransport(), function (v) {
-                    outcome.text = v
-                }, function (e) { outcome.text = "Error: " + e })
-            }
-            Item { Layout.fillWidth: true }
-            Button {
-                id: detailsButton
-                text: root.showDetails ? "Hide network details" : "Network details"
-                flat: true
-                font.pixelSize: 12
-                Accessible.name: "Show or hide network details"
-                onClicked: root.showDetails = !root.showDetails
-            }
-            Text {
-                text: "Backend status: " + root.status
-                textFormat: Text.PlainText
-                color: root.cMuted; font.pixelSize: 11
+            implicitHeight: statusCol.implicitHeight + 16
+            color: t.bg
+            Rectangle { anchors.top: parent.top; width: parent.width; height: 1; color: t.line }
+            ColumnLayout {
+                id: statusCol
+                anchors.left: parent.left; anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: 20; anchors.rightMargin: 16
+                spacing: 4
+                Text {
+                    id: outcome
+                    textFormat: Text.PlainText
+                    text: ""
+                    color: t.text
+                    font.family: t.sans; font.pixelSize: 13
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    visible: text.length > 0
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 16
+                    Text {
+                        id: historyLine
+                        objectName: "historyLine"
+                        visible: root.historyState.length > 0
+                        text: "History: " + root.historyState
+                        textFormat: Text.PlainText
+                        // A finished history request replaces the "asking…" note.
+                        onTextChanged: if (outcome.text === "Asking the network for older posts…"
+                                           && !root.historyState.startsWith("loading")) outcome.text = ""
+                        color: t.text3; font.family: t.sans; font.pixelSize: 12
+                        elide: Text.ElideRight
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: implicitWidth
+                    }
+                    Text {
+                        id: archiveLine
+                        objectName: "archiveLine"
+                        visible: root.archiveState.length > 0
+                        text: "Storage: " + root.archiveState
+                        textFormat: Text.PlainText
+                        onTextChanged: if ((outcome.text.indexOf("Saving a snapshot") === 0
+                                            || outcome.text.indexOf("Fetching the snapshot") === 0)
+                                           && root.archiveState.indexOf("saving") !== 0
+                                           && root.archiveState.indexOf("fetching") !== 0) outcome.text = ""
+                        color: t.text3; font.family: t.sans; font.pixelSize: 12
+                        elide: Text.ElideRight
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: implicitWidth
+                    }
+                    Item { Layout.fillWidth: true }
+                    Text {
+                        text: !root.backendAlive ? "Backend unresponsive — restart the app"
+                             : (root.ready ? "Module ready" : "Starting…")
+                        color: !root.backendAlive ? t.badText : t.text3
+                        font.family: t.sans; font.pixelSize: 11
+                    }
+                }
             }
         }
     }
