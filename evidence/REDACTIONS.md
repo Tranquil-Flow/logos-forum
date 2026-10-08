@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 729
+Files normalised: 735
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -752,3 +752,9 @@ Files normalised: 729
 | evidence/verify-runs/verify-store-probe-20261004-212309.log | repo-path (2) | `a1b9d3f489c39381…` | `86f472c623a7f81b…` |
 | evidence/verify-runs/verify-ui-20261007-100639.log | repo-path (2) | `1a86a2685811a9bf…` | `5a0193fe52d059e0…` |
 | evidence/verify-runs/verify-ui-20261007-101457.log | repo-path (2) | `e6730f0e213eee39…` | `f581789cf798e6c4…` |
+| evidence/verify-runs/verify-ui-20261007-125033.log | repo-path (2) | `0c453da21273e22f…` | `2bf804b15e59a035…` |
+| evidence/verify-runs/verify-ui-20261007-131235.log | repo-path (2) | `22b974ad9edfe965…` | `bad60667d095dbc6…` |
+| evidence/verify-runs/verify-ui-20261007-133823.log | repo-path (2) | `23d9c402e0f85428…` | `bd7c276070c5044c…` |
+| evidence/verify-runs/verify-ui-20261007-140236.log | repo-path (2) | `2eb75d6e51524554…` | `4e8c65a1a7a5e43c…` |
+| evidence/verify-runs/verify-ui-20261007-141239.log | repo-path (2) | `b873d74ef1c2af72…` | `b9e660c40a36b514…` |
+| evidence/verify-runs/verify-ui-20261007-142053.log | repo-path (2) | `5332cda7874250c8…` | `3fdd6f33b695c075…` |

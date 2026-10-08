@@ -10,6 +10,14 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — reading polish, 2026-10-07** (`evidence/m5-package/polish-20261007/NOTE.txt`):
+the thread keeps the reader's place on refresh ("New posts below" instead
+of a jump), shows relative times under day separators with the date under
+each time, copies key ids and snapshot CIDs on click, and has Ctrl/Cmd+F,
+Ctrl/Cmd+N and Esc. New UI test; UI 16/16, core 189/0; checked by the owner
+in the release app. The Windows smoke now finds its post by text and
+restores the newest snapshot card (CI 37609477468 had picked an old one).
+
 **Update — visual pass, 2026-10-07** (`evidence/m5-package/visual-20261007/NOTE.txt`):
 the Forum view now uses the Logos dark theme (design-system tokens, Public
 Sans), with key avatars, state chips, snapshot cards, a "Posting as" identity

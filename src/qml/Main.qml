@@ -354,7 +354,145 @@ Item {
         return t.raised
     }
 
+    // Friendlier times. The backend shows each post's signed time as
+    // "d MMM yyyy, HH:mm" (C locale); the thread shows it relative to now
+    // under day separators, with the exact time on hover.
+    property double nowMs: Date.now()
+    Timer { interval: 30000; running: true; repeat: true; onTriggered: root.nowMs = Date.now() }
+    readonly property var monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    readonly property var monthsLong: ["January", "February", "March", "April", "May", "June", "July",
+                                       "August", "September", "October", "November", "December"]
+    readonly property var weekdays: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    function parseShownTime(s) {
+        var m = /^(\d{1,2}) (\w{3}) (\d{4}), (\d{2}):(\d{2})$/.exec(s || "")
+        var mon = m ? monthsShort.indexOf(m[2]) : -1
+        return mon < 0 ? null : new Date(+m[3], mon, +m[1], +m[4], +m[5])
+    }
+    function two(n) { return (n < 10 ? "0" : "") + n }
+    function daysAgo(d, now) {
+        var a = new Date(now); a.setHours(0, 0, 0, 0)
+        var b = new Date(d.getTime()); b.setHours(0, 0, 0, 0)
+        return Math.round((a.getTime() - b.getTime()) / 86400000)
+    }
+    function relativeTime(s, now) {
+        var d = parseShownTime(s)
+        if (!d) return s || ""
+        var diff = now - d.getTime()
+        // Signed times have minute precision: under two minutes is "just now".
+        if (diff >= -60000 && diff < 120000) return "just now"
+        if (diff > 0 && diff < 3600000) return Math.floor(diff / 60000) + " min ago"
+        return two(d.getHours()) + ":" + two(d.getMinutes())
+    }
+    function dayKey(s) {
+        var d = parseShownTime(s)
+        return d ? d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() : ""
+    }
+    function dayLabel(s, now) {
+        var d = parseShownTime(s)
+        if (!d) return ""
+        var days = daysAgo(d, now)
+        if (days === 0) return "Today"
+        if (days === 1) return "Yesterday"
+        return weekdays[d.getDay()] + " " + d.getDate() + " " + monthsLong[d.getMonth()]
+               + (d.getFullYear() !== new Date(now).getFullYear() ? " " + d.getFullYear() : "")
+    }
+
+    // The thread is a ListModel updated in place, so a refresh (a post
+    // turning "sent", history arriving) keeps the reader's scroll position.
+    // It follows the newest post only if the reader was already at the
+    // bottom, switched topic or just posted; otherwise "New posts below".
+    property bool followNext: true
+    property int threadRev: 0
+    onCurrentTopicIdChanged: followNext = true
+    onSearchTextChanged: followNext = true
+    onThreadPostsChanged: Qt.callLater(syncThread)
+    onThreadTimesChanged: Qt.callLater(syncThread)
+    ListModel { id: threadModel; Component.onCompleted: Qt.callLater(root.syncThread) }
+    function syncThread() {
+        var lines = root.threadPosts || [], times = root.threadTimes || []
+        var wasAtEnd = threadList.atEnd
+        var prevCount = threadModel.count
+        var prevLast = prevCount > 0 ? threadModel.get(prevCount - 1).line : ""
+        for (var i = 0; i < lines.length; ++i) {
+            var row = { line: String(lines[i]), time: String(times[i] || "") }
+            if (i >= threadModel.count) { threadModel.append(row); continue }
+            var cur = threadModel.get(i)
+            if (cur.line !== row.line || cur.time !== row.time) threadModel.set(i, row)
+        }
+        if (threadModel.count > lines.length)
+            threadModel.remove(lines.length, threadModel.count - lines.length)
+        threadRev++
+        var last = lines.length > 0 ? String(lines[lines.length - 1]) : ""
+        var ownNew = last !== prevLast && rowParts(last).state === "pending"
+        if (followNext || wasAtEnd || prevCount === 0 || ownNew) {
+            followNext = false
+            threadList.newBelow = false
+            Qt.callLater(threadList.scrollToEnd)
+        } else if (last !== prevLast) {
+            threadList.newBelow = true
+        }
+    }
+
+    // Click to copy (key ids, snapshot CIDs), confirmed by a short note.
+    TextEdit { id: clipHelper; visible: false }
+    function copyText(value, what) {
+        clipHelper.text = value
+        clipHelper.selectAll()
+        clipHelper.copy()
+        clipHelper.text = ""
+        toast.show("Copied " + what)
+    }
+
+    // Keyboard: Ctrl+F (Cmd+F on macOS) search, Ctrl+N new topic, Esc closes.
+    Shortcut {
+        sequence: StandardKey.Find
+        enabled: root.usable
+        onActivated: { searchInput.forceActiveFocus(); searchInput.selectAll() }
+    }
+    Shortcut {
+        sequence: "Ctrl+N"
+        enabled: root.usable
+        onActivated: { root.newTopicOpen = true; topicInput.forceActiveFocus() }
+    }
+    Shortcut {
+        sequence: "Esc"
+        enabled: root.identityOpen || root.newTopicOpen || root.showDetails || searchInput.text !== ""
+        onActivated: root.closeTopmost()
+    }
+    function closeTopmost() {
+        if (root.identityOpen) root.identityOpen = false
+        else if (root.newTopicOpen) root.newTopicOpen = false
+        else if (root.showDetails) root.showDetails = false
+        else searchInput.text = ""
+    }
+
     Rectangle { anchors.fill: parent; color: t.bg }
+
+    Rectangle {
+        id: toast
+        objectName: "toast"
+        property string message: ""
+        property bool shown: false
+        function show(m) { message = m; shown = true; toastTimer.restart() }
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom; anchors.bottomMargin: 72
+        z: 100
+        opacity: shown ? 1 : 0
+        visible: opacity > 0
+        Behavior on opacity { NumberAnimation { duration: 150 } }
+        radius: t.radiusM
+        color: t.raised
+        border.color: t.line
+        implicitWidth: toastText.implicitWidth + 24
+        implicitHeight: toastText.implicitHeight + 14
+        Text {
+            id: toastText
+            anchors.centerIn: parent
+            text: toast.message
+            color: t.text; font.family: t.sans; font.pixelSize: 13
+        }
+        Timer { id: toastTimer; interval: 1600; onTriggered: toast.shown = false }
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -508,6 +646,15 @@ Item {
                     Layout.fillWidth: true
                     enabled: root.usable
                     Accessible.name: "Search"
+                    rightPadding: searchKeyHint.visible ? searchKeyHint.width + 16 : 10
+                    Text {
+                        id: searchKeyHint
+                        anchors.right: parent.right; anchors.rightMargin: 10
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: searchInput.text === "" && !searchInput.activeFocus
+                        text: Qt.platform.os === "osx" ? "Cmd F" : "Ctrl F"
+                        color: t.text3; font.family: t.mono; font.pixelSize: 11
+                    }
                     // Filter as you type (local only; nothing is sent).
                     onTextChanged: searchDelay.restart()
                     Timer {
@@ -684,123 +831,201 @@ Item {
                     Layout.fillHeight: true
                     Layout.minimumHeight: 160  // stays readable when stacked
                     Layout.leftMargin: 12; Layout.rightMargin: 8
-                    model: root.threadPosts
+                    // Newest at the bottom, like a conversation (see syncThread).
+                    model: threadModel
                     clip: true
                     spacing: 2
-                    // Newest at the bottom, like a conversation.
-                    onCountChanged: Qt.callLater(function () { threadList.positionViewAtEnd() })
+                    property bool newBelow: false
+                    readonly property bool atEnd: contentHeight <= height + 4
+                                                  || contentY + height >= originY + contentHeight - 4
+                    onAtEndChanged: if (atEnd) newBelow = false
+                    // Rows differ in height, so the first jump can land short
+                    // of the end once delegates settle; repeat it briefly.
+                    function scrollToEnd() { positionViewAtEnd(); endSettle.restart() }
+                    onMovementStarted: endSettle.stop()   // the reader takes over
+                    Timer { id: endSettle; interval: 60; repeat: true; property int left: 0
+                            onRunningChanged: if (running) left = 4
+                            onTriggered: { threadList.positionViewAtEnd(); if (--left <= 0) stop() } }
                     ScrollBar.vertical: ScrollBar { }
-                    delegate: Rectangle {
+                    FButton {
+                        id: newPostsPill
+                        objectName: "newPostsPill"
+                        parent: threadList
+                        z: 10
+                        kind: "primary"
+                        text: "New posts below"
+                        visible: threadList.newBelow && !threadList.atEnd
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.bottom: parent.bottom; anchors.bottomMargin: 10
+                        onClicked: { threadList.newBelow = false; threadList.scrollToEnd() }
+                    }
+                    delegate: Item {
                         id: postRow
                         objectName: "threadRow"
                         // Full row text kept as a property for drivers/tests.
-                        property string text: modelData
-                        readonly property var parts: root.rowParts(modelData)
+                        property string text: model.line
+                        readonly property string shownTime: model.time
+                        readonly property var parts: root.rowParts(model.line)
                         readonly property bool snapshot: parts.body.indexOf(root.snapshotTitle) === 0
                         readonly property var snap: snapshot ? root.snapshotParts(parts.body) : ({ posts: 0, cid: "" })
+                        // A day separator above the first post of each day.
+                        readonly property bool newDay: {
+                            root.threadRev
+                            const k = root.dayKey(model.time)
+                            return k !== "" && (index === 0 || k !== root.dayKey(threadModel.get(index - 1).time))
+                        }
                         width: ListView.view.width - 12
-                        implicitHeight: postLayout.implicitHeight + 20
-                        radius: t.radiusM
-                        color: parts.state === "failed" ? t.badSoft : rowHover.hovered ? t.raised : "transparent"
-                        HoverHandler { id: rowHover }
+                        implicitHeight: (newDay ? daySep.height : 0) + rowBg.height
                         RowLayout {
-                            id: postLayout
-                            anchors.left: parent.left; anchors.right: parent.right; anchors.top: parent.top
-                            anchors.margins: 10
-                            spacing: 12
-                            KeyAvatar {
-                                keyId: parts.keyId
-                                Layout.alignment: Qt.AlignTop
+                            id: daySep
+                            objectName: "daySeparator"
+                            visible: postRow.newDay
+                            width: parent.width
+                            height: 36
+                            spacing: 10
+                            Rectangle { Layout.fillWidth: true; Layout.leftMargin: 10; implicitHeight: 1; color: t.line }
+                            Text {
+                                text: root.dayLabel(model.time, root.nowMs)
+                                color: t.text3; font.family: t.sans; font.pixelSize: 11; font.weight: Font.Medium
                             }
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: 4
-                                RowLayout {
-                                    Layout.fillWidth: true
-                                    spacing: 8
-                                    Text {
-                                        objectName: "postAlias"
-                                        visible: parts.alias !== ""
-                                        text: parts.alias
-                                        textFormat: Text.PlainText
-                                        color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
-                                        elide: Text.ElideRight
-                                        Layout.maximumWidth: 220
-                                    }
-                                    Text {
-                                        objectName: "postKeyId"
-                                        text: parts.keyId
-                                        textFormat: Text.PlainText
-                                        color: parts.alias !== "" ? t.text3 : t.text
-                                        font.pixelSize: 12; font.family: t.mono
-                                        font.weight: parts.alias === "" ? Font.Medium : Font.Normal
-                                    }
-                                    Chip {
-                                        visible: parts.state !== ""
-                                        label: root.stateLabel(parts.state)
-                                        fg: root.stateFg(parts.state)
-                                        color: root.stateBg(parts.state)
-                                    }
-                                    Item { Layout.fillWidth: true }
-                                    Text {
-                                        text: root.threadTimes[index] || ""
-                                        color: t.text3; font.family: t.sans; font.pixelSize: 12
-                                    }
+                            Rectangle { Layout.fillWidth: true; Layout.rightMargin: 10; implicitHeight: 1; color: t.line }
+                        }
+                        Rectangle {
+                            id: rowBg
+                            y: postRow.newDay ? daySep.height : 0
+                            width: parent.width
+                            height: postLayout.implicitHeight + 20
+                            radius: t.radiusM
+                            color: parts.state === "failed" ? t.badSoft : rowHover.hovered ? t.raised : "transparent"
+                            HoverHandler { id: rowHover }
+                            RowLayout {
+                                id: postLayout
+                                anchors.left: parent.left; anchors.right: parent.right; anchors.top: parent.top
+                                anchors.margins: 10
+                                spacing: 12
+                                KeyAvatar {
+                                    keyId: parts.keyId
+                                    Layout.alignment: Qt.AlignTop
                                 }
-                                Text {
-                                    visible: !postRow.snapshot
-                                    text: parts.body
-                                    textFormat: Text.PlainText
-                                    color: t.body
-                                    font.family: t.sans; font.pixelSize: 14
-                                    lineHeight: 1.15
-                                    wrapMode: Text.WrapAnywhere
+                                ColumnLayout {
                                     Layout.fillWidth: true
-                                }
-                                // Snapshot announcements: a card with the CID and Restore.
-                                Rectangle {
-                                    visible: postRow.snapshot
-                                    Layout.fillWidth: true
-                                    Layout.topMargin: 4
-                                    implicitHeight: snapRow.implicitHeight + 20
-                                    radius: t.radiusL
-                                    color: t.panel
-                                    border.color: t.accentLine
-                                    Rectangle { anchors.fill: parent; radius: parent.radius; color: t.accentSoft }
+                                    spacing: 4
                                     RowLayout {
-                                        id: snapRow
-                                        anchors.left: parent.left; anchors.right: parent.right
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        anchors.margins: 12
-                                        spacing: 12
+                                        Layout.fillWidth: true
+                                        spacing: 8
+                                        Text {
+                                            objectName: "postAlias"
+                                            Layout.alignment: Qt.AlignTop
+                                            visible: parts.alias !== ""
+                                            text: parts.alias
+                                            textFormat: Text.PlainText
+                                            color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
+                                            elide: Text.ElideRight
+                                            Layout.maximumWidth: 220
+                                        }
+                                        Text {
+                                            objectName: "postKeyId"
+                                            Layout.alignment: Qt.AlignTop
+                                            text: parts.keyId
+                                            textFormat: Text.PlainText
+                                            color: keyHover.hovered ? t.accent : parts.alias !== "" ? t.text3 : t.text
+                                            font.pixelSize: 12; font.family: t.mono
+                                            font.weight: parts.alias === "" ? Font.Medium : Font.Normal
+                                            HoverHandler { id: keyHover; cursorShape: Qt.PointingHandCursor }
+                                            TapHandler { onTapped: root.copyText(parts.keyId.replace(/^id /, ""), "key id") }
+                                            ToolTip.visible: keyHover.hovered
+                                            ToolTip.text: "Click to copy the key id"
+                                            ToolTip.delay: 400
+                                        }
+                                        Chip {
+                                            Layout.alignment: Qt.AlignTop
+                                            visible: parts.state !== ""
+                                            label: root.stateLabel(parts.state)
+                                            fg: root.stateFg(parts.state)
+                                            color: root.stateBg(parts.state)
+                                        }
+                                        Item { Layout.fillWidth: true }
+                                        // Time (relative), with the signed date always shown under it.
                                         ColumnLayout {
-                                            Layout.fillWidth: true
-                                            spacing: 2
+                                            Layout.alignment: Qt.AlignTop
+                                            spacing: 0
                                             Text {
-                                                text: "Snapshot on Logos Storage · " + postRow.snap.posts
-                                                      + (postRow.snap.posts === 1 ? " post" : " posts")
-                                                color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
-                                                Layout.fillWidth: true
-                                                elide: Text.ElideRight
+                                                objectName: "postTime"
+                                                text: root.relativeTime(model.time, root.nowMs)
+                                                color: t.text2; font.family: t.sans; font.pixelSize: 12
+                                                Layout.alignment: Qt.AlignRight
                                             }
                                             Text {
-                                                text: postRow.snap.cid
-                                                textFormat: Text.PlainText
-                                                color: t.text3; font.family: t.mono; font.pixelSize: 11
-                                                elide: Text.ElideMiddle
-                                                Layout.fillWidth: true
+                                                objectName: "postDate"
+                                                visible: text !== ""
+                                                text: model.time.split(", ")[0]
+                                                color: t.text3; font.family: t.sans; font.pixelSize: 11
+                                                Layout.alignment: Qt.AlignRight
                                             }
                                         }
-                                        FButton {
-                                            objectName: "restoreButton"
-                                            visible: postRow.snapshot
-                                            text: "Restore these posts"
-                                            enabled: root.usable
-                                            ToolTip.visible: hovered
-                                            ToolTip.text: "Fetch this snapshot from Logos Storage. Every post in it is verified before it is shown. Fetching is a direct connection to the node that serves it (not anonymous)."
-                                            onClicked: logos.watch(root.backend.restoreSnapshot(parts.body), function (v) {
-                                                outcome.text = v === "restoring" ? "Fetching the snapshot from Logos Storage…" : v
-                                            }, function (e) { outcome.text = "Error: " + e })
+                                    }
+                                    Text {
+                                        visible: !postRow.snapshot
+                                        text: parts.body
+                                        textFormat: Text.PlainText
+                                        color: t.body
+                                        font.family: t.sans; font.pixelSize: 14
+                                        lineHeight: 1.15
+                                        wrapMode: Text.WrapAnywhere
+                                        Layout.fillWidth: true
+                                    }
+                                    // Snapshot announcements: a card with the CID and Restore.
+                                    Rectangle {
+                                        visible: postRow.snapshot
+                                        Layout.fillWidth: true
+                                        Layout.topMargin: 4
+                                        implicitHeight: snapRow.implicitHeight + 20
+                                        radius: t.radiusL
+                                        color: t.panel
+                                        border.color: t.accentLine
+                                        Rectangle { anchors.fill: parent; radius: parent.radius; color: t.accentSoft }
+                                        RowLayout {
+                                            id: snapRow
+                                            anchors.left: parent.left; anchors.right: parent.right
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            anchors.margins: 12
+                                            spacing: 12
+                                            ColumnLayout {
+                                                Layout.fillWidth: true
+                                                spacing: 2
+                                                Text {
+                                                    text: "Snapshot on Logos Storage · " + postRow.snap.posts
+                                                          + (postRow.snap.posts === 1 ? " post" : " posts")
+                                                    color: t.text; font.family: t.sans; font.pixelSize: 13; font.weight: Font.Medium
+                                                    Layout.fillWidth: true
+                                                    elide: Text.ElideRight
+                                                }
+                                                Text {
+                                                    objectName: "snapshotCid"
+                                                    text: postRow.snap.cid
+                                                    textFormat: Text.PlainText
+                                                    color: cidHover.hovered ? t.accent : t.text3
+                                                    font.family: t.mono; font.pixelSize: 11
+                                                    elide: Text.ElideMiddle
+                                                    Layout.fillWidth: true
+                                                    HoverHandler { id: cidHover; cursorShape: Qt.PointingHandCursor }
+                                                    TapHandler { onTapped: root.copyText(postRow.snap.cid, "snapshot CID") }
+                                                    ToolTip.visible: cidHover.hovered
+                                                    ToolTip.text: "Click to copy the Storage CID"
+                                                    ToolTip.delay: 400
+                                                }
+                                            }
+                                            FButton {
+                                                objectName: "restoreButton"
+                                                visible: postRow.snapshot
+                                                text: "Restore these posts"
+                                                enabled: root.usable
+                                                ToolTip.visible: hovered
+                                                ToolTip.text: "Fetch this snapshot from Logos Storage. Every post in it is verified before it is shown. Fetching is a direct connection to the node that serves it (not anonymous)."
+                                                onClicked: logos.watch(root.backend.restoreSnapshot(parts.body), function (v) {
+                                                    outcome.text = v === "restoring" ? "Fetching the snapshot from Logos Storage…" : v
+                                                }, function (e) { outcome.text = "Error: " + e })
+                                            }
                                         }
                                     }
                                 }

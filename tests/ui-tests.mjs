@@ -369,6 +369,89 @@ test("forum_module: search filters topics and posts", async (app) => {
   }, { timeout: 10000, interval: 300, description: "filter cleared" });
 });
 
+// Reading comfort: relative times under day separators (the signed date
+// under each time), click-to-copy key ids, Esc closing open panels, and a refresh that
+// never yanks a reader who scrolled up — an own new post still brings the
+// newest into view.
+test("forum_module: thread polish — times, day separators, copy, scroll, Esc", async (app) => {
+  await app.waitFor(
+    async () => { await app.expectTexts(["Module ready"]); },
+    { timeout: 20000, interval: 500, description: "backend ready" }
+  );
+  // Formatting against a fixed "now" (7 Oct 2026, 12:00 local).
+  const now = "new Date(2026, 9, 7, 12, 0).getTime()";
+  const checks = [
+    ["root.relativeTime('7 Oct 2026, 11:59', " + now + ")", "just now"],
+    ["root.relativeTime('7 Oct 2026, 11:53', " + now + ")", "7 min ago"],
+    ["root.relativeTime('7 Oct 2026, 09:05', " + now + ")", "09:05"],
+    ["root.relativeTime('not a time', " + now + ")", "not a time"],
+    ["root.dayLabel('7 Oct 2026, 09:05', " + now + ")", "Today"],
+    ["root.dayLabel('6 Oct 2026, 23:59', " + now + ")", "Yesterday"],
+    ["root.dayLabel('1 Oct 2026, 08:00', " + now + ")", "Thursday 1 October"],
+    ["root.dayLabel('31 Dec 2025, 08:00', " + now + ")", "Wednesday 31 December 2025"],
+  ];
+
+  for (const [expr, want] of checks) {
+    const got = await evalValue(app, expr);
+    if (got !== want) throw new Error(expr + " -> " + got + " (want " + want + ")");
+  }
+
+  // Enough posts that the thread scrolls.
+  for (let i = 1; i <= 12; i++) {
+    await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: scroll filler " + i + "'" });
+    await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
+    await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "filler " + i);
+  }
+  await app.waitFor(async () => {
+    const v = await evalValue(app, "threadList.count + '|' + threadList.atEnd + '|' + (threadList.contentHeight > threadList.height)");
+    const [n, atEnd, scrolls] = v.split("|");
+    if (Number(n) < 12 || atEnd !== "true" || scrolls !== "true") throw new Error("thread: " + v);
+  }, { timeout: 10000, interval: 300, description: "own posts followed to the newest" });
+  // The newest row says "just now", with a "Today" separator in the thread.
+  const latest = await evalValue(app, "root.relativeTime(threadModel.get(threadModel.count - 1).time, Date.now())");
+  if (latest !== "just now") throw new Error("latest time: " + latest);
+  const today = await evalValue(app, "root.dayLabel(threadModel.get(threadModel.count - 1).time, Date.now())");
+  if (today !== "Today") throw new Error("day label: " + today);
+  const dateLine = await evalValue(app, "threadModel.get(threadModel.count - 1).time.split(', ')[0]");
+  if (!/^\d{1,2} [A-Z][a-z]{2} \d{4}$/.test(dateLine)) throw new Error("date line: " + dateLine);
+
+  // Scrolled up, a refresh of the same rows keeps the position (after the
+  // brief settle that follows a jump to the end).
+  await new Promise((r) => setTimeout(r, 600));
+  await app.inspector.send("evaluate", { expression: "threadList.positionViewAtBeginning(); root.followNext = false; 'ok'" });
+  await new Promise((r) => setTimeout(r, 400));
+  await app.inspector.send("evaluate", { expression: "root.syncThread(); 'ok'" });
+  await new Promise((r) => setTimeout(r, 400));
+  const kept = await evalValue(app, "threadList.atYBeginning + '|' + threadList.atEnd + '|' + newPostsPill.visible");
+  if (kept !== "true|false|false") throw new Error("refresh moved the reader: " + kept);
+  // An own new post brings the newest back into view.
+  await app.inspector.send("evaluate", { expression: "outcome.text = ''; composer.text = 'TECHNICAL TEST DATA: own post follows'" });
+  await app.inspector.send("evaluate", { expression: "sendButton.clicked()" });
+  await waitOutcome(app, (v) => v.startsWith("Saved — it will be sent through Mix"), "own post");
+  await app.waitFor(async () => {
+    const v = await evalValue(app, "threadList.atEnd + '|' + newPostsPill.visible");
+    if (v !== "true|false") throw new Error("after own post: " + v);
+  }, { timeout: 10000, interval: 300, description: "own post in view" });
+
+  // Click to copy: the key id goes to the clipboard, with a short note.
+  const keyId = await evalValue(app, "root.rowParts(threadModel.get(threadModel.count - 1).line).keyId.replace(/^id /, '')");
+  if (!/^[0-9a-f]{16}$/.test(keyId)) throw new Error("key id: " + keyId);
+  await app.inspector.send("evaluate", { expression: "root.copyText('" + keyId + "', 'key id'); 'ok'" });
+  const note = await evalValue(app, "toast.message + '|' + toast.shown");
+  if (note !== "Copied key id|true") throw new Error("toast: " + note);
+  const pasted = await evalValue(app, "clipHelper.text = ''; clipHelper.paste(); var v = clipHelper.text; clipHelper.text = ''; v");
+  if (pasted !== keyId) throw new Error("clipboard: " + pasted);
+
+  // Esc closes the topmost open panel, one at a time.
+  await app.inspector.send("evaluate", { expression: "root.identityOpen = true; root.newTopicOpen = true; 'ok'" });
+  await app.inspector.send("evaluate", { expression: "root.closeTopmost(); 'ok'" });
+  let open = await evalValue(app, "root.identityOpen + '|' + root.newTopicOpen");
+  if (open !== "false|true") throw new Error("first Esc: " + open);
+  await app.inspector.send("evaluate", { expression: "root.closeTopmost(); 'ok'" });
+  open = await evalValue(app, "root.identityOpen + '|' + root.newTopicOpen");
+  if (open !== "false|false") throw new Error("second Esc: " + open);
+});
+
 // Logos Storage snapshots: saving needs a connection (not offered offline);
 // a restore request without a CID is refused before anything is fetched.
 test("forum_module: storage snapshot controls are honest offline", async (app) => {

@@ -102,13 +102,14 @@ minimize_all() { # clear the desktop (the runner's console window covers the app
   sleep 2
 }
 click_named() { # name x y — a control found by its accessible name (UI
-  # Automation), else the given coordinates; prints which one was used.
+  # Automation; the lowest on screen when several match, e.g. the newest
+  # snapshot card), else the given coordinates; prints which one was used.
   local at
   at=$(powershell -NoProfile -Command "
     Add-Type -AssemblyName UIAutomationClient, UIAutomationTypes
     \$c = New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::NameProperty, '$1')
     \$all = [System.Windows.Automation.AutomationElement]::RootElement.FindAll([System.Windows.Automation.TreeScope]::Descendants, \$c)
-    \$e = \$all | Where-Object { -not \$_.Current.IsOffscreen } | Select-Object -Last 1
+    \$e = \$all | Where-Object { -not \$_.Current.IsOffscreen } | Sort-Object { \$_.Current.BoundingRectangle.Y } | Select-Object -Last 1
     if (\$e) { \$r = \$e.Current.BoundingRectangle; '{0} {1}' -f [int](\$r.X + \$r.Width / 2), [int](\$r.Y + \$r.Height / 2) }" 2>/dev/null | tr -d '\r')
   if [ -n "$at" ]; then echo "click '$1' at $at (by name)"; click $at
   else echo "click '$1' at $2 $3 (fixed)"; click "$2" "$3"; fi

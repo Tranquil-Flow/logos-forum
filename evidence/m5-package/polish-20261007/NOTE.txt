@@ -1,0 +1,35 @@
+Reading polish, 2026-10-07 (owner picked all four from a list).
+
+- Scroll: the thread is a ListModel updated in place, so a refresh keeps the
+  reader's position; it follows the newest post only when the reader was at
+  the bottom, switched topic or posted. Otherwise "New posts below" appears.
+  The jump to the end repeats briefly while rows settle (rows differ in
+  height) and stops as soon as the reader scrolls.
+- Times: "just now" (under 2 min; signed times have minute precision),
+  "N min ago", else HH:mm, under day separators (Today, Yesterday,
+  "Thursday 1 October"); the signed date is always shown under the time
+  (owner: hover delay too long, show it always).
+- Click to copy: key ids and snapshot CIDs, with a "Copied ..." note.
+- Keyboard: Ctrl/Cmd+F search (Cmd+K did not fire inside Basecamp, owner
+  test), Ctrl/Cmd+N new topic, Esc closes the open panel or clears search.
+
+Tests: new UI test "thread polish — times, day separators, copy, scroll,
+Esc" (formatting against a fixed clock, position kept on refresh, own post
+followed, clipboard round trip, Esc order). UI 16/16 twice
+(verify-ui-20261007-142631, -143216) and after the date/Cmd+F change
+(verify-ui-20261007-145542); core 189/0 (verify-core-20261007-1432*).
+Failures on the way, kept in verify-runs: a test syntax error, the
+just-now boundary, an animated-opacity check, the first scroll-to-end
+landing short, the settle timer pulling a reader back, and one inspector
+start timeout under host load ~64.
+
+Release-app check by the owner in pinned Basecamp 0.3.1 (fresh profiles X
+and Y, Forum lgx-portable sha256 f78202c814aeb182d174b087b6306a730be07a360f6ebd54533dbe5422386c26): day separators and times shown,
+scroll kept while reading, copy works, Cmd+N and Esc work, Cmd+F and the
+date line confirmed on Y.
+
+Windows smoke (tools/windows_smoke.sh): finds its test post by text (history
+rows arriving on connect are newer), clicks controls by accessible name, and
+picks the lowest match (the newest snapshot card) for "Restore these posts".
+CI 37609477468 showed send/snapshot/history passing and restore picking an
+old card; the lowest-match fix ships in this commit.

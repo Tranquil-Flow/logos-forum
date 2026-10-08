@@ -265,6 +265,14 @@ starts the release app on a profile, `stop` quits everything it started.
 - **Pacing**: at most 5 sends at once, then one every 2 s, however many
   stored posts are waiting after a reconnect; failed sends retry at most 3
   times. The forum never floods the network.
+- **Reading**: posts show "just now", "5 min ago" or the time under day
+  separators (Today, Yesterday, Thursday 1 October), with the signed date
+  always shown under the time. A refresh never moves you while you read older posts —
+  "New posts below" appears instead; your own new post brings you to the end.
+- **Click to copy**: click a key id or a snapshot CID to copy it.
+- **Keyboard**: Enter sends, Shift+Enter starts a new line; Ctrl+F (Cmd+F on
+  macOS) jumps to search, Ctrl+N (Cmd+N) starts a new topic, Esc closes the
+  open panel or clears the search.
 - **Narrow windows**: below 760 px the topic list stacks above the thread.
 - **Received posts** render as plain text — no remote images, avatars, or
   link previews; external links require explicit user action.
