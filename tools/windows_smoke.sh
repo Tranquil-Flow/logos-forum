@@ -156,12 +156,16 @@ sent=0 saved=0 restored=0 history=0 kept=0
 if [ "$ok" = 1 ]; then
   sleep 5 # let the window finish drawing
   shot 1-opened
+  # Test posts go to the shared Sandbox topic, never General.
+  click_named "Sandbox (0)" 150 230 | tee -a "$OUT/result.txt"
+  sleep 1
   # Write a post while offline: it must be kept on the device, waiting.
   click_named "Post text" 700 640 | tee -a "$OUT/result.txt"
   type_text "$POST"
   type_text "{ENTER}"   # Enter sends (Shift+Enter is a new line)
   sleep 2
   echo "after Send, offline: $(post_state)" | tee -a "$OUT/result.txt"
+  echo "posted in: $(sql "select t.body from posts p join posts t on t.event_id=p.topic_id where p.body='$POST' limit 1")" | tee -a "$OUT/result.txt"
   shot 2-written-offline
   # Connect; the waiting post must go out through Mix.
   click_named "Connect to Logos network" 620 104 | tee -a "$OUT/result.txt"

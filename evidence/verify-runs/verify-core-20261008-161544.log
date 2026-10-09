@@ -1,0 +1,16 @@
+== verify: core
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+waiting for another Nix process to finish fetching input 'github:NixOS/nixpkgs/e9f00bd893984bc8ce46c895c3bf7cac95331127?narHash=sha256-0m27AKv6ka%2Bq270dw48KflE0LwQYrO7Fm4/2//KCVWg%3D'...
+waiting for another Nix process to finish fetching input 'github:logos-co/logos-nix/7c1eb8bc390546f32aaf134866a1c7db8e9311cc?narHash=sha256-EOG96lY4KnZadh2lczZFMPnfPP9tWXdWt1p1CP8Gvww%3D'...
+this derivation will be built:
+  /nix/store/n9fafyqyrjav51s8iv8xj4ppafmrlvsm-forum-core-tests.drv
+these 2 paths will be fetched (31.3 KiB download, 237.0 KiB unpacked):
+  /nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev
+  /nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin
+copying path '/nix/store/8lr8mcmajchrv5ahskzxmhihbjn7wy7p-libsodium-1.0.20-dev' from 'https://cache.nixos.org'...
+copying path '/nix/store/kmhffby6w41av1g7x31fsbbjin0aazam-stdenv-darwin' from 'https://cache.nixos.org'...
+core tests: 194 checks, 0 failures
+PASS core

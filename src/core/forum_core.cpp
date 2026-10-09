@@ -645,13 +645,15 @@ std::optional<std::string> Store::create_topic(const std::string& forum_id,
     return ev->id;
 }
 
-std::optional<std::string> Store::ensure_default_topic(const std::string& forum_id)
+std::optional<std::string> Store::ensure_default_topic(const std::string& forum_id,
+                                                       const std::string& title)
 {
-    if (!m_ok || forum_id.empty()) return std::nullopt;
+    if (!m_ok || forum_id.empty() || title.empty() || title.size() > kMaxTitle) return std::nullopt;
     init_crypto();
     // Well-known seed: public by construction (see header).
+    const std::string tag = title == "General" ? std::string() : "|" + title;
     std::vector<unsigned char> seed;
-    if (!from_hex(sha256_hex("lp0026-forum/default-topic/v1|" + forum_id), seed) ||
+    if (!from_hex(sha256_hex("lp0026-forum/default-topic/v1|" + forum_id + tag), seed) ||
         seed.size() != crypto_sign_SEEDBYTES) {
         return std::nullopt;
     }
@@ -669,7 +671,7 @@ std::optional<std::string> Store::ensure_default_topic(const std::string& forum_
     d.author_pub_hex = kp.pub_hex;
     d.alias = "";
     d.ts_ms = 0;
-    d.body = "General";
+    d.body = title;
     auto ev = make_event(d, kp);
     if (!ev.has_value()) return std::nullopt;
     if (merge_verified(*ev) == MergeResult::Invalid) return std::nullopt;

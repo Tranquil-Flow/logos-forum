@@ -6,6 +6,7 @@
 //   --phase restore  (fresh reader, never joins Delivery) restore from the
 //                    --announcement text; every post must verify and render.
 import net from "node:net";
+const SANDBOX = "root.backend.openTopic(root.topics.filter(function (t) { return t.indexOf('|Sandbox (') > 0 })[0].split('|')[0])";
 const args = process.argv.slice(2);
 function arg(name, dflt) { const i = args.indexOf("--" + name); return i >= 0 ? args[i + 1] : dflt; }
 const port = parseInt(arg("port", "3768"), 10);
@@ -98,6 +99,12 @@ const texts = [text + " (1/2)", text + " (2/2)"];
 try {
   await c.connect();
   await waitFor(async () => c.expectTexts(["Module ready"]), 30000, "backend");
+  // Test posts go to the shared Sandbox topic, never General.
+  await c.send("evaluate", { expression: SANDBOX });
+  await waitFor(async () => {
+    const r = await c.send("evaluate", { expression: "root.currentTopicTitle" });
+    if (r.result !== "Sandbox") throw new Error("not in Sandbox: " + JSON.stringify(r));
+  }, 10000, "Sandbox open");
   if (phase === "save") {
     await c.send("evaluate", { expression: "connectButton.clicked()" });
     mark("connect clicked");

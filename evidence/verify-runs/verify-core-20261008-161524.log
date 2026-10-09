@@ -1,0 +1,8 @@
+== verify: core
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+waiting for another Nix process to finish fetching input 'github:NixOS/nixpkgs/e9f00bd893984bc8ce46c895c3bf7cac95331127?narHash=sha256-0m27AKv6ka%2Bq270dw48KflE0LwQYrO7Fm4/2//KCVWg%3D'...
+FAIL core (exit 143) — see <repo>/evidence/verify-runs/verify-core-20261008-161524.log
+error: interrupted by the user

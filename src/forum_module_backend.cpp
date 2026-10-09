@@ -206,6 +206,8 @@ bool ForumModuleBackend::ensureTopic()
     // so the composer always has a destination that other instances also show.
     auto tid = st->ensure_default_topic("general");
     if (!tid.has_value()) return false;
+    // "Sandbox", also shared, keeps trial and test posts out of General.
+    st->ensure_default_topic("general", "Sandbox");
     if (m_currentTopicId.isEmpty()) {
         m_currentTopicId = QString::fromStdString(*tid);
     }

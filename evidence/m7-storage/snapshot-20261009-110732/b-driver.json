@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "phase": "restore",
+  "text": "TECHNICAL TEST DATA: storage snapshot check 2026-10-09T09:07:32Z",
+  "timeline": [
+    {
+      "t_s": 1,
+      "what": "restore requested"
+    },
+    {
+      "t_s": 53,
+      "what": "restored",
+      "state": "restored from Logos Storage (zDvZRwzkxkTuQqgo…): 2 new posts, 1 already here, 0 rejected by verification"
+    }
+  ],
+  "connection": "offline",
+  "initial_thread": [],
+  "archive_state": "restored from Logos Storage (zDvZRwzkxkTuQqgo…): 2 new posts, 1 already here, 0 rejected by verification",
+  "connection_after": "offline",
+  "thread": [
+    "id f5b38b9cf60b6c72 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-09T09:07:32Z (1/2)",
+    "id d3db3c0263761e0b [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-09T09:07:32Z (2/2)"
+  ]
+}

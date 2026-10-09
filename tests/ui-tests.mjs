@@ -152,6 +152,9 @@ test("forum_module: browsing topics switches the thread", async (app) => {
   // Topics are ordered by recent activity, so the new topic is listed first.
   const first = await evalValue(app, "root.topics[0].split('|')[0]");
   if (first !== browseId) throw new Error("most recent topic not first: " + first);
+  // Both shared topics are always listed: General and Sandbox (trial posts).
+  const listed = await evalValue(app, "JSON.stringify(root.topics)");
+  if (!listed.includes("|General (") || !listed.includes("|Sandbox (")) throw new Error("shared topics: " + listed.slice(0, 300));
   // Click the shared "General" topic in the list.
   await app.inspector.send("evaluate", { expression: "outcome.text = ''; topicsList.itemAtIndex(root.topics.findIndex(function (t) { return t.indexOf('|General (') > 0 })).clicked()" });
   await waitOutcome(app, (v) => v === "Opened topic", "topic opened");
@@ -470,6 +473,26 @@ test("forum_module: storage snapshot controls are honest offline", async (app) =
     const r = await evalValue(app, "outcome.text");
     if (r !== "error: no snapshot CID found") throw new Error("restore: " + r);
   }, { timeout: 15000, interval: 300, description: "restore without CID refused" });
+});
+
+// A restore outcome shows on the snapshot card it is about (not only in the
+// status line): fetching, restored, or the saving device being unreachable.
+test("forum_module: snapshot cards show their own restore outcome", async (app) => {
+  const cid = "zDvZRwzm1234567890abcdefghijklmnop";
+  const k = cid.slice(0, 16);
+  const cases = [
+    ["fetching snapshot " + k + "… from Logos Storage", "busy", "Fetching from the device"],
+    ["restored from Logos Storage (" + k + "…): 3 new posts, 2 already here, 0 rejected by verification", "ok", "Restored: 3 new posts, 2 already here, 0 rejected"],
+    ["could not fetch snapshot " + k + "… from Logos Storage after 3 attempt(s): x (the node that serves it may be offline)", "bad", "Not reachable right now"],
+    ["could not reach the node serving snapshot " + k + "…: x (it may be offline)", "bad", "Not reachable right now"],
+    ["saved 4 posts on Logos Storage (" + k + "…) and announced it", "", ""],
+    ["could not fetch snapshot zzzzzzzzzzzzzzzz… from Logos Storage", "", ""],
+  ];
+  for (const [state, kind, text] of cases) {
+    const v = await evalValue(app, "JSON.stringify(root.restoreNote(" + JSON.stringify(cid) + ", " + JSON.stringify(state) + "))");
+    const n = JSON.parse(v);
+    if (n.kind !== kind || !n.text.startsWith(text)) throw new Error(state.slice(0, 40) + " → " + v);
+  }
 });
 
 // Without a configured transport the user is OFFERED an explicit network

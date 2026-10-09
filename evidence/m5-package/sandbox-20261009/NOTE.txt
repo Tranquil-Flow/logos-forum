@@ -1,0 +1,18 @@
+Sandbox topic, per-card restore outcomes, demo seed — 2026-10-09
+
+Changes: src/core/forum_core.{h,cpp} (ensure_default_topic takes a title;
+General keeps its seed), src/forum_module_backend.cpp (ensures Sandbox),
+src/qml/Main.qml (restoreNote on snapshot cards), tests/core/test_main.cpp,
+tests/ui-tests.mjs, tools/m6_live_driver.mjs, tools/m6_history_driver.mjs,
+tools/m7_storage_driver.mjs (open Sandbox and fail if not there),
+tools/windows_smoke.sh (clicks "Sandbox (0)", logs the topic posted in),
+tools/demo_seed.py, README.md.
+
+Receipts:
+- core 194/0: evidence/verify-runs/verify-core-20261008-161544.log
+- UI 17/17:   evidence/verify-runs/verify-ui-20261008-173600.log
+- m7 storage PASS: evidence/m7-storage/snapshot-20261009-110732 (A sent 3 in Sandbox, B received 2 in Sandbox)
+- m6 live PASS:    evidence/m6-live/live-20261009-110922 (A sent 1 in Sandbox)
+- Stale launcher (kept): evidence/m7-storage/snapshot-20261008-164230 posted in General.
+- Demo seed: 5 rows (topic + 4 posts) in profile ~/lp0026-demo/play; all
+  signatures and ids checked with python-cryptography; re-run adds 0.

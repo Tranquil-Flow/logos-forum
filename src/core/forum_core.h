@@ -134,7 +134,10 @@ public:
     // every instance holds byte-identical bytes and the same topic id with no
     // dispatch. The key is public by construction and confers no authority;
     // it signs only this one event. Stored as received (never in the outbox).
-    std::optional<std::string> ensure_default_topic(const std::string& forum_id);
+    // Other titles (e.g. "Sandbox") derive their own well-known key the same
+    // way; "General" keeps the original seed, so its id never changes.
+    std::optional<std::string> ensure_default_topic(const std::string& forum_id,
+                                                    const std::string& title = "General");
     // Posts of a topic in receive order (state included for the UI).
     std::vector<PostRecord> thread(const std::string& topic_id) const;
 

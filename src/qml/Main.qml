@@ -336,6 +336,21 @@ Item {
         var c = /(?:^|\n)cid: (\S+)/.exec(body)
         return { posts: n ? parseInt(n[1]) : 0, cid: c ? c[1] : "" }
     }
+    // What the latest Storage outcome says about one snapshot card, so the
+    // result shows on the card that was clicked: "" when it is not about it.
+    function restoreNote(cid, s) {
+        const key = cid.slice(0, 16) + "…"
+        if (cid === "" || s.indexOf(key) < 0 || /^sav/.test(s)) return { kind: "", text: "" }
+        if (/^fetching /.test(s)) return { kind: "busy", text: "Fetching from the device that saved it…" }
+        if (/^restored /.test(s)) {
+            const r = s.slice(s.indexOf("): ") + 3)
+            return { kind: "ok", text: "Restored: " + r }
+        }
+        if (/^could not (reach|fetch)/.test(s))
+            return { kind: "bad", text: "Not reachable right now: the device that saved this snapshot is offline "
+                                        + "or can't be reached. A snapshot is served only while that device's Basecamp runs." }
+        return { kind: "bad", text: s.charAt(0).toUpperCase() + s.slice(1) }
+    }
     function stateLabel(s) {
         if (s === "pending") return root.connection === "connected" ? "sending…" : "waiting to send"
         if (s === "failed") return "not sent — kept for retry"
@@ -868,6 +883,7 @@ Item {
                         readonly property var parts: root.rowParts(model.line)
                         readonly property bool snapshot: parts.body.indexOf(root.snapshotTitle) === 0
                         readonly property var snap: snapshot ? root.snapshotParts(parts.body) : ({ posts: 0, cid: "" })
+                        readonly property var note: snapshot ? root.restoreNote(snap.cid, root.archiveState) : ({ kind: "", text: "" })
                         // A day separator above the first post of each day.
                         readonly property bool newDay: {
                             root.threadRev
@@ -1014,12 +1030,25 @@ Item {
                                                     ToolTip.text: "Click to copy the Storage CID"
                                                     ToolTip.delay: 400
                                                 }
+                                                Text {
+                                                    objectName: "restoreNote"
+                                                    visible: postRow.note.text !== ""
+                                                    text: postRow.note.text
+                                                    textFormat: Text.PlainText
+                                                    color: postRow.note.kind === "ok" ? t.goodText
+                                                         : postRow.note.kind === "bad" ? t.badText : t.warnText
+                                                    font.family: t.sans; font.pixelSize: 12
+                                                    wrapMode: Text.Wrap
+                                                    Layout.fillWidth: true
+                                                    Layout.topMargin: 2
+                                                }
                                             }
                                             FButton {
                                                 objectName: "restoreButton"
                                                 visible: postRow.snapshot
-                                                text: "Restore these posts"
-                                                enabled: root.usable
+                                                text: postRow.note.kind === "busy" ? "Fetching…"
+                                                    : postRow.note.kind === "bad" ? "Try again" : "Restore these posts"
+                                                enabled: root.usable && postRow.note.kind !== "busy"
                                                 ToolTip.visible: hovered
                                                 ToolTip.text: "Fetch this snapshot from Logos Storage. Every post in it is verified before it is shown. Fetching is a direct connection to the node that serves it (not anonymous)."
                                                 onClicked: logos.watch(root.backend.restoreSnapshot(parts.body), function (v) {

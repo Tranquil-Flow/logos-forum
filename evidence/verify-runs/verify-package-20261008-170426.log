@@ -1,0 +1,18 @@
+== verify: package
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+these 3 derivations will be built:
+  /nix/store/cmys6zb0pdjvplx295pi9vzkdknd4zjg-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/c2pswljpasqfbya5kk3mx7hng8998r17-logos-forum_module-module.drv
+  /nix/store/msibgzznkcpjibmzjxnd5h02g41nxcm3-logos-forum_module-module-lgx-0.1.0.drv
+building '/nix/store/cmys6zb0pdjvplx295pi9vzkdknd4zjg-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/c2pswljpasqfbya5kk3mx7hng8998r17-logos-forum_module-module.drv'...
+building '/nix/store/msibgzznkcpjibmzjxnd5h02g41nxcm3-logos-forum_module-module-lgx-0.1.0.drv'...
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+FAIL package (exit 143) — see <repo>/evidence/verify-runs/verify-package-20261008-170426.log
+error: interrupted by the user

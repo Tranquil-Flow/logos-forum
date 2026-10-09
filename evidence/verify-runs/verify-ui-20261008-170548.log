@@ -1,0 +1,256 @@
+== verify: ui
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+these 33 derivations will be built:
+  /nix/store/y4jsvadpjz8zkg45qp7zqsbd0lfwvycv-zerokit-2.0.2-vendor-staging.drv
+  /nix/store/j6q84jjwc4lr0hczawyk6ykd2f5dz0zk-zerokit-2.0.2-vendor.drv
+  /nix/store/2kkiny45kf57s823yhv423wc4pqdcmmk-rustc-1.93.1-aarch64-apple-darwin.tar.xz.drv
+  /nix/store/afpxvrb37zxmq915b42zh0x1yca0d5w7-rustc-1.93.1-aarch64-apple-darwin.drv
+  /nix/store/sma5y99fnajycp8c172qrh1xybxijp1r-clippy-1.93.1-aarch64-apple-darwin.tar.xz.drv
+  /nix/store/av5agyr1ypvhv0q0s5kcs7v6r6jjmk22-clippy-preview-1.93.1-aarch64-apple-darwin.drv
+  /nix/store/kwdmya2p3n0fd2q43x4cy04ipfxabacs-cargo-1.93.1-aarch64-apple-darwin.tar.xz.drv
+  /nix/store/d65l3z1v5bvl0bdcp83m3nap1vaaz7iv-cargo-1.93.1-aarch64-apple-darwin.drv
+  /nix/store/pq7jhcld1fkrbfg8axzlwimf1v80xxyq-rustfmt-1.93.1-aarch64-apple-darwin.tar.xz.drv
+  /nix/store/lhs1jpb59mmm1vhz6cjdwhx1a3jjax59-rustfmt-preview-1.93.1-aarch64-apple-darwin.drv
+  /nix/store/ldd0dn32h5xi7k0k44zihvjpykpvpy5y-rust-docs-1.93.1-aarch64-apple-darwin.tar.xz.drv
+  /nix/store/lm5mpjz3r9qslpng2srhmzdgmpikgdf5-rust-docs-1.93.1-aarch64-apple-darwin.drv
+  /nix/store/y623v6jgz71qbjgl76vyx4g0in888741-rust-std-1.93.1-aarch64-apple-darwin.tar.xz.drv
+  /nix/store/qyjakaxgxa5dl5y0x2y66j8rmz6hg9vp-rust-std-1.93.1-aarch64-apple-darwin.drv
+  /nix/store/qs6s3wczmmqlrmmh30lwlllw854jr36c-rust-default-1.93.1.drv
+  /nix/store/hkj8i69b200scvw3fxb19p3xykkiv4y8-zerokit-2.0.2.drv
+  /nix/store/15633b8zlm13ary65xhkka47hslg13ml-bearssl_pkey_decoder-d34aa46.drv
+  /nix/store/383ig86k1xkqdv63wyddjksm2p3k0j48-nim-taskpools-7d96007.drv
+  /nix/store/6bhkhfw2ynk9skvjrnymxphc3q54m8sy-nim-unittest2-26f2ef3.drv
+  /nix/store/7bv3m87qzbg5vbs5bgpi5x6hz27kwvkf-nim-jwt-057ec95.drv
+  /nix/store/fak347pknqcgrmywwwxrlhgrsyalfny5-nim-sqlite3-abi-9645cad.drv
+  /nix/store/i783yipmkadrzl107n6lg429i9p10rfw-npeg-409f679.drv
+  /nix/store/kns93vv9pmmvvf020jk45iq01235r8cm-nim-testutils-6ce5e5e.drv
+  /nix/store/lh32w3l6rqx7238kw2wmjrpamfs060wv-nim-snappy-a99d113.drv
+  /nix/store/xn3svg2ck8spq929vwz9m985kzmm77pp-nim-nat-traversal-83a4010.drv
+  /nix/store/p4nv939h4vfllr83waw9c35ksp3yvps0-liblogosdelivery-dev.drv
+  /nix/store/8bd9b6wpmfh5d17jdkdqf3jn695gcpl0-logos-delivery_module-module-lib-0.3.2.drv
+  /nix/store/0w52mxbpiv4vvykrnfvmnd6mm1pr686n-logos-delivery_module-module-lib-lgx-0.3.2.drv
+  /nix/store/71bkh8rxx57z0zhma45y1aj60fsfr1gy-forum_module-integration-test-modules.drv
+  /nix/store/aap8diw1sr1qnnpplw5ijhlygnzwqnbw-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/ck94ysa3597209sgchxnlmlh6cfrpavg-logos-forum_module-module.drv
+  /nix/store/2idbdhmll2alk7l6r7cv813m9z11hxch-run-standalone.drv
+  /nix/store/ix6zf1vf7g414nfqm5bznn1p9bid0rsn-forum_module-integration-test.drv
+these 51 paths will be fetched (526.1 MiB download, 2.4 GiB unpacked):
+  /nix/store/d8s89pc5y7r8l09pgz3s80s2igqga9ir-apple-sdk-14.4
+  /nix/store/n30igbqsw0g8sa85rxh3v34cb1iybhxp-arm64-apple-darwin-nim-wrapper-2.2.4
+  /nix/store/1bmj51zmkq1djr7r1cgczd22yrkk6xjs-auditable-cargo-1.91.1
+  /nix/store/8gmij30qmmg3c9xp7b7yj502mh5krgv4-bash-interactive-5.3p3
+  /nix/store/l8vlnzzskhhx38sppxy0apnjd9wdc9dp-cargo-1.91.1
+  /nix/store/3jrawp64nx4hzwwwbi4yfcz5vp021x1r-cargo-build-hook.sh
+  /nix/store/3pl198lg2a7f00iydjsqi2abny8qs56a-cargo-check-hook.sh
+  /nix/store/jg5i60y1vh44blwym667xhdnyspbbkm3-cargo-setup-hook.sh
+  /nix/store/qb7ziy9h6r7mfyj6z48cbad8fijkfai9-cctools-1010.6
+  /nix/store/6gcsixsmd5yb6w4fsm2jwfr3s4sg2viq-cctools-1010.6-dev
+  /nix/store/bgggpwyjwcfy2cgipr05jvjl62adan1j-cctools-1010.6-libtool
+  /nix/store/277259z03b48wb164xxkaibrkvdps6n3-cctools-binutils-darwin-1010.6
+  /nix/store/mm5pq99zspcampcn1iq8sqk2qzhj0qjx-cctools-binutils-darwin-wrapper-1010.6
+  /nix/store/mmgq6hi7pv7xmk26va6mwpsbkqyxvzgw-cctools-binutils-darwin-wrapper-1010.6
+  /nix/store/1b6qbcn7wbl8h8f889187dql113ng2dw-clang-21.1.7
+  /nix/store/fzx4wahf8grdd5w60krxbcxlzpri8hlm-clang-21.1.7-lib
+  /nix/store/wwvq9hk7mbr4d6gkxfcxgpcl4f58gvgv-clang-wrapper-21.1.7
+  /nix/store/f05vi9a1dyq8xrczrsc52rb4j5zmx6dm-cmake-4.1.2
+  /nix/store/ajss1y0gm4yv38iyv91hh4x2kn1kgwhy-curl-8.20.0
+  /nix/store/rkikksdb8b21cpr8fqi90xcbhdwp1anj-curl-8.20.0-bin
+  /nix/store/ayhbxi69sdn58v6wcaqm3g516flyrl9s-curl-8.20.0-dev
+  /nix/store/rx528b0rygdmwjf48fxfz1k981b8373v-fetch-cargo-vendor-util
+  /nix/store/bgniwl1nl58qwz6cgd3r5zyilr20m6l6-fetch-cargo-vendor-util-v2
+  /nix/store/09lvdab6qif434wbjzz6wlcf6njp8m4h-git-2.51.2
+  /nix/store/q348g27lnhdam5ssjzj3cklpffyqywr3-git-2.51.2-doc
+  /nix/store/jjpmbgxj63k7c0szjcysajn0pg2xi3ba-git-minimal-2.51.2
+  /nix/store/l3415alfxpbxzkj24szsp50iir7lhj5n-ld64-954.16
+  /nix/store/6453s9bq0ghr77sd9yachagz5vgbv71y-libssh2-1.11.1
+  /nix/store/gzs8lg91mbxh54bdjg00n3nljh7bb97x-libssh2-1.11.1-dev
+  /nix/store/7s8xqarwfvr65s396y9qfzw59p8n9d7f-llvm-21.1.7
+  /nix/store/7bjc23vr49hr315qyi8q1xbb103jblkq-llvm-21.1.7-lib
+  /nix/store/6cjkawyw19khy8c3d5010blvl1fhg04p-nix-prefetch-git
+  /nix/store/2haz1qvxgshwfnf34ds3ldhrw1fr19xl-nodejs-22.19.0-dev
+  /nix/store/f6lwfkwg3lz0qill0zn1s7gpidjaarhp-openssl-3.6.2
+  /nix/store/d3aahbwnc0dbb1h91cqi2rg1hs5qd8zl-openssl-3.6.2-bin
+  /nix/store/r5qn40shnry7nlhkppgsfs98719vcx6g-openssl-3.6.2-dev
+  /nix/store/fcdrgksa8p21ykm55jm2jng8pyzdb4m3-python3-3.13.12
+  /nix/store/6v8n5wxdz09q5q8hildck0w1m048298j-python3-3.13.12-env
+  /nix/store/qkmarfvg5q4sx0krdi0m2aihv52lyk14-python3-3.13.12-env
+  /nix/store/zrsca2mhjzfjs6diyaazg3qlpbf9z3lf-python3.13-certifi-2025.07.14
+  /nix/store/q8m0slnm3q9l6sj1401xr401rnpjpxla-python3.13-charset-normalizer-3.4.3
+  /nix/store/0hyw3gdrd5wa117hpvhn7h067xy4vg63-python3.13-idna-3.11
+  /nix/store/v1ribxk2bn8gqyypamagcf9g7dd4idi1-python3.13-pysocks-1.7.1
+  /nix/store/bzqlvix16gadx4vcji7csg9z9rkjvjpi-python3.13-requests-2.33.1
+  /nix/store/nwhzxrvdvs31pgpk204y8n7n76gkipmd-python3.13-tomli-2.2.1
+  /nix/store/3x4p6jglr8p3a75aq2xh1hg4lhmx13x9-python3.13-tomli-w-1.2.0
+  /nix/store/6xffyfhsi3sys7xkayrp5m4pxpffdkgx-python3.13-urllib3-2.5.0
+  /nix/store/1vgwjrqdbp3mxh9l6rplfwzxbb7shzv2-replace-workspace-values
+  /nix/store/xazrr1400a7m0vcmwbv3m6x2x6wbfzz4-rustc-1.91.1
+  /nix/store/r88crg75r1my6q11nbiagpvpl512k8sp-rustc-wrapper-1.91.1
+  /nix/store/0pz0z0r8mida69d5203cawhsa9f8bysl-stdenv-darwin
+copying path '/nix/store/2haz1qvxgshwfnf34ds3ldhrw1fr19xl-nodejs-22.19.0-dev' from 'https://cache.nixos.org'...
+building '/nix/store/aap8diw1sr1qnnpplw5ijhlygnzwqnbw-logos-forum_module-module-lib-0.1.0.drv'...
+copying path '/nix/store/q348g27lnhdam5ssjzj3cklpffyqywr3-git-2.51.2-doc' from 'https://cache.nixos.org'...
+copying path '/nix/store/f05vi9a1dyq8xrczrsc52rb4j5zmx6dm-cmake-4.1.2' from 'https://cache.nixos.org'...
+copying path '/nix/store/8gmij30qmmg3c9xp7b7yj502mh5krgv4-bash-interactive-5.3p3' from 'https://cache.nixos.org'...
+copying path '/nix/store/7bjc23vr49hr315qyi8q1xbb103jblkq-llvm-21.1.7-lib' from 'https://cache.nixos.org'...
+copying path '/nix/store/f6lwfkwg3lz0qill0zn1s7gpidjaarhp-openssl-3.6.2' from 'https://cache.nixos.org'...
+logos-forum_module-module-lib> Running phase: qtPreHook
+logos-forum_module-module-lib> Running phase: unpackPhase
+logos-forum_module-module-lib> unpacking source archive /nix/store/zr7m2pndzvzhcc496lkya4faf1ma6dpm-4li0qrgc5p5xvqgf51vwgbzs2x63hi9n-source
+logos-forum_module-module-lib> source root is 4li0qrgc5p5xvqgf51vwgbzs2x63hi9n-source
+logos-forum_module-module-lib> Running phase: patchPhase
+logos-forum_module-module-lib> Running phase: updateAutotoolsGnuConfigScriptsPhase
+logos-forum_module-module-lib> Running phase: configurePhase
+logos-forum_module-module-lib> Running logos-cpp-generator (api-style=qt)...
+logos-forum_module-module-lib> Generating deps from LIDL: delivery_module, storage_module
+logos-forum_module-module-lib> Generated logos_sdk.h and logos_sdk.cpp
+logos-forum_module-module-lib> Running logos-qt-generator --backend consumer for the Qt-typed dependency wrappers...
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/delivery_module_api.cpp
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.h
+logos-forum_module-module-lib> Generated: ./generated_code/storage_module_api.cpp
+logos-forum_module-module-lib> Checking generated files in generated_code:
+logos-forum_module-module-lib> total 188
+logos-forum_module-module-lib> drwxr-xr-x  8 _nixbld1 nixbld   256 Oct  8 15:09 .
+logos-forum_module-module-lib> drwxr-xr-x 31 _nixbld1 nixbld   992 Oct  8 15:09 ..
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 61780 Oct  8 15:09 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 12269 Oct  8 15:09 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld    94 Oct  8 15:09 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld   363 Oct  8 15:09 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 87563 Oct  8 15:09 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r--  1 _nixbld1 nixbld 15623 Oct  8 15:09 storage_module_api.h
+logos-forum_module-module-lib> Creating include directory and moving generated files...
+logos-forum_module-module-lib> Generated include directory:
+logos-forum_module-module-lib> total 188
+logos-forum_module-module-lib> drwxr-xr-x 8 _nixbld1 nixbld   256 Oct  8 15:09 .
+logos-forum_module-module-lib> drwxr-xr-x 6 _nixbld1 nixbld   192 Oct  8 15:09 ..
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 61780 Oct  8 15:09 delivery_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 12269 Oct  8 15:09 delivery_module_api.h
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld    94 Oct  8 15:09 logos_sdk.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld   363 Oct  8 15:09 logos_sdk.h
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 87563 Oct  8 15:09 storage_module_api.cpp
+logos-forum_module-module-lib> -rw-r--r-- 1 _nixbld1 nixbld 15623 Oct  8 15:09 storage_module_api.h
+logos-forum_module-module-lib> Stamped logos_protocol_version=0.9.0 into metadata.json
+logos-forum_module-module-lib> logos-module-builder: generating ui plugin glue (forum_module)...
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_interface.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.h
+logos-forum_module-module-lib> Generated: ./generated_code/forum_module_ui_glue.cpp
+logos-forum_module-module-lib> fixing cmake files...
+logos-forum_module-module-lib> cmake flags: -GNinja -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/share/doc/ForumPlugin -DCMAKE_INSTALL_INFODIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/include -DCMAKE_INSTALL_SBINDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/strip -DCMAKE_RANLIB=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/ranlib -DCMAKE_AR=/nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/ar -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_INSTALL_PREFIX=/nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0 -GNinja -DLOGOS_MODULE_ROOT=/nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0 -DLOGOS_CPP_SDK_ROOT=/nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk -DLOGOS_QT_SDK_ROOT=/nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk -DLOGOS_QT_HOST_ROOT=/nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0 -DLOGOS_PROTOCOL_ROOT=/nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol -DLOGOS_VIEW_TEMPLATE_DIR=/nix/store/py6wzmragypgh2lbaimz1z23qzcv8ckr-logos-view-templates -DLOGOS_VIEW_INCLUDE_DIR=/nix/store/ndn52sc7anhfvn2h047ffwsqn25hs62i-logos-view-module-include
+logos-forum_module-module-lib> -- The CXX compiler identification is Clang 19.1.7
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info
+logos-forum_module-module-lib> -- Detecting CXX compiler ABI info - done
+logos-forum_module-module-lib> -- Check for working CXX compiler: /nix/store/zzx6cfl99zknfrj9v7lmrshwzslfjv26-clang-wrapper-19.1.7/bin/clang++ - skipped
+logos-forum_module-module-lib> -- Detecting CXX compile features
+logos-forum_module-module-lib> -- Detecting CXX compile features - done
+logos-forum_module-module-lib> -- LogosModule.cmake: /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake
+logos-forum_module-module-lib> -- Found logos-module at: /nix/store/82rsdw74zycrwvy6aad94jnrg27f9a9a-logos-module-0.1.0
+logos-forum_module-module-lib> -- Found logos-cpp-sdk at: /nix/store/a33v9dppa4k88xlv8cbls5n67vdrsik0-logos-cpp-sdk
+logos-forum_module-module-lib> -- Found logos-qt-sdk at: /nix/store/rwvd3ymqb9qq9z1pifq6gynvgwp07493-logos-qt-sdk
+logos-forum_module-module-lib> -- Found logos-protocol at: /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol
+logos-forum_module-module-lib> -- Qt host runtime: logos-qt-host::logos_qt_host at /nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+logos-forum_module-module-lib> -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+logos-forum_module-module-lib> -- Found Threads: TRUE
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC
+logos-forum_module-module-lib> -- Performing Test HAVE_STDATOMIC - Success
+logos-forum_module-module-lib> -- Found WrapAtomic: TRUE
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/qvv2ddin29xa8fqmsv567b6xlnhbvpv0-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:48 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found Boost: /nix/store/2blqfsz18yp066ky15nvkihcvwqq7bqz-boost-1.87.0-dev/lib/cmake/Boost-1.87.0/BoostConfig.cmake (found version "1.87.0")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:622 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Found OpenSSL: /nix/store/0ais7wnqw8xzj0331c2jka53s6g14wqb-openssl-3.5.1/lib/libcrypto.dylib (found version "3.5.1")
+logos-forum_module-module-lib> -- Found nlohmann_json: /nix/store/hs7wcady8i97dqq7qiaiaq05srnq6yih-nlohmann_json-3.11.3/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.3")
+logos-forum_module-module-lib> CMake Warning (dev) at /nix/store/l61qallmailjkxr24ynyi91hq2cy96qm-logos-protocol/lib/cmake/logos-protocol/logos-protocolConfig.cmake:49 (find_package):
+logos-forum_module-module-lib>   Policy CMP0167 is not set: The FindBoost module is removed.  Run "cmake
+logos-forum_module-module-lib>   --help-policy CMP0167" for policy details.  Use the cmake_policy command to
+logos-forum_module-module-lib>   set the policy and suppress this warning.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> Call Stack (most recent call first):
+logos-forum_module-module-lib>   /nix/store/qvv2ddin29xa8fqmsv567b6xlnhbvpv0-cmake-3.31.7/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+logos-forum_module-module-lib>   /nix/store/awgcgwqqr529fg6lph2mhb3mjscs0a73-logos-qt-host-0.1.0/lib/cmake/logos-qt-host/logos-qt-hostConfig.cmake:34 (find_dependency)
+logos-forum_module-module-lib>   /nix/store/wfvnsjzflhgh2mihmj16yx655x8zqhk3-fi97x4xl2saxayr1qrynyycm45ifshqg-source/cmake/LogosModule.cmake:625 (find_package)
+logos-forum_module-module-lib>   CMakeLists.txt:16 (logos_module)
+logos-forum_module-module-lib> This warning is for project developers.  Use -Wno-dev to suppress it.
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Logos module forum_module: replica factory plugin from src/forum_module.rep (class Forum, QML Logos.Forum.Forum)
+logos-forum_module-module-lib> -- Logos module forum_module configured successfully
+logos-forum_module-module-lib> -- Configuring done (1.3s)
+logos-forum_module-module-lib> -- Generating done (0.1s)
+logos-forum_module-module-lib> CMake Warning:
+logos-forum_module-module-lib>   Manually-specified variables were not used by the project:
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib>     BUILD_TESTING
+logos-forum_module-module-lib>     CMAKE_C_COMPILER
+logos-forum_module-module-lib>     CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+logos-forum_module-module-lib>     CMAKE_POLICY_DEFAULT_CMP0025
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> 
+logos-forum_module-module-lib> -- Build files have been written to: /nix/var/nix/builds/nix-54383-184972338/4li0qrgc5p5xvqgf51vwgbzs2x63hi9n-source/build
+logos-forum_module-module-lib> cmake: enabled parallel building
+logos-forum_module-module-lib> cmake: enabled parallel installing
+logos-forum_module-module-lib> Running phase: buildPhase
+logos-forum_module-module-lib> build flags: -j12
+logos-forum_module-module-lib> [0/2] Re-checking globbed directories...
+logos-forum_module-module-lib> [1/20] Automatic MOC for target forum_module_replica_factory
+logos-forum_module-module-lib> [2/20] Automatic MOC for target forum_module_module_plugin
+logos-forum_module-module-lib> [3/20] Generating rep_forum_module_replica.h
+logos-forum_module-module-lib> [4/20] Generating rep_forum_module_source.h
+logos-forum_module-module-lib> [5/20] Generating moc_rep_forum_module_replica.cpp
+logos-forum_module-module-lib> [6/20] Generating moc_rep_forum_module_source.cpp
+logos-forum_module-module-lib> [7/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/archive/archive_core.cpp.o
+logos-forum_module-module-lib> [8/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/forum_module_replica_factory_autogen/mocs_compilation.cpp.o
+logos-forum_module-module-lib> [9/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/core/forum_core.cpp.o
+logos-forum_module-module-lib> [10/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/view_plugin_base_forum_module/LogosViewPluginBase.cpp.o
+logos-forum_module-module-lib> [11/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/moc_rep_forum_module_source.cpp.o
+logos-forum_module-module-lib> [12/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/forum_module_module_plugin_autogen/mocs_compilation.cpp.o
+logos-forum_module-module-lib> [13/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/replica_factory_forum_module/LogosViewReplicaFactory.cpp.o
+logos-forum_module-module-lib> [14/20] Building CXX object CMakeFiles/forum_module_replica_factory.dir/moc_rep_forum_module_replica.cpp.o
+logos-forum_module-module-lib> [15/20] Linking CXX shared library modules/forum_module_replica_factory.dylib
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/fn7iqppsl6z7ikbspxnjirwdz345w8mj-qtdeclarative-6.9.2/lib/QtQml.framework/Versions/A/QtQml) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Versions/A/QtCore) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a0z4ipq0hcakknsi5f1icgpdmch3simf-qtremoteobjects-6.9.2/lib/QtRemoteObjects.framework/Versions/A/QtRemoteObjects) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtNetwork.framework/Versions/A/QtNetwork) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> [16/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/forum_module_ui_glue.cpp.o
+logos-forum_module-module-lib> [17/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/src/forum_module_backend.cpp.o
+logos-forum_module-module-lib> [18/20] Building CXX object CMakeFiles/forum_module_module_plugin.dir/generated_code/logos_sdk.cpp.o
+logos-forum_module-module-lib> [19/20] Linking CXX shared library modules/forum_module_plugin.dylib
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtNetwork.framework/Versions/A/QtNetwork) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a0z4ipq0hcakknsi5f1icgpdmch3simf-qtremoteobjects-6.9.2/lib/QtRemoteObjects.framework/Versions/A/QtRemoteObjects) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> ld: warning: dylib (/nix/store/a9aq909fc6ymnawnk877qcs4gklzm1c1-qtbase-6.9.2/lib/QtCore.framework/Versions/A/QtCore) was built for newer macOS version (12.0) than being linked (11.3)
+logos-forum_module-module-lib> Running phase: glibPreInstallPhase
+logos-forum_module-module-lib> Running phase: installPhase
+logos-forum_module-module-lib> Copying replica factory plugin: forum_module_replica_factory.dylib
+logos-forum_module-module-lib> Running phase: qtOwnPathsHook
+logos-forum_module-module-lib> Running phase: fixupPhase
+logos-forum_module-module-lib> checking for references to /nix/var/nix/builds/nix-54383-184972338/ in /nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0...
+logos-forum_module-module-lib> patching script interpreter paths in /nix/store/2rq58ynfi8xq8ym64yasspg647njmy8c-logos-forum_module-module-lib-0.1.0
+logos-forum_module-module-lib> Running phase: postPatchMkspecs
+building '/nix/store/ck94ysa3597209sgchxnlmlh6cfrpavg-logos-forum_module-module.drv'...
+logos-forum_module-module> Normalized LIDL: /nix/var/nix/builds/nix-54383-184972339/tmp.EtqBVukO17
+logos-forum_module-module> Installed canonical LIDL contract: delivery_module
+logos-forum_module-module> Normalized LIDL: /nix/var/nix/builds/nix-54383-184972339/tmp.UFcrr6wFiA
+logos-forum_module-module> Installed canonical LIDL contract: storage_module
+logos-forum_module-module> Copied QML view directory from src/qml
+logos-forum_module-module> Generated qmldir at qml/qmldir (module com.logos.module.forum_module)
+error: interrupted by the user

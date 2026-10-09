@@ -209,8 +209,10 @@ starts the release app on a profile, `stop` quits everything it started.
   thread (flat — no nested reply-to-reply). Topics are ordered by latest
   activity, and a badge counts posts that arrived since you last opened the
   topic (stored locally only).
-  A shared **General** topic exists on every instance: its id is derived
-  from the forum id with a public, well-known key, so it confers no authority.
+  Two shared topics exist on every instance, **General** and **Sandbox**
+  (for trying the forum out; this project's own automated checks post
+  there): their ids are derived from the forum id with public, well-known
+  keys, so they confer no authority.
 - **Search**: the box above the topics filters topics by title, post text or
   author (alias or key id) and filters the open thread the same way. It runs
   locally; nothing is sent.
@@ -258,6 +260,8 @@ starts the release app on a profile, `stop` quits everything it started.
   store's own retention has passed, from whoever keeps their snapshot online.
   *Storage is not anonymous*: the saver's device serves the snapshot and the
   announcement names its Storage address; restoring is a direct download.
+  The card shows the outcome: posts restored, or that the saving device is
+  not reachable right now (a snapshot is served only while it runs).
   Only posts already sent through Mix go into a snapshot, and the
   announcement is signed with a one-time key, never your alias. Basecamp's
   Storage module is started on first use (`FORUM_STORAGE_CONFIG` overrides

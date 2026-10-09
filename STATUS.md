@@ -10,6 +10,27 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — Sandbox topic and restore outcomes, 2026-10-09**
+(`evidence/m5-package/sandbox-20261009/NOTE.txt`): a second shared topic,
+**Sandbox**, exists on every instance (well-known key like General; General's
+id is unchanged and pinned in a core test); the live harnesses and the
+Windows smoke now post there instead of General. Snapshot cards show their
+own restore outcome (fetching, restored counts, or "not reachable right now"
+when the saving device is offline, with Try again). `tools/demo_seed.py` adds
+labelled, local-only demo posts dated over the last two days for recording.
+Core 194/0 (`verify-core-20261008-161544`), UI 17/17
+(`verify-ui-20261008-173600`), live m7 storage PASS
+(`m7-storage/snapshot-20261009-110732`) and m6 live PASS
+(`m6-live/live-20261009-110922`), all posts in Sandbox.
+**Correction:** `result-ui-dev` had not been rebuilt since 2026-10-06, so the
+2026-10-07 live, history and storage receipts ran Forum code from 2026-10-06
+(the launcher's plugin held the 795-line pre-restyle Main.qml). A storage run
+on 2026-10-08 (`m7-storage/snapshot-20261008-164230`) used the same old
+launcher and posted in General; kept. The receipts above use a launcher
+rebuilt from the current tree (checked: 1424-line Main.qml, Sandbox in the
+backend). Two UI runs on 2026-10-08 (`verify-ui-20261008-162646`, `-163352`)
+were interrupted during the build, not test failures.
+
 **Update — reading polish, 2026-10-07** (`evidence/m5-package/polish-20261007/NOTE.txt`):
 the thread keeps the reader's place on refresh ("New posts below" instead
 of a jump), shows relative times under day separators with the date under

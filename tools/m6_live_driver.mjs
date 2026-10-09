@@ -8,6 +8,7 @@
 //   node tools/m6_live_driver.mjs --a-port 3768 --b-port 3769 --text "<post>" \
 //     [--ready-wait 180000] [--wait 300000]
 import net from "node:net";
+const SANDBOX = "root.backend.openTopic(root.topics.filter(function (t) { return t.indexOf('|Sandbox (') > 0 })[0].split('|')[0])";
 
 const args = process.argv.slice(2);
 function arg(name, dflt) {
@@ -104,6 +105,14 @@ try {
   await b.connect();
   await waitFor(async () => a.expectTexts(["Module ready"]), 30000, "A backend");
   await waitFor(async () => b.expectTexts(["Module ready"]), 30000, "B backend");
+  // Test posts go to the shared Sandbox topic, never General.
+  for (const x of [a, b]) {
+    await x.send("evaluate", { expression: SANDBOX });
+    await waitFor(async () => {
+      const r = await x.send("evaluate", { expression: "root.currentTopicTitle" });
+      if (r.result !== "Sandbox") throw new Error("not in Sandbox: " + JSON.stringify(r));
+    }, 10000, "Sandbox open");
+  }
   result.a_initial_state = await evalStr(a, "transportState");
   result.b_initial_state = await evalStr(b, "transportState");
   if (/^transport ready/.test(result.a_initial_state) || /^transport ready/.test(result.b_initial_state)) {

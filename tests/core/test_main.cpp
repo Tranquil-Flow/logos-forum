@@ -489,6 +489,15 @@ static void test_default_topic_shared_across_instances()
     CHECK(ev.has_value());
     auto other = a.ensure_default_topic("another-forum");
     CHECK(other.has_value() && *other != *ta);
+    // Pinned: General's id is what every released instance already holds.
+    CHECK_EQ(*ta, std::string("6dd197737fd8823d246042887f3199242e632bb00c0ffefb3e5699520d052344"));
+    // "Sandbox" is a second well-known topic: shared, distinct, never queued.
+    auto sa = a.ensure_default_topic("general", "Sandbox");
+    auto sb = b.ensure_default_topic("general", "Sandbox");
+    CHECK(sa.has_value() && sb.has_value() && *sa == *sb && *sa != *ta);
+    if (sa) CHECK_EQ(*sa, std::string("a154718dfc6a0a7e15e8a3b26af980226f2804dba1b99a9a1e41c1cb97f1ff73"));
+    CHECK_EQ(a.pending().size(), size_t(0));
+    CHECK(!a.ensure_default_topic("general", "").has_value());
 
     // A post made on instance A, merged on instance B, shows in B's thread.
     const KeyPair anon = KeyPair::generate();

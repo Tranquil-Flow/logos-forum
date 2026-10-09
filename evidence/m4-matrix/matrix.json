@@ -164,12 +164,12 @@
           "sha256": "5a6282157c3565bca941164f13d942c6ac05602b3264cdbf992f92377ed0291f"
         },
         {
-          "artifact": "m6-live/live-20261007-103328/driver-result.json (public logos.dev)",
-          "sha256": "8cccbbb6068496b646af79f4b43dbccc21610896f078840ab82040f2ca3fb349"
+          "artifact": "m6-live/live-20261009-110922/driver-result.json (public logos.dev)",
+          "sha256": "ab72766ffd41a66989f1a245790b7c96ef61cc443305b6c7e59cdf501f141f34"
         },
         {
-          "artifact": "m6-live/live-20261007-091839/driver-result.json (public logos.dev)",
-          "sha256": "dcb6ab56bdd3ca4a87933aeaf3a22faeb57c2317609899afddd00d7aafaf434c"
+          "artifact": "m6-live/live-20261007-103328/driver-result.json (public logos.dev)",
+          "sha256": "8cccbbb6068496b646af79f4b43dbccc21610896f078840ab82040f2ca3fb349"
         },
         {
           "artifact": "m2b-cli Required receipts",
@@ -536,7 +536,7 @@
         },
         {
           "artifact": "README.md",
-          "sha256": "56851e89184ce356c60b349768756280e2eee3ced7ad6bb0e15878024282ccf7"
+          "sha256": "a67a055564a223e2a8acca4f57dbf130ccbae03f376adf5c415e1b52e492b7d3"
         },
         {
           "artifact": "docs/FURPS.md",
@@ -612,8 +612,8 @@
           "sha256": "48aeb6d2183f1a6ef0e34281dad71911971dd3b7088a0e8d619a387dab1586cc"
         },
         {
-          "artifact": "m7-storage/snapshot-20261007-103528/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
-          "sha256": "1a4bde363f21dea846f483ddc2ee753bdc1372b6e377709342ecdf3191cb0710"
+          "artifact": "m7-storage/snapshot-20261009-110732/b-driver.json (in-app Logos Storage restore; reader never joined Delivery)",
+          "sha256": "28260dd69cef49c6719621b4c6fa26db8b78d1fd590248f407b89d69cc4689a2"
         }
       ],
       "notes": "LIVE on public logos.dev, in the app: the author posts and quits; a reader started afterwards with an empty store receives the post through Delivery's store catch-up (source=history), and 'Load older posts' fetches the forum's last 7 days from a logos.dev store node (paged, bounded) \u2014 every event verified before it is stored. Store retention is the network's. In the app, 'Save snapshot' puts a topic's signed posts on Logos Storage and announces the CID through Mix; a reader that never joined Delivery restored it from the announcement and re-verified every post (Storage nodes on loopback, author's node online to serve it). Non-author archives with authors absent (R07/R08) remain the harness layer",
