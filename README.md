@@ -297,6 +297,7 @@ starts the release app on a profile, `stop` quits everything it started.
 - `docs/MATRIX.md` — R01–R17 crosswalk with sha256-bound receipts
 - `STATUS.md` — live ledger: receipts (failures included), open limitations
 - `docs/CONTRACT.md` — wire/state contracts (canonical encoding, inventory form)
+- `docs/security.md` — what is protected, the identity model, and the limits
 - `evidence/m0-*` … `evidence/m4-matrix/` — per-slice receipts
 
 ## Known limitations (named, not hidden)
@@ -338,6 +339,11 @@ starts the release app on a profile, `stop` quits everything it started.
    — `evidence/m5-package/linux-amd64-*/NOTE.txt`; CI builds it.)
 8. Organic use (R16) and catalog/video (R15) are external gates — prepared
    for, never fabricated.
+9. Alias keys are stored unencrypted unless you turn on *Protect keys with
+   password* (identity panel). There is no password reset, and a locked store
+   protects keys at rest, not a running process. Spam resistance is the
+   send pacing and a live-ingest budget — there is no proof of work or
+   per-author quota. Details and the identity model: `docs/security.md`.
 9. Alias keys are stored unencrypted in `forum.db` inside the Basecamp
    profile, protected only by the operating system's user account (anonymous
    posts keep no key).

@@ -46,7 +46,7 @@ cp "$STATE/a-storage.json" "$STATE/b-storage.json" "$EVID/"
 unset FORUM_TRANSPORT_CONFIG
 TEXT="TECHNICAL TEST DATA: storage snapshot check $(date -u +%FT%TZ)"
 
-LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" FORUM_STORAGE_CONFIG="$STATE/a-storage.json" \
+LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" FORUM_STORAGE_CONFIG="$STATE/a-storage.json" FORUM_ALLOW_PRIVATE_PEERS=1 \
   QML_INSPECTOR_PORT=3768 "$UI_DEV" >"$EVID/a-app.log" 2>&1 &
 PIDS+=($!); sleep 8
 node "$REPO_ROOT/tools/m7_storage_driver.mjs" --port 3768 --phase save --text "$TEXT" \
@@ -58,7 +58,7 @@ fi
 ANN="$(node -e 'const r=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));process.stdout.write(r.announcement)' "$EVID/a-driver.json")"
 
 # The reader starts only now, with an empty store and no Delivery node.
-LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" FORUM_STORAGE_CONFIG="$STATE/b-storage.json" \
+LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" FORUM_STORAGE_CONFIG="$STATE/b-storage.json" FORUM_ALLOW_PRIVATE_PEERS=1 \
   QML_INSPECTOR_PORT=3769 "$UI_DEV" >"$EVID/b-app.log" 2>&1 &
 PIDS+=($!); sleep 8
 node "$REPO_ROOT/tools/m7_storage_driver.mjs" --port 3769 --phase restore --text "$TEXT" \

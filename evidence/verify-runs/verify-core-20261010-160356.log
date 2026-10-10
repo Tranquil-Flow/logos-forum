@@ -1,0 +1,11 @@
+== verify: core
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+this derivation will be built:
+  /nix/store/b6y8z00kd3wjlvzicp9ciabmivka2928-forum-core-tests.drv
+building '/nix/store/b6y8z00kd3wjlvzicp9ciabmivka2928-forum-core-tests.drv'...
+forum-core-tests> core tests: 307 checks, 0 failures
+core tests: 307 checks, 0 failures
+PASS core

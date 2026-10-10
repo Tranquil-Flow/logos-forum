@@ -1,0 +1,28 @@
+== verify: package
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+these 3 derivations will be built:
+  /nix/store/snpbdhnifi95s81k2p46h33hxy9nswkg-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/c6zxbyk5yharylh3y98a8d1lbp1jjz6h-logos-forum_module-module.drv
+  /nix/store/snn5598ck49c3v8pv8x482a3g2pizh3q-logos-forum_module-module-lgx-0.1.0.drv
+building '/nix/store/snpbdhnifi95s81k2p46h33hxy9nswkg-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/c6zxbyk5yharylh3y98a8d1lbp1jjz6h-logos-forum_module-module.drv'...
+building '/nix/store/snn5598ck49c3v8pv8x482a3g2pizh3q-logos-forum_module-module-lgx-0.1.0.drv'...
+warning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+these 5 derivations will be built:
+  /nix/store/ykk5gaiihj579cgl2b9mgrmv8j685b9h-logos-forum_module-module-lib-0.1.0.drv
+  /nix/store/sx4n1xvzmwbgqk68rkcy73cpi2k0551y-logos-forum_module-module.drv
+  /nix/store/2jqahpcm0r8s0clkyh69cfjf7kny6kkk-closure-info.drv
+  /nix/store/6h94a3658mm857hk0iv5fk4p7yw4dabl-logos-forum_module-module-bundle-0.1.0.drv
+  /nix/store/ak9mpn4kcwmbz291ag7gmf50yllmcb4f-logos-forum_module-module-lgx-0.1.0.drv
+building '/nix/store/ykk5gaiihj579cgl2b9mgrmv8j685b9h-logos-forum_module-module-lib-0.1.0.drv'...
+building '/nix/store/sx4n1xvzmwbgqk68rkcy73cpi2k0551y-logos-forum_module-module.drv'...
+building '/nix/store/2jqahpcm0r8s0clkyh69cfjf7kny6kkk-closure-info.drv'...
+building '/nix/store/6h94a3658mm857hk0iv5fk4p7yw4dabl-logos-forum_module-module-bundle-0.1.0.drv'...
+building '/nix/store/ak9mpn4kcwmbz291ag7gmf50yllmcb4f-logos-forum_module-module-lgx-0.1.0.drv'...
+PASS package

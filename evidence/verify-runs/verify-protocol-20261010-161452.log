@@ -1,0 +1,26 @@
+== verify: protocol
+=== 1/5 start relay topology
+relays up: {"core1": 70567, "core2": 71876, "core3": 72619, "core4": 73140}
+=== 2/5 app configs
+wrote ~/.local/share/lp0026-forum-dev/m1-run/sender.json for role sender (mode 0600)
+wrote ~/.local/share/lp0026-forum-dev/m1-run/receiver.json for role receiver (mode 0600)
+=== 3/5 launch two standalone instances
+=== 4/5 two-instance Required round trip
+{
+  "status": "PASS",
+  "text": "TECHNICAL TEST DATA: M1 Required-send round trip",
+  "sender_port": 3768,
+  "receiver_port": 3769,
+  "sender_propagated": true,
+  "receiver_rendered": true,
+  "recheck_confirmed_own_node": true
+}
+=== 5/5 verdict
+{"status":"PASS","layer":"local-loopback-delivery-mix","evidence":"<repo>/evidence/m1-transport/smoke-20261010-161452"}
+=== cleanup 2026-10-10T14:16:00Z
+<repo>/tools/m1_run.sh: line 33: 70557 Terminated: 15          "$PY" "$REPO_ROOT/tools/m1_topology.py" --state "$STATE/relays" --evidence "$EVID" --runtime "$RUNTIME" start > "$EVID/relays.log" 2>&1
+<repo>/tools/m1_run.sh: line 33: 73469 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_TRANSPORT_CONFIG="$STATE/sender.json" FORUM_DB_PATH="$STATE/sender-forum.db" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/sender-app.log" 2>&1
+<repo>/tools/m1_run.sh: line 33: 73470 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_TRANSPORT_CONFIG="$STATE/receiver.json" FORUM_DB_PATH="$STATE/receiver-forum.db" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/receiver-app.log" 2>&1
+stop issued for: core1, core2, core3, core4
+cleanup verified: no smoke-owned processes remain
+PASS protocol

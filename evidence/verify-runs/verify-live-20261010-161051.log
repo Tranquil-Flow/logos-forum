@@ -1,0 +1,65 @@
+== verify: live
+{
+  "status": "PASS",
+  "layer": "public-logos.dev-mix-required",
+  "text": "TECHNICAL TEST DATA: live logos.dev round trip 2026-10-10T14:10:59Z",
+  "timeline": [
+    {
+      "t_s": 1,
+      "what": "A connect clicked"
+    },
+    {
+      "t_s": 1,
+      "what": "B connect clicked"
+    },
+    {
+      "t_s": 1,
+      "what": "A post clicked (before ready)"
+    },
+    {
+      "t_s": 7,
+      "what": "A connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 7,
+      "what": "B connected",
+      "connection": "connected"
+    },
+    {
+      "t_s": 7,
+      "what": "A state",
+      "state": "sending via Required policy (request e2a1e0c00637a7d3955e) — awaiting propagation"
+    },
+    {
+      "t_s": 9,
+      "what": "A state",
+      "state": "Required send propagated (request e2a1e0c00637a7d3955e)"
+    },
+    {
+      "t_s": 9,
+      "what": "B rendered [received]"
+    }
+  ],
+  "a_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "b_initial_state": "no transport configured — posting unavailable (Required policy)",
+  "a_post_outcome": "Connecting… posts you write now are saved and sent once connected.",
+  "a_thread_at_post": "[]",
+  "a_connection_at_post": "connecting",
+  "a_ready_state": "sending via Required policy (request e2a1e0c00637a7d3955e) — awaiting propagation",
+  "b_ready_state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events",
+  "a_states": [
+    "sending via Required policy (request e2a1e0c00637a7d3955e) — awaiting propagation",
+    "Required send propagated (request e2a1e0c00637a7d3955e)"
+  ],
+  "manual_retries": 0,
+  "a_propagated": true,
+  "b_rendered": true,
+  "a_thread": "[\"id eca6883f3a21f015 [sent]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-10T14:10:59Z\"]",
+  "b_thread": "[\"id eca6883f3a21f015 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-10T14:10:59Z\"]"
+}
+{"status":"PASS","layer":"public-logos.dev-mix-required","evidence":"<repo>/evidence/m6-live/live-20261010-161051"}
+<repo>/tools/m6_live.sh: line 23: 60515 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/a-forum.db" QML_INSPECTOR_PORT=3768 "$UI_DEV" > "$EVID/a-app.log" 2>&1
+<repo>/tools/m6_live.sh: line 23: 60516 Terminated: 15          LOGOS_QML_HOT_RELOAD=0 FORUM_DB_PATH="$STATE/b-forum.db" QML_INSPECTOR_PORT=3769 "$UI_DEV" > "$EVID/b-app.log" 2>&1
+cleanup verified: no live-run processes remain
+PASS live

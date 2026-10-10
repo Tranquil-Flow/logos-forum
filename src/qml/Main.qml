@@ -32,6 +32,8 @@ Item {
     readonly property bool aliasHidden: backend ? backend.aliasHidden : false
     readonly property string rotationInfo: backend ? backend.rotationInfo : ""
     readonly property int rotateEvery: backend ? backend.rotateEvery : 0
+    readonly property bool keysProtected: backend ? backend.keysProtected : false
+    readonly property bool keysLocked: backend ? backend.keysLocked : false
     readonly property int rotateDays: backend ? backend.rotateDays : 0
     readonly property string searchText: backend ? backend.searchText : ""
     readonly property string archiveState: backend ? backend.archiveState : ""
@@ -1222,6 +1224,94 @@ Item {
                                 wrapMode: Text.Wrap
                                 Layout.fillWidth: true
                             }
+                            // Keys at rest: optional password protection.
+                            Flow {
+                                Layout.fillWidth: true
+                                spacing: 8
+                                FField {
+                                    id: keysPassword
+                                    objectName: "keysPassword"
+                                    echoMode: TextInput.Password
+                                    placeholderText: root.keysProtected ? "password" : "new password (8+ characters)"
+                                    enabled: root.usable
+                                    width: 220
+                                    Accessible.name: "Key password"
+                                    onAccepted: {
+                                        if (root.keysProtected && root.keysLocked) unlockKeysButton.clicked()
+                                        else if (!root.keysProtected && protectKeysButton.enabled) protectKeysButton.clicked()
+                                    }
+                                }
+                                // A typo here would lock the keys for good: ask twice.
+                                FField {
+                                    id: keysPassword2
+                                    objectName: "keysPassword2"
+                                    visible: !root.keysProtected
+                                    echoMode: TextInput.Password
+                                    placeholderText: "repeat password"
+                                    enabled: root.usable
+                                    width: 220
+                                    Accessible.name: "Repeat key password"
+                                    onAccepted: if (protectKeysButton.enabled) protectKeysButton.clicked()
+                                }
+                                FButton {
+                                    id: protectKeysButton
+                                    objectName: "protectKeysButton"
+                                    visible: !root.keysProtected
+                                    text: "Protect keys with password"
+                                    enabled: root.usable && keysPassword.text.length >= 8 && keysPassword.text === keysPassword2.text
+                                    ToolTip.visible: hovered
+                                    ToolTip.text: "Seals your alias keys on this device. There is no reset: if you forget the password, those keys are gone (earlier posts stay valid). Anonymous posting never needs it."
+                                    onClicked: logos.watch(root.backend.protectKeys(keysPassword.text), function (v) {
+                                        outcome.text = v === "ok" ? "Keys protected — they unlock with this password" : v
+                                        if (v === "ok") { keysPassword.text = ""; keysPassword2.text = "" }
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                FButton {
+                                    id: unlockKeysButton
+                                    objectName: "unlockKeysButton"
+                                    visible: root.keysProtected && root.keysLocked
+                                    text: "Unlock keys"
+                                    kind: "primary"
+                                    enabled: root.usable && keysPassword.text.length > 0
+                                    onClicked: logos.watch(root.backend.unlockKeys(keysPassword.text), function (v) {
+                                        outcome.text = v === "ok" ? "Keys unlocked" : v
+                                        if (v === "ok") keysPassword.text = ""
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                FButton {
+                                    id: lockKeysButton
+                                    objectName: "lockKeysButton"
+                                    visible: root.keysProtected && !root.keysLocked
+                                    text: "Lock now"
+                                    enabled: root.usable
+                                    onClicked: logos.watch(root.backend.lockKeys(), function (v) {
+                                        outcome.text = v === "ok" ? "Keys locked — alias posting is paused until you unlock" : v
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                                FButton {
+                                    id: removeProtectionButton
+                                    objectName: "removeProtectionButton"
+                                    visible: root.keysProtected
+                                    text: "Remove protection"
+                                    enabled: root.usable && keysPassword.text.length > 0
+                                    onClicked: logos.watch(root.backend.removeKeyProtection(keysPassword.text), function (v) {
+                                        outcome.text = v === "ok" ? "Protection removed — keys are stored unencrypted again" : v
+                                        if (v === "ok") keysPassword.text = ""
+                                    }, function (e) { outcome.text = "Error: " + e })
+                                }
+                            }
+                            Text {
+                                objectName: "keysHint"
+                                textFormat: Text.PlainText
+                                text: !root.keysProtected
+                                      ? "Keys are stored unencrypted on this device. A password seals them (no reset if forgotten)."
+                                      : root.keysLocked
+                                        ? "Keys are locked: unlock them to post with an alias. Anonymous posting still works."
+                                        : "Keys are sealed on this device and unlocked until you lock them or quit."
+                                color: t.text2; font.family: t.sans; font.pixelSize: 12
+                                wrapMode: Text.Wrap
+                                Layout.fillWidth: true
+                            }
                             Rectangle { Layout.fillWidth: true; height: 1; color: t.line }
                         }
 
@@ -1286,6 +1376,11 @@ Item {
                                         Layout.maximumWidth: 160
                                     }
                                     Text {
+                                        visible: root.selectedAlias !== "" && root.keysLocked
+                                        text: "locked"
+                                        color: t.accent; font.family: t.sans; font.pixelSize: 11; font.weight: Font.Medium
+                                    }
+                                    Text {
                                         visible: root.selectedAlias !== ""
                                         text: root.selectedUid.slice(0, 8)
                                         color: t.text3; font.family: t.mono; font.pixelSize: 11
@@ -1336,6 +1431,9 @@ Item {
                                         outcome.text = "Not sent — the local store is unavailable; your text is kept here."
                                     } else if (value === "failed") {
                                         outcome.text = "Not sent — the post was rejected by local validation; your text is kept here."
+                                    } else if (value === "locked") {
+                                        outcome.text = "Not sent — your keys are locked. Unlock them, or choose Anonymous; your text is kept here."
+                                        root.identityOpen = true
                                     } else if (value === "too long") {
                                         outcome.text = "Not sent — the post is longer than " + root.maxPostBytes + " bytes."
                                     } else if (value === "queued") {

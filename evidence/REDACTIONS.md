@@ -19,7 +19,7 @@ order:
 `published_sha256` is the hash of the file in this repository (the one
 docs/MATRIX.md binds to).
 
-Files normalised: 758
+Files normalised: 821
 
 | file | rules (count) | original sha256 | published sha256 |
 | --- | --- | --- | --- |
@@ -115,6 +115,15 @@ Files normalised: 758
 | evidence/m1-transport/smoke-20261007-092314/receiver-app.log | repo-path (2), home-dir (2) | `c619807b7b1f1472…` | `aa37357d06fb0335…` |
 | evidence/m1-transport/smoke-20261007-092314/result.json | repo-path (1) | `5c5ea72bb1ac4b7e…` | `35f5fbe4cbf69e4f…` |
 | evidence/m1-transport/smoke-20261007-092314/sender-app.log | repo-path (2), home-dir (1) | `c6920a429dd2bcae…` | `61d8cad3b8050b56…` |
+| evidence/m1-transport/smoke-20261010-150651/receiver-app.log | repo-path (2), home-dir (2) | `39d99539ffde0e60…` | `26efbdf9b95c4d58…` |
+| evidence/m1-transport/smoke-20261010-150651/result.json | repo-path (1) | `b4085c4915fa66bd…` | `2fd58a5930f40233…` |
+| evidence/m1-transport/smoke-20261010-150651/sender-app.log | repo-path (2), home-dir (1) | `8d0d5c305fff917c…` | `badff37ea8c6226d…` |
+| evidence/m1-transport/smoke-20261010-155334/receiver-app.log | repo-path (2), home-dir (1) | `d46e6a4e02e3b64b…` | `f720d8dc32dc9488…` |
+| evidence/m1-transport/smoke-20261010-155334/result.json | repo-path (1) | `fbb99921b67e37d7…` | `977b04ac1def3bc5…` |
+| evidence/m1-transport/smoke-20261010-155334/sender-app.log | repo-path (2), home-dir (1) | `4895deefccef295c…` | `e2423b8f0c9063cc…` |
+| evidence/m1-transport/smoke-20261010-161452/receiver-app.log | repo-path (2), home-dir (1) | `339132dd21576e5a…` | `841bd8d938eee253…` |
+| evidence/m1-transport/smoke-20261010-161452/result.json | repo-path (1) | `2444cfbef400198d…` | `d91875619d7cce63…` |
+| evidence/m1-transport/smoke-20261010-161452/sender-app.log | repo-path (2), home-dir (2) | `49eed2f2d9783cfa…` | `89b896b8781fb3a4…` |
 | evidence/m2-core/core-tests-1.log | repo-path (2) | `13e6d4852b6e692c…` | `88eb4a05a607a7dc…` |
 | evidence/m2-core/core-tests-2.log | repo-path (1) | `5446e9408eaec0b6…` | `3609f4f37d7e3698…` |
 | evidence/m2-core/core-tests-4.log | repo-path (1) | `12f9755fb0aca93c…` | `c6b19c973a69d7e5…` |
@@ -596,6 +605,15 @@ Files normalised: 758
 | evidence/m6-live/history-20261007-103345/a-app.log | repo-path (2), home-dir (1) | `fb881969db089e92…` | `7468c833958128bc…` |
 | evidence/m6-live/history-20261007-103345/b-app.log | repo-path (2), home-dir (1) | `05121b042ba2b67c…` | `a1beaa3a77a9b2e2…` |
 | evidence/m6-live/history-20261007-103345/result.json | repo-path (1) | `29886664c6dc6fbb…` | `0b24edbdc3a49b57…` |
+| evidence/m6-live/history-20261010-150934/a-app.log | repo-path (2), home-dir (1) | `71b8f9efb500a92e…` | `a3991a1e86b00a8b…` |
+| evidence/m6-live/history-20261010-150934/b-app.log | repo-path (2), home-dir (1) | `58325988abe89992…` | `a652c6a2c03ae9e2…` |
+| evidence/m6-live/history-20261010-150934/result.json | repo-path (1) | `8866619066831f69…` | `2301935038078110…` |
+| evidence/m6-live/history-20261010-154936/a-app.log | repo-path (2), home-dir (1) | `105267a864df0ff9…` | `4374045d3d1111b5…` |
+| evidence/m6-live/history-20261010-154936/b-app.log | repo-path (2), home-dir (1) | `87a6e50373a285b1…` | `39277ddcdd71c0e8…` |
+| evidence/m6-live/history-20261010-154936/result.json | repo-path (1) | `d8b3eae8d3e88172…` | `08bd006e2187d14f…` |
+| evidence/m6-live/history-20261010-161110/a-app.log | repo-path (2), home-dir (1) | `db507c6fcee3203d…` | `8a3070e6f51a2061…` |
+| evidence/m6-live/history-20261010-161110/b-app.log | repo-path (2), home-dir (1) | `3f3f76f459809e05…` | `9be1aee7a161bce1…` |
+| evidence/m6-live/history-20261010-161110/result.json | repo-path (1) | `8a1937722f53b843…` | `8e8318a9ae54a847…` |
 | evidence/m6-live/live-20261004-122221/a-app.log | repo-path (2), home-dir (1) | `9c65662c9d282cca…` | `7c3cc1b095ac5698…` |
 | evidence/m6-live/live-20261004-122221/b-app.log | repo-path (2), home-dir (1) | `87495c5975c883d5…` | `ca4540e4b36c1ccb…` |
 | evidence/m6-live/live-20261004-122221/result.json | repo-path (1) | `739aab4faccecafd…` | `b8fd95afb5dfa663…` |
@@ -638,6 +656,15 @@ Files normalised: 758
 | evidence/m6-live/live-20261009-110922/a-app.log | repo-path (2), home-dir (1) | `6904e5e311d2d002…` | `094843287642e048…` |
 | evidence/m6-live/live-20261009-110922/b-app.log | repo-path (2), home-dir (1) | `9e17d24e77fd44f1…` | `e8090510f8ea3483…` |
 | evidence/m6-live/live-20261009-110922/result.json | repo-path (1) | `9819253fb92594db…` | `97e47e0588426f62…` |
+| evidence/m6-live/live-20261010-150911/a-app.log | repo-path (2), home-dir (1) | `0ac3fef3d7c34001…` | `dd12a8905d0c10f3…` |
+| evidence/m6-live/live-20261010-150911/b-app.log | repo-path (2), home-dir (1) | `23d90b05b67e6cf6…` | `f6dd9d6527a0d00f…` |
+| evidence/m6-live/live-20261010-150911/result.json | repo-path (1) | `eb2bc1283ede0b6e…` | `c9b46b2629e238aa…` |
+| evidence/m6-live/live-20261010-154916/a-app.log | repo-path (2), home-dir (1) | `fa519e0ed725e783…` | `2077da5cd76f8f4e…` |
+| evidence/m6-live/live-20261010-154916/b-app.log | repo-path (2), home-dir (1) | `8ea127f9f4f3c7ba…` | `02bd4a9d308799b0…` |
+| evidence/m6-live/live-20261010-154916/result.json | repo-path (1) | `e8f47695aad633e7…` | `f3ef752873b59eac…` |
+| evidence/m6-live/live-20261010-161051/a-app.log | repo-path (2), home-dir (1) | `70215af827a1655c…` | `1429e3905d8a3d72…` |
+| evidence/m6-live/live-20261010-161051/b-app.log | repo-path (2), home-dir (1) | `9ccdfeae687ccc68…` | `ce70e27ea7b2daa2…` |
+| evidence/m6-live/live-20261010-161051/result.json | repo-path (1) | `eda0b43c7ed3c25c…` | `6f14beb72ad65e95…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-app.log | repo-path (2), home-dir (3) | `d54a32ef9ca44e07…` | `3d73fbbc327dbd99…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
 | evidence/m7-storage/snapshot-20261004-174350/a-storage.log | home-dir (1) | `61cc31b3d3eaaf9b…` | `4ff9918c92815762…` |
@@ -757,18 +784,54 @@ Files normalised: 758
 | evidence/m7-storage/snapshot-20261009-110732/b-storage.log | home-dir (1) | `ec9041ee413bf900…` | `512d54d0d05af8f3…` |
 | evidence/m7-storage/snapshot-20261009-110732/result.json | repo-path (1) | `6835a241e06ab493…` | `41deb032df9e16f0…` |
 | evidence/m7-storage/snapshot-20261009-110732/snapshot-files.txt | home-dir (2) | `c27c05fce336752a…` | `ce5718e161ead36b…` |
+| evidence/m7-storage/snapshot-20261010-151123/a-app.log | repo-path (2), home-dir (3) | `48f8938c8c1a25c8…` | `544103b3f381f5f2…` |
+| evidence/m7-storage/snapshot-20261010-151123/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
+| evidence/m7-storage/snapshot-20261010-151123/a-storage.log | home-dir (1) | `52b3d3c78757a7e0…` | `e5f5b5d160f57e8a…` |
+| evidence/m7-storage/snapshot-20261010-151123/b-app.log | repo-path (2), home-dir (2) | `3a09d48570d0917c…` | `4bc6b5c9338bba72…` |
+| evidence/m7-storage/snapshot-20261010-151123/b-storage.json | home-dir (2) | `39da6d3e8c4800fe…` | `35ce0f8b36f04487…` |
+| evidence/m7-storage/snapshot-20261010-151123/b-storage.log | home-dir (1) | `0779e8e876fbe953…` | `d94e6b50c4eaf63b…` |
+| evidence/m7-storage/snapshot-20261010-151123/result.json | repo-path (1) | `9c594ee4811c9308…` | `46361a46eb3d5de1…` |
+| evidence/m7-storage/snapshot-20261010-151123/snapshot-files.txt | home-dir (2) | `fedecd21f469e511…` | `5278585d8778fd68…` |
+| evidence/m7-storage/snapshot-20261010-155134/a-app.log | repo-path (2), home-dir (3) | `6b7bed2025783126…` | `c5a0d86faad1541f…` |
+| evidence/m7-storage/snapshot-20261010-155134/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
+| evidence/m7-storage/snapshot-20261010-155134/a-storage.log | home-dir (1) | `66992aa3f55d5eb3…` | `200f8605f4b93f36…` |
+| evidence/m7-storage/snapshot-20261010-155134/b-app.log | repo-path (2), home-dir (2) | `2bda4bfd5a2b1581…` | `f12c9d40b3002971…` |
+| evidence/m7-storage/snapshot-20261010-155134/b-storage.json | home-dir (2) | `39da6d3e8c4800fe…` | `35ce0f8b36f04487…` |
+| evidence/m7-storage/snapshot-20261010-155134/b-storage.log | home-dir (1) | `4acee3cac170507a…` | `91691479782b1db0…` |
+| evidence/m7-storage/snapshot-20261010-155134/result.json | repo-path (1) | `0505248e0f1c7ce0…` | `0d98f46dd79b9033…` |
+| evidence/m7-storage/snapshot-20261010-155134/snapshot-files.txt | home-dir (2) | `8358f1f245abf61a…` | `32ba20f48f63263a…` |
+| evidence/m7-storage/snapshot-20261010-161300/a-app.log | repo-path (2), home-dir (3) | `e379e1b8bad21945…` | `76da6a399df5f126…` |
+| evidence/m7-storage/snapshot-20261010-161300/a-storage.json | home-dir (2) | `b7e7fa007f092f0a…` | `072774da3b5f62d5…` |
+| evidence/m7-storage/snapshot-20261010-161300/a-storage.log | home-dir (1) | `00783581c3e79757…` | `40335fb10d28f8ed…` |
+| evidence/m7-storage/snapshot-20261010-161300/b-app.log | repo-path (2), home-dir (2) | `9f8dcc34438deb3b…` | `8263996c2408533c…` |
+| evidence/m7-storage/snapshot-20261010-161300/b-storage.json | home-dir (2) | `39da6d3e8c4800fe…` | `35ce0f8b36f04487…` |
+| evidence/m7-storage/snapshot-20261010-161300/b-storage.log | home-dir (1) | `517bedcc0a72afb0…` | `92a93acf547c3261…` |
+| evidence/m7-storage/snapshot-20261010-161300/result.json | repo-path (1) | `1eaf51b6e126ec83…` | `dc222a92b770bfe1…` |
+| evidence/m7-storage/snapshot-20261010-161300/snapshot-files.txt | home-dir (2) | `530f1ca69ed8c753…` | `a08f7004bcb1682b…` |
 | evidence/m9-catalog/catalog-install-20261007/install-lines.log | macos-temp-dir (5), home-dir (1) | `bcb8b92b9fe26111…` | `8452d9f28f17321d…` |
 | evidence/m9-catalog/catalog-install-20261007/versions.txt | home-dir (1) | `f9d5921f7bb1527a…` | `c1227648b52542d2…` |
 | evidence/verify-runs/verify-core-20261008-161524.log | repo-path (1) | `9765d7ad51b8ef26…` | `15fc928ca58d4d3e…` |
 | evidence/verify-runs/verify-history-20261007-091857.log | repo-path (3) | `276784ed83f745d8…` | `f5ed25f68ce1be4c…` |
 | evidence/verify-runs/verify-history-20261007-103345.log | repo-path (3) | `c7b231277b57caca…` | `b23a553203095c07…` |
+| evidence/verify-runs/verify-history-20261010-150934.log | repo-path (3) | `88604bd96146191e…` | `46d8a7a160c7c92b…` |
+| evidence/verify-runs/verify-history-20261010-154936.log | repo-path (3) | `868a947356a1c7d4…` | `a6c946678f1e4914…` |
+| evidence/verify-runs/verify-history-20261010-161110.log | repo-path (3) | `478f1871791c2205…` | `7b16f196c3024f92…` |
 | evidence/verify-runs/verify-live-20261007-091838.log | repo-path (3) | `b7237e71d9425e72…` | `242c391c6a288a1f…` |
 | evidence/verify-runs/verify-live-20261007-103328.log | repo-path (3) | `6ad6011ae978eca2…` | `5c5a3707b589108d…` |
+| evidence/verify-runs/verify-live-20261010-150911.log | repo-path (3) | `dfc3fabb70662026…` | `0e5d80181a4be3b4…` |
+| evidence/verify-runs/verify-live-20261010-154916.log | repo-path (3) | `99e3abc9f3fbad1b…` | `2905aebeabd1c968…` |
+| evidence/verify-runs/verify-live-20261010-161051.log | repo-path (3) | `c8a70da0945c8779…` | `a9f9a4173b2542ae…` |
 | evidence/verify-runs/verify-package-20261008-170426.log | repo-path (1) | `f6d470dfd8dd7bd9…` | `bd24fc6c2bfee2b1…` |
 | evidence/verify-runs/verify-protocol-20261007-092313.log | repo-path (4), home-dir (2) | `10a4f80aff68ae51…` | `7912259387afed68…` |
+| evidence/verify-runs/verify-protocol-20261010-150651.log | repo-path (4), home-dir (2) | `f38e73f6dc92700c…` | `397720d9e57f5612…` |
+| evidence/verify-runs/verify-protocol-20261010-155334.log | repo-path (4), home-dir (2) | `510b6c004254ca01…` | `2788e0fb5a9b20f4…` |
+| evidence/verify-runs/verify-protocol-20261010-161452.log | repo-path (4), home-dir (2) | `6044d24975eb2d68…` | `9582a2043c6289c9…` |
 | evidence/verify-runs/verify-storage-20261007-092044.log | repo-path (2) | `72dd033289a9e8a0…` | `7d922b907f0b4c91…` |
 | evidence/verify-runs/verify-storage-20261007-092124.log | repo-path (3) | `d8657afbd2a2f0e1…` | `b1f01c61f51b0b2f…` |
 | evidence/verify-runs/verify-storage-20261007-103528.log | repo-path (3) | `31d619e5947164ae…` | `395d56e22ac2fdb8…` |
+| evidence/verify-runs/verify-storage-20261010-151123.log | repo-path (3) | `39cb7ff64c20d470…` | `a1518eaf198ec4ba…` |
+| evidence/verify-runs/verify-storage-20261010-155134.log | repo-path (3) | `1fe42d2744e05210…` | `94c298a5ad6f460f…` |
+| evidence/verify-runs/verify-storage-20261010-161300.log | repo-path (3) | `2ab589b1c486ee2b…` | `898f17ee391b2511…` |
 | evidence/verify-runs/verify-store-probe-20261003-202243.log | repo-path (2) | `b214c44610456eec…` | `5dfad80cf93a43ca…` |
 | evidence/verify-runs/verify-store-probe-20261004-212309.log | repo-path (2) | `a1b9d3f489c39381…` | `86f472c623a7f81b…` |
 | evidence/verify-runs/verify-ui-20261007-100639.log | repo-path (2) | `1a86a2685811a9bf…` | `5a0193fe52d059e0…` |

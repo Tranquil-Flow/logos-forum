@@ -37,11 +37,13 @@ no transport API is reachable from QML. Slots return plain strings.
 | `topics`, `currentTopicId`, `currentTopicTitle`, `threadPosts`, `threadTimes` | PROP | `id\|title (N)\|unread` rows, most recent activity first; open topic; `<author> [state]: body` rows in signed-time order (newest 200); each row's signed time |
 | `searchText` | PROP | active local filter (`""` = none) |
 | `archiveState` | PROP | what the last Storage snapshot save/restore did, with counts |
+| `keysProtected`, `keysLocked` | PROP | account keys sealed under a password (opt-in); locked = protected and not unlocked this session — aliases still list, only anonymous posts can be signed |
 | `createAccount(alias)`, `selectIdentity(alias)`, `hideAlias(bool)` | SLOT | `ok` / `error: …` (`""` = anonymous) |
 | `rotateKey()`, `setAutoRotate(n)`, `setAutoRotateDays(d)` | SLOT | move the selected alias to a fresh key now / every `n` stored posts (0–1000) / once its key is `d` days old (0–365, checked before each post); `ok` / `error: …` |
+| `protectKeys(pw)`, `unlockKeys(pw)`, `lockKeys()`, `removeKeyProtection(pw)` | SLOT | seal the alias keys under a password (≥ 8 characters, Argon2id + XSalsa20-Poly1305; no reset), unlock for this session, lock now, restore plain keys; `ok` / `error: …` |
 | `createTopic(title)`, `openTopic(id)` | SLOT | topic id / `ok` / `error: …` |
 | `setSearch(text)` | SLOT | filters topics (title, post text, author) and the open thread; local only |
-| `postMessage(text)` | SLOT | event id; `queued` while offline or connecting (stored as pending, sent through Mix automatically once connected); `retrying` when connected but the send failed (stored as failed, retried automatically) — in both cases the composer is cleared; or `unavailable` (local store error) / `failed` (local validation) / `empty` / `too long` (over 4096 UTF-8 bytes) — text kept |
+| `postMessage(text)` | SLOT | event id; `queued` while offline or connecting (stored as pending, sent through Mix automatically once connected); `retrying` when connected but the send failed (stored as failed, retried automatically) — in both cases the composer is cleared; or `locked` (keys sealed — text kept) / `unavailable` (local store error) / `failed` (local validation) / `empty` / `too long` (over 4096 UTF-8 bytes) — text kept |
 | `retryPending()` | SLOT | resends stored rows' ORIGINAL signed bytes; count. Also automatic: on every transition to `connected`, and up to 3 times per post (15/30/60 s) after a send error |
 | `connectNetwork()` | SLOT | user-initiated join of logos.dev with anonymity `Required`; never automatic |
 | `loadHistory()` | SLOT | asks a logos.dev store node for this forum's last 7 days (≤ 10 pages × 50); results verified, merged, reported in `historyState` |

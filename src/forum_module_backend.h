@@ -6,6 +6,7 @@
 
 #include <QObject>
 #include <QHash>
+#include <QSet>
 #include <QTimer>
 #include <memory>
 
@@ -40,6 +41,10 @@ public:
     QString rotateKey() override;
     QString setAutoRotate(int everyPosts) override;
     QString setAutoRotateDays(int days) override;
+    QString protectKeys(QString password) override;
+    QString unlockKeys(QString password) override;
+    QString lockKeys() override;
+    QString removeKeyProtection(QString password) override;
     QString createTopic(QString title) override;
     QString openTopic(QString topicId) override;
     QString setSearch(QString text) override;
@@ -65,6 +70,12 @@ private:
     void noteSigned();                       // after: counts toward rotate-every-N
     void refreshTopics();
     void refreshThread();
+    // Arrivals (live or history) refresh the view at most every kRefreshMs: a
+    // burst or a large import costs one refresh, not one per post.
+    void scheduleArrivalRefresh();
+    // Reply of the asynchronous Delivery send for one event.
+    void onSendReply(const QString &eventId, bool ok, const QString &requestOrError);
+    bool keysLockedForSigning() const;       // selected alias cannot sign right now
     bool ensureTopic();                      // auto "General"
     bool dispatchWire(const forum::Event &ev);  // send if transport ready
     void markSent(const QString &requestId, const QString &what);  // Delivery confirmed
@@ -113,6 +124,7 @@ private:
     int m_historyAccepted = 0;               // new posts recovered via store backfill
     int m_liveAccepted = 0;                  // new posts received live
     bool m_historyBusy = false;              // a loadHistory() query is running
+    bool m_historyShortRange = false;        // this store node caps queries at 24 h
     int m_historyFetched = 0;                // messages seen by the current query
     QString m_ownPeerId;
     QString m_networkCfg;                    // set by connectNetwork(); env config wins
@@ -138,6 +150,13 @@ private:
     QString m_downloadSession;               // Storage download session (for cancel)
     QString m_currentTopicId;
     QHash<QString, QString> m_requestToEvent; // requestId -> event id
+    QSet<QString> m_inFlight;                 // event ids whose send reply is pending
+    QHash<QString, QString> m_earlyConfirm;   // requestId -> note: confirmed before the reply
+    QHash<QString, QString> m_earlyError;     // requestId -> error: failed before the reply
+    QTimer m_refreshTimer;                    // coalesces arrival refreshes
+    forum::RateBudget m_liveBudget{120.0, 300.0};  // live events ingested per minute
+    qint64 m_lastDropNoteMs = 0;
+    int m_droppedLive = 0;                    // live events over budget (history recovers them)
     QStringList m_receivedPosts;
     std::unique_ptr<forum::Store> m_store;
 };

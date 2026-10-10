@@ -43,6 +43,9 @@ const int kMaxInputChars = 4096;
 const int kMaxAutoRetries = 3;           // per post per session (no flooding)
 const int kAutoRetryBaseMs = 15000;      // 15 s, 30 s, 60 s
 const int kConnPollMs = 3000;
+const int kRefreshMs = 150;              // arrivals refresh the view at most this often
+const int kSendTimeoutMs = 35000;        // Delivery send waits up to 30 s on the node
+const int kMaxEarlyNotes = 256;          // bounded buffer of send events seen before their reply
 const int kHistoryDays = 7;
 const int kHistoryPageLimit = 50;
 const int kHistoryMaxPages = 10;         // ≤ 500 messages per request (bounded)
@@ -160,6 +163,13 @@ ForumModuleBackend::ForumModuleBackend()
     m_tokensAt = QDateTime::currentMSecsSinceEpoch();
     m_paceTimer.setInterval(kSendIntervalMs);
     QObject::connect(&m_paceTimer, &QTimer::timeout, [this]() { drainSendQueue(); });
+    m_refreshTimer.setSingleShot(true);
+    m_refreshTimer.setInterval(kRefreshMs);
+    QObject::connect(&m_refreshTimer, &QTimer::timeout, [this]() {
+        refreshHistoryState();
+        refreshTopics();
+        refreshThread();
+    });
     // Fallback for the connection event: poll while connecting.
     m_connPoll.setInterval(kConnPollMs);
     QObject::connect(&m_connPoll, &QTimer::timeout, [this]() {
@@ -259,6 +269,9 @@ QString ForumModuleBackend::createAccount(QString alias)
     }
     forum::Store *st = store();
     if (!st) return QStringLiteral("error: local store unavailable");
+    if (st->keys_locked()) {
+        return QStringLiteral("error: your keys are locked — unlock them to add an alias");
+    }
     const forum::KeyPair kp = forum::KeyPair::generate();
     if (!st->create_account(a, kp)) {
         return QStringLiteral("error: alias already exists");
@@ -267,6 +280,67 @@ QString ForumModuleBackend::createAccount(QString alias)
     m_selectedAlias = QString::fromStdString(a);
     m_selectedKey = kp;
     m_hasSelectedKey = true;
+    refreshIdentityProps();
+    return QStringLiteral("ok");
+}
+
+bool ForumModuleBackend::keysLockedForSigning() const
+{
+    // An alias is selected but its private key is sealed (store locked).
+    return m_hasSelectedKey && !m_selectedAlias.isEmpty() && m_selectedKey.priv_hex.empty();
+}
+
+QString ForumModuleBackend::protectKeys(QString password)
+{
+    forum::Store *st = store();
+    if (!st) return QStringLiteral("error: local store unavailable");
+    if (st->keys_protected()) return QStringLiteral("error: keys are already protected");
+    if (password.size() < 8) return QStringLiteral("error: use at least 8 characters");
+    if (!st->protect_keys(password.toStdString())) {
+        return QStringLiteral("error: could not protect the keys");
+    }
+    refreshIdentityProps();
+    return QStringLiteral("ok");
+}
+
+QString ForumModuleBackend::unlockKeys(QString password)
+{
+    forum::Store *st = store();
+    if (!st) return QStringLiteral("error: local store unavailable");
+    if (!st->keys_protected()) return QStringLiteral("error: keys are not protected");
+    if (!st->unlock_keys(password.toStdString())) {
+        return QStringLiteral("error: wrong password");
+    }
+    if (m_hasSelectedKey && !m_selectedAlias.isEmpty()) {
+        if (const auto kp = st->account(m_selectedAlias.toStdString())) m_selectedKey = *kp;
+    }
+    refreshIdentityProps();
+    return QStringLiteral("ok");
+}
+
+QString ForumModuleBackend::lockKeys()
+{
+    forum::Store *st = store();
+    if (!st) return QStringLiteral("error: local store unavailable");
+    if (!st->keys_protected()) return QStringLiteral("error: keys are not protected");
+    st->lock_keys();
+    m_selectedKey.priv_hex.clear();  // the selected alias can no longer sign
+    refreshIdentityProps();
+    return QStringLiteral("ok");
+}
+
+QString ForumModuleBackend::removeKeyProtection(QString password)
+{
+    forum::Store *st = store();
+    if (!st) return QStringLiteral("error: local store unavailable");
+    if (!st->keys_protected()) return QStringLiteral("error: keys are not protected");
+    if (!st->unprotect_keys(password.toStdString())) {
+        return QStringLiteral("error: wrong password");
+    }
+    // unprotect_keys locked the store session; plain keys need no unlock.
+    if (m_hasSelectedKey && !m_selectedAlias.isEmpty()) {
+        if (const auto kp = st->account(m_selectedAlias.toStdString())) m_selectedKey = *kp;
+    }
     refreshIdentityProps();
     return QStringLiteral("ok");
 }
@@ -305,6 +379,9 @@ QString ForumModuleBackend::rotateKey()
                               "a new key every time");
     }
     if (!store()) return QStringLiteral("error: local store unavailable");
+    if (store()->keys_locked()) {
+        return QStringLiteral("error: your keys are locked — unlock them first");
+    }
     if (!rotateSelectedKey(QDateTime::currentMSecsSinceEpoch())) {
         return QStringLiteral("error: rotation failed");
     }
@@ -364,6 +441,9 @@ QString ForumModuleBackend::createTopic(QString title)
     }
     forum::Store *st = store();
     if (!st) return QStringLiteral("error: local store unavailable");
+    if (keysLockedForSigning()) {
+        return QStringLiteral("error: your keys are locked — unlock them or choose Anonymous");
+    }
     rotateIfDueByAge();
     forum::KeyPair k = m_hasSelectedKey ? m_selectedKey : forum::KeyPair::generate();
     auto tid = st->create_topic("general", t, currentSignerAlias().toStdString(), k,
@@ -401,6 +481,10 @@ QString ForumModuleBackend::postMessage(QString text)
     if (text.trimmed().isEmpty()) return QStringLiteral("empty");
     // The signed body is bounded in UTF-8 bytes; never cut a post silently.
     if (text.toUtf8().size() > int(forum::kMaxBody)) return QStringLiteral("too long");
+    if (keysLockedForSigning()) {
+        setStatus(QStringLiteral("not sent: your keys are locked — unlock them or post anonymously"));
+        return QStringLiteral("locked");
+    }
     rotateIfDueByAge();
     // Anonymous: a fresh key per post. Alias (shown or hidden): its key.
     const forum::KeyPair signer = m_hasSelectedKey ? m_selectedKey : forum::KeyPair::generate();
@@ -580,6 +664,7 @@ int ForumModuleBackend::flushStored(const QString &why)
         if (r.state != "failed" && r.state != "pending") continue;
         // In flight already (awaiting its propagation event): do not resend.
         if (m_requestToEvent.key(QString::fromStdString(r.event_id)).size() > 0) continue;
+        if (m_inFlight.contains(QString::fromStdString(r.event_id))) continue;
         const auto ev = st->stored_event(r.event_id);
         if (!ev.has_value()) continue;
         if (m_sendQueue.contains(QString::fromStdString(r.event_id))) continue;  // queued
@@ -640,6 +725,9 @@ void ForumModuleBackend::onConnectionStatus(const QString &status)
         // Lost the network: stop sending; new posts queue until it returns.
         m_transportReady = false;
         m_requestToEvent.clear();
+        m_inFlight.clear();
+        m_earlyConfirm.clear();
+        m_earlyError.clear();
         setConnection(QStringLiteral("connecting"));
         setTransportStateFromEvent(
             QStringLiteral("connection lost (%1) — reconnecting; posts are stored and "
@@ -683,7 +771,12 @@ int ForumModuleBackend::mergeWirePayload(const QByteArray &payload, bool fromHis
                                static_cast<size_t>(payload.size() - nl - 1));
     ev.id = forum::sha256_hex(ev.canonical);
     // Everything is verified (id = hash, signature, bounds) before storing.
-    if (st->merge_verified(ev) != forum::MergeResult::Accepted) return 0;
+    const auto now = QDateTime::currentMSecsSinceEpoch();
+    const auto r = fromHistory
+        ? st->merge_verified(ev, now)
+        : st->merge_verified(ev, now, [this, now]() { return m_liveBudget.allow(now); });
+    if (r == forum::MergeResult::Throttled) return -1;
+    if (r != forum::MergeResult::Accepted) return 0;
     if (fromHistory) ++m_historyAccepted; else ++m_liveAccepted;
     return 1;
 }
@@ -695,6 +788,7 @@ QString ForumModuleBackend::loadHistory()
     }
     if (m_historyBusy) return QStringLiteral("already loading history");
     m_historyBusy = true;
+    m_historyShortRange = false;
     m_historyFetched = 0;
     setHistoryState(QStringLiteral("loading the last %1 days from a network store node…")
                         .arg(kHistoryDays));
@@ -719,8 +813,12 @@ void ForumModuleBackend::queryHistoryPage(int peerIndex, int page, const QString
     q.insert(QStringLiteral("paginationLimit"), kHistoryPageLimit);
     q.insert(QStringLiteral("contentTopics"), QJsonArray{kForumTopic});
     const qlonglong nowMs = QDateTime::currentMSecsSinceEpoch();
+    // Some store nodes cap the queried range at 24 h: after such a refusal
+    // the same node is asked again for 24 h minus a minute.
+    const qlonglong windowMs = m_historyShortRange ? (86400000LL - 60000LL)
+                                                   : qlonglong(kHistoryDays) * 86400000LL;
     q.insert(QStringLiteral("timeStart"),
-             QString::number((nowMs - qlonglong(kHistoryDays) * 86400000LL) * 1000000LL).toLongLong());
+             QString::number((nowMs - windowMs) * 1000000LL).toLongLong());
     if (!cursor.isEmpty()) q.insert(QStringLiteral("paginationCursor"), cursor);
     const QString query = QString::fromUtf8(QJsonDocument(q).toJson(QJsonDocument::Compact));
     const QString peer = QString::fromLatin1(kHistoryPeers[peerIndex]);
@@ -732,9 +830,20 @@ void ForumModuleBackend::queryHistoryPage(int peerIndex, int page, const QString
                 const QJsonObject resp = r.success ? resultJson(r.value).toObject() : QJsonObject();
                 const int code = resp.value(QStringLiteral("statusCode")).toInt();
                 if (!r.success || code != 200) {
+                    const QString reason = (r.success ? resp.value(QStringLiteral("statusDesc")).toString()
+                                                      : r.getError<QString>()).toLower();
+                    if (page == 0 && !m_historyShortRange && reason.contains(QLatin1String("time range"))) {
+                        m_historyShortRange = true;
+                        queryHistoryPage(peerIndex, 0, QString());
+                        return;
+                    }
                     // This node did not answer as a store: try the next one
                     // (only before any page was read, so results never mix).
-                    if (page == 0) { queryHistoryPage(peerIndex + 1, 0, QString()); return; }
+                    if (page == 0) {
+                        m_historyShortRange = false;
+                        queryHistoryPage(peerIndex + 1, 0, QString());
+                        return;
+                    }
                     m_historyBusy = false;
                     setHistoryState(QStringLiteral("stopped after page %1 (%2); loaded %3, "
                                                    "%4 recovered in total")
@@ -765,10 +874,11 @@ void ForumModuleBackend::queryHistoryPage(int peerIndex, int page, const QString
                     return;
                 }
                 m_historyBusy = false;
-                setHistoryState(QStringLiteral("loaded %1 from the last %2 days "
+                setHistoryState(QStringLiteral("loaded %1 from the last %2 "
                                                "on the network store; %3 recovered in total")
                                     .arg(count(m_historyFetched, "message", "messages"))
-                                    .arg(kHistoryDays)
+                                    .arg(m_historyShortRange ? QStringLiteral("24 hours")
+                                                             : count(kHistoryDays, "day", "days"))
                                     .arg(count(m_historyAccepted, "post", "posts")));
             }, Qt::QueuedConnection);
         },
@@ -844,7 +954,11 @@ void ForumModuleBackend::onContextReady()
                qlonglong) {
             QMetaObject::invokeMethod(this, [this, requestId, error]() {
                 const QString evId = m_requestToEvent.value(requestId);
-                if (evId.isEmpty()) return;
+                if (evId.isEmpty()) {
+                    if (m_earlyError.size() >= kMaxEarlyNotes) m_earlyError.clear();
+                    m_earlyError.insert(requestId, error);
+                    return;
+                }
                 if (forum::Store *st = store()) {
                     st->mark_state(evId.toStdString(), "failed", error.toStdString());
                 }
@@ -860,11 +974,26 @@ void ForumModuleBackend::onContextReady()
                 if (contentTopic != kForumTopic) return;
                 // "history" = Delivery's store catch-up after start or a
                 // connectivity gap: posts made while this reader was away.
-                if (mergeWirePayload(payload, source == QLatin1String("history")) > 0) {
-                    refreshHistoryState();
-                    refreshTopics();
-                    refreshThread();
+                const bool fromHistory = source == QLatin1String("history");
+                // Live flooding is bounded inside the merge: only events that
+                // verify and are new spend the budget (junk and duplicates
+                // cannot starve real posts); past it an event is dropped
+                // unstored and the network's store recovers it on catch-up.
+                const int merged = mergeWirePayload(payload, fromHistory);
+                if (merged < 0) {
+                    ++m_droppedLive;
+                    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+                    if (now - m_lastDropNoteMs > 10000) {
+                        m_lastDropNoteMs = now;
+                        setTransportStateFromEvent(
+                            QStringLiteral("receive limit reached: %1 live post(s) skipped "
+                                           "this session — reconnect or use Load older "
+                                           "posts to fetch them from the network")
+                                .arg(m_droppedLive));
+                    }
+                    return;
                 }
+                if (merged > 0) scheduleArrivalRefresh();
             }, Qt::QueuedConnection);
         });
     modules().delivery_module.onConnectionStateChanged(
@@ -880,7 +1009,13 @@ void ForumModuleBackend::onContextReady()
 void ForumModuleBackend::markSent(const QString &requestId, const QString &what)
 {
     const QString evId = m_requestToEvent.take(requestId);
-    if (evId.isEmpty()) return;
+    if (evId.isEmpty()) {
+        // The confirmation can overtake the send's own reply: keep it until
+        // the reply maps the request id to its post.
+        if (m_earlyConfirm.size() >= kMaxEarlyNotes) m_earlyConfirm.clear();
+        m_earlyConfirm.insert(requestId, what);
+        return;
+    }
     if (forum::Store *st = store()) st->mark_state(evId.toStdString(), "sent", "");
     setTransportStateFromEvent(QStringLiteral("%1 (request %2)").arg(what, requestId));
     refreshThread();
@@ -888,23 +1023,59 @@ void ForumModuleBackend::markSent(const QString &requestId, const QString &what)
 
 bool ForumModuleBackend::dispatchWire(const forum::Event &ev)
 {
+    // Asynchronous: the Delivery node can take up to 30 s to answer a send,
+    // which would freeze this whole backend (and the view's calls with it).
+    // The post is already stored; the reply (or a failure) updates its state.
     const std::string wire = ev.canonical + "\n" + ev.signature;
     const QByteArray payload(wire.data(), static_cast<int>(wire.size()));
-    const LogosResult sent = modules().delivery_module.send(kForumTopic, payload);
-    if (!sent.success) {
-        if (forum::Store *st = store()) {
-            st->mark_state(ev.id, "failed",
-                           sent.getError<QString>().toStdString());
-        }
-        scheduleAutoRetry(QString::fromStdString(ev.id), sent.getError<QString>());
-        return false;
+    const QString evId = QString::fromStdString(ev.id);
+    m_inFlight.insert(evId);
+    setTransportStateFromEvent(
+        QStringLiteral("sending via Required policy — awaiting the node's reply"));
+    modules().delivery_module.sendAsync(
+        kForumTopic, payload,
+        [this, evId](LogosResult sent) {
+            const bool ok = sent.success;
+            const QString detail = ok ? sent.getString() : sent.getError<QString>();
+            QMetaObject::invokeMethod(this, [this, evId, ok, detail]() {
+                onSendReply(evId, ok, detail);
+            }, Qt::QueuedConnection);
+        },
+        Timeout(kSendTimeoutMs));
+    return true;
+}
+
+void ForumModuleBackend::onSendReply(const QString &evId, bool ok, const QString &detail)
+{
+    // Not in flight any more (connection lost meanwhile): the stored post is
+    // resent on reconnect with the same bytes, so a late reply is ignored.
+    if (!m_inFlight.remove(evId)) return;
+    forum::Store *st = store();
+    if (!ok) {
+        if (st) st->mark_state(evId.toStdString(), "failed", detail.toStdString());
+        scheduleAutoRetry(evId, detail);
+        refreshThread();
+        return;
     }
-    const QString requestId = sent.getString();
-    m_requestToEvent.insert(requestId, QString::fromStdString(ev.id));
+    const QString requestId = detail;
+    m_requestToEvent.insert(requestId, evId);
     setTransportStateFromEvent(
         QStringLiteral("sending via Required policy (request %1) — awaiting propagation")
             .arg(requestId));
-    return true;
+    if (m_earlyError.contains(requestId)) {
+        const QString error = m_earlyError.take(requestId);
+        m_requestToEvent.remove(requestId);
+        if (st) st->mark_state(evId.toStdString(), "failed", error.toStdString());
+        scheduleAutoRetry(evId, error);
+        refreshThread();
+    } else if (m_earlyConfirm.contains(requestId)) {
+        markSent(requestId, m_earlyConfirm.take(requestId));
+    }
+}
+
+void ForumModuleBackend::scheduleArrivalRefresh()
+{
+    if (!m_refreshTimer.isActive()) m_refreshTimer.start();
 }
 
 void ForumModuleBackend::refreshIdentityProps()
@@ -941,6 +1112,10 @@ void ForumModuleBackend::refreshIdentityProps()
     setRotationInfo(rotation);
     setRotateEvery(every);
     setRotateDays(days);
+    if (forum::Store *st = store()) {
+        setKeysProtected(st->keys_protected());
+        setKeysLocked(st->keys_locked());
+    }
 }
 
 namespace {
@@ -1308,17 +1483,28 @@ QString ForumModuleBackend::archiveTopic()
     f.close();
 
     const QStringList before = storageCids();
-    const LogosResult up = modules().storage_module.uploadUrl(file, 65536, true);
-    if (!up.success) {
-        setArchiveState(QStringLiteral("Logos Storage refused the upload: %1")
-                            .arg(up.getError<QString>()));
-        return QStringLiteral("error: upload refused");
-    }
+    // Asynchronous: handing a file to Storage can take a while and must not
+    // freeze the backend. The busy flag is set first so a second save is
+    // refused meanwhile.
     m_archiveBusy = true;
     setArchiveState(QStringLiteral("saving %1 to Logos Storage…").arg(count(posts, "post", "posts")));
-    QTimer::singleShot(1000, this, [this, file, before, posts]() {
-        pollUploadedCid(file, before, posts, 0);
-    });
+    modules().storage_module.uploadUrlAsync(
+        file, 65536, true,
+        [this, file, before, posts](LogosResult up) {
+            const bool ok = up.success;
+            const QString err = ok ? QString() : up.getError<QString>();
+            QMetaObject::invokeMethod(this, [this, file, before, posts, ok, err]() {
+                if (!ok) {
+                    m_archiveBusy = false;
+                    setArchiveState(QStringLiteral("Logos Storage refused the upload: %1").arg(err));
+                    return;
+                }
+                QTimer::singleShot(1000, this, [this, file, before, posts]() {
+                    pollUploadedCid(file, before, posts, 0);
+                });
+            }, Qt::QueuedConnection);
+        },
+        Timeout(kDownloadStartTimeoutMs));
     return QStringLiteral("saving");
 }
 
@@ -1353,6 +1539,16 @@ QString ForumModuleBackend::storagePeerId()
     return v.isObject() ? v.toObject().value(QStringLiteral("peerId")).toString() : v.toString();
 }
 
+// Public IP addresses only, unless a local test network is being used
+// (FORUM_ALLOW_PRIVATE_PEERS=1: harnesses run two nodes on one machine).
+static bool addressAllowed(const QString &addr)
+{
+    if (qEnvironmentVariable("FORUM_ALLOW_PRIVATE_PEERS") == QLatin1String("1")) {
+        return addr.startsWith(QLatin1String("/ip4/")) || addr.startsWith(QLatin1String("/ip6/"));
+    }
+    return forum::public_multiaddr(addr.toStdString());
+}
+
 void ForumModuleBackend::announceSnapshot(const QString &cid, int posts)
 {
     // Where to fetch it from: this node's Storage peer id and addresses, so a
@@ -1365,7 +1561,11 @@ void ForumModuleBackend::announceSnapshot(const QString &cid, int posts)
         QJsonArray a = o.value(QStringLiteral("announceAddresses")).toArray();
         if (a.isEmpty()) a = o.value(QStringLiteral("addrs")).toArray();
         for (const auto &x : a) {
-            if (addrs.size() < 4) addrs << x.toString();
+            // Only public IP addresses are published: a LAN, loopback or
+            // container address helps no reader and tells everyone about the
+            // publisher's network.
+            const QString addr = x.toString();
+            if (addrs.size() < 4 && addressAllowed(addr)) addrs << addr;
         }
     }
     QString body = kSnapshotTitle + QStringLiteral(": %1 post(s).\ncid: %2").arg(posts).arg(cid);
@@ -1415,7 +1615,12 @@ QString ForumModuleBackend::restoreSnapshot(QString announcement)
                                          .arg(QDateTime::currentMSecsSinceEpoch());
     if (pm.hasMatch() && am.hasMatch() && pm.captured(1) != storagePeerId()) {
         m_restore.peer = pm.captured(1).left(128);
-        m_restore.addrs = am.captured(1).split(QLatin1Char(' '), Qt::SkipEmptyParts).mid(0, 4);
+        // An announcement is free text from anyone: only public IP addresses
+        // are ever dialed from it (nothing inside the reader's own network).
+        for (const QString &a : am.captured(1).split(QLatin1Char(' '), Qt::SkipEmptyParts)) {
+            if (m_restore.addrs.size() < 4 && addressAllowed(a)) m_restore.addrs << a;
+        }
+        if (m_restore.addrs.isEmpty()) m_restore.peer.clear();  // content routing only
     }
     m_archiveBusy = true;
     setArchiveState(QStringLiteral("fetching snapshot %1… from Logos Storage").arg(cid.left(16)));
@@ -1431,8 +1636,16 @@ void ForumModuleBackend::dialSnapshotPeer()
     const int gen = ++m_restore.gen;
     m_restore.dialing = true;
     ++m_restore.dials;
-    const LogosResult c = modules().storage_module.connect(m_restore.peer, m_restore.addrs);
-    if (!c.success) { onSnapshotPeerDialed(false, c.getError<QString>()); return; }
+    modules().storage_module.connectAsync(
+        m_restore.peer, m_restore.addrs,
+        [this, gen](LogosResult c) {
+            if (c.success) return;  // the outcome event (or the wait timer) moves on
+            const QString err = c.getError<QString>();
+            QMetaObject::invokeMethod(this, [this, gen, err]() {
+                if (m_restore.gen == gen) onSnapshotPeerDialed(false, err);
+            }, Qt::QueuedConnection);
+        },
+        Timeout(kDialWaitMs));
     QTimer::singleShot(kDialWaitMs, this, [this, gen]() {
         if (m_restore.dialing && m_restore.gen == gen) {
             m_restore.dialing = false;

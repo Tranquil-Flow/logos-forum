@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "phase": "fetch",
+  "text": "TECHNICAL TEST DATA: offline-reader history check 2026-10-10T14:11:10Z",
+  "timeline": [
+    {
+      "t_s": 1,
+      "what": "connect clicked"
+    },
+    {
+      "t_s": 7,
+      "what": "transport ready",
+      "state": "transport ready: connected (Connected) with Required policy on an app-owned node — privacy verified per send via propagation events"
+    },
+    {
+      "t_s": 8,
+      "what": "history row rendered"
+    },
+    {
+      "t_s": 8,
+      "what": "load older posts clicked"
+    },
+    {
+      "t_s": 9,
+      "what": "load older posts finished",
+      "state": "loaded 23 messages from the last 7 days on the network store; 23 posts recovered in total"
+    }
+  ],
+  "initial_thread": "[]",
+  "history_state_after_catchup": "1 post recovered from the network's history",
+  "history_state_after_load": "loaded 23 messages from the last 7 days on the network store; 23 posts recovered in total",
+  "thread": "[\"id f5b38b9cf60b6c72 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-09T09:07:32Z (1/2)\",\"id d3db3c0263761e0b [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-09T09:07:32Z (2/2)\",\"id d43c42f7b1d759da [received]: Snapshot of this topic on Logos Storage: 2 post(s).\\ncid: zDvZRwzkxkTuQqgoQ6AmxzPNaHb68TD5TrsHJHNhs9CXC7suiYin\\npeer: 16Uiu2HAmRak6CPnCA5FbzoMP8469HcuNtDJ6jwrqPuLyH9Dqrtxq\\naddrs: /ip4/127.0.0.1/tcp/8571\",\"id 9291591e5441598b [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-09T09:09:30Z\",\"id 102d8bd67776a012 [received]: TEST POST - automated Windows check, CI run 37910631727 - test data, please ignore\",\"id f5a6e5a5271501ba [received]: Snapshot of this topic on Logos Storage: 5 post(s).\\ncid: zDvZRwzkzX8iup8KwsLAoww6wMKrfWKix5AHaVQnHuJNAzeXnVjk\\npeer: 16Uiu2HAmJdZEf52wRbWaLd7u4eFXuGcQoJqHSGYwJWTEkmxVksoR\\naddrs: /ip4/178.128.140.206/tcp/8070/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/178.128.140.206/tcp/8070/mix-transport/An67-cPFkDpqyeTEjDPbhtN8NUxt9S-niBc5QRLyc2xrfadHgJmHjhbhrmTY2S86xaAz0wkgJnLzjEsjWAApyTU=/p2p/16Uiu2HAm3xPbYz2zsq5XVGDCMqKhhNXZWyYV6WLVv3yzzUiRJWnW/p2p-circuit /ip4/47.76.178.164/tcp/8070/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit /ip4/47.76.178.164/tcp/8070/mix-transport/AyePlG8L_W6LpMHk-0xMY0tkMEWSNT5Mhe44ppPkaG9EfccfucmnggvzCplJyLSqimv8ciTYSGT1mzT1zDDJkGg=/p2p/16Uiu2HAmFKREVxCD89jkdEw8oBJo3WHXr9esmuDoKGWi63i66rfD/p2p-circuit\",\"id 5b09ddc57a0eec63 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-10T13:09:20Z\",\"id 31eb8ccadc818037 [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-10T13:09:34Z\",\"id cda8b48e2b3a8645 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-10T13:11:23Z (1/2)\",\"id 941d50f1ad3736e4 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-10T13:11:23Z (2/2)\",\"id 3867fb8733aea318 [received]: Snapshot of this topic on Logos Storage: 2 post(s).\\ncid: zDvZRwzm2C8BoeEhr3RDDrtJkin17rFZ2wLFHfukDrniPmtixzkv\\npeer: 16Uiu2HAkyhnCFf28iPL93rJGcFuYAT3H2LkgV79rbuWK1U3CWKUe\\naddrs: /ip4/127.0.0.1/tcp/8571\",\"id b1f500d5e260a221 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-10T13:49:24Z\",\"id b767a453335cc41e [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-10T13:49:36Z\",\"id 301bdd01507b0e82 [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-10T13:51:34Z (1/2)\",\"id 374ca5a1c63805ae [received]: TECHNICAL TEST DATA: storage snapshot check 2026-10-10T13:51:34Z (2/2)\",\"id b400003aa8edf725 [received]: Snapshot of this topic on Logos Storage: 2 post(s).\\ncid: zDvZRwzkx2zSvxK5fKukt5H6mmMY554sRFAVJCpD5ApiuFoiNL9D\\npeer: 16Uiu2HAmJXDvFhC6jzgEknBeGFd5C4SnhFb69HGDMDuXkk3zqNea\\naddrs: /ip4/127.0.0.1/tcp/8571\",\"id eca6883f3a21f015 [received]: TECHNICAL TEST DATA: live logos.dev round trip 2026-10-10T14:10:59Z\",\"id 970a1bc39d9bca4e [received]: TECHNICAL TEST DATA: offline-reader history check 2026-10-10T14:11:10Z\"]"
+}

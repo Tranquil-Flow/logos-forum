@@ -1,0 +1,7 @@
+WRN 2026-10-10 16:13:54.077+02:00 Data directory has insecure permissions. Correcting them. tid=19703069 data_dir=~/.local/share/lp0026-forum-dev/m7-storage/b-storage current_permissions=0755 required_permissions=0700
+INF 2026-10-10 16:13:54.077+02:00 Creating a private key and saving it       tid=19703069
+WRN 2026-10-10 16:13:54.077+02:00 Node has been marked with --no-bootstrap-node and will NOT be bootstrapped topics="libstorage libstoragelifecycle" tid=19703069
+INF 2026-10-10 16:13:54.078+02:00 Threadpool started                         topics="libstorage libstoragelifecycle" tid=19703069 numThreads=12
+WRN 2026-10-10 16:13:54.080+02:00 No key for a QueryResponse                 topics="storage repostore" tid=19703069
+NTC 2026-10-10 16:13:54.081+02:00 Started Storage node                       topics="storage node" tid=19703069 id=16U*2mSXDr addrs="[/ip4/127.0.0.1/tcp/8572]"
+ERR 2026-10-10 16:14:21.367+02:00 Failed to MANIFEST.                        topics="libstorage libstoragedownload" tid=19703069 error="Failed to fetch manifest: Failed to fetch manifest zDvZRwzkxzbS4oQ7rAhqrQ8EJez1WXFty6S2aNNHG5TM8aWpeeZF after 10 attempts: Key doesn't exist"

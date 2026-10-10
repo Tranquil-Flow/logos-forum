@@ -19,6 +19,12 @@ class Forum
     PROP(int rotateEvery=0 READONLY)         // posts per key; 0 = off
     PROP(int rotateDays=0 READONLY)          // days per key; 0 = off
 
+    // Keys at rest (opt-in): protected = the account keys are sealed under a
+    // password; locked = protected and not unlocked this session (aliases
+    // still list, but only anonymous posts can be signed).
+    PROP(bool keysProtected=false READONLY)
+    PROP(bool keysLocked=false READONLY)
+
     // Forum structure
     PROP(QStringList topics READONLY)        // "<id>|title (N)|<unread>", newest activity first
     PROP(QString searchText="" READONLY)     // active filter ("" = none)
@@ -60,6 +66,13 @@ class Forum
     // ...and/or once the key is N days old (0 = off; max 365). Checked
     // before each post, so an old key never signs another one.
     SLOT(QString setAutoRotateDays(int days))      // ok | error:<reason>
+
+    // Password protection of the account keys (>= 8 characters). There is no
+    // reset: a lost password means the sealed keys are gone.
+    SLOT(QString protectKeys(QString password))          // ok | error:<reason>
+    SLOT(QString unlockKeys(QString password))           // ok | error:<reason>
+    SLOT(QString lockKeys())                             // ok
+    SLOT(QString removeKeyProtection(QString password))  // ok | error:<reason>
 
     // Forum actions
     SLOT(QString createTopic(QString title))       // topic id | error:<reason>

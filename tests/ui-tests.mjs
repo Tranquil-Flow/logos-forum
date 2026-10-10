@@ -337,6 +337,50 @@ test("forum_module: alias key rotation — manual, by posts and by age", async (
   await app.inspector.send("evaluate", { expression: "root.backend.selectIdentity('')" });
 });
 
+// Keys at rest: an optional password seals the alias keys. Locked, an alias
+// cannot sign (the send is refused with its text kept, alias creation and
+// rotation say why); unlocking needs the right password; protection can be
+// removed again. The store ends up as it began, so later tests are unaffected.
+test("forum_module: keys can be protected with a password, locked and unlocked", async (app) => {
+  await app.waitFor(
+    async () => { await app.expectTexts(["Module ready"]); },
+    { timeout: 20000, interval: 500, description: "backend ready" }
+  );
+  const call = async (expr) => {
+    await app.inspector.send("evaluate", { expression: "outcome.text = ''; logos.watch(" + expr + ", function (v) { outcome.text = 'R:' + v }, function (e) { outcome.text = 'E:' + e }); 'sent'" });
+    let out = "";
+    await app.waitFor(async () => {
+      out = await evalValue(app, "outcome.text");
+      if (!out) throw new Error("pending: " + expr);
+    }, { timeout: 15000, interval: 200, description: expr });
+    return out;
+  };
+  const props = () => evalValue(app, "root.keysProtected + '|' + root.keysLocked");
+  const alias = "vault" + Date.now().toString(36).slice(-6);
+  if (await call("root.backend.createAccount(" + JSON.stringify(alias) + ")") !== "R:ok") throw new Error("create alias");
+  if (await props() !== "false|false") throw new Error("initial props: " + await props());
+  if (!/^R:error: use at least 8 characters/.test(await call("root.backend.protectKeys('short')"))) throw new Error("short password accepted");
+  if (await call("root.backend.protectKeys('correct horse battery')") !== "R:ok") throw new Error("protect");
+  await app.waitFor(async () => { if (await props() !== "true|false") throw new Error("after protect: " + await props()); },
+    { timeout: 10000, interval: 200, description: "protected and unlocked" });
+  if (await call("root.backend.lockKeys()") !== "R:ok") throw new Error("lock");
+  await app.waitFor(async () => { if (await props() !== "true|true") throw new Error("after lock: " + await props()); },
+    { timeout: 10000, interval: 200, description: "locked" });
+  const sent = await call("root.backend.postMessage('should not be signed while locked')");
+  if (sent !== "R:locked") throw new Error("post while locked: " + sent);
+  if (!/^R:error: your keys are locked/.test(await call("root.backend.createAccount('another')"))) throw new Error("alias while locked");
+  if (!/^R:error: your keys are locked/.test(await call("root.backend.rotateKey()"))) throw new Error("rotate while locked");
+  if (await call("root.backend.unlockKeys('not the password')") !== "R:error: wrong password") throw new Error("wrong password");
+  if (await call("root.backend.unlockKeys('correct horse battery')") !== "R:ok") throw new Error("unlock");
+  await app.waitFor(async () => { if (await props() !== "true|false") throw new Error("after unlock: " + await props()); },
+    { timeout: 10000, interval: 200, description: "unlocked again" });
+  if (await call("root.backend.removeKeyProtection('wrong wrong wrong')") !== "R:error: wrong password") throw new Error("remove with wrong password");
+  if (await call("root.backend.removeKeyProtection('correct horse battery')") !== "R:ok") throw new Error("remove");
+  await app.waitFor(async () => { if (await props() !== "false|false") throw new Error("after remove: " + await props()); },
+    { timeout: 10000, interval: 200, description: "back to plain keys" });
+  await call("root.backend.selectIdentity('')");
+});
+
 // Search filters topics and the open thread locally; clearing restores both.
 test("forum_module: search filters topics and posts", async (app) => {
   await app.waitFor(

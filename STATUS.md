@@ -10,6 +10,30 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
 publication/CI/video, R16 the external organic-use gate).
 
+**Update — hardening pass, 2026-10-10** (`docs/security.md`): after comparing
+with rival submissions the following were added and verified on the current
+tree. Keys at rest: opt-in password protection (Argon2id, XSalsa20-Poly1305;
+lock/unlock; anonymous posts keep working while locked), `secure_delete` and
+WAL checkpointing after rotation, one-time `VACUUM` of older stores.
+Network: Delivery sends are asynchronous with a 35 s timeout (confirmations
+that overtake the send reply are buffered); live receive is token-bucketed
+(120/min, burst 300) and refreshes are coalesced; snapshot announcements and
+restores only publish/dial public IP addresses (harnesses set
+`FORUM_ALLOW_PRIVATE_PEERS=1`); history queries retry within 24 h when the
+store node refuses a longer range. Receipts: core 307/0
+(`verify-core-20261010-160356`, was 194), UI 18/18
+(`verify-ui-20261010-160632`, new key-protection test), protocol PASS
+(`m1-transport/smoke-20261010-161452`), live PASS
+(`m6-live/live-20261010-161051`), history PASS
+(`m6-live/history-20261010-161110`), Storage snapshot PASS
+(`m7-storage/snapshot-20261010-161300`) — all on a `result-ui-dev` launcher
+rebuilt from this tree (its plugin Main.qml contains the key-protection UI).
+Review follow-ups verified in the same runs: Storage upload and peer dial are
+asynchronous, dropped live posts are reported, setting a key password asks
+twice, the ingest budget is spent only by verified new events, and snapshot
+addresses must be a plain public host plus transport components (no
+relay-circuit or second host). Not claimed: no proof of work, per-author quota or recovery phrase.
+
 **Update — Sandbox topic and restore outcomes, 2026-10-09**
 (`evidence/m5-package/sandbox-20261009/NOTE.txt`): a second shared topic,
 **Sandbox**, exists on every instance (well-known key like General; General's

@@ -669,6 +669,190 @@ static void test_fields_unescaped_and_canonical_strict()
     CHECK(b.merge_verified(signed_ev(pre + head + "body=trailing\\")) == MergeResult::Invalid);
 }
 
+
+static std::string slurp(const std::string& path)
+{
+    std::string out;
+    if (FILE* f = fopen(path.c_str(), "rb")) {
+        char buf[65536];
+        size_t n;
+        while ((n = fread(buf, 1, sizeof(buf), f)) > 0) out.append(buf, n);
+        fclose(f);
+    }
+    return out;
+}
+
+// The store plus its write-ahead log and shared-memory sidecars.
+static bool store_files_contain(const std::string& dbpath, const std::string& needle)
+{
+    for (const char* suffix : {"", "-wal", "-shm"}) {
+        if (slurp(dbpath + suffix).find(needle) != std::string::npos) return true;
+    }
+    return false;
+}
+
+static void test_rotation_leaves_no_old_key_in_store_files()
+{
+    const std::string path = tmpdir() + "/rotate.db";
+    Store s(path);
+    CHECK(s.ok());
+    const KeyPair first = KeyPair::generate();
+    CHECK(s.create_account("alice", first));
+    CHECK(store_files_contain(path, first.priv_hex));  // sanity: plain until rotated
+    const KeyPair second = KeyPair::generate();
+    CHECK(s.rotate_account("alice", second, 1000));
+    CHECK(!store_files_contain(path, first.priv_hex));
+    CHECK(store_files_contain(path, second.priv_hex));
+}
+
+static void test_keys_at_rest_password_protection()
+{
+    const std::string path = tmpdir() + "/vault.db";
+    const KeyPair k = KeyPair::generate();
+    {
+        Store s(path);
+        CHECK(s.ok());
+        CHECK(!s.keys_protected());
+        CHECK(s.create_account("alice", k));
+        CHECK(!s.protect_keys("short"));                // too short
+        CHECK(s.protect_keys("correct horse battery"));
+        CHECK(s.keys_protected());
+        CHECK(!s.keys_locked());                        // unlocked this session
+        CHECK(!s.protect_keys("another password"));     // already protected
+        CHECK(!store_files_contain(path, k.priv_hex));  // plaintext is gone
+        const auto a = s.account("alice");
+        CHECK(a.has_value() && a->priv_hex == k.priv_hex);
+        // A new key made while unlocked is sealed too.
+        const KeyPair k2 = KeyPair::generate();
+        CHECK(s.create_account("bob", k2));
+        CHECK(!store_files_contain(path, k2.priv_hex));
+        s.lock_keys();
+        CHECK(s.keys_locked());
+        const auto locked = s.account("alice");
+        CHECK(locked.has_value());
+        CHECK(locked->pub_hex == k.pub_hex && locked->priv_hex.empty());  // cannot sign
+        CHECK(!s.make_event(sample_draft(k.pub_hex), *locked).has_value());
+        CHECK(!s.create_account("carol", KeyPair::generate()));            // locked
+        CHECK(!s.rotate_account("alice", KeyPair::generate(), 5));
+        CHECK(!s.unlock_keys("wrong password"));
+        CHECK(s.keys_locked());
+        CHECK(s.unlock_keys("correct horse battery"));
+        CHECK(s.account("alice")->priv_hex == k.priv_hex);
+        // Anonymous posting never needs the vault.
+        s.lock_keys();
+        const KeyPair anon = KeyPair::generate();
+        CHECK(s.make_event(sample_draft(anon.pub_hex), anon).has_value());
+    }
+    {   // A reopened store starts locked; the password still opens it.
+        Store s(path);
+        CHECK(s.keys_protected() && s.keys_locked());
+        CHECK(s.account("alice").has_value() && s.account("alice")->priv_hex.empty());
+        CHECK(s.unlock_keys("correct horse battery"));
+        CHECK(s.account("alice")->priv_hex == k.priv_hex);
+        // Rotating while unlocked keeps the new key sealed and drops the old.
+        const KeyPair r = KeyPair::generate();
+        CHECK(s.rotate_account("alice", r, 9));
+        CHECK(!store_files_contain(path, r.priv_hex));
+        CHECK(s.account("alice")->priv_hex == r.priv_hex);
+        // Password change: old stops working, new works, keys survive.
+        CHECK(!s.change_key_password("not it", "a brand new passphrase"));
+        CHECK(s.change_key_password("correct horse battery", "a brand new passphrase"));
+        s.lock_keys();
+        CHECK(!s.unlock_keys("correct horse battery"));
+        CHECK(s.unlock_keys("a brand new passphrase"));
+        CHECK(s.account("alice")->priv_hex == r.priv_hex);
+        // Removing protection needs the password and restores plain keys.
+        CHECK(!s.unprotect_keys("nope nope nope"));
+        CHECK(s.unprotect_keys("a brand new passphrase"));
+        CHECK(!s.keys_protected());
+        CHECK(s.account("alice")->priv_hex == r.priv_hex);
+    }
+}
+
+static void test_public_multiaddr_filter()
+{
+    CHECK(public_multiaddr("/ip4/8.8.8.8/tcp/8090"));
+    CHECK(public_multiaddr("/ip4/34.12.200.7/udp/8090/quic-v1"));
+    CHECK(public_multiaddr("/ip6/2606:4700:4700::1111/tcp/8090"));
+    for (const char* bad : {
+             "/ip4/127.0.0.1/tcp/8090", "/ip4/10.0.0.5/tcp/1", "/ip4/192.168.1.2/tcp/1",
+             "/ip4/172.16.0.1/tcp/1", "/ip4/172.31.255.255/tcp/1", "/ip4/169.254.1.1/tcp/1",
+             "/ip4/100.64.0.1/tcp/1", "/ip4/0.0.0.0/tcp/1", "/ip4/224.0.0.1/tcp/1",
+             "/ip4/255.255.255.255/tcp/1", "/ip4/192.0.2.1/tcp/1", "/ip4/198.51.100.9/tcp/1",
+             "/ip4/203.0.113.4/tcp/1", "/ip4/1.2.3/tcp/1", "/ip4/1.2.3.4.5/tcp/1",
+             "/ip4/01.2.3.4/tcp/1", "/ip4/256.1.1.1/tcp/1",
+             "/dns4/example.com/tcp/8090", "/dns/localhost/tcp/1",
+             "/ip6/::1/tcp/1", "/ip6/fe80::1/tcp/1", "/ip6/fc00::1/tcp/1",
+             "/ip6/::ffff:8.8.8.8/tcp/1", "/ip6/64:ff9b::808:808/tcp/1",
+             "/ip6/2001:db8::1/tcp/1", "/ip6/2002:808:808::1/tcp/1", "/ip6/2001:0:4136::1/tcp/1",
+             "", "/ip4/", "8.8.8.8", "/tcp/80", "/ip4/8.8.8.8 /tcp/1",
+             // a second host behind a public first one must not slip through
+             "/ip4/8.8.8.8/tcp/4001/p2p-circuit/ip4/10.0.0.1/tcp/22",
+             "/ip4/8.8.8.8/tcp/4001/dns4/localhost/tcp/22",
+             "/ip4/8.8.8.8/tcp/4001/ip4/127.0.0.1/tcp/1",
+             "/ip4/8.8.8.8/unix/tmp/sock", "/ip4/8.8.8.8/tcp/0", "/ip4/8.8.8.8/tcp/70000",
+             "/ip4/8.8.8.8/tcp", "/ip4/8.8.8.8//tcp/1"}) {
+        if (public_multiaddr(bad)) {
+            fprintf(stderr, "public_multiaddr accepted %s\n", bad);
+            CHECK(false);
+        } else {
+            CHECK(true);
+        }
+    }
+}
+
+static void test_admission_only_for_new_verified_events()
+{
+    const KeyPair kp = KeyPair::generate();
+    Store author(tmpdir() + "/author.db");
+    Store r(tmpdir() + "/receiver.db");
+    auto e1 = author.make_event(sample_draft(kp.pub_hex), kp);
+    auto e2 = author.make_event(sample_draft(kp.pub_hex), kp);
+    CHECK(e1.has_value() && e2.has_value());
+    const int64_t now = static_cast<int64_t>(time(nullptr)) * 1000;
+    int asked = 0;
+    auto deny = [&asked]() { ++asked; return false; };
+    auto allow = [&asked]() { ++asked; return true; };
+
+    // Invalid events never reach the admission check (no budget spent on junk).
+    Event forged = *e1;
+    forged.signature[0] = forged.signature[0] == 'a' ? 'b' : 'a';
+    CHECK(r.merge_verified(forged, now, deny) == MergeResult::Invalid);
+    CHECK_EQ(asked, 0);
+
+    // A new verified event asks once; a refusal stores nothing.
+    CHECK(r.merge_verified(*e1, now, deny) == MergeResult::Throttled);
+    CHECK_EQ(asked, 1);
+    CHECK_EQ(r.count_posts(), 0);
+
+    // Admitted: stored. Seen again: duplicate without asking.
+    CHECK(r.merge_verified(*e1, now, allow) == MergeResult::Accepted);
+    CHECK_EQ(asked, 2);
+    CHECK(r.merge_verified(*e1, now, deny) == MergeResult::Duplicate);
+    CHECK_EQ(asked, 2);
+    CHECK_EQ(r.count_posts(), 1);
+}
+
+static void test_rate_budget_and_event_author()
+{
+    RateBudget b(60.0, 3.0);  // one per second sustained, burst of 3
+    int64_t t = 1000000;
+    CHECK(b.allow(t)); CHECK(b.allow(t)); CHECK(b.allow(t));
+    CHECK(!b.allow(t));                 // burst spent
+    CHECK(!b.allow(t + 500));           // half a token
+    CHECK(b.allow(t + 1000));           // one token back
+    CHECK(!b.allow(t + 1000));
+    // An hour later it has refilled to the burst size and no further.
+    CHECK(b.allow(t + 3600000)); CHECK(b.allow(t + 3600000)); CHECK(b.allow(t + 3600000));
+    CHECK(!b.allow(t + 3600000));
+    const KeyPair k = KeyPair::generate();
+    EventDraft d = sample_draft(k.pub_hex);
+    const auto e = Store(tmpdir() + "/a.db").make_event(d, k);
+    CHECK(e.has_value());
+    CHECK_EQ(event_author(e->canonical), k.pub_hex);
+    CHECK_EQ(event_author("not canonical"), std::string());
+}
+
 int main()
 {
     if (sodium_init() < 0) {
@@ -693,6 +877,11 @@ int main()
     test_thread_order_follows_signed_time();
     test_alias_rotation_and_read_markers();
     test_fields_unescaped_and_canonical_strict();
+    test_rotation_leaves_no_old_key_in_store_files();
+    test_keys_at_rest_password_protection();
+    test_public_multiaddr_filter();
+    test_admission_only_for_new_verified_events();
+    test_rate_budget_and_event_author();
 
     printf("core tests: %d checks, %d failures\n", g_checks, g_failures);
     return g_failures == 0 ? 0 : 1;

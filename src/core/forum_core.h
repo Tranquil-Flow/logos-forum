@@ -17,6 +17,7 @@
 
 #include <cstdint>
 #include <optional>
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -47,6 +48,28 @@ bool verify(const std::string& pub_hex, const std::string& msg, const std::strin
 
 bool valid_alias(const std::string& alias);
 
+// A Storage multiaddress is acceptable to dial or to publish only when it
+// names a public IP address (/ip4/<a.b.c.d>/... or /ip6/<...>/...). DNS names
+// and loopback, private, link-local, CGNAT, multicast, reserved and
+// IPv4-mapped/embedded IPv6 forms are refused, so a pasted announcement can
+// not point this node at an address inside the reader's own network.
+bool public_multiaddr(const std::string& multiaddr);
+
+// Token bucket with an injected clock: `per_minute` sustained, `burst` at
+// once. Used to bound how many live events one node ingests.
+class RateBudget {
+public:
+    RateBudget(double per_minute, double burst)
+        : m_rate(per_minute / 60000.0), m_burst(burst), m_tokens(burst) {}
+    bool allow(int64_t now_ms);
+private:
+    double m_rate, m_burst, m_tokens;
+    int64_t m_last = 0;
+};
+
+// The signed author key of a canonical event ("" when absent).
+std::string event_author(const std::string& canonical);
+
 struct EventDraft {
     std::string forum_id;
     std::string type;          // "post"
@@ -64,7 +87,7 @@ struct Event {
     std::string signature; // hex
 };
 
-enum class MergeResult { Accepted, Duplicate, Invalid, StoreError };
+enum class MergeResult { Accepted, Duplicate, Invalid, StoreError, Throttled };
 
 struct PostRecord {
     std::string event_id, forum_id, type, topic_id, parent_id;
@@ -109,6 +132,24 @@ public:
     // True when the alias's current key is older than its days-per-key.
     bool key_due_by_age(const std::string& alias, int64_t now_ms) const;
 
+    // Keys at rest. Off by default (keys stay hex in the local store). Once
+    // protected, every account's private key is sealed under a key derived
+    // from a password (Argon2id + XSalsa20-Poly1305). A locked store lists
+    // its accounts but cannot sign for them; anonymous posts (one-time keys,
+    // never stored) are unaffected. There is no reset: a lost password means
+    // the sealed keys are gone (earlier posts stay verifiable).
+    bool keys_protected() const;
+    bool keys_locked() const;  // protected and not unlocked in this session
+    bool protect_keys(const std::string& password);       // >= 8 characters
+    bool unlock_keys(const std::string& password);
+    void lock_keys();
+    bool unprotect_keys(const std::string& password);     // back to plain
+    bool change_key_password(const std::string& old_password,
+                             const std::string& new_password);
+    // Checkpoint and truncate the write-ahead log so superseded key bytes do
+    // not linger in the store files (secure_delete zeroes freed pages).
+    void scrub();
+
     // Read markers (local only): posts of a topic the user has seen.
     bool mark_seen(const std::string& topic_id, uint32_t count);
     uint32_t seen(const std::string& topic_id) const;
@@ -149,6 +190,11 @@ public:
     // now_ms is the receiver's clock (the system clock when omitted).
     MergeResult merge_verified(const Event& e);
     MergeResult merge_verified(const Event& e, int64_t now_ms);
+    // As above, with an admission check run only for events that verified and
+    // are not stored yet (so junk and duplicates never spend the caller's
+    // budget); false makes the result Throttled and nothing is stored.
+    MergeResult merge_verified(const Event& e, int64_t now_ms,
+                               const std::function<bool()>& admit);
     bool mark_state(const std::string& event_id, const std::string& state,
                     const std::string& err = "");
     // Reconstruct the ORIGINAL signed event for a stored row — retry resends
@@ -161,6 +207,7 @@ public:
 private:
     void* m_db = nullptr; // sqlite3* (hidden to keep the header dep-light)
     bool m_ok = false;
+    mutable std::vector<unsigned char> m_vault_key; // empty = locked / unprotected
 };
 
 } // namespace forum

@@ -1,0 +1,13 @@
+Logos Core started (modules dir: "/nix/store/gxna1vv93drk0r01vph163c8q3dw4ng4-logos-forum_module-plugin-dir-modules" )
+Set app icon from metadata: "/nix/store/dj1dbv54hiyk0yh2haw00wlyjl28ngnq-logos-forum_module-plugin-dir/src/icons/icon.png"
+Loaded UI plugin: "/nix/store/dj1dbv54hiyk0yh2haw00wlyjl28ngnq-logos-forum_module-plugin-dir"
+[2026-10-10 15:51:15.643] [out] [delivery_module] DBG 2026-10-10 15:51:15.642+02:00 Whether to mount storeSync is not specified, defaulting to not mounting topics="waku conf builder" tid=19476994
+[2026-10-10 15:51:15.643] [out] [delivery_module] INF 2026-10-10 15:51:15.643+02:00 Configuration: Enabled protocols           topics="waku conf" tid=19476994 relay=true rlnRelay=false store=false filter=true lightPush=true peerExchange=true rendezvous=true
+[2026-10-10 15:51:15.645] [out] [delivery_module] INF 2026-10-10 15:51:15.645+02:00 mounting store client                      topics="waku node store api" tid=19476994
+[2026-10-10 15:51:15.645] [out] [delivery_module] INF 2026-10-10 15:51:15.645+02:00 Messaging API settings                     topics="logosdelivery" tid=19476994 reliability=true anonymityLevel=Required rateLimitEnabled=false rateLimitEpochPeriodSec=600 rateLimitMessagesPerEpoch=1 maxParkedAgeSec=1
+[2026-10-10 15:51:26.908] [out] [delivery_module] DBG 2026-10-10 15:51:26.908+02:00 calculateConnectionState                   tid=19476994 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-10 15:51:27.010] [out] [delivery_module] DBG 2026-10-10 15:51:27.010+02:00 calculateConnectionState                   tid=19476994 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-10 15:51:27.657] [out] [delivery_module] DBG 2026-10-10 15:51:27.657+02:00 calculateConnectionState                   tid=19476994 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6
+[2026-10-10 15:51:29.238] [out] [delivery_module] INF 2026-10-10 15:51:29.237+02:00 Message received                           tid=19476994 msg_hash=0x54f575b7f4ba09686a05cd3a4a8051a8b76faab246236a840901791a4cf6cb70 contentTopic=/lp0026forum/1/general/text pubsubTopic=/waku/2/rs/3/7 source=history
+[2026-10-10 15:51:29.681] [info] [logos] [delivery_module] DeliveryModuleImpl::storeQuery called with peerAddr: /dns4/delivery-01.do-ams3.logos.dev.status.im/tcp/30303/p2p/16Uiu2HAmTUbnxLGT9JvV6mu9oPyDjqHK4Phs1VDJNUgESgNSkuby
+[2026-10-10 15:51:30.881] [out] [delivery_module] DBG 2026-10-10 15:51:30.881+02:00 calculateConnectionState                   tid=19476994 relayCount=6 storeClientCount=6 lightpushCount=6 filterCount=6

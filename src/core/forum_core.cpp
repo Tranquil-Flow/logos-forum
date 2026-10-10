@@ -1,6 +1,9 @@
 #include "forum_core.h"
 
 #include <algorithm>
+#include <cctype>
+#include <functional>
+#include <vector>
 #include <chrono>
 #include <map>
 
@@ -105,6 +108,134 @@ bool parse_canonical(const std::string& canon, std::map<std::string, std::string
     return pos == canon.size();
 }
 
+
+constexpr const char* kSealPrefix = "enc1:";
+constexpr const char* kVaultCheck = "forum-vault-ok";
+
+bool derive_vault_key(const std::string& password, const unsigned char* salt,
+                      std::vector<unsigned char>& key)
+{
+    key.assign(crypto_secretbox_KEYBYTES, 0);
+    return crypto_pwhash(key.data(), key.size(), password.data(), password.size(), salt,
+                         crypto_pwhash_OPSLIMIT_INTERACTIVE, crypto_pwhash_MEMLIMIT_INTERACTIVE,
+                         crypto_pwhash_ALG_ARGON2ID13) == 0;
+}
+
+std::string seal_with(const std::vector<unsigned char>& key, const std::string& plain)
+{
+    unsigned char nonce[crypto_secretbox_NONCEBYTES];
+    randombytes_buf(nonce, sizeof(nonce));
+    std::vector<unsigned char> all(nonce, nonce + sizeof(nonce));
+    all.resize(sizeof(nonce) + plain.size() + crypto_secretbox_MACBYTES);
+    crypto_secretbox_easy(all.data() + sizeof(nonce),
+                          reinterpret_cast<const unsigned char*>(plain.data()), plain.size(),
+                          nonce, key.data());
+    return std::string(kSealPrefix) + to_hex(all.data(), all.size());
+}
+
+bool is_sealed(const std::string& s) { return s.rfind(kSealPrefix, 0) == 0; }
+
+bool open_with(const std::vector<unsigned char>& key, const std::string& sealed, std::string& out)
+{
+    if (!is_sealed(sealed) || key.size() != crypto_secretbox_KEYBYTES) return false;
+    std::vector<unsigned char> all;
+    if (!from_hex(sealed.substr(std::strlen(kSealPrefix)), all)) return false;
+    if (all.size() < crypto_secretbox_NONCEBYTES + crypto_secretbox_MACBYTES) return false;
+    const size_t clen = all.size() - crypto_secretbox_NONCEBYTES;
+    std::vector<unsigned char> plain(clen - crypto_secretbox_MACBYTES);
+    if (crypto_secretbox_open_easy(plain.data(), all.data() + crypto_secretbox_NONCEBYTES, clen,
+                                   all.data(), key.data()) != 0) {
+        return false;
+    }
+    out.assign(plain.begin(), plain.end());
+    sodium_memzero(plain.data(), plain.size());
+    return true;
+}
+
+bool parse_ipv4(const std::string& s, unsigned char out[4])
+{
+    int part = 0, digits = 0, value = 0;
+    for (size_t i = 0; i <= s.size(); ++i) {
+        const char c = i < s.size() ? s[i] : '.';
+        if (c >= '0' && c <= '9') {
+            if (digits == 1 && value == 0) return false;  // leading zero
+            value = value * 10 + (c - '0');
+            if (++digits > 3 || value > 255) return false;
+        } else if (c == '.') {
+            if (digits == 0 || part > 3) return false;
+            out[part++] = static_cast<unsigned char>(value);
+            digits = 0; value = 0;
+            if (i == s.size()) break;
+        } else {
+            return false;
+        }
+    }
+    return part == 4;
+}
+
+bool public_ipv4(const unsigned char a[4])
+{
+    const unsigned x = a[0], y = a[1], z = a[2];
+    if (x == 0 || x == 10 || x == 127 || x >= 224) return false;
+    if (x == 100 && y >= 64 && y <= 127) return false;       // CGNAT
+    if (x == 169 && y == 254) return false;                  // link-local
+    if (x == 172 && y >= 16 && y <= 31) return false;
+    if (x == 192 && y == 168) return false;
+    if (x == 192 && y == 0 && (z == 0 || z == 2)) return false;
+    if (x == 198 && (y == 18 || y == 19)) return false;      // benchmarking
+    if (x == 198 && y == 51 && z == 100) return false;       // documentation
+    if (x == 203 && y == 0 && z == 113) return false;
+    return true;
+}
+
+// Only global-unicast 2000::/3 qualifies; documentation, Teredo and 6to4
+// ranges and any embedded-IPv4 notation are refused.
+bool public_ipv6(const std::string& s)
+{
+    if (s.empty() || s.find('.') != std::string::npos || s.find('%') != std::string::npos) {
+        return false;
+    }
+    std::vector<unsigned> groups;
+    int gap = -1;
+    size_t i = 0;
+    if (s.rfind("::", 0) == 0) { gap = 0; i = 2; }
+    else if (s[0] == ':') return false;
+    while (i < s.size()) {
+        size_t j = i;
+        unsigned v = 0;
+        while (j < s.size() && s[j] != ':') {
+            const char c = s[j];
+            int d;
+            if (c >= '0' && c <= '9') d = c - '0';
+            else if (c >= 'a' && c <= 'f') d = 10 + c - 'a';
+            else if (c >= 'A' && c <= 'F') d = 10 + c - 'A';
+            else return false;
+            v = v * 16 + d;
+            if (++j - i > 4) return false;
+        }
+        if (j == i) return false;
+        groups.push_back(v);
+        if (j >= s.size()) break;
+        if (j + 1 < s.size() && s[j + 1] == ':') {
+            if (gap >= 0) return false;
+            gap = static_cast<int>(groups.size());
+            j += 2;
+            if (j >= s.size()) break;
+        } else {
+            ++j;
+            if (j >= s.size()) return false;
+        }
+        i = j;
+    }
+    if (groups.size() > 8 || (gap < 0 && groups.size() != 8) || groups.empty()) return false;
+    const unsigned g0 = groups[0];
+    const unsigned g1 = groups.size() > 1 ? groups[1] : 0;
+    if (g0 < 0x2000 || g0 > 0x3fff) return false;
+    if (g0 == 0x2001 && (g1 == 0x0000 || g1 == 0x0db8)) return false;
+    if (g0 == 0x2002) return false;
+    return true;
+}
+
 sqlite3* db_of(void* m) { return static_cast<sqlite3*>(m); }
 
 bool exec_sql(sqlite3* db, const char* sql)
@@ -203,6 +334,11 @@ Store::Store(const std::string& path)
     m_db = db;
     m_ok = exec_sql(db,
         "PRAGMA journal_mode=WAL;"
+        "PRAGMA secure_delete=ON;"
+        "CREATE TABLE IF NOT EXISTS vault("
+        " id INTEGER PRIMARY KEY CHECK(id=1),"
+        " salt TEXT NOT NULL,"
+        " check_ct TEXT NOT NULL);"
         "CREATE TABLE IF NOT EXISTS accounts("
         " alias TEXT PRIMARY KEY,"
         " pub_hex TEXT NOT NULL,"
@@ -236,6 +372,20 @@ Store::Store(const std::string& path)
             " topic_id TEXT PRIMARY KEY,"
             " seen INTEGER NOT NULL);");
     }
+    // One-time rewrite so a store created before secure_delete was on holds no
+    // superseded key bytes in free pages (user_version 0 -> 1).
+    if (m_ok) {
+        sqlite3_stmt* uv = nullptr;
+        int version = 1;
+        if (sqlite3_prepare_v2(db, "PRAGMA user_version;", -1, &uv, nullptr) == SQLITE_OK) {
+            if (sqlite3_step(uv) == SQLITE_ROW) version = sqlite3_column_int(uv, 0);
+            sqlite3_finalize(uv);
+        }
+        if (version < 1) {
+            exec_sql(db, "VACUUM;");
+            exec_sql(db, "PRAGMA user_version=1;");
+        }
+    }
     // Repair: before v0.1.0 final, enqueue() stored local rows with ts_ms 0.
     // The signed time is in the canonical bytes; restore it (idempotent).
     exec_sql(db,
@@ -244,9 +394,88 @@ Store::Store(const std::string& path)
         " WHERE ts_ms = 0 AND instr(canonical,'|ts=') > 0;");
 }
 
+
+bool public_multiaddr(const std::string& multiaddr)
+{
+    // /ip4/<addr>/... or /ip6/<addr>/...
+    if (multiaddr.size() > 256) return false;
+    std::string rest;
+    bool v6;
+    if (multiaddr.rfind("/ip4/", 0) == 0) { v6 = false; rest = multiaddr.substr(5); }
+    else if (multiaddr.rfind("/ip6/", 0) == 0) { v6 = true; rest = multiaddr.substr(5); }
+    else return false;
+    const size_t slash = rest.find('/');
+    const std::string host = slash == std::string::npos ? rest : rest.substr(0, slash);
+    for (char c : multiaddr) {
+        if (static_cast<unsigned char>(c) < 0x21 || static_cast<unsigned char>(c) > 0x7e) return false;
+    }
+    // Everything after the host must be plain transport components: a second
+    // host-bearing protocol (dns, ip4, p2p-circuit, unix, ...) would let the
+    // dialer reach somewhere this check never looked at.
+    if (slash != std::string::npos) {
+        std::vector<std::string> parts;
+        size_t pos = slash + 1;
+        while (pos <= rest.size()) {
+            const size_t nx = rest.find('/', pos);
+            parts.push_back(rest.substr(pos, nx == std::string::npos ? std::string::npos : nx - pos));
+            if (nx == std::string::npos) break;
+            pos = nx + 1;
+        }
+        for (size_t i = 0; i < parts.size(); ++i) {
+            const std::string& p = parts[i];
+            if (p.empty()) { if (i + 1 == parts.size()) break; return false; }  // one trailing '/'
+            if (p == "tcp" || p == "udp") {
+                if (i + 1 >= parts.size()) return false;
+                const std::string& port = parts[++i];
+                if (port.empty() || port.size() > 5 || port[0] == '0') return false;
+                for (char c : port) if (c < '0' || c > '9') return false;
+                if (std::stoi(port) > 65535) return false;
+            } else if (p == "quic" || p == "quic-v1" || p == "ws" || p == "wss" || p == "tls") {
+                continue;
+            } else if (p == "p2p" || p == "ipfs") {
+                if (i + 1 >= parts.size()) return false;
+                const std::string& id = parts[++i];
+                if (id.size() < 20 || id.size() > 128) return false;
+                for (char c : id) {
+                    if (!std::isalnum(static_cast<unsigned char>(c))) return false;
+                }
+            } else {
+                return false;
+            }
+        }
+    }
+    if (v6) return public_ipv6(host);
+    unsigned char a[4];
+    return parse_ipv4(host, a) && public_ipv4(a);
+}
+
+bool RateBudget::allow(int64_t now_ms)
+{
+    if (m_last != 0 && now_ms > m_last) {
+        m_tokens = std::min(m_burst, m_tokens + double(now_ms - m_last) * m_rate);
+    }
+    m_last = now_ms;
+    if (m_tokens < 1.0) return false;
+    m_tokens -= 1.0;
+    return true;
+}
+
+std::string event_author(const std::string& canonical)
+{
+    std::map<std::string, std::string> f;
+    if (!parse_canonical(canonical, f)) return "";
+    const auto it = f.find("author");
+    return it == f.end() ? std::string() : it->second;
+}
+
 bool Store::create_account(const std::string& alias, const KeyPair& kp)
 {
     if (!m_ok || !valid_alias(alias) || alias.empty()) return false;
+    std::string stored_priv = kp.priv_hex;
+    if (keys_protected()) {
+        if (m_vault_key.empty()) return false;  // locked: no new keys until unlocked
+        stored_priv = seal_with(m_vault_key, kp.priv_hex);
+    }
     sqlite3* db = db_of(m_db);
     sqlite3_stmt* st = nullptr;
     if (sqlite3_prepare_v2(db,
@@ -256,7 +485,7 @@ bool Store::create_account(const std::string& alias, const KeyPair& kp)
     }
     sqlite3_bind_text(st, 1, alias.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(st, 2, kp.pub_hex.c_str(), -1, SQLITE_TRANSIENT);
-    sqlite3_bind_text(st, 3, kp.priv_hex.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(st, 3, stored_priv.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_int64(st, 4, 0);
     const int rc = sqlite3_step(st);
     sqlite3_finalize(st);
@@ -278,7 +507,12 @@ std::optional<KeyPair> Store::account(const std::string& alias) const
     if (sqlite3_step(st) == SQLITE_ROW) {
         KeyPair kp;
         kp.pub_hex = reinterpret_cast<const char*>(sqlite3_column_text(st, 0));
-        kp.priv_hex = reinterpret_cast<const char*>(sqlite3_column_text(st, 1));
+        const std::string stored = reinterpret_cast<const char*>(sqlite3_column_text(st, 1));
+        if (!is_sealed(stored)) {
+            kp.priv_hex = stored;
+        } else if (!open_with(m_vault_key, stored, kp.priv_hex)) {
+            kp.priv_hex.clear();  // locked: the account exists but cannot sign
+        }
         out = kp;
     }
     sqlite3_finalize(st);
@@ -371,6 +605,12 @@ MergeResult Store::merge_verified(const Event& e)
 
 MergeResult Store::merge_verified(const Event& e, int64_t now_ms)
 {
+    return merge_verified(e, now_ms, std::function<bool()>());
+}
+
+MergeResult Store::merge_verified(const Event& e, int64_t now_ms,
+                                  const std::function<bool()>& admit)
+{
     if (!m_ok) return MergeResult::Invalid;
     if (e.id.size() != 64 || e.signature.size() != 128) return MergeResult::Invalid;
     if (e.canonical.rfind(kDomainPrefix, 0) != 0) return MergeResult::Invalid;
@@ -402,8 +642,21 @@ MergeResult Store::merge_verified(const Event& e, int64_t now_ms)
     // Signature check (domain-separated canonical bytes).
     if (!verify(author, e.canonical, e.signature)) return MergeResult::Invalid;
 
-    // Insert-or-ignore: duplicates are no-ops.
     sqlite3* db = db_of(m_db);
+    if (admit) {
+        bool have = false;
+        sqlite3_stmt* q = nullptr;
+        if (sqlite3_prepare_v2(db, "SELECT 1 FROM posts WHERE event_id=?", -1, &q, nullptr)
+            == SQLITE_OK) {
+            sqlite3_bind_text(q, 1, e.id.c_str(), -1, SQLITE_TRANSIENT);
+            have = sqlite3_step(q) == SQLITE_ROW;
+            sqlite3_finalize(q);
+        }
+        if (have) return MergeResult::Duplicate;
+        if (!admit()) return MergeResult::Throttled;
+    }
+
+    // Insert-or-ignore: duplicates are no-ops.
     exec_sql(db, "BEGIN IMMEDIATE;");
     bool accepted = false;
     sqlite3_stmt* st = nullptr;
@@ -536,10 +789,188 @@ bool exec_bound(sqlite3* db, const char* sql, const std::vector<std::string>& te
 bool Store::rotate_account(const std::string& alias, const KeyPair& fresh, int64_t now_ms)
 {
     if (!m_ok || fresh.pub_hex.size() != 64 || fresh.priv_hex.size() != 64) return false;
-    return exec_bound(db_of(m_db),
+    std::string stored_priv = fresh.priv_hex;
+    if (keys_protected()) {
+        if (m_vault_key.empty()) return false;
+        stored_priv = seal_with(m_vault_key, fresh.priv_hex);
+    }
+    const bool ok = exec_bound(db_of(m_db),
         "UPDATE accounts SET key_since_ms=?, pub_hex=?, priv_hex=?, posts_on_key=0,"
         " rotations=rotations+1 WHERE alias=?",
-        {fresh.pub_hex, fresh.priv_hex, alias}, {std::max<int64_t>(now_ms, 0)});
+        {fresh.pub_hex, stored_priv, alias}, {std::max<int64_t>(now_ms, 0)});
+    // The replaced key must not outlive the rotation in the write-ahead log.
+    if (ok) scrub();
+    return ok;
+}
+
+namespace {
+// Seals (or opens) every stored private key with the given transforms. All
+// rows are read first, then rewritten in one transaction.
+bool rewrite_all_keys(sqlite3* db,
+                      const std::function<bool(const std::string&, std::string&)>& fn)
+{
+    std::vector<std::pair<std::string, std::string>> rows;
+    sqlite3_stmt* st = nullptr;
+    if (sqlite3_prepare_v2(db, "SELECT alias,priv_hex FROM accounts", -1, &st, nullptr)
+        != SQLITE_OK) {
+        return false;
+    }
+    while (sqlite3_step(st) == SQLITE_ROW) {
+        rows.emplace_back(reinterpret_cast<const char*>(sqlite3_column_text(st, 0)),
+                          reinterpret_cast<const char*>(sqlite3_column_text(st, 1)));
+    }
+    sqlite3_finalize(st);
+    for (auto& r : rows) {
+        std::string next;
+        if (!fn(r.second, next)) return false;
+        r.second = std::move(next);
+    }
+    for (const auto& r : rows) {
+        if (!exec_bound(db, "UPDATE accounts SET priv_hex=? WHERE alias=?",
+                        {r.second, r.first}, {})) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool read_vault(sqlite3* db, std::vector<unsigned char>& salt, std::string& check)
+{
+    sqlite3_stmt* st = nullptr;
+    if (sqlite3_prepare_v2(db, "SELECT salt,check_ct FROM vault WHERE id=1", -1, &st, nullptr)
+        != SQLITE_OK) {
+        return false;
+    }
+    bool ok = false;
+    if (sqlite3_step(st) == SQLITE_ROW) {
+        ok = from_hex(reinterpret_cast<const char*>(sqlite3_column_text(st, 0)), salt)
+             && salt.size() == crypto_pwhash_SALTBYTES;
+        check = reinterpret_cast<const char*>(sqlite3_column_text(st, 1));
+    }
+    sqlite3_finalize(st);
+    return ok;
+}
+
+// Derives the key for `password` and verifies it against the vault check.
+bool verify_password(sqlite3* db, const std::string& password, std::vector<unsigned char>& key)
+{
+    std::vector<unsigned char> salt;
+    std::string check, plain;
+    if (!read_vault(db, salt, check)) return false;
+    if (!derive_vault_key(password, salt.data(), key)) return false;
+    if (!open_with(key, check, plain) || plain != kVaultCheck) {
+        sodium_memzero(key.data(), key.size());
+        key.clear();
+        return false;
+    }
+    return true;
+}
+} // namespace
+
+bool Store::keys_protected() const
+{
+    if (!m_ok) return false;
+    std::vector<unsigned char> salt;
+    std::string check;
+    return read_vault(db_of(m_db), salt, check);
+}
+
+bool Store::keys_locked() const { return keys_protected() && m_vault_key.empty(); }
+
+bool Store::protect_keys(const std::string& password)
+{
+    if (!m_ok || password.size() < 8 || keys_protected()) return false;
+    init_crypto();
+    unsigned char salt[crypto_pwhash_SALTBYTES];
+    randombytes_buf(salt, sizeof(salt));
+    std::vector<unsigned char> key;
+    if (!derive_vault_key(password, salt, key)) return false;
+    sqlite3* db = db_of(m_db);
+    exec_sql(db, "BEGIN IMMEDIATE;");
+    bool ok = rewrite_all_keys(db, [&](const std::string& in, std::string& out) {
+        out = is_sealed(in) ? in : seal_with(key, in);
+        return true;
+    });
+    ok = ok && exec_bound(db, "INSERT INTO vault(id,salt,check_ct) VALUES(1,?,?)",
+                          {to_hex(salt, sizeof(salt)), seal_with(key, kVaultCheck)}, {});
+    exec_sql(db, ok ? "COMMIT;" : "ROLLBACK;");
+    if (!ok) { sodium_memzero(key.data(), key.size()); return false; }
+    m_vault_key = key;
+    // Overwrite the plaintext keys the rewrite superseded.
+    exec_sql(db, "PRAGMA wal_checkpoint(TRUNCATE);");
+    exec_sql(db, "VACUUM;");
+    exec_sql(db, "PRAGMA wal_checkpoint(TRUNCATE);");
+    return true;
+}
+
+bool Store::unlock_keys(const std::string& password)
+{
+    if (!m_ok || !keys_protected()) return false;
+    init_crypto();
+    std::vector<unsigned char> key;
+    if (!verify_password(db_of(m_db), password, key)) return false;
+    m_vault_key = key;
+    return true;
+}
+
+void Store::lock_keys()
+{
+    if (!m_vault_key.empty()) sodium_memzero(m_vault_key.data(), m_vault_key.size());
+    m_vault_key.clear();
+}
+
+bool Store::unprotect_keys(const std::string& password)
+{
+    if (!m_ok || !keys_protected()) return false;
+    init_crypto();
+    std::vector<unsigned char> key;
+    sqlite3* db = db_of(m_db);
+    if (!verify_password(db, password, key)) return false;
+    exec_sql(db, "BEGIN IMMEDIATE;");
+    bool ok = rewrite_all_keys(db, [&](const std::string& in, std::string& out) {
+        if (!is_sealed(in)) { out = in; return true; }
+        return open_with(key, in, out);
+    });
+    ok = ok && exec_sql(db, "DELETE FROM vault WHERE id=1;");
+    exec_sql(db, ok ? "COMMIT;" : "ROLLBACK;");
+    sodium_memzero(key.data(), key.size());
+    if (!ok) return false;
+    lock_keys();
+    scrub();
+    return true;
+}
+
+bool Store::change_key_password(const std::string& old_password, const std::string& new_password)
+{
+    if (!m_ok || new_password.size() < 8 || !keys_protected()) return false;
+    init_crypto();
+    sqlite3* db = db_of(m_db);
+    std::vector<unsigned char> old_key, new_key;
+    if (!verify_password(db, old_password, old_key)) return false;
+    unsigned char salt[crypto_pwhash_SALTBYTES];
+    randombytes_buf(salt, sizeof(salt));
+    if (!derive_vault_key(new_password, salt, new_key)) return false;
+    exec_sql(db, "BEGIN IMMEDIATE;");
+    bool ok = rewrite_all_keys(db, [&](const std::string& in, std::string& out) {
+        std::string plain;
+        if (!open_with(old_key, in, plain)) return false;
+        out = seal_with(new_key, plain);
+        sodium_memzero(plain.data(), plain.size());
+        return true;
+    });
+    ok = ok && exec_bound(db, "UPDATE vault SET salt=?, check_ct=? WHERE id=1",
+                          {to_hex(salt, sizeof(salt)), seal_with(new_key, kVaultCheck)}, {});
+    exec_sql(db, ok ? "COMMIT;" : "ROLLBACK;");
+    sodium_memzero(old_key.data(), old_key.size());
+    if (!ok) { sodium_memzero(new_key.data(), new_key.size()); return false; }
+    m_vault_key = new_key;
+    scrub();
+    return true;
+}
+
+void Store::scrub()
+{
+    if (m_ok) exec_sql(db_of(m_db), "PRAGMA wal_checkpoint(TRUNCATE);");
 }
 
 bool Store::set_rotate_days(const std::string& alias, uint32_t days, int64_t now_ms)
