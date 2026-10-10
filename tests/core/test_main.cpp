@@ -16,6 +16,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <ctime>
 #include <string>
 
 static int g_failures = 0;
@@ -809,7 +810,7 @@ static void test_admission_only_for_new_verified_events()
     auto e1 = author.make_event(sample_draft(kp.pub_hex), kp);
     auto e2 = author.make_event(sample_draft(kp.pub_hex), kp);
     CHECK(e1.has_value() && e2.has_value());
-    const int64_t now = static_cast<int64_t>(time(nullptr)) * 1000;
+    const int64_t now = static_cast<int64_t>(std::time(nullptr)) * 1000;
     int asked = 0;
     auto deny = [&asked]() { ++asked; return false; };
     auto allow = [&asked]() { ++asked; return true; };
