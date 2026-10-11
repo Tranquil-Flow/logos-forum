@@ -1,0 +1,42 @@
+{
+ "conclusion": "success",
+ "createdAt": "2026-10-10T16:42:20Z",
+ "databaseId": 38068741751,
+ "event": "workflow_dispatch",
+ "headSha": "22f7de5c0cbbbf8295cf7df91f1244c72e6f52f5",
+ "jobs": [
+  {
+   "name": "discover",
+   "conclusion": "success"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / setup",
+   "conclusion": "success"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / build (windows-x86_64)",
+   "conclusion": "success"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / build (linux-amd64)",
+   "conclusion": "success"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / build (darwin-arm64)",
+   "conclusion": "success"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / build (linux-arm64)",
+   "conclusion": "success"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / already-published",
+   "conclusion": "skipped"
+  },
+  {
+   "name": "release (submodules/logos-forum) / release / release",
+   "conclusion": "success"
+  }
+ ],
+ "url": "https://github.com/Tranquil-Flow/logos-forum-catalog/actions/runs/38068741751"
+}

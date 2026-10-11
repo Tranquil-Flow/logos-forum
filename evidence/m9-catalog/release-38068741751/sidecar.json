@@ -1,0 +1,45 @@
+{
+  "publisherRef": "forum_module-v0.1.0",
+  "releasedAt": "2026-10-10T16:47:29Z",
+  "sha256": "df23229ea290d4ac1920586d72e1975f439f0103175cefc815f6d0c3739c0ddf",
+  "size": 23144649,
+  "rootHash": "90375c09038fbad2fa7dd80fb71397275308d431dbc40a1a6d4c4e77f50572ac",
+  "builtVariants": [
+    "darwin-arm64",
+    "linux-amd64",
+    "linux-arm64",
+    "windows-x86_64"
+  ],
+  "missingVariants": [],
+  "manifest": {
+    "author": "Tranquil-Flow",
+    "category": "communication",
+    "dependencies": [
+      "delivery_module",
+      "storage_module"
+    ],
+    "description": "A text-first forum: posts sent only through Mix, history after being offline, topic snapshots on Logos Storage",
+    "display_name": "Forum",
+    "hashes": {
+      "assets": "37789efafaf3036d76421ce79450704d3902daa700da35e9dfaf507eb944e396",
+      "root": "90375c09038fbad2fa7dd80fb71397275308d431dbc40a1a6d4c4e77f50572ac",
+      "variants": "2a7f54bbc718dbdfe17b8ac9f2d81b6e9edec27a22c25bf82b44e79e325f1145",
+      "variants/darwin-arm64": "193ffd179de8ccf3df0305f17b2771bf5030f97a31a7355927cf0f2f17bef662",
+      "variants/linux-amd64": "f75755cb6699f2ceb2cff3690660504b55f53e15324a8f78bf8090672fea6e56",
+      "variants/linux-arm64": "9f1a7810f0eda62a73527caab9296eaf5fd30782cb988b5945bd6e0ce4df328e",
+      "variants/windows-x86_64": "e9f453d42ce32e08f85f7252dfb0bb41c3e7ae574f395179e78b8a813549d1be"
+    },
+    "icon": "assets/icon.png",
+    "main": {
+      "darwin-arm64": "forum_module_plugin.dylib",
+      "linux-amd64": "forum_module_plugin.so",
+      "linux-arm64": "forum_module_plugin.so",
+      "windows-x86_64": "forum_module_plugin.dll"
+    },
+    "manifestVersion": "0.6.0",
+    "name": "forum_module",
+    "type": "ui_qml",
+    "version": "0.1.0",
+    "view": "qml/Main.qml"
+  }
+}

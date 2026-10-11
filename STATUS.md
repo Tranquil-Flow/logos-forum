@@ -6,9 +6,11 @@ One `STATUS.md` is the single progress ledger. Gate labels:
 
 ## CURRENT STATE — 2026-10-03 closeout (supersedes every OPEN BLOCKER below)
 
-**Gate: LOCAL_CANDIDATE_VERIFIED** (held). Matrix: **13 PASS, 2 PARTIAL,
-0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14/R15 PARTIAL on owner-gated
-publication/CI/video, R16 the external organic-use gate).
+**Gate: LOCAL_CANDIDATE_VERIFIED** (held). Matrix, 2026-10-11: **15 PASS,
+1 PARTIAL, 0 BLOCKED, 1 NOT RUN** (`docs/MATRIX.md`; R14 PASS with CI run
+38065514481 green on all five jobs; R15 PARTIAL only because the narrated video
+is not recorded — the catalog release run 38068741751 is receipted; R16 the
+external organic-use gate).
 
 **Update — hardening pass, 2026-10-10** (`docs/security.md`): after comparing
 with rival submissions the following were added and verified on the current

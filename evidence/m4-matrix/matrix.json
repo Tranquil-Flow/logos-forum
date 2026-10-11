@@ -1,8 +1,8 @@
 {
   "generated_by": "tools/m4_matrix.py",
   "summary": {
-    "PASS": 14,
-    "PARTIAL": 2,
+    "PASS": 15,
+    "PARTIAL": 1,
     "BLOCKED": 0,
     "NOT RUN": 1
   },
@@ -503,7 +503,7 @@
     },
     {
       "id": "R14",
-      "status": "PARTIAL",
+      "status": "PASS",
       "requirement": "Reusable design, documented build/usage, green CI",
       "receipts": [
         {
@@ -551,7 +551,7 @@
           "sha256": "c4d5404b70ee5791da0880f93afb3d01d6406014e30695314fbd849ea18f7710"
         }
       ],
-      "notes": "local CI green (hermetic integration 15/15 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (macos, linux, windows, windows-basecamp, all-platforms; run 37479924917, Tranquil-Flow/logos-forum)",
+      "notes": "local CI green (hermetic integration 15/15 incl. store-backed flows; negative control without the link fix fails 6/8); the same suite, core tests and the portable .lgx also pass on aarch64-linux; remote default-branch CI green (macos, windows, linux, windows-basecamp, all-platforms; run 38065514481, Tranquil-Flow/logos-forum)",
       "layer": "app+core"
     },
     {
@@ -585,9 +585,24 @@
           "artifact": "m5-package/merge-20261004/merge.log",
           "sha256": "28f1082a855c82a196dfd6def2f62b485801ccebb093e7961a66d3c1b8d00a59",
           "what": "darwin-arm64 + linux-arm64 packages merged and verified with the lgx tool"
+        },
+        {
+          "artifact": "m9-catalog/release-38068741751/run.json",
+          "sha256": "cabe45b72bc46481f2e9a0b724296e664fdb549fbd14c318fd9052467be521f6",
+          "what": "catalog 'Release all modules' run, hardened build"
+        },
+        {
+          "artifact": "m9-catalog/release-38068741751/sidecar.json",
+          "sha256": "d0e540092eddc47590e03a925c5615bf0ce236dc344275849a0509a6ed2b4e87",
+          "what": "published sidecar: .lgx sha256, four variants, manifest"
+        },
+        {
+          "artifact": "m9-catalog/catalog-install-20261007/NOTE.txt",
+          "sha256": "60d0cd809f10ccfa22444abe901c9f56185cfb9f9ba7d5f830f289587f0fc120",
+          "what": "install from the catalog in a fresh release Basecamp"
         }
       ],
-      "notes": "local clean-install PASS on fresh profile; catalog listing + video recording and public catalog URL not yet receipted",
+      "notes": "prebuilt in a public catalog (release run 38068741751, all four platform variants, pinned to forum 8d9c2af); install from the catalog proven in a fresh release Basecamp 0.3.1 profile on the previous build (2026-10-07); local clean-install PASS. Remaining: the narrated video is not recorded yet",
       "layer": "app+core"
     },
     {

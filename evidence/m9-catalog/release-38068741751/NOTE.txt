@@ -1,0 +1,9 @@
+Catalog release of the hardened build, 2026-10-10
+
+Catalog commit 22f7de5 pins logos-forum 8d9c2af (CI run 38065514481, all five
+jobs green). "Release all modules" run 38068741751 (force_build) built all four
+variants (darwin-arm64, linux-amd64, linux-arm64, windows-x86_64) and replaced
+the forum_module-v0.1.0 release assets. run.json is the run summary,
+sidecar.json the published sidecar (sha256 of the .lgx, variants, manifest).
+An install of this build in a fresh profile is still to be receipted; the
+2026-10-07 install (../catalog-install-20261007) was of the previous build.

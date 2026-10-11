@@ -346,7 +346,7 @@ def main():
     ci_run = max(ci_runs, key=lambda r: r.get("databaseId", 0)) if ci_runs else None
     if ci_run and ci_run.get("conclusion") != "success":
         ci_run = None
-    row("R14", "PARTIAL",
+    row("R14", "PASS" if (ci_run and integ_final_ok) else "PARTIAL",
         "Reusable design, documented build/usage, green CI",
         integ_hashes + linux_receipts + [
             {"artifact": "docs/CONTRACT.md", "sha256": sha256(REPO / "docs" / "CONTRACT.md")},
@@ -369,6 +369,18 @@ def main():
     readme = REPO / "README.md"
     furps = REPO / "docs" / "FURPS.md"
 
+    cat_dir = EVID / "m9-catalog" / "release-38068741751"
+    cat_run = cat_dir / "run.json"
+    cat_side = cat_dir / "sidecar.json"
+    cat_ok = False
+    if cat_run.exists() and cat_side.exists():
+        try:
+            cat_ok = (json.loads(cat_run.read_text()).get("conclusion") == "success"
+                      and not json.loads(cat_side.read_text()).get("missingVariants"))
+        except Exception:
+            cat_ok = False
+    cat_install = EVID / "m9-catalog" / "catalog-install-20261007" / "NOTE.txt"
+
     row("R15", "PARTIAL" if (m5ci and m5ci.get("status") == "PASS") else "NOT RUN",
         "Prebuilt catalog, narrated end-to-end demo",
         ([{"claims": {"status": m5ci.get("status"), "lgx_sha256": m5ci.get("lgx_sha256"),
@@ -384,9 +396,21 @@ def main():
                           "release Basecamp 0.3.1 app, fresh profile: module loads, store opens on its own"),
                          ("merge-20261004/merge.log",
                           "darwin-arm64 + linux-arm64 packages merged and verified with the lgx tool"))
-            if (EVID / "m5-package" / n).exists()],
-        "local clean-install PASS on fresh profile; catalog listing + video "
-        "recording and public catalog URL not yet receipted")
+            if (EVID / "m5-package" / n).exists()] + (
+            [{"artifact": "m9-catalog/release-38068741751/run.json", "sha256": sha256(cat_run),
+              "what": "catalog 'Release all modules' run, hardened build"},
+             {"artifact": "m9-catalog/release-38068741751/sidecar.json", "sha256": sha256(cat_side),
+              "what": "published sidecar: .lgx sha256, four variants, manifest"}] if cat_ok else []) + (
+            [{"artifact": "m9-catalog/catalog-install-20261007/NOTE.txt", "sha256": sha256(cat_install),
+              "what": "install from the catalog in a fresh release Basecamp"}]
+            if cat_install.exists() else []),
+        ("prebuilt in a public catalog (release run 38068741751, all four platform "
+         "variants, pinned to forum 8d9c2af); install from the catalog proven in a fresh "
+         "release Basecamp 0.3.1 profile on the previous build (2026-10-07); local "
+         "clean-install PASS. Remaining: the narrated video is not recorded yet"
+         if cat_ok else
+         "local clean-install PASS on fresh profile; catalog listing + video "
+         "recording and public catalog URL not yet receipted"))
 
     row("R16", "NOT RUN",
         "Authentic organic meaningful use",
